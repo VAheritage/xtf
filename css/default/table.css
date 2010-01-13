@@ -1,0 +1,10 @@
+div.content table { 
+    margin: 1em; 
+    border-collapse: separate; 
+    border: 1px #3f6daf solid;
+    font-size: 90%;
+}
+div.content td, th {
+    padding: .3em; 
+    border: 1px #3f6daf solid; 
+} 

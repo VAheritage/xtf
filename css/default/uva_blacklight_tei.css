@@ -1,0 +1,195 @@
+/*
+  uva_blacklight_tei.css
+  Styles specific to U.Va. Blacklight display of TEI resources
+*/
+
+/* basic mode of display */
+
+.tei_block {
+	display: block;
+}
+
+.tei_inline {
+	display: inline;
+}
+
+.tei_none {
+	display: none;
+}
+
+/*
+  ==============================================================================
+  STYLES FOR BLOCK-LEVEL ELEMENTS
+  ==============================================================================
+*/
+
+div.spacer {
+  margin-top: 20px;
+}
+
+div.tei_argument {
+	font-size: 90%;
+	margin-left: 1.5em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+div.tei_blockquote {
+	font-size: 90%;
+	margin-left: 1.5em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+div.tei_lg {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+div.tei_note {
+  font-size: 90%;
+  margin-bottom: 1em;
+}
+
+div.tei_note_left {
+  border: 1px solid black;
+  float: left;
+  font-size: 90%;
+  margin-left: -4em;
+  margin-right: 4px;
+  padding: 1px 4px 1px 4px;
+}
+
+div.tei_note_right {
+  border: 1px solid black;
+  float: right;
+  font-size: 90%;
+  margin-left: 4px;
+  padding: 1px 4px 1px 4px;
+}
+
+div.tei_note_number {
+  float: left;
+  margin-right: 5px;
+}
+
+div.tei_trailer {
+	margin-top: 1em;
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+p.tei_p {
+  margin-top: 1em !important;
+}
+
+/*
+  ==============================================================================
+  STYLES FOR PHRASE-LEVEL ELEMENTS
+  ==============================================================================
+*/
+
+.tei_ref {
+  font-size: 90%;
+  text-decoration: none !important;
+  vertical-align: super;
+}
+
+/* Note: The following 'rend' attribute values from uva-dl-tei are not
+   currently handled in this CSS stylesheet:
+     - for indentation: hang, no-indent
+     - for typographic changes: open
+*/
+
+/* indentation */
+
+.tei_indent {
+	margin-left: 20px;
+}
+.tei_indent2 {
+	margin-left: 40px;
+}
+.tei_indent3 {
+	margin-left: 60px;
+}
+.tei_indent4 {
+	margin-left: 80px;
+}
+.tei_indent5 {
+	margin-left: 100px;
+}
+
+/* alignment (apply center and right alignment only to table cells) */
+
+.tei_left {
+	text-align: left;
+}
+
+td.tei_center {
+	text-align: center;
+}
+
+td.tei_right {
+	text-align: right;
+}
+
+/* typographic changes */
+
+.tei_bold {
+	font-weight: bold;
+}
+
+/* there is no CSS style for gothic type; use bold + italic instead */
+.tei_gothic {
+	font-weight: bold;
+	font-style: italic;
+}
+
+.tei_italic {
+	font-style: italic;
+}	
+
+.tei_line-through {
+	text-decoration: line-through;
+}
+
+.tei_overline {
+	text-decoration: overline;
+}
+
+.tei_red-letter {
+	color: #C00;
+}
+
+.tei_roman {
+	font-style: normal;
+}
+
+.tei_script {
+	font-family: cursive;
+}	
+
+/* there is no CSS style for slash-through; use line-through to approximate */
+.tei_slash-through {
+	text-decoration: line-through;
+}
+
+.tei_small {
+	font-size: 80%;
+}
+
+.tei_small-caps {
+	font-variant: small-caps;
+}
+
+.tei_sub {
+	vertical-align: sub;
+}
+
+.tei_super {
+	vertical-align: super;
+}
+
+.tei_underline {
+	text-decoration: underline;
+}
