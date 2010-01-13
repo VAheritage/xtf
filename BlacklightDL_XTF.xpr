@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <meta>
+        <filters directoryPatterns="" filePatterns=""
+            positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="BlacklightDL_XTF.xpr">
+        <file
+            name="style/dynaXML/docFormatter/uvaBook/teiDocFormatter.xsl"
+        />
+    </projectTree>
+</project>
