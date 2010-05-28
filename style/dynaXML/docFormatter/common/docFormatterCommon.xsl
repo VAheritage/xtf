@@ -56,7 +56,18 @@
    
    <xsl:param name="servlet.path"/>
    <xsl:param name="root.path"/>
-   <xsl:param name="xtfURL" select="'http://xtf.lib.virginia.edu/xtf/'"/>
+   <!-- Greg Murray (gpm2a@virginia.edu): 2010-05-07: Changed default value of
+   $xtfURL param to remove the hardwired use of "xtf.lib":
+      select="'http://xtf.lib.virginia.edu/xtf/'"
+   to allow XTF troubleshooting/development in environments (local computer,
+   xtfdev.lib) other than the xtf.lib production environment. The out-of-the-box
+   value
+      select="$root.path"
+   seems to work. Alternatively
+      select="'/xtf/'"
+   also works.
+   -->
+   <xsl:param name="xtfURL" select="$root.path"/>
    <xsl:param name="dynaxmlPath" select="if (matches($servlet.path, 'org.cdlib.xtf.crossQuery.CrossQuery')) then 'org.cdlib.xtf.dynaXML.DynaXML' else 'view'"/>
    
    <xsl:param name="docId"/>

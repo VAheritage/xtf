@@ -103,9 +103,17 @@
             <xsl:when test="matches($cmodel, 'uvaPageBook')">
                <xsl:attribute name="path">style/dynaXML/docFormatter/uvaPageBook/teiDocFormatter.xsl</xsl:attribute>
             </xsl:when>
+            <!-- Greg Murray (gpm2a@virginia.edu): 2010-05-17: The following
+            when block for BOV (Board of Visitors minutes) stylesheets will
+            never get executed, because the path for BOV files includes
+            "uvaGenText", which is caught above. -->
             <xsl:when test="matches($cmodel, 'bov')">
                <xsl:attribute name="path">style/dynaXML/docFormatter/bov/teiDocFormatter.xsl</xsl:attribute>
             </xsl:when>
+            <!-- Greg Murray (gpm2a@virginia.edu): 2010-05-17: The following
+            when block can get executed, but it's not clear to me why bov is the
+            fallback/default set of stylesheets (and why one wouldn't just use
+            an xsl:otherwise here). -->
             <xsl:when test="matches($cmodel, 'not a Fedora object')">
                <xsl:attribute name="path">style/dynaXML/docFormatter/bov/teiDocFormatter.xsl</xsl:attribute>
             </xsl:when>

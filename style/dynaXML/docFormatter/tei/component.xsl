@@ -344,10 +344,6 @@
 		</h4>
 	</xsl:template>
 
-	<xsl:template match="name">
-		<xsl:apply-templates/>
-	</xsl:template>
-
 	<!-- ====================================================================== -->
 	<!-- Notes                                                                  -->
 	<!-- ====================================================================== -->
@@ -695,13 +691,20 @@
 		</xsl:choose>
 	</xsl:template>
 	
-	<!--tz added a name template for formatting names in bov on 04/10/2009 (and Happy Birthday, Mom!)-->
-	<!--to underline names, change <b></b> to <u></u> (i didn't do this, since underlines often signify hyperlinks...)-->
-	
-	<xsl:template match="name">
-		<b><xsl:value-of select="."/></b>
-	</xsl:template>
-	
+	<!-- tz [Tony Zanella, tony.zanella@gmail.com] added a name template for formatting names in bov on 04/10/2009 -->
+	<!-- Greg Murray (gpm2a@virginia.edu): 2010-05-17: Only format names in bov (Board of Visitors minutes) -->
+  <xsl:template match="name">
+    <xsl:choose>
+      <xsl:when test="contains($docId, 'bov')">
+        <b>
+          <xsl:apply-templates/>
+        </b>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 
 	<!-- ====================================================================== -->
 	<!-- References                                                             -->
