@@ -350,42 +350,67 @@
 
 	<xsl:template match="note">
 		<xsl:param name="force"/>
+		<xsl:variable name="note_id">
+		  <xsl:choose>
+		    <xsl:when test="@xml:id"><xsl:value-of select="@xml:id"/></xsl:when>
+		    <xsl:otherwise><xsl:value-of select="@id"/></xsl:otherwise>
+		  </xsl:choose>
+		</xsl:variable>
 		<xsl:choose>
-			<xsl:when test="@place='foot' and not($force)"/><!-- skip for now; this footnote will processed at the end of the div; see template for <div1>, <div2>, etc. -->
+		  <xsl:when test="@place='end' and not($force) and not(ancestor::*[matches(local-name(),'^div')][1] is //*[local-name()='ref'][@target=$note_id]/ancestor::*[matches(local-name(),'^div')][1])">
+		    <!-- this endnote does not occur in same div as its ref (that is, note
+		      occurs in a separate div containing endnotes), so display it -->
+		      <xsl:call-template name="process_this_note">
+		        <xsl:with-param name="note_id" select="$note_id"/>
+		      </xsl:call-template>
+		  </xsl:when>
+			<xsl:when test="(@place='foot' or @place='end') and not($force)">
+			  <!-- skip for now; this note will processed at the end of the div; see template for divs in structure.xsl -->
+		  </xsl:when>
 			<xsl:otherwise>
-				<div>
-					<!-- set class -->
-					<xsl:choose>
-						<xsl:when test="$force">
-							<xsl:attribute name="class">tei_note</xsl:attribute>
-						</xsl:when>
-						<xsl:when test="@place='left'">
-							<xsl:attribute name="class">tei_note_left</xsl:attribute>
-						</xsl:when>
-						<xsl:when test="@place='right'">
-							<xsl:attribute name="class">tei_note_right</xsl:attribute>
-						</xsl:when>
-					</xsl:choose>
-					<!-- output anchor, which <ref> links can point to -->
-					<xsl:if test="@id">
-						<a>
-							<xsl:attribute name="name" select="@id"/>
-						</a>
-					</xsl:if>
-					<!-- output note-reference number -->
-					<xsl:if test="@n and not(@anchored='no')">
-						<div class="tei_note_number">
-							<xsl:text>[</xsl:text>
-							<xsl:value-of select="@n"/>
-							<xsl:text>]</xsl:text>
-						</div>
-					</xsl:if>
-					<!-- process <note> content -->
-					<xsl:apply-templates/>
-				</div>
+			  <xsl:call-template name="process_this_note">
+			    <xsl:with-param name="note_id" select="$note_id"/>
+			  </xsl:call-template>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+  
+  <xsl:template name="process_this_note">
+    <xsl:param name="note_id"/>
+    <div>
+      <!-- set class -->
+      <xsl:choose>
+        <xsl:when test="@place='foot'">
+          <xsl:attribute name="class">tei_note_foot</xsl:attribute>
+        </xsl:when>
+        <xsl:when test="@place='end'">
+          <xsl:attribute name="class">tei_note_end</xsl:attribute>
+        </xsl:when>
+        <xsl:when test="@place='left'">
+          <xsl:attribute name="class">tei_note_left</xsl:attribute>
+        </xsl:when>
+        <xsl:when test="@place='right'">
+          <xsl:attribute name="class">tei_note_right</xsl:attribute>
+        </xsl:when>
+      </xsl:choose>
+      <!-- output anchor, which <ref> links can point to -->
+      <xsl:if test="$note_id">
+        <a>
+          <xsl:attribute name="name" select="$note_id"/>
+        </a>
+      </xsl:if>
+      <!-- output note-reference number -->
+      <xsl:if test="@n and not(@anchored='no')">
+        <div class="tei_note_number">
+          <xsl:text>[</xsl:text>
+          <xsl:value-of select="@n"/>
+          <xsl:text>]</xsl:text>
+        </div>
+      </xsl:if>
+      <!-- process <note> content -->
+      <xsl:apply-templates/>
+    </div>
+  </xsl:template>
 
 	<!-- ====================================================================== -->
 	<!-- Paragraphs                                                             -->
