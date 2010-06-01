@@ -189,9 +189,19 @@
 					<!-- actual title -->
 					<xsl:choose>
 						<xsl:when test="*[local-name()='head']">
-							<td class="head">
-								<xsl:apply-templates select="*[local-name()='head'][1]" mode="toc"/>
-							</td>
+							<!-- Greg Murray (gpm2a@virginia.edu): 2010-05-31: In TOC, display main heading, not necessarily the first -->
+							<xsl:choose>
+								<xsl:when test="*[local-name()='head'][@type='main']">
+									<td class="head">
+										<xsl:apply-templates select="*[local-name()='head'][@type='main']" mode="toc"/>
+									</td>
+								</xsl:when>
+								<xsl:otherwise>
+									<td class="head">
+										<xsl:apply-templates select="*[local-name()='head'][1]" mode="toc"/>
+									</td>
+								</xsl:otherwise>
+							</xsl:choose>
 						</xsl:when>
 						<xsl:when test="@type">
 							<td class="head">
@@ -268,7 +278,7 @@
 				<a name="X"/>
 				<div class="l{$level}">
 					<span class="toc-hi">
-						<xsl:apply-templates select="." mode="text-only"/>
+						<xsl:call-template name="text_for_toc_heads"/>
 					</span>
 				</div>
 			</xsl:when>
@@ -284,13 +294,20 @@
 								name="create.anchor"/>
 						</xsl:attribute>
 						<xsl:attribute name="target">_top</xsl:attribute>
-						<xsl:apply-templates select="." mode="text-only"/>
+						<xsl:call-template name="text_for_toc_heads"/>
 					</a>
 				</div>
 			</xsl:otherwise>
 		</xsl:choose>
 
 	</xsl:template>
+
+	<!-- Greg Murray (gpm2a@virginia.edu): 2010-05-28: Headings in TOC should only
+	  include text nodes (no formatting or line breaks), but must not include
+	  <note> or <ref> content -->
+  <xsl:template name="text_for_toc_heads">
+		<xsl:apply-templates select="descendant::text()[not(ancestor::*[local-name()='note']) and not(ancestor::*[local-name()='ref'])]"/>
+  </xsl:template>
 
 	<xsl:template name="hitSummary" exclude-result-prefixes="#all">
 
@@ -392,15 +409,6 @@
 			<xsl:text>&#160;</xsl:text>
 			<img src="{$icon.path}i_expand.gif" border="0" alt="expand section"/>
 		</div>
-	</xsl:template>
-
-	<!-- used to extract the text of titles without <lb/>'s and other formatting -->
-	<xsl:template match="text()" mode="text-only">
-		<xsl:value-of select="."/>
-	</xsl:template>
-
-	<xsl:template match="*[local-name()='lb']" mode="text-only">
-		<xsl:text>&#160;</xsl:text>
 	</xsl:template>
 
 </xsl:stylesheet>
