@@ -575,11 +575,54 @@
 		</div>
 	</xsl:template>
 	
-	<xsl:template match="gap">
-		<b><xsl:text>[REDACTED]</xsl:text></b>
-		<xsl:apply-templates/>
-	</xsl:template>
-
+  <!-- Greg Murray (gpm2a@virginia.edu): 2010-06-07: Refactored <gap/> handling:
+    * Handle uva-dl-tei @altRend
+    * Use HTML @title to indicate description of, and reason for, the gap
+  -->
+  <xsl:template match="gap">
+    <xsl:choose>
+      <xsl:when test="@altRend"><xsl:value-of select="@altRend"/></xsl:when>
+      <xsl:otherwise>
+        <span class="tei_gap">
+          <xsl:attribute name="title">
+            <xsl:if test="@desc">
+              <xsl:text>Description: </xsl:text>
+              <xsl:choose>
+                <xsl:when test="@desc='chi'">Chinese characters</xsl:when>
+                <xsl:otherwise><xsl:value-of select="@desc"/></xsl:otherwise>
+              </xsl:choose>
+              <xsl:text>. </xsl:text>
+            </xsl:if>
+            <xsl:if test="@reason">
+              <xsl:choose>
+                <xsl:when test="@reason='other' and not(@other)"/>
+                <xsl:when test="@reason='unknown'"/>
+                <xsl:otherwise>
+                  <xsl:text>Reason: </xsl:text>
+                  <xsl:choose>
+                    <xsl:when test="@reason='editorial'">Deliberately omitted from the digital text</xsl:when>
+                    <xsl:when test="@reason='damage'">Damage to physical object</xsl:when>
+                    <xsl:when test="@reason='missing'">Missing from physical object</xsl:when>
+                    <xsl:when test="@reason='obscured'">Obscured</xsl:when>
+                    <xsl:when test="@reason='other'"><xsl:value-of select="@other"/></xsl:when>
+                  </xsl:choose>
+                  <xsl:text>. </xsl:text>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:if>
+            <xsl:if test="@extent">
+              <xsl:text>Extent: </xsl:text>
+              <xsl:value-of select="@extent"/>
+              <xsl:text>. </xsl:text>
+            </xsl:if>
+          </xsl:attribute>
+          <xsl:text>[OMITTED]</xsl:text>
+        </span>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:apply-templates/>
+  </xsl:template>
+  
 	<!-- ====================================================================== -->
 	<!-- Bibliographies                                                         -->
 	<!-- ====================================================================== -->

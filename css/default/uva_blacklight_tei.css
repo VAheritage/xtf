@@ -197,3 +197,7 @@ td.tei_right {
 .tei_underline {
 	text-decoration: underline;
 }
+
+.tei_gap {
+	font-weight: bold;
+}
