@@ -73,7 +73,7 @@
 		<!--<hr/>-->
 		<!-- front -->
 		<xsl:apply-templates
-			select="/*/*[local-name()='text']/*[local-name()='front']/*[matches(name(),'^div')]"
+			select="/*/*[local-name()='text']/*[local-name()='front']/*[matches(name(),'^div') or local-name()='titlePage']"
 			mode="toc"/>
 		<br/>
 		<!-- body -->
@@ -95,7 +95,7 @@
 	</xsl:template>
 
 	<!-- div processing template -->
-	<xsl:template match="*[matches(name(),'^div')]" mode="toc" exclude-result-prefixes="#all">
+	<xsl:template match="*[matches(name(),'^div') or local-name()='titlePage']" mode="toc" exclude-result-prefixes="#all">
 
 		<!-- head element -->
 		<xsl:variable name="head">
@@ -203,7 +203,7 @@
 								</xsl:otherwise>
 							</xsl:choose>
 						</xsl:when>
-						<xsl:when test="@type">
+						<xsl:when test="@type or local-name()='titlePage'">
 							<td class="head">
 								<div class="l1">
 									<a>
@@ -215,7 +215,14 @@
 										</xsl:attribute>
 										<xsl:attribute name="target">_top</xsl:attribute>
 										<xsl:text>[</xsl:text>
-										<xsl:value-of select="@type"/>
+									  <xsl:choose>
+									    <xsl:when test="local-name()='titlePage'">
+									      <xsl:text>title page</xsl:text>
+									    </xsl:when>
+									    <xsl:otherwise>
+									      <xsl:value-of select="@type"/>
+									    </xsl:otherwise>
+									  </xsl:choose>
 										<xsl:text>]</xsl:text>
 									</a>
 								</div>

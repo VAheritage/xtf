@@ -85,7 +85,7 @@
 		use="@*[local-name()='id']"/>
 	<xsl:key name="endnote-id" match="*[matches(name(),'^note$')][@type='endnote' or @place='end']"
 		use="@*[local-name()='id']"/>
-	<xsl:key name="div-id" match="*[matches(name(),'^div')]" use="@*[local-name()='id']"/>
+	<xsl:key name="div-id" match="*[matches(name(),'^div')] | *[local-name()='titlePage']" use="@*[local-name()='id']"/>
 	<xsl:key name="generic-id"
 		match="*[matches(name(),'^note$')][not(@type='footnote' or @place='foot' or @type='endnote' or @place='end')]|*[matches(name(),'^figure$|^bibl$|^table$')]"
 		use="@*[local-name()='id']"/>
@@ -342,6 +342,7 @@
 					<xsl:when test="$chunk.id = '0' and //text/front/titlePage">
 						<xsl:apply-templates
 							select="/*/*[local-name()='text']/*[local-name()='front']/*[local-name()='titlePage']"
+							mode="titlepage"
 						/>
 					</xsl:when>
 					<xsl:when test="$chunk.id = '0'">
@@ -475,99 +476,85 @@
 
 	<xsl:template name="navbar" exclude-result-prefixes="#all">
 
-		<xsl:variable name="prev">
-			<xsl:choose>
-				<!-- preceding div sibling -->
-				<xsl:when
-					test="key('div-id', $chunk.id)/preceding-sibling::*[*[local-name()='head']][@*[local-name()='id']]">
-					<xsl:value-of
-						select="key('div-id', $chunk.id)/preceding-sibling::*[*[local-name()='head']][@*[local-name()='id']][1]/@*[local-name()='id']"
-					/>
-				</xsl:when>
-				<!-- last div node in preceding div sibling of parent -->
-				<xsl:when
-					test="key('div-id', $chunk.id)/parent::*/preceding-sibling::*[*[local-name()='head']][@*[local-name()='id']]">
-					<xsl:value-of
-						select="key('div-id', $chunk.id)/parent::*/preceding-sibling::*[*[local-name()='head']][@*[local-name()='id']][1]/@*[local-name()='id']"
-					/>
-				</xsl:when>
-				<!-- last div node in any preceding structure-->
-				<xsl:when
-					test="key('div-id', $chunk.id)/ancestor::*/preceding-sibling::*/*[*[local-name()='head']][@*[local-name()='id']]">
-					<xsl:value-of
-						select="key('div-id', $chunk.id)/ancestor::*/preceding-sibling::*[1]/*[*[local-name()='head']][@*[local-name()='id']][position()=last()]/@*[local-name()='id']"
-					/>
-				</xsl:when>
-				<!-- top of tree -->
-				<xsl:otherwise>
-					<xsl:value-of select="'0'"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
+    <!-- Greg Murray (gpm2a@virginia.edu): 2010-06-10: Look for the first div
+      with an @id attribute, not the first element containing a heading (as was
+      the practice prior to this change). -->
+    <xsl:variable name="prev">
+      <xsl:choose>
+        <!-- preceding div sibling -->
+        <!-- <xsl:when test="key('div-id', $chunk.id)/preceding-sibling::*[*[local-name()='head']][@*[local-name()='id']]"> -->
+        <xsl:when         test="key('div-id', $chunk.id)/preceding-sibling::*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']]">
+          <xsl:value-of select="key('div-id', $chunk.id)/preceding-sibling::*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']][1]/@*[local-name()='id']"/>
+        </xsl:when>
+        <!-- last div node in preceding div sibling of parent -->
+        <!-- <xsl:when test="key('div-id', $chunk.id)/parent::*/preceding-sibling::*[*[local-name()='head']][@*[local-name()='id']]"> -->
+        <!-- gpm2a: TODO: I'm not sure the [1] below is correct. Shouldn't it be [position()=last()]? -->
+        <xsl:when         test="key('div-id', $chunk.id)/parent::*/preceding-sibling::*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']]">
+          <xsl:value-of select="key('div-id', $chunk.id)/parent::*/preceding-sibling::*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']][1]/@*[local-name()='id']"/>
+        </xsl:when>
+        <!-- last div node in any preceding structure-->
+        <!-- <xsl:when test="key('div-id', $chunk.id)/ancestor::*/preceding-sibling::*/*[*[local-name()='head']][@*[local-name()='id']]"> -->
+        <xsl:when         test="key('div-id', $chunk.id)/ancestor::*/preceding-sibling::*/*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']]">
+          <xsl:value-of select="key('div-id', $chunk.id)/ancestor::*/preceding-sibling::*[1]/*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']][position()=last()]/@*[local-name()='id']"/>
+        </xsl:when>
+        <!-- top of tree -->
+        <xsl:otherwise>
+          <xsl:value-of select="'0'"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
 
-		<xsl:variable name="prev_toc">
-			<xsl:choose>
-				<xsl:when
-					test="key('div-id', $prev)/*[*[local-name()='head']][@*[local-name()='id']]">
-					<xsl:value-of select="key('div-id', $prev)/@*[local-name()='id']"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of
-						select="key('div-id', $prev)/parent::*[*[local-name()='head']][@*[local-name()='id']]/@*[local-name()='id']"
-					/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
+    <xsl:variable name="prev_toc">
+      <xsl:choose>
+        <!-- <xsl:when test="key('div-id', $prev)/*[*[local-name()='head']][@*[local-name()='id']]"> -->
+        <xsl:when         test="key('div-id', $prev)/*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']]">
+          <xsl:value-of select="key('div-id', $prev)/@*[local-name()='id']"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="key('div-id', $prev)/parent::*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']]/@*[local-name()='id']"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
 
-		<xsl:variable name="next">
-			<xsl:choose>
-				<!-- following div sibling -->
-				<xsl:when
-					test="key('div-id', $chunk.id)/following-sibling::*[*[local-name()='head']][@*[local-name()='id']]">
-					<xsl:value-of
-						select="key('div-id', $chunk.id)/following-sibling::*[*[local-name()='head']][@*[local-name()='id']][1]/@*[local-name()='id']"
-					/>
-				</xsl:when>
-				<!-- first div node in following div sibling of parent -->
-				<xsl:when
-					test="key('div-id', $chunk.id)/parent::*/following-sibling::*[*[local-name()='head']][@*[local-name()='id']]">
-					<xsl:value-of
-						select="key('div-id', $chunk.id)/parent::*/following-sibling::*[*[local-name()='head']][@*[local-name()='id']][1]/@*[local-name()='id']"
-					/>
-				</xsl:when>
-				<!-- first div node in any following structure -->
-				<xsl:when
-					test="key('div-id', $chunk.id)/ancestor::*/following-sibling::*/*[*[local-name()='head']][@*[local-name()='id']]">
-					<xsl:value-of
-						select="key('div-id', $chunk.id)/ancestor::*/following-sibling::*[1]/*[*[local-name()='head']][@*[local-name()='id']][1]/@*[local-name()='id']"
-					/>
-				</xsl:when>
-				<!-- no previous $chunk.id (i.e. titlePage) -->
-				<xsl:when test="$chunk.id='0'">
-					<xsl:value-of
-						select="/*/*[local-name()='text']/*[*[*[local-name()='head']][@*[local-name()='id']]][1]/*[*[local-name()='head']][@*[local-name()='id']][1]/@*[local-name()='id']"
-					/>
-				</xsl:when>
-				<!-- bottom of tree -->
-				<xsl:otherwise>
-					<xsl:value-of select="'0'"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
+    <xsl:variable name="next">
+      <xsl:choose>
+        <!-- following div sibling -->
+        <!-- <xsl:when test="key('div-id', $chunk.id)/following-sibling::*[*[local-name()='head']][@*[local-name()='id']]"> -->
+        <xsl:when         test="key('div-id', $chunk.id)/following-sibling::*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']]">
+          <xsl:value-of select="key('div-id', $chunk.id)/following-sibling::*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']][1]/@*[local-name()='id']"/>
+        </xsl:when>
+        <!-- first div node in following div sibling of parent -->
+        <!-- <xsl:when test="key('div-id', $chunk.id)/parent::*/following-sibling::*[*[local-name()='head']][@*[local-name()='id']]"> -->
+        <xsl:when         test="key('div-id', $chunk.id)/parent::*/following-sibling::*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']]">
+          <xsl:value-of select="key('div-id', $chunk.id)/parent::*/following-sibling::*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']][1]/@*[local-name()='id']"/>
+        </xsl:when>
+        <!-- first div node in any following structure -->
+        <!-- <xsl:when test="key('div-id', $chunk.id)/ancestor::*/following-sibling::*/*[*[local-name()='head']][@*[local-name()='id']]"> -->
+        <xsl:when         test="key('div-id', $chunk.id)/ancestor::*/following-sibling::*/*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']]">
+          <xsl:value-of select="key('div-id', $chunk.id)/ancestor::*/following-sibling::*[1]/*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']][1]/@*[local-name()='id']"/>
+        </xsl:when>
+        <!-- no previous $chunk.id (i.e. titlePage) -->
+        <xsl:when test="$chunk.id='0'">
+          <xsl:value-of select="/*/*[local-name()='text']/*[*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']]][1]/*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']][1]/@*[local-name()='id']"/>
+        </xsl:when>
+        <!-- bottom of tree -->
+        <xsl:otherwise>
+          <xsl:value-of select="'0'"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
 
-		<xsl:variable name="next_toc">
-			<xsl:choose>
-				<xsl:when
-					test="key('div-id', $next)/*[*[local-name()='head']][@*[local-name()='id']]">
-					<xsl:value-of select="key('div-id', $next)/@*[local-name()='id']"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of
-						select="key('div-id', $next)/parent::*[*[local-name()='head']][@*[local-name()='id']]/@*[local-name()='id']"
-					/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
+    <xsl:variable name="next_toc">
+      <xsl:choose>
+        <!-- <xsl:when test="key('div-id', $next)/*[*[local-name()='head']][@*[local-name()='id']]"> -->
+        <xsl:when         test="key('div-id', $next)/*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']]">
+          <xsl:value-of select="key('div-id', $next)/@*[local-name()='id']"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="key('div-id', $next)/parent::*[matches(local-name(),'^div') or local-name()='titlePage'][@*[local-name()='id']]/@*[local-name()='id']"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
 
 		<tr>
 			<td width="25%" align="left">
@@ -586,11 +573,11 @@
 								<xsl:value-of select="$search"/>
 							</xsl:attribute>
 							<img src="{$icon.path}b_prev.gif" width="15" height="15" border="0"
-								alt="previous"/>
+								alt="previous section" title="previous section"/>
 						</xsl:when>
 						<xsl:otherwise>
 							<img src="{$icon.path}d_prev.gif" width="15" height="15" border="0"
-								alt="no previous"/>
+								alt="no previous section" title="no previous section"/>
 						</xsl:otherwise>
 					</xsl:choose>
 				</a>
@@ -621,11 +608,11 @@
 								<xsl:value-of select="$search"/>
 							</xsl:attribute>
 							<img src="{$icon.path}b_next.gif" width="15" height="15" border="0"
-								alt="next"/>
+								alt="next section" title="next section"/>
 						</xsl:when>
 						<xsl:otherwise>
 							<img src="{$icon.path}d_next.gif" width="15" height="15" border="0"
-								alt="no next"/>
+								alt="no next section" title="no next section"/>
 						</xsl:otherwise>
 					</xsl:choose>
 				</a>

@@ -77,6 +77,30 @@ div.tei_note_number {
   margin-right: 5px;
 }
 
+div.tei_titlePage {
+  text-align: center;
+}
+
+div.tei_titlePart {
+  font-weight: bold;
+}
+
+div.tei_titlePart_main {
+  font-size: 200%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+div.tei_titlePart_sub {
+  font-size: 140%;
+  margin-bottom: 1.5em;
+}
+
+div.tei_titlePart_other {
+  font-size: 120%;
+  margin-bottom: 1em;
+}
+
 div.tei_trailer {
 	margin-top: 1em;
 	text-align: center;
