@@ -960,8 +960,63 @@
 	<!-- Figures                                                                -->
 	<!-- ====================================================================== -->
 
-	<xsl:template match="figure">
+  <!-- Greg Murray (gpm2a@virginia.edu): 2010-06-11: Getting <figure> images to
+    display (not displayed at all prior to this fix; broken image icon in browser) -->
+  <xsl:template match="*[local-name()='figure']">
+    <xsl:variable name="pid">
+      <xsl:choose>
+        <xsl:when test="@pid">
+          <xsl:value-of select="@pid"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="unparsed-entity-uri(@entity)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    
+    <xsl:variable name="img_src">
+      <xsl:if test="$pid">
+        <xsl:text>http://repo.lib.virginia.edu:18080/fedora/get/</xsl:text>
+        <xsl:value-of select="$pid"/>
+        <xsl:text>/uva-lib-bdef:102/getScreen</xsl:text>
+      </xsl:if>
+    </xsl:variable>
+    
+    <xsl:variable name="image_or_placeholder">
+      <xsl:choose>
+        <xsl:when test="not($img_src) or $pid = preceding::pb[1]/@pid">
+          <!-- no image associated with this <figure>, or <figure> just points to page image -->
+          <xsl:element name="span">
+            <xsl:attribute name="class">tei_figure_placeholder</xsl:attribute>
+            <xsl:text>[ILLUSTRATION]</xsl:text>
+          </xsl:element>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:element name="img">
+            <xsl:attribute name="src" select="$img_src"/>
+            <xsl:attribute name="alt">illustration</xsl:attribute>
+          </xsl:element>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    
+    <xsl:choose>
+      <xsl:when test="@rend='none'"/>
+      <xsl:when test="@rend='inline'">
+        <xsl:copy-of select="$image_or_placeholder"/>
+        <xsl:apply-templates/>
+      </xsl:when>
+      <xsl:otherwise>
+        <div class="tei_figure">
+          <xsl:copy-of select="$image_or_placeholder"/>
+          <xsl:apply-templates/>
+        </div>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 
+<!--
+	<xsl:template match="figure">
 		<xsl:variable name="img_src">
 			<xsl:choose>
 				<xsl:when test="contains($docId, 'preview')">
@@ -1014,7 +1069,6 @@
 			<xsl:when test="@rend='hide'">
 				<div class="illgrp">
 					<p>Image Withheld</p>
-					<!-- for figDesc -->
 					<xsl:apply-templates/>
 				</div>
 			</xsl:when>
@@ -1024,7 +1078,6 @@
 			<xsl:when test="@rend='block'">
 				<div class="illgrp">
 					<img src="{$img_src}" width="400" alt="block image"/>
-					<!-- for figDesc -->
 					<xsl:apply-templates/>
 					<br/>
 					<xsl:text>[</xsl:text>
@@ -1045,7 +1098,6 @@
 			<xsl:when test="contains(@rend, 'popup(')">
 				<div class="illgrp">
 					<img src="{$img_src}" alt="figure"/>
-					<!-- for figDesc -->
 					<xsl:apply-templates/>
 					<br/>
 					<xsl:text>[</xsl:text>
@@ -1070,7 +1122,6 @@
 			<xsl:when test="($height != '0') and ($height &gt; 50) and ($width &lt; 400)">
 				<div class="illgrp">
 					<img src="{$img_src}" width="{$width}" height="{$height}" alt="image"/>
-					<!-- for figDesc -->
 					<xsl:apply-templates/>
 					<br/>
 					<xsl:text>[</xsl:text>
@@ -1095,7 +1146,6 @@
 			<xsl:when test="($height != '0') and ($height &gt; 50) and ($width &gt; 400)">
 				<div class="illgrp">
 					<img src="{$img_src}" width="400" alt="image"/>
-					<!-- for figDesc -->
 					<xsl:apply-templates/>
 					<br/>
 					<xsl:text>[</xsl:text>
@@ -1120,7 +1170,6 @@
 			<xsl:otherwise>
 				<div class="illgrp">
 					<img src="{$img_src}" width="400" alt="image"/>
-					<!-- for figDesc -->
 					<xsl:apply-templates/>
 					<br/>
 					<xsl:text>[</xsl:text>
@@ -1139,16 +1188,17 @@
 				</div>
 			</xsl:otherwise>
 		</xsl:choose>
-
 	</xsl:template>
+-->
 
-	<xsl:template match="*[local-name()='figDesc']">
-		<br/>
-		<span class="down1">
-			<xsl:if test="@n"><xsl:value-of select="@n"/>. </xsl:if>
-			<xsl:apply-templates/>
-		</span>
-	</xsl:template>
+  <xsl:template match="*[local-name()='figDesc']">
+    <span class="tei_figDesc">
+      <xsl:text>[Description: </xsl:text>
+      <xsl:if test="@n"><xsl:value-of select="@n"/>. </xsl:if>
+      <xsl:apply-templates/>
+      <xsl:text>]</xsl:text>
+    </span>
+  </xsl:template>
 
 	<!-- ====================================================================== -->
 	<!-- Milestones                                                             -->
