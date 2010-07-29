@@ -962,15 +962,18 @@
 
   <!-- Greg Murray (gpm2a@virginia.edu): 2010-06-11: Getting <figure> images to
     display (not displayed at all prior to this fix; broken image icon in browser) -->
+  <!-- Matthew Stephens (ms3uf@virginia.edu): 2010-07-28: adding test to ensure @entity
+     exists before calling as the function argument in select clause -->
   <xsl:template match="*[local-name()='figure']">
     <xsl:variable name="pid">
       <xsl:choose>
         <xsl:when test="@pid">
           <xsl:value-of select="@pid"/>
         </xsl:when>
-        <xsl:otherwise>
+        <xsl:when test="@entity">
           <xsl:value-of select="unparsed-entity-uri(@entity)"/>
-        </xsl:otherwise>
+        </xsl:when>
+        <xsl:otherwise/>
       </xsl:choose>
     </xsl:variable>
     
