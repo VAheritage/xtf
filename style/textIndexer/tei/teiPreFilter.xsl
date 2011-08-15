@@ -268,6 +268,11 @@
    <!-- date --> 
    <xsl:template name="get-tei-date">
       <xsl:choose>
+         <xsl:when test="//*[local-name()='fileDesc']/*[local-name()='titleStmt']/*[local-name()='biblScope']/*[local-name()='date']">
+            <date xtf:meta="true">
+               <xsl:value-of select="string(//*[local-name()='fileDesc']/*[local-name()='titleStmt']/*[local-name()='biblScope']/*[local-name()='date']/@value)"/>
+            </date>
+         </xsl:when>
          <xsl:when test="//*[local-name()='fileDesc']/*[local-name()='publicationStmt']/*[local-name()='date']">
             <date xtf:meta="true">
                <xsl:value-of select="string(//*[local-name()='fileDesc']/*[local-name()='publicationStmt']/*[local-name()='date'])"/>
