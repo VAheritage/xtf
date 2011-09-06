@@ -421,6 +421,11 @@
 			<xsl:when test="position()=1 and parent::note[@place='left' or @place='right']">
 				<xsl:apply-templates/>
 			</xsl:when>
+      		<xsl:when test="@rend='right'">
+    			<p class="tei_p tei_right">
+    		  	  <xsl:apply-templates/>
+    			</p>
+    		</xsl:when>
 			<xsl:otherwise>
 				<p class="tei_p">
 					<xsl:apply-templates/>
@@ -979,7 +984,7 @@
     
     <xsl:variable name="img_src">
       <xsl:if test="$pid">
-        <xsl:text>http://repo.lib.virginia.edu:18080/fedora/get/</xsl:text>
+        <xsl:text>http://fedora-prod01.lib.virginia.edu:8080/fedora/get/</xsl:text>
         <xsl:value-of select="$pid"/>
         <xsl:text>/uva-lib-bdef:102/getScreen</xsl:text>
       </xsl:if>
@@ -1246,9 +1251,9 @@
 				<xsl:if test="$pid">
 					<div class="page-image">
 						<a
-							href="http://repo.lib.virginia.edu:18080/fedora/get/{$pid}/uva-lib-bdef:102/getScreen">
+							href="http://fedora-prod01.lib.virginia.edu:8080/fedora/get/{$pid}/uva-lib-bdef:102/getScreen">
 							<img
-								src="http://repo.lib.virginia.edu:18080/fedora/get/{$pid}/uva-lib-bdef:102/getPreview"
+								src="http://fedora-prod01.lib.virginia.edu:8080/fedora/get/{$pid}/uva-lib-bdef:102/getPreview"
 							/>
 						</a>
 					</div>
@@ -1276,7 +1281,7 @@
 		<xsl:if test="$pid">
 			<div class="page-image">				
 					<img title="Click to Enlarge" class="page_thumbnail"  id="{substring-after($pid, ':')}_link" alt="{if (string(@n)) then concat('Page ', @n) else 'No Page Number'}"
-						src="http://repo.lib.virginia.edu:18080/fedora/get/{$pid}/uva-lib-bdef:102/getPreview"
+						src="http://fedora-prod01.lib.virginia.edu:8080/fedora/get/{$pid}/uva-lib-bdef:102/getPreview"
 					/>					
 			</div>
 		</xsl:if>
