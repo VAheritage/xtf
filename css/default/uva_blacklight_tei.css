@@ -97,6 +97,10 @@ p.tei_p {
   margin-top: 1em !important;
 }
 
+p.tei_right {
+  text-align: right;
+}
+
 div.tei_titlePage {
   text-align: center;
 }
