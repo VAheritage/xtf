@@ -1163,7 +1163,7 @@
         </div>
         <div class="page-image">
           <img
-            src="concat('http://repo.lib.virginia.edu:18080/fedora/get/',$pid,'/uva-lib-bdef:102/getPreview')"
+            src="concat('http://fedora-prod01.lib.virginia.edu:8080/fedora/get/',$pid,'/uva-lib-bdef:102/getPreview')"
           />
         </div>
       </xsl:when>
@@ -1180,7 +1180,7 @@
         </div>
         <div class="page-image">
           <img class="page_thumbnail" id="{$pid}"
-            src="http://repo.lib.virginia.edu:18080/fedora/get/{$pid}/uva-lib-bdef:102/getPreview"/>
+            src="http://fedora-prod01.lib.virginia.edu:8080/fedora/get/{$pid}/uva-lib-bdef:102/getPreview"/>
         </div>
 
       </xsl:otherwise>
