@@ -3,10 +3,10 @@ $(function () {
 		var pid = $(this) .attr('id') .split('_') [0];		
 		if ($('#' + pid + '_container') .html() .indexOf('getScreen') < 0) {
 			var alt = $(this) .attr('alt');
-			/*$('#' + pid + '_container') .html('<img src="http://repo.lib.virginia.edu:18080/fedora/get/uva-lib:' + pid + '/uva-lib-bdef:102/getScreen" class="page_screen" alt="' + alt + '" title="Click to Shrink"/>') .fadeIn('slow');*/
+			/*$('#' + pid + '_container') .html('<img src="http://fedora-prod01.lib.virginia.edu:8080/fedora/get/uva-lib:' + pid + '/uva-lib-bdef:102/getScreen" class="page_screen" alt="' + alt + '" title="Click to Shrink"/>') .fadeIn('slow');*/
 			$('#' + pid + '_container .page_screen') .attr('id', pid + '_image');
 			$('#' + pid + '_container .page_screen') .attr('alt', alt);
-			$('#' + pid + '_container .page_screen') .attr('src', 'http://repo.lib.virginia.edu:18080/fedora/get/uva-lib:' + pid + '/uva-lib-bdef:102/getScreen');
+			$('#' + pid + '_container .page_screen') .attr('src', 'http://fedora-prod01.lib.virginia.edu:8080/fedora/get/uva-lib:' + pid + '/uva-lib-bdef:102/getScreen');
 			$(this) .hide();
 			$('#' + pid + '_container') .fadeIn('fast');
 		} else {
