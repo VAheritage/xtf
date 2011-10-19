@@ -136,6 +136,12 @@ div.l3, div.l4, div.l5, div.l6, div.l7 {
 img.page_thumbnail {
 	border: #4672AF 1px solid;
 	cursor:pointer;
+	display:block;
+	float:none;
+	position:inherit;
+	right:0px;
+	margin-left:auto;
+	margin-right:auto;
 }
 img.page_screen {
 	border: #4672AF 1px solid;
@@ -148,8 +154,16 @@ img.page_screen {
 }
 div.page-image {
 	margin-left: 0px;
-	float:right;
+	float:none;
+	width:auto;
+	height:auto;
+	right:auto;
+	left:auto;
 	padding-left: 20px;
+	padding-bottom: 10px;
+	position:inherit;
+	display:block;
+	
 }
 
 div#mainContent>table.content div.content{
@@ -167,6 +181,7 @@ body.uvalib-t3 #content hr {
 hr.run-head {
 	border: black 1px solid;
 	height: 3px;
+	width: 100%;
 	left: 0;
 	margin-left: 0px;
 	margin-top: 5em;
