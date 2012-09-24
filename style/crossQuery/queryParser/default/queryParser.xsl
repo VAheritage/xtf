@@ -64,7 +64,7 @@
    <!-- list of fields to search in 'keyword' search; generally these should
         be the same fields shown in the search result listing, so the user
         can see all the matching words. -->
-   <xsl:param name="fieldList" select="'text title creator subject '"/>
+   <xsl:param name="fieldList" select="'text title creator subject identifier '"/>
    
    <!-- ====================================================================== -->
    <!-- Root Template                                                          -->
@@ -72,7 +72,7 @@
    
    <xsl:template match="/">
       
-      <xsl:variable name="stylesheet" select="'style/crossQuery/resultFormatter/default/resultFormatter.xsl'"/>
+      <xsl:variable name="stylesheet" select="'style/crossQuery/resultFormatter/viva/resultFormatter.xsl'"/>
       
       <!-- The top-level query element tells what stylesheet will be used to
          format the results, which document to start on, and how many documents
@@ -100,7 +100,18 @@
                   </xsl:when>     
                   <xsl:when test="$sort='rss'">
                      <xsl:value-of select="'-sort-date,sort-title'"/>
-                  </xsl:when>         
+                  </xsl:when>
+                  <!-- VIVA additions -->
+                  <xsl:when test="$sort='identifier'">
+                     <xsl:value-of select="'sort-publisher,identifier'"/>
+                  </xsl:when>              
+                  <xsl:when test="$sort='collection-number'">
+                     <xsl:value-of select="'sort-publisher,collection-number'"/>
+                  </xsl:when>              
+                  <xsl:when test="$sort='totalHits'">
+                     <xsl:value-of select="'-totalHits'"/>
+                  </xsl:when>              
+                  
                </xsl:choose>
             </xsl:attribute>
          </xsl:if>
@@ -118,16 +129,24 @@
          -->
          <xsl:call-template name="facet">
             <xsl:with-param name="field" select="'facet-subject'"/>
-            <xsl:with-param name="topGroups" select="'*[1-5]'"/>
+            <xsl:with-param name="topGroups" select="'*[1-10]'"/>
             <xsl:with-param name="sort" select="'totalDocs'"/>
          </xsl:call-template>
+
+        <!-- VIVA add publisher facet -->
+			<xsl:call-template name="facet">
+				<xsl:with-param name="field" select="'facet-publisher'"/>
+				<xsl:with-param name="topGroups" select="'*'"/>
+				<xsl:with-param name="sort" select="'totalDocs'"/>
+			</xsl:call-template>
          
          <!-- hierarchical date facet, shows most recent years first -->
+         <!-- VIVA : remove date facet 
          <xsl:call-template name="facet">
             <xsl:with-param name="field" select="'facet-date'"/>
             <xsl:with-param name="topGroups" select="'*'"/>
             <xsl:with-param name="sort" select="'reverseValue'"/>
-         </xsl:call-template>
+         </xsl:call-template> -->
          
          <!-- to support title browse pages -->
          <xsl:if test="//param[@name='browse-title']">
