@@ -653,7 +653,7 @@
         preFilter is the first stage, so we translate them here to hrefs while 
         we can still resolve the entities. 
      -->
-   <xsl:template match="node()[@entityref and not (@href)]"> 
+   <xsl:template match="node()[@entityref and not (@href)]" mode="at2oac" > 
       <!--  for every element with an entityref but not href,
          add an href using the resolved value of the entity  -->        
       <xsl:copy>
@@ -663,7 +663,7 @@
       </xsl:copy>
    </xsl:template>
    
-   <xsl:template match="@entityref">
+   <xsl:template match="@entityref" mode="at2oac" >
       <!--  null transform:  no output  -->
    </xsl:template>
    
