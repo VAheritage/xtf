@@ -338,7 +338,7 @@
       <xsl:choose>         
          <xsl:when test="/ead/eadheader/filedesc/titlestmt/titleproper">
             <xsl:variable name="titleproper"
-               select="string(/ead/eadheader/filedesc/titlestmt/titleproper)"/>
+               select="string(($dtdVersion)/ead/eadheader/filedesc/titlestmt/titleproper[1])"/>
             <xsl:variable name="subtitle"
                select="string(/ead/eadheader/filedesc/titlestmt/subtitle)"/>
             <xsl:variable name="num" 
