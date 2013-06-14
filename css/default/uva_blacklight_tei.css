@@ -245,3 +245,12 @@ td.tei_right {
 .tei_gap {
 	font-weight: bold;
 }
+
+.tei_circle {
+  border: thin solid black;
+}
+
+.tei_doubleunderline { /* -- double underline -- */
+    text-decoration: underline;
+    border-bottom: 1px solid;
+}
