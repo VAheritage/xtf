@@ -314,6 +314,16 @@
 	  <note> or <ref> content -->
   <xsl:template name="text_for_toc_heads">
 		<xsl:apply-templates select="descendant::text()[not(ancestor::*[local-name()='note']) and not(ancestor::*[local-name()='ref'])]"/>
+  	<xsl:if test="not(descendant::text()[not(ancestor::*[local-name()='note']) and not(ancestor::*[local-name()='ref'])])" >
+  		<xsl:choose>
+  			<xsl:when test="../@n">
+  				<xsl:value-of select="concat('[', ../@type, ' ', ../@n, ']')" /> <!-- sdm7g: for testing when no <head> -->
+  			</xsl:when>
+  			<xsl:otherwise>
+  				<xsl:value-of select="concat('[', ../@type, ']')" /> <!-- sdm7g: for testing when no <head> -->
+  			</xsl:otherwise>
+  		</xsl:choose>
+  	</xsl:if> 		
   </xsl:template>
 
 	<xsl:template name="hitSummary" exclude-result-prefixes="#all">
