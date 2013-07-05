@@ -357,7 +357,7 @@
 		  </xsl:choose>
 		</xsl:variable>
 		<xsl:choose>
-		  <xsl:when test="@place='end' and not($force) and not(ancestor::*[matches(local-name(),'^div')][1] is //*[local-name()='ref'][@target=$note_id]/ancestor::*[matches(local-name(),'^div')][1])">
+		  <xsl:when test="@place='end' and not($force) and not(ancestor::*[matches(local-name(),'^div')][1] is //*[local-name()='ref'][@target=$note_id][1]/ancestor::*[matches(local-name(),'^div')][1])">
 		    <!-- this endnote does not occur in same div as its ref (that is, note
 		      occurs in a separate div containing endnotes), so display it -->
 		      <xsl:call-template name="process_this_note">
@@ -983,11 +983,27 @@
     </xsl:variable>
     
     <xsl:variable name="img_src">
-      <xsl:if test="$pid">
-        <xsl:text>http://fedora-prod01.lib.virginia.edu:8080/fedora/get/</xsl:text>
-        <xsl:value-of select="$pid"/>
-        <xsl:text>/uva-lib-bdef:102/getScreen</xsl:text>
-      </xsl:if>
+      <xsl:choose>
+        <xsl:when test='matches($pid, "uva-lib:\d+") and contains(upper-case($doc.title), "STUDIES IN BIBLIOGRAPHY")'>
+          <xsl:text>http://fedora-prod02.lib.virginia.edu:8080/fedora/objects/</xsl:text>
+          <xsl:value-of select="$pid"/>
+          <xsl:text>/methods/djatoka%3AStaticSDef/getStaticImage?</xsl:text>
+        </xsl:when>
+        <xsl:when test='matches($pid, "uva-lib:\d+") and contains(upper-case($doc.title), "BIBLIOGRAPHICAL SOCIETY")'>
+          <xsl:text>http://fedora-prod02.lib.virginia.edu:8080/fedora/objects/</xsl:text>
+          <xsl:value-of select="$pid"/>
+          <xsl:text>/methods/djatoka%3AStaticSDef/getStaticImage?</xsl:text>
+        </xsl:when>
+        <xsl:when test='matches($pid, "uva-lib:\d+")'>
+          <xsl:text>http://fedora-prod01.lib.virginia.edu:8080/fedora/get/</xsl:text>
+          <xsl:value-of select="$pid"/>
+          <xsl:text>/uva-lib-bdef:102/getScreen</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="concat($xtfURL, 'data/' , $docPath, $pid)"/>
+          <xsl:text>.gif</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:variable>
     
     <xsl:variable name="image_or_placeholder">
@@ -1228,6 +1244,15 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
+		<!-- whitespace matters in this variable (below), do not break lines -->
+		<xsl:variable name="repo-location">
+          <xsl:choose>
+            <xsl:when test="$pid and contains(upper-case($doc.title), 'STUDIES IN BIBLIOGRAPHY')">http://fedora-prod02.lib.virginia.edu:8080/fedora/objects/<xsl:value-of select="$pid"/>/methods/djatoka%3AStaticSDef/getThumbnail?</xsl:when>
+            <xsl:when test="$pid and contains(upper-case($doc.title), 'BIBLIOGRAPHICAL SOCIETY')">http://fedora-prod02.lib.virginia.edu:8080/fedora/objects/<xsl:value-of select="$pid"/>/methods/djatoka%3AStaticSDef/getThumbnail?</xsl:when>
+            <xsl:when test="$pid">http://fedora-prod01.lib.virginia.edu:8080/fedora/get/<xsl:value-of select="$pid"/>/uva-lib-bdef:102/getPreview</xsl:when>
+            <xsl:otherwise><xsl:value-of select="false()"/></xsl:otherwise>
+          </xsl:choose>
+		</xsl:variable>
 
 
 		<xsl:variable name="odd">
@@ -1273,19 +1298,39 @@
 					select="/TEI.2/teiHeader/fileDesc/sourceDesc/biblFull/titleStmt/title[@type='main']"
 				/>
 			</div>-->
+        <!-- add a class value specifying a repo for 'showpage.js' to build proper URLs in Ajax -->
+        <xsl:choose>
+          <xsl:when test="$pid and contains(upper-case($doc.title), 'STUDIES IN BIBLIOGRAPHY')">
+			<div class="screen-image fedora-prod02" style="display:none;" id="{substring-after($pid, ':')}_container">
+				<img class="page_screen" title="Click to Shrink"/>
+			</div>
+			<br/>
+          </xsl:when>
+          <xsl:when test="$pid and contains(upper-case($doc.title), 'BIBLIOGRAPHICAL SOCIETY')">
+			<div class="screen-image fedora-prod02" style="display:none;" id="{substring-after($pid, ':')}_container">
+				<img class="page_screen" title="Click to Shrink"/>
+			</div>
+			<br/>
+          </xsl:when>
+          <xsl:otherwise>
 			<div class="screen-image" style="display:none;" id="{substring-after($pid, ':')}_container">
 				<img class="page_screen" title="Click to Shrink"/>
 			</div>
 			<br/>
+          </xsl:otherwise>
+        </xsl:choose>
 		</div>
-		<xsl:if test="$pid">
-			<div class="page-image">				
-					<img title="Click to Enlarge" class="page_thumbnail"  id="{substring-after($pid, ':')}_link" alt="{if (string(@n)) then concat('Page ', @n) else 'No Page Number'}"
-						src="http://fedora-prod01.lib.virginia.edu:8080/fedora/get/{$pid}/uva-lib-bdef:102/getPreview"
-					/>					
-			</div>
-		</xsl:if>
-		
+      <!-- if $pid, there will be a $repo-location, defaults to 
+           http://fedora-prod01.lib.virginia.edu:8080/fedora/get/{$pid}/uva-lib-bdef:102/getPreview  
+      -->
+      <xsl:choose>
+        <xsl:when test="$pid">
+  	      <div class="page-image">				
+  	        <img title="Click to Enlarge" class="page_thumbnail"  id="{substring-after($pid, ':')}_link" alt="{if (string(@n)) then concat('Page ', @n) else 'No Page Number'}"
+  	             src="{$repo-location}"/>
+  	      </div>
+        </xsl:when>
+	  </xsl:choose>
 	</xsl:template>
 
 	<xsl:template match="milestone">
