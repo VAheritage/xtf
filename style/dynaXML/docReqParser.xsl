@@ -103,6 +103,9 @@
             <xsl:when test="matches($cmodel, 'uvaPageBook')">
                <xsl:attribute name="path">style/dynaXML/docFormatter/uvaPageBook/teiDocFormatter.xsl</xsl:attribute>
             </xsl:when>
+            <xsl:when test="contains($docId, 'ead/') or contains($docId, '.ead')">
+               <xsl:attribute name="path">style/dynaXML/docFormatter/ead/eadDocFormatter.xsl</xsl:attribute>
+            </xsl:when>
             <!-- Greg Murray (gpm2a@virginia.edu): 2010-05-17: The following
             when block for BOV (Board of Visitors minutes) stylesheets will
             never get executed, because the path for BOV files includes
@@ -117,15 +120,12 @@
             <xsl:when test="matches($cmodel, 'not a Fedora object')">
                <xsl:attribute name="path">style/dynaXML/docFormatter/bov/teiDocFormatter.xsl</xsl:attribute>
             </xsl:when>
-            <!-- <xsl:when test="contains($docId, 'tei/') or contains($docId, '.tei')">
+            <xsl:when test="contains($docId, 'tei/') or contains($docId, '.tei')">
                <xsl:attribute name="path">style/dynaXML/docFormatter/tei/teiDocFormatter.xsl</xsl:attribute>
             </xsl:when>
-            <xsl:when test="contains($docId, 'ead/') or contains($docId, '.ead')">
-               <xsl:attribute name="path">style/dynaXML/docFormatter/ead/eadDocFormatter.xsl</xsl:attribute>
-            </xsl:when> -->
-            <!-- <xsl:otherwise>
+            <xsl:otherwise>
                <xsl:attribute name="path">style/dynaXML/docFormatter/tei/teiDocFormatter.xsl</xsl:attribute>
-            </xsl:otherwise> -->
+            </xsl:otherwise>
          </xsl:choose>   
          
     
