@@ -199,7 +199,7 @@
                                         displayStyle="style/dynaXML/docFormatter/nlm/nlmDocFormatter.xsl"/>
                                 </xsl:when>
                                 <!-- Look for EAD XML files -->
-				<!--
+				
                                <xsl:when test="matches($root-element-name,'^ead$') or
                                     matches($pid,'EAD') or 
                                     matches($uri,'ead\.dtd') or 
@@ -208,7 +208,7 @@
                                         preFilter="style/textIndexer/ead/eadPreFilter.xsl"
                                         displayStyle="style/dynaXML/docFormatter/ead/eadDocFormatter.xsl"/>
 			</xsl:when>
-			-->	
+			
                                 <!-- Look for TEI XML file -->
                                 <xsl:when test="matches($root-element-name,'^TEI') or 
                                     matches($pid,'TEI') or 
@@ -233,11 +233,11 @@
             </xsl:when>
             
             <!-- HTML files -->
-       <!--      <xsl:when test="ends-with(@fileName, 'html') or ends-with(@fileName, '.xhtml')">
+             <xsl:when test="ends-with(@fileName, 'html') or ends-with(@fileName, '.xhtml')">
                 <indexFile fileName="{@fileName}" 
                     type="HTML"
                     preFilter="style/textIndexer/html/htmlPreFilter.xsl"/>
-            </xsl:when> -->
+            </xsl:when> 
             
             <!-- PDF files -->
          <!--  <xsl:when test="ends-with(@fileName, '.pdf')">
