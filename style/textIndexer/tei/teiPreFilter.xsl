@@ -95,6 +95,15 @@
       </xsl:copy>
    </xsl:template>
    
+    <!-- sdm7g: add @id to all /div*  -->
+   <xsl:template match="*[matches(local-name(), '^div')][not(@id)]">
+      <xsl:copy>
+         <xsl:copy-of select="@*" />
+         <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
+         <xsl:apply-templates />
+      </xsl:copy>
+   </xsl:template>
+   
    <xsl:template match="*[local-name()='bibl']">
       <xsl:copy>
          <xsl:copy-of select="@*"/>
