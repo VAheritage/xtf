@@ -187,9 +187,16 @@
             </i>
           </h4>
           <h4>
+          <xsl:choose>
+           <xsl:when test="titleStmt/author/name">
             <xsl:value-of select="titleStmt/author/name[@type='first']"/>
             <xsl:text> </xsl:text>
             <xsl:value-of select="titleStmt/author/name[@type='last']"/>
+           </xsl:when>
+           <xsl:otherwise>
+            <xsl:value-of select="string-join(titleStmt/author, '; ')"/>
+           </xsl:otherwise>
+          </xsl:choose>
           </h4>
           <xsl:value-of select="titleStmt/author/dateRange"/>
 
