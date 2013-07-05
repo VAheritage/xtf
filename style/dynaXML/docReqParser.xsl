@@ -69,7 +69,7 @@
    <xsl:param name="query-join" select="'0'"/>
    <xsl:param name="query-exclude" select="'0'"/>
    <xsl:param name="sectionType" select="'0'"/>
-   <xsl:param name="repo-address" select="'http://repo.lib.virginia.edu:18080/fedora'"/>
+   <xsl:param name="repo-address" select="'http://fedora-prod01.lib.virginia.edu:8080/fedora'"/>
 
    <!-- ====================================================================== -->
    <!-- Root Template                                                          -->
