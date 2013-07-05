@@ -177,7 +177,7 @@
          </xsl:when>
          <xsl:when test="//*[local-name()='titlePage']//*[local-name()='titlePart'][@type='main']">
             <title xtf:meta="true">
-               <xsl:value-of select="string(//*[local-name()='titlePage']/*[local-name()='titlePart'][@type='main'])"/>
+               <xsl:value-of select="string(//*[local-name()='titlePage']//*[local-name()='titlePart'][@type='main'])"/>
                <xsl:if test="//*[local-name()='titlePage']/*[local-name()='titlePart'][@type='subtitle']">
                   <xsl:text>: </xsl:text>
                   <xsl:value-of select="string(//*[local-name()='titlePage']/*[local-name()='titlePart'][@type='subtitle'][1])"/>
