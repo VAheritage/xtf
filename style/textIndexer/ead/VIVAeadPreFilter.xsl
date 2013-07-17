@@ -39,7 +39,7 @@
    <!-- ====================================================================== -->
    
    <xsl:import href="../common/preFilterCommon.xsl"/>
-
+   
    <!-- ====================================================================== -->
    <!-- Import OAC EAD templates and functions                                 -->
    <!-- ====================================================================== -->
@@ -627,9 +627,11 @@
    <!-- OAI dateStamp -->
    <xsl:template name="oai-datestamp" xmlns:FileUtils="java:org.cdlib.xtf.xslt.FileUtils">
       <xsl:variable name="filePath" select="saxon:system-id()" xmlns:saxon="http://saxon.sf.net/"/>
+      <xsl:if test="$filePath">
       <dateStamp xtf:meta="true" xtf:tokenize="no">
          <xsl:value-of select="FileUtils:lastModified($filePath, 'yyyy-MM-dd')"/>
       </dateStamp>
+      </xsl:if>
    </xsl:template>
    
    <!-- OAI sets -->
