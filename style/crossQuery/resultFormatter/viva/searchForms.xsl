@@ -95,7 +95,7 @@
 		
 		<h2>Basic Search</h2>
 		<form method="get" action="{$xtfURL}{$crossqueryPath}">
-			<input type="text" size="40" value="{$text}"/>
+			<input type="text" name="text" size="40" value="{$text}"/>
 			<div style="margin-top:10px;margin-bottom:10px;">
 				<dt class="t">Repository</dt>
 				<dd class="d">
