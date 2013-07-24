@@ -111,11 +111,7 @@
 	<xsl:template name="generate_content">
 		<html xml:lang="en" lang="en">
 			<head>
-				<link rel="stylesheet" type="text/css" href="{$css.path}ead.css"/>
-				<link rel="stylesheet" type="text/css" href="{$css.path}toc.css"/>
-				<script src="script/viva/jquery-1.2.6.min.js" type="text/javascript"/>
-				<script src="script/viva/jquery.lightbox-0.5.min.js" type="text/javascript"/>
-				<script src="script/viva/ead_lightbox.js" type="text/javascript"/>
+				<xsl:copy-of select="$brand.links" />
 				<title>
 					<xsl:value-of select="eadheader/filedesc/titlestmt/titleproper"/>
 					<xsl:text>  </xsl:text>
