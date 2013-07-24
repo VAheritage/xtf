@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="css/viva/results.css" type="text/css"/>
 		<script type="text/javascript"  src="script/viva/jquery-1.10.2.min.js" ></script>
 		<script type="text/javascript"  src="script/viva/jquery-migrate-1.2.1.min.js" ></script>
+		<script src="script/viva/advanced_search.js" type="text/javascript"/>		
 	</links>
 
 	<dynaxml.links>

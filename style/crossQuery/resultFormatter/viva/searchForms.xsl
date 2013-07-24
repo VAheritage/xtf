@@ -56,8 +56,6 @@
 			<head>
 				<title>XTF: Search Form</title>
 				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-				<script src="script/viva/jquery-1.2.6.min.js" type="text/javascript"/>
-				<script src="script/viva/advanced_search.js" type="text/javascript"/>
 				<xsl:copy-of select="$brand.links"/>
 			</head>
 			<body>

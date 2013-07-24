@@ -142,7 +142,6 @@
 				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 				<xsl:copy-of select="$brand.links"/>
 				<!-- AJAX support -->
-				<script src="script/viva/jquery-1.2.6.min.js" type="text/javascript"/>
 				<script src="script/viva/params.js" type="text/javascript"/>
 				<script src="script/viva/sort.js" type="text/javascript"/>
 			</head>
