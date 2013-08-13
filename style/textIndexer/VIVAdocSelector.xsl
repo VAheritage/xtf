@@ -153,7 +153,7 @@
                                         matches($uri,'ead\.dtd') or 
                                         matches($ns,'ead')">
                            <indexFile fileName="{$fileName}"
-                              preFilter="style/textIndexer/ead/VIVAeadPreFilter.xsl"
+                              preFilter="style/textIndexer/ead/ent2href.xsl;style/textIndexer/common/xipr.xsl;style/textIndexer/ead/VIVAeadPreFilter.xsl"
                               displayStyle="style/dynaXML/docFormatter/VIVAead/eadDocFormatter.xsl"/>
                         </xsl:when>
                         <!-- Look for NLM XML files -->

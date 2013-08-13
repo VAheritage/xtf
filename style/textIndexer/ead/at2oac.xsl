@@ -6,7 +6,6 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:ead="urn:isbn:1-931666-22-9"
   xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns:xi="http://www.w3.org/2001/XInclude"
   xmlns="urn:isbn:1-931666-22-9">
 
 <!-- set strip-namespace to anything other than yes to
@@ -254,12 +253,6 @@
     <xsl:otherwise/>
   </xsl:choose>
 </xsl:template>
-
-
-  <xsl:template match="xi:include|include" mode="at2oac" priority="20000" >
-    <xsl:apply-templates select="document(@href)" mode="at2oac" />    
-  </xsl:template>
-  
 
 </xsl:stylesheet>
 <!--
