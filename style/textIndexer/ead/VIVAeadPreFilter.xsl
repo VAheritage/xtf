@@ -33,7 +33,9 @@
       ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
       POSSIBILITY OF SUCH DAMAGE.
    -->
-   
+
+
+
    <!-- ====================================================================== -->
    <!-- Import Common Templates and Functions                                  -->
    <!-- ====================================================================== -->
@@ -47,7 +49,16 @@
    <xsl:import href="./supplied-headings.xsl"/>
    <!-- xmlns:oac="http://oac.cdlib.org" oac:supply-heading -->
    <xsl:import href="./at2oac.xsl"/>
+
+
+   <!-- ====================================================================== -->
+   <!-- Import UVA/VIVA additions -->
+   <!-- ====================================================================== -->
    
+   <xsl:include href="ent2href.xsl"/>
+
+
+
    <!-- ====================================================================== -->
    <!-- Output parameters                                                      -->
    <!-- ====================================================================== -->
@@ -661,23 +672,6 @@
       </collection-number>
    </xsl:template>
    
-   <!-- unparsed-entities are not resolvable within a multi-stage XSLT pipeline.
-        preFilter is the first stage, so we translate them here to hrefs while 
-        we can still resolve the entities. 
-     -->
-   <xsl:template match="node()[@entityref and not (@href)]" mode="at2oac" > 
-      <!--  for every element with an entityref but not href,
-         add an href using the resolved value of the entity  -->        
-      <xsl:copy>
-         <xsl:attribute name="href"><xsl:value-of select="unparsed-entity-uri(@entityref)"/></xsl:attribute>
-         <xsl:apply-templates select="@*"/>
-         <xsl:apply-templates select="node()"/>
-      </xsl:copy>
-   </xsl:template>
-   
-   <xsl:template match="@entityref" mode="at2oac" >
-      <!--  null transform:  no output  -->
-   </xsl:template>
-   
+
 
 </xsl:stylesheet>
