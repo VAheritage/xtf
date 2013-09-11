@@ -1104,6 +1104,19 @@
 		</xsl:if>
 	</xsl:template>
 
+	<!-- template to handle link expansion when switching to displaying <address> info
+		 from <eadheader> instead of taking contact info from <frontmatter> 
+		 Perhaps this should be more general for extptr, but I would need to test that more. 
+	     VIVA/VHP  - sdm7g   -->
+	
+	<xsl:template match="address/addressline/extptr">
+		<xsl:element name="a">
+			<xsl:attribute name="href">
+				<xsl:value-of select="@href"/>
+			</xsl:attribute>
+			<xsl:value-of select="@title"/>
+		</xsl:element>
+	</xsl:template>
 
 	<!--Insert the address for the dsc stylesheet of your choice here.-->
 	<xsl:include href="dsc4.xsl"/>
