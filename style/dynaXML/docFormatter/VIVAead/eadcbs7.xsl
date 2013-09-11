@@ -479,10 +479,15 @@
 			</xsl:choose>
 		</div>
 
-	<!-- publisher Contact Information -->
+	<!-- publisher Contact Information 
 		<div style="text-align:center" >
 			<p><xsl:value-of select="publisher"/></p>
 			<xsl:for-each select="list/*">
+				<xsl:apply-templates  /> <br/>
+			</xsl:for-each> --> 
+		<div style="text-align:center" >
+			<p><xsl:value-of  select="/ead/eadheader/filedesc/publicationstmt/publisher"/></p>
+			<xsl:for-each select="/ead/eadheader/filedesc/publicationstmt/address/*">
 				<xsl:apply-templates  /> <br/>
 			</xsl:for-each>
 	<!-- Copyright & Conditions of Use -->
