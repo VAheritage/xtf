@@ -490,6 +490,10 @@
 			<xsl:for-each select="/ead/eadheader/filedesc/publicationstmt/address/*">
 				<xsl:apply-templates  /> <br/>
 			</xsl:for-each>
+	<!-- Funding: -->
+			<p>
+			<xsl:apply-templates select="/ead/eadheader/filedesc/titlestmt/sponsor"/>
+			</p>
 	<!-- Copyright & Conditions of Use -->
 			<xsl:apply-templates select="/ead/eadheader/filedesc/publicationstmt/date" />
 		</div>
