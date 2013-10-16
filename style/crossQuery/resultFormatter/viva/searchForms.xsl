@@ -584,7 +584,7 @@
 					<a href="search?smode=browse&amp;browse-all=yes">Browse</a>
 				</li>
 				<li class="alt-tab"><a href="http://www.vivalib.org/">about VIVA</a></li>
-				<li class="alt-tab"><a href="http://www2.lib.virginia.edu/small/vhp/" >About VHP</a></li>
+				<li class="alt-tab"><a href="http://vaheritage.org/" >Virginia Heritage</a></li>
 				<li class="alt-tab"><a href="/viva-upload/upload.jsp">admin upload</a></li>
 				
 			</ul>

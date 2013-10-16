@@ -21,8 +21,9 @@
 
 	<header>
 		<div class="header">
-			<img src="http://ead.lib.virginia.edu/vivaead/logos/vhpban.jpg" alt="VIVA EAD Logo"
-				class="logo"/>
+			<a href="http://vaheritage.org/">
+				<img src="http://ead.lib.virginia.edu/vivaead/logos/vhpban.jpg" alt="VIVA EAD Logo"
+				class="logo"/></a>
 			<br class="clear"/>
 		</div>
 	</header>
