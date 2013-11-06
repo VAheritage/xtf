@@ -63,7 +63,7 @@ div.tei_lg {
 }
 
 div.tei_note_end {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 div.tei_note_foot {
@@ -195,6 +195,11 @@ td.tei_right {
 
 .tei_italic {
 	font-style: italic;
+}
+
+/* sdm7g: some biblio.soc. files have <hi> without @rend attribute. This is for fallthru. */
+.tei_ {
+	font-style: italic;
 }	
 
 .tei_line-through {
@@ -245,12 +250,15 @@ td.tei_right {
 .tei_gap {
 	font-weight: bold;
 }
+<<<<<<< .mine
 
 .tei_circle {
   border: thin solid black;
 }
 
 .tei_doubleunderline { /* -- double underline -- */
-    text-decoration: underline;
-    border-bottom: 1px solid;
+	text-decoration: underline;
+	border-bottom: 1px solid;
+}
+
 }
