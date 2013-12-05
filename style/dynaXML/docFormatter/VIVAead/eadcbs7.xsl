@@ -490,12 +490,29 @@
 			<xsl:for-each select="/ead/eadheader/filedesc/publicationstmt/address/*">
 				<xsl:apply-templates  /> <br/>
 			</xsl:for-each>
-	<!-- Funding: -->
-			<p>
-			<xsl:apply-templates select="/ead/eadheader/filedesc/titlestmt/sponsor"/>
-			</p>
 	<!-- Copyright & Conditions of Use -->
-			<xsl:apply-templates select="/ead/eadheader/filedesc/publicationstmt/date" />
+			<p><xsl:apply-templates select="/ead/eadheader/filedesc/publicationstmt/date" /></p>
+			
+			<!-- Funding:  /  <sponsor>  -->			
+			<p><xsl:choose>
+				<xsl:when test="/ead/frontmatter/titlepage/list[@type='deflist']/defitem[contains(label,'Funding:')]">
+					<xsl:apply-templates select="/ead/frontmatter/titlepage/list[@type='deflist']/defitem[contains(label,'Funding:')]" />
+				</xsl:when>
+				<xsl:otherwise>
+						<xsl:apply-templates select="/ead/eadheader/filedesc/titlestmt/sponsor"/>										
+				</xsl:otherwise>
+			</xsl:choose></p>
+			
+			<!-- Processed by: / <author> -->
+			<p><xsl:choose>
+				<xsl:when test="/ead/frontmatter/titlepage/list[@type='deflist']/defitem[contains(label,'Processed by:')]">
+					<xsl:apply-templates select="/ead/frontmatter/titlepage/list[@type='deflist']/defitem[contains(label,'Processed by:')]" />
+				</xsl:when>
+				<xsl:otherwise>
+						<xsl:apply-templates select="/ead/eadheader/filedesc/titlestmt/author"/>															
+				</xsl:otherwise>
+			</xsl:choose></p>
+			
 		</div>
 	</xsl:template>
 
