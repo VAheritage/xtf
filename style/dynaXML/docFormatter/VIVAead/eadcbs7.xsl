@@ -445,11 +445,26 @@
 				<!-- <xsl:value-of select="filedesc/titlestmt/titleproper"/> 
 				     note: these fields are from //frontmatter, not from //eadheader 
 				     but this matches requested output format.  sdm7g -->
-				<xsl:value-of select="/ead/frontmatter/titlepage/titleproper" />			
+				
+				<xsl:choose>
+					<xsl:when test="/ead/frontmatter/titlepage/titleproper">
+						<xsl:value-of select="/ead/frontmatter/titlepage/titleproper" />
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="/ead/eadheader/filedesc/titlestmt/titleproper"/>
+					</xsl:otherwise>
+				</xsl:choose>
 			</a>
 		</h2>
 		<h3>
-			<xsl:apply-templates select="/ead/frontmatter/titlepage/subtitle" />
+			<xsl:choose>
+				<xsl:when test="/ead/frontmatter/titlepage/subtitle">
+					<xsl:apply-templates select="/ead/frontmatter/titlepage/subtitle" />	
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:apply-templates select="/ead/eadheader/filedesc/titlestmt/subtitle" />
+				</xsl:otherwise>
+			</xsl:choose>
 		</h3>
 		<br/></div>
 		<!-- insert the logo -->
@@ -1130,7 +1145,7 @@
 		 Perhaps this should be more general for extptr, but I would need to test that more. 
 	     VIVA/VHP  - sdm7g   -->
 	
-	<xsl:template match="address/addressline/extptr">
+	<xsl:template match="extptr[not(@show='embed')]">
 		<xsl:element name="a">
 			<xsl:attribute name="href">
 				<xsl:value-of select="@href"/>
