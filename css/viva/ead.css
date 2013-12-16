@@ -102,6 +102,10 @@ dd {
 .ldd p {
 	margin:0px;
 }
+
+p { 
+	padding-top: 10px;
+}
 .c01_header {
 	font-weight:bold;
 	font-size:110%;
