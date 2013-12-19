@@ -116,10 +116,15 @@
 			<div style="display:table;width:100%">
 				<h2>Advanced Search</h2>
 				<div class="left_table">
-					<h3>Entire Text</h3>
+					
 					<div class="">
+						<h3>Nearby words or phrase:</h3>
 						<input type="text" name="text" size="30" value="{$text}"/>
+						<br /><br />
 					</div>
+					
+					<!-- commented out for now until we can figure out why booleans & chunks dont work properly 
+					
 					<div>
 						<xsl:choose>
 							<xsl:when test="$text-join = 'or'">
@@ -135,7 +140,6 @@
 						</xsl:choose>
 						<xsl:text> these words</xsl:text>
 					</div>
-					<!-- commented out for now until we can figure out why booleans & chunks dont work properly 
 					<dl class="form_list">
 						<div>
 							<dt class="t">Exclude:</dt>
