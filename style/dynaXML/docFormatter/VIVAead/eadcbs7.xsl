@@ -783,7 +783,14 @@
             | archdesc/*/relatedmaterial/p
             | archdesc/relatedmaterial/note/p
             | archdesc/*/relatedmaterial/note/p"/>
-				<h3>Separated Material</h3>
+
+					<h3 style="margin-left:-25px;">
+						<a name="separatedmatlink">
+							<b>
+								<xsl:text>Separated Material</xsl:text>
+							</b>
+						</a>
+					</h3>
 				<xsl:apply-templates
 					select="archdesc/separatedmaterial/p
             | archdesc/*/separatedmaterial/p
