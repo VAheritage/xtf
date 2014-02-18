@@ -714,7 +714,7 @@
       archdesc/controlaccess/note |
       archdesc/odd/note">
 		<div class="dd">
-			<xsl:apply-templates/>
+			<xsl:apply-templates select="*[local-name()!='relatedmaterial'][local-name()!='separatedmaterial']"/>
 		</div>
 		<hr/>
 	</xsl:template>
@@ -783,6 +783,7 @@
             | archdesc/*/relatedmaterial/p
             | archdesc/relatedmaterial/note/p
             | archdesc/*/relatedmaterial/note/p"/>
+				<h3>Separated Material</h3>
 				<xsl:apply-templates
 					select="archdesc/separatedmaterial/p
             | archdesc/*/separatedmaterial/p
