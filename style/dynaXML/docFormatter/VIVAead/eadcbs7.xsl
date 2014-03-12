@@ -716,7 +716,7 @@
 		<div class="dd">
 			<xsl:apply-templates select="*[local-name()!='relatedmaterial'][local-name()!='separatedmaterial']"/>
 		</div>
-		<hr/>
+		<!--<hr/>-->
 	</xsl:template>
 
 	<xsl:template
