@@ -8,9 +8,11 @@
     exclude-result-prefixes="#all"
     version="2.0">
     
-    <xsl:param name="lang" select="if (normalize-space(session:getData('lang')) != '') then session:getData('lang') else 'en'"/>
+ <!--   <xsl:param name="lang" select="if (normalize-space(session:getData('lang')) != '') then session:getData('lang') else 'en'"/>
     <xsl:param name="transTable" select="document(concat('g10n/translation_', $lang, '.xml'))"/>
-    
+ -->
+    <xsl:param name="lang">en</xsl:param>
+    <xsl:param name="transTable"></xsl:param>
     <!-- ====================================================================== -->
     <!-- URL Encoding                                                           -->
     <!-- ====================================================================== -->
