@@ -976,7 +976,7 @@
           <xsl:value-of select="@pid"/>
         </xsl:when>
         <xsl:when test="@entity">
-          <xsl:value-of select="unparsed-entity-uri(@entity)"/>
+          <xsl:value-of select="@entity"/>
         </xsl:when>
         <xsl:otherwise/>
       </xsl:choose>
@@ -994,14 +994,18 @@
           <xsl:value-of select="$pid"/>
           <xsl:text>/methods/djatoka%3AStaticSDef/getStaticImage?</xsl:text>
         </xsl:when>
+        <xsl:when test='matches($pid, "uva-lib:\d+") and contains(upper-case($doc.title), "SOUTHERN COLLECTING")'>
+          <xsl:text>http://fedora-prod02.lib.virginia.edu:8080/fedora/objects/</xsl:text>
+          <xsl:value-of select="$pid"/>
+          <xsl:text>/methods/djatoka%3AStaticSDef/getStaticImage?</xsl:text>
+        </xsl:when>
         <xsl:when test='matches($pid, "uva-lib:\d+")'>
           <xsl:text>http://fedora-prod01.lib.virginia.edu:8080/fedora/get/</xsl:text>
           <xsl:value-of select="$pid"/>
           <xsl:text>/uva-lib-bdef:102/getScreen</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="concat($xtfURL, 'data/' , $docPath, $pid)"/>
-          <xsl:text>.gif</xsl:text>
+          <xsl:value-of select="concat('http://migration.lib.virginia.edu', '/images/' ,  $pid, '.jpg')"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -1018,6 +1022,7 @@
         <xsl:otherwise>
           <xsl:element name="img">
             <xsl:attribute name="src" select="$img_src"/>
+            <xsl:attribute name="class">illustration</xsl:attribute>
             <xsl:attribute name="alt">illustration</xsl:attribute>
           </xsl:element>
         </xsl:otherwise>
@@ -1249,6 +1254,7 @@
           <xsl:choose>
             <xsl:when test="$pid and contains(upper-case($doc.title), 'STUDIES IN BIBLIOGRAPHY')">http://fedora-prod02.lib.virginia.edu:8080/fedora/objects/<xsl:value-of select="$pid"/>/methods/djatoka%3AStaticSDef/getThumbnail?</xsl:when>
             <xsl:when test="$pid and contains(upper-case($doc.title), 'BIBLIOGRAPHICAL SOCIETY')">http://fedora-prod02.lib.virginia.edu:8080/fedora/objects/<xsl:value-of select="$pid"/>/methods/djatoka%3AStaticSDef/getThumbnail?</xsl:when>
+            <xsl:when test="$pid and contains(upper-case($doc.title), 'SOUTHERN COLLECTING')">http://fedora-prod02.lib.virginia.edu:8080/fedora/objects/<xsl:value-of select="$pid"/>/methods/djatoka%3AStaticSDef/getThumbnail?</xsl:when>
             <xsl:when test="$pid">http://fedora-prod01.lib.virginia.edu:8080/fedora/get/<xsl:value-of select="$pid"/>/uva-lib-bdef:102/getPreview</xsl:when>
             <xsl:otherwise><xsl:value-of select="false()"/></xsl:otherwise>
           </xsl:choose>
@@ -1312,6 +1318,12 @@
 			</div>
 			<br/>
           </xsl:when>
+          <xsl:when test="$pid and contains(upper-case($doc.title), 'SOUTHERN COLLECTING')">
+			<div class="screen-image fedora-prod02" style="display:none;" id="{substring-after($pid, ':')}_container">
+				<img class="page_screen" title="Click to Shrink"/>
+			</div>
+			<br/>
+          </xsl:when>
           <xsl:otherwise>
 			<div class="screen-image" style="display:none;" id="{substring-after($pid, ':')}_container">
 				<img class="page_screen" title="Click to Shrink"/>
@@ -1325,7 +1337,7 @@
       -->
       <xsl:choose>
         <xsl:when test="$pid">
-  	      <div class="page-image">				
+  	      <div class="page-image">
   	        <img title="Click to Enlarge" class="page_thumbnail"  id="{substring-after($pid, ':')}_link" alt="{if (string(@n)) then concat('Page ', @n) else 'No Page Number'}"
   	             src="{$repo-location}"/>
   	      </div>

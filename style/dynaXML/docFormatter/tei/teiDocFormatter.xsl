@@ -588,9 +588,9 @@
 					<xsl:value-of
 						select="key('div-id', $chunk.id)/ancestor-or-self::*[matches(@*[local-name()='type'],'fmsec|chapter|bmsec')][1]/*[local-name()='head'][1]"
 					/>
-                    <xsl:text> </xsl:text>
+                                        <xsl:text> </xsl:text>
 					<xsl:value-of select="//teiHeader//biblFull//title[@type='main']"/><br/>
-                    <xsl:text> </xsl:text>
+                                        <xsl:text> </xsl:text>
 					<xsl:value-of select="//TEI.2/teiHeader/fileDesc/titleStmt/biblScope/date"/>
 				</span>
 			</td>

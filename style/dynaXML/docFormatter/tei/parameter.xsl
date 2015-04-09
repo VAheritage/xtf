@@ -42,7 +42,7 @@
    
    <xsl:param name="fig.ent" select="'0'"/>
    
-   <xsl:param name="doc.title" select="replace(/*/*[local-name()='text']/*[local-name()='front']/*[local-name()='titlePage']//*[local-name()='titlePart'][@type='main'], ',$', '')"/>
+   <xsl:param name="doc.title" select="normalize-space(replace(/*/*[local-name()='text']/*[local-name()='front']/*[local-name()='titlePage']//*[local-name()='titlePart'][@type='main'], ',$', ''))"/>
    
    <xsl:param name="doc.subtitle" select="/*/*[local-name()='text']/*[local-name()='front']/*[local-name()='titlePage']//*[local-name()='titlePart'][@type='subtitle']"/>
    
