@@ -435,10 +435,11 @@
 
 	<!--Suppreses all other elements of eadheader.-->
 	<xsl:template match="eadheader" >
-		<xsl:apply-templates  select="/ead/frontmatter/titlepage"/>
+		<!--<xsl:apply-templates  select="/ead/frontmatter/titlepage"/>-->
+		<xsl:call-template name="titlepage" />
 	</xsl:template>
 	
-	<xsl:template match="titlepage">
+	<xsl:template match="titlepage" name="titlepage">
 		<div style="text-align:center">	
 		<h2>
 			<a name="top">
@@ -469,7 +470,8 @@
 		<br/></div>
 		<!-- insert the logo -->
 		<div style="text-align:center">
-			<xsl:variable name="logo" select="//node()[@id='logostmt']/extptr" />
+			<xsl:variable name="logo" select="//p[@id='logostmt']/node()[local-name()='extptr' or local-name()='extref']" />
+
 			<xsl:variable name="logoref" >
 				<xsl:choose>
 					<xsl:when test="$logo/@href"><xsl:value-of select="$logo/@href"/></xsl:when>
