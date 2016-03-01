@@ -89,7 +89,7 @@
 
 	<!-- simple form -->
 	<xsl:template name="simpleForm" exclude-result-prefixes="#all">	
-		<script src="script/viva/basicSubmit.js" type="text/javascript"/>
+		<!--<script src="script/viva/basicSubmit.js" type="text/javascript"/>-->
 		
 		<h2>Basic Search</h2>
 		<form method="get" action="{$xtfURL}{$crossqueryPath}">
