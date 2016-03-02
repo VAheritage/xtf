@@ -273,6 +273,7 @@
 
 						</div>
 					</div>
+                    <xsl:copy-of select="$brand.footer"/>
 				</body>
 			</html>
 		</xsl:result-document>
