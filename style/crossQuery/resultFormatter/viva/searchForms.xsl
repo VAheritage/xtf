@@ -98,8 +98,8 @@
 				<dt class="t">Repository</dt>
 				<dd class="d">
 					<xsl:call-template name="select-inst" >
-						<xsl:with-param name="select-name">id</xsl:with-param>
-						<xsl:with-param name="select-value">publisher</xsl:with-param>
+						<xsl:with-param name="select-name">name</xsl:with-param>
+						<xsl:with-param name="select-value">f1-publisher</xsl:with-param>
 					</xsl:call-template>
 				</dd>
 			</div>
