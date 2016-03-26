@@ -1,0 +1,87 @@
+/* dynaXML Button Bar stylesheet */
+/* Applies only to the top navigation bar that appears in the frames view */
+body {
+	background-image:url(../../images/web_background.jpg);
+	margin: 6px;
+}
+form {
+	display: inline;
+}
+.menu_container {
+	background-color: #6699CC;
+	display:table;
+	width:100%;
+	margin:0px;
+	padding:0px;
+	list-style-type:none;
+	border-bottom:1px solid #003984;
+	border-top:1px solid #003984;
+}
+
+.menu {
+	width:100%;
+	margin:0px;
+	padding:0px;
+	list-style-type:none;
+}
+.tab {
+	float:left;
+	width:10%;
+	text-align: center;
+	padding:5px;
+	border-right:1px solid #003984;
+}
+.clear {
+	clear: both;
+}
+div.header {
+	margin: 0 auto;
+	display:table;
+	width:100%;
+}
+div.header img.logo {
+	float: left;
+	padding:5px;
+	height:100px;
+}
+.bbar_container {
+	background-color: #dededf;
+	display:table;
+	width:90%;
+	margin: 0 auto;
+	border-right: 1px solid #666;
+	border-left: 1px solid #666;
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+}
+div.left {
+	width: 30%;
+	text-align: left;
+	float:left;
+	padding:10px;
+}
+div.center {
+	width: 30%;
+	text-align: center;
+	vertical-align: middle;
+	float:left;
+	padding:10px;
+}
+div.center input[type="text"] {
+	margin-right: 5px;
+}
+div.right {
+	width: 30%;
+	text-align: right;
+	float:right;
+	padding-right:10px;
+	padding-top:5px;
+}
+.citation {
+}
+.container {
+	background-color: #fff;
+	border: 1px solid #666;
+	height: 100%;
+	padding: 10px 10px 20px 10px;
+}
