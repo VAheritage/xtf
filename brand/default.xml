@@ -1,39 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <brand xmlns="http://www.w3.org/1999/xhtml">
-   
-   <links>
-      <link rel="stylesheet" href="css/default/results.css" type="text/css"/>
-	  <link rel="shortcut icon" href="icons/default/favicon.ico" />
-   </links>
-   
-   <dynaxml.links>
-      <link rel="stylesheet" href="css/default/content.css" type="text/css"/>
-      <link rel="shortcut icon" href="icons/default/favicon.ico" />
 
+	<links>
+		<link rel="stylesheet" href="css/viva/results.css" type="text/css"/>
+		<script type="text/javascript"  src="script/viva/jquery-1.10.2.min.js" ></script>
+		<script type="text/javascript"  src="script/viva/jquery-migrate-1.2.1.min.js" ></script>
+		<script src="script/viva/advanced_search.js" type="text/javascript"/>		
+	</links>
 
-   </dynaxml.links>
-   
-   <header>
-      <div class="header">
-         <img src="icons/default/xtf_logo.gif" alt="eXtensible Text Framework" class="xtf-logo"/>
-         <img src="icons/default/your_logo.gif" width="100" height="40" alt="graphic" class="your-logo" />
-         <br class="clear" />
-      </div>
-   </header>
-   
-   <dynaxml.header>
-      <div class="header">
-         <img src="icons/default/xtf_logo.gif" alt="eXtensible Text Framework" class="xtf-logo"/>
-         <img src="icons/default/your_logo.gif" width="100" height="40" alt="graphic" class="your-logo" />
-         <br class="clear" />
-      </div>
-   </dynaxml.header>
-   
-   <footer>
-      <div class="footer">
-         <a href="mailto:you@yourserver.com">Comments? Questions?</a> | <a href="javascript://" onclick="javascript:window.open('/xtf/search?smode=getLang','popup','width=500,height=200,resizable=no,scrollbars=no')">Choose Language</a>
-      </div>
-   </footer>
-   
+	<dynaxml.links>
+		<link rel="stylesheet" href="css/viva/content.css" type="text/css"/>
+		<link rel="stylesheet" href="css/viva/ead.css" type="text/css"/>
+		<link rel="stylesheet" href="css/viva/toc.css" type="text/css"/>		
+		<script type="text/javascript"  src="script/viva/jquery-1.10.2.min.js" ></script>
+		<script type="text/javascript"  src="script/viva/jquery-migrate-1.2.1.min.js" ></script>
+		<script src="script/viva/jquery.lightbox-0.5.min.js" type="text/javascript"/>
+		<script type="text/javascript"  src="script/viva/ead_lightbox.js" ></script>
+	</dynaxml.links>
+
+	<header>
+		<div class="header">
+			<a href="http://vaheritage.org/">
+				<img src="http://ead.lib.virginia.edu/vivaead/logos/vhpban.jpg" alt="VIVA EAD Logo"
+				class="logo"/></a>
+			<br class="clear"/>
+		</div>
+	</header>
+
+	<dynaxml.header>
+		<div class="header">
+			<img src="http://ead.lib.virginia.edu/vivaead/logos/vhpban.jpg" alt="VIVA EAD Logo"
+				class="logo"/>
+			<br class="clear"/>
+		</div>
+	</dynaxml.header>
+
+	<footer>
+		<div class="footer">
+		</div>
+		<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ?
+"https://analytics.lib.virginia.edu/" :
+"http://analytics.lib.virginia.edu/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 9);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img
+src="http://analytics.lib.virginia.edu/piwik.php?idsite=9"
+style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
+
+	</footer>
+
 </brand>
