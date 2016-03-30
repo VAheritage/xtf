@@ -90,5 +90,26 @@
             <servlet-name>org.cdlib.xtf.zing.SRU</servlet-name>
             <url-pattern>/servlet/org.cdlib.xtf.zing.SRU</url-pattern>
         </servlet-mapping>
-    
+
+        <!-- http://stackoverflow.com/questions/7068046/how-can-i-list-all-the-files-in-folder-on-tomcat -->
+        <!-- note: 'default' renamed to 'mydefault' : otherwise it generates an error as default is already configured -->
+        <servlet>
+            <servlet-name>mydefault</servlet-name>
+            <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+            <init-param>
+                <param-name>debug</param-name>
+                <param-value>0</param-value>
+            </init-param>
+            <init-param>
+                <param-name>listings</param-name>
+                <param-value>true</param-value>
+            </init-param>
+            <load-on-startup>1</load-on-startup>
+        </servlet>
+
+        <servlet-mapping>
+            <servlet-name>mydefault</servlet-name>
+            <url-pattern>/data/*</url-pattern>
+        </servlet-mapping>
+
     </web-app>
