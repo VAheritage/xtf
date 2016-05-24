@@ -1071,15 +1071,18 @@
 	</xsl:template>
 
 	<xsl:template match="dao | daoloc">
-		<xsl:if test="contains(@href, '.jpg')">
+		<xsl:if test="true()" > <!-- test="contains(@href, '.jpg')"> -->
 			<xsl:variable name="title">
 				<xsl:choose>
 					<xsl:when test="string(normalize-space(@title))">
 						<xsl:value-of select="@title"/>
 					</xsl:when>
+					<xsl:when test="string(normalize-space(@linktitle))">
+						<xsl:value-of select="@linktitle"/>
+					</xsl:when>
 					<xsl:otherwise>
 						<xsl:value-of
-							select="substring-after(substring-before(@href, '.jpg'), 'tj/')"/>
+							select="substring-after(substring-before(@href, '.'), '//')"/>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:variable>

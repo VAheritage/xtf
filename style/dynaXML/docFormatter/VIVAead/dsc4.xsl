@@ -153,7 +153,7 @@
 		</xsl:if>
 
 		<xsl:apply-templates
-			select="daogrp|langmaterial|note|origination|physdesc|unitdate|abstract|physdesc"
+			select="daogrp|daoset|langmaterial|note|origination|physdesc|unitdate|abstract|physdesc"
 			mode="did_level"/>
 
 		<xsl:if test="dao">
@@ -401,6 +401,14 @@
 
 			</xsl:otherwise>
 		</xsl:choose>
+	</xsl:template>
+
+
+	<xsl:template match="daoset" mode="did_level">
+		<div class="ldd" name="{name()}">
+			<b>Images: </b>
+			<xsl:apply-templates select="dao" />
+		</div>
 	</xsl:template>
 	
 	<xsl:template match="daogrp" mode="did_level">
