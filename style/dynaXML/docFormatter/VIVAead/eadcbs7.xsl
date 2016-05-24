@@ -1089,7 +1089,7 @@
 
 			<xsl:variable name="class">
 				<xsl:choose>
-					<xsl:when test="contains(@href,'.jpg')">jqueryLightbox</xsl:when>
+					<xsl:when test="contains( @href,'.jpg') or contains( @href, '.JPG' )">jqueryLightbox</xsl:when>
 					<xsl:otherwise>other</xsl:otherwise>
 				</xsl:choose>
 			</xsl:variable>
