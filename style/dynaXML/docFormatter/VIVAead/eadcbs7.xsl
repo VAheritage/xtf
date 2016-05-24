@@ -1087,7 +1087,14 @@
 				</xsl:choose>
 			</xsl:variable>
 
-			<a href="{@href}" title="{$title}" class="jqueryLightbox">
+			<xsl:variable name="class">
+				<xsl:choose>
+					<xsl:when test="contains(@href,'.jpg')">jqueryLightbox</xsl:when>
+					<xsl:otherwise>other</xsl:otherwise>
+				</xsl:choose>
+			</xsl:variable>
+
+			<a href="{@href}" title="{$title}" class="{$class}" target="_blank" >
 				<xsl:value-of select="$title"/>
 			</a>
 			<xsl:text> </xsl:text>
