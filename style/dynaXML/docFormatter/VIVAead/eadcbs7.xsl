@@ -1095,6 +1095,9 @@
 			</xsl:variable>
 
 			<a href="{@href}" title="{$title}" class="{$class}" target="_blank" >
+				<xsl:if test="local-name(..) = 'daogrp' or local-name(..) = 'daoset'" >
+				<xsl:attribute name="rel"   >lightbox[<xsl:value-of select="../@id"/>]</xsl:attribute>
+				</xsl:if>
 				<xsl:value-of select="$title"/>
 			</a>
 			<xsl:text> </xsl:text>
