@@ -239,7 +239,7 @@ td.tei_right {
 	vertical-align: sub;
 }
 
-.tei_super {
+.tei_super, .tei_sup {
 	vertical-align: super;
 }
 
@@ -250,7 +250,7 @@ td.tei_right {
 .tei_gap {
 	font-weight: bold;
 }
-<<<<<<< .mine
+
 
 .tei_circle {
   border: thin solid black;
