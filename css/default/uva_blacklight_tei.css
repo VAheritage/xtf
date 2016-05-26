@@ -240,7 +240,10 @@ td.tei_right {
 }
 
 .tei_super, .tei_sup {
-	vertical-align: super;
+	/* vertical-align: super; */
+    position: relative;
+    bottom: 1ex;
+    font-size: 80%;
 }
 
 .tei_underline {

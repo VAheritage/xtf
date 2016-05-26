@@ -315,9 +315,9 @@ h3 {
 h2:first-letter, h3:first-letter {
 	font-size:120%;
 }
-td {
+/* td {
 	vertical-align: top;
-}
+}  breaks rend=super in tables in Safari */
 dt {
 	float:left;
 	width:150px;
