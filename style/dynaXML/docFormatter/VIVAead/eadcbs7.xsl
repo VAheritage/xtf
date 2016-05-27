@@ -4,12 +4,12 @@
    to work with EAD 2002.-->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xtf="http://cdlib.org/xtf"
-	xmlns="http://www.w3.org/1999/xhtml" version="1.0">
+	xmlns="http://www.w3.org/1999/xhtml" version="2.0">
 
 	<!-- Creates a variable equal to the value of the number in eadid which serves as the base
       for file names for the various components of the frameset.-->
 	<xsl:variable name="file">
-		<xsl:value-of select="ead/eadheader/eadid"/>
+		<xsl:value-of select="ead/(eadheader|control)/eadid"/>
 	</xsl:variable>
 
 	<!--This template creates HTML meta tags that are inserted into the HTML ouput
@@ -18,7 +18,7 @@
       the finding aid.-->
 	<xsl:template name="metadata">
 		<meta http-equiv="Content-Type" name="dc.title"
-			content="{eadheader/filedesc/titlestmt/titleproper&#x20; }{eadheader/filedesc/titlestmt/subtitle}"/>
+			content="{(eadheader|control)/filedesc/titlestmt/titleproper&#x20; }{(eadheader|control)/filedesc/titlestmt/subtitle}"/>
 		<meta http-equiv="Content-Type" name="dc.author" content="{archdesc/did/origination}"/>
 
 		<xsl:for-each select="//controlaccess/persname | //controlaccess/corpname">
@@ -65,7 +65,7 @@
 	<!-- Creates the body of the finding aid.-->
 	<xsl:template name="body">
 		<xsl:variable name="file">
-			<xsl:value-of select="ead/eadheader/eadid"/>
+			<xsl:value-of select="ead/(eadheader|control)/eadid"/>
 		</xsl:variable>
 		<html xml:lang="en" lang="en">
 			<head>
@@ -73,9 +73,9 @@
 				<link rel="stylesheet" type="text/css" href="{$css.path}ead.css"/>
 
 				<title>
-					<xsl:value-of select="eadheader/filedesc/titlestmt/titleproper"/>
+					<xsl:value-of select="(eadheader|control)/filedesc/titlestmt/titleproper"/>
 					<xsl:text>  </xsl:text>
-					<xsl:value-of select="eadheader/filedesc/titlestmt/subtitle"/>
+					<xsl:value-of select="(eadheader|control)/filedesc/titlestmt/subtitle"/>
 				</title>
 
 				<xsl:call-template name="metadata"/>
@@ -452,7 +452,7 @@
 						<xsl:value-of select="/ead/frontmatter/titlepage/titleproper" />
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:value-of select="/ead/eadheader/filedesc/titlestmt/titleproper"/>
+						<xsl:value-of select="/ead/(eadheader|control)/filedesc/titlestmt/titleproper"/>
 					</xsl:otherwise>
 				</xsl:choose>
 			</a>
@@ -463,7 +463,7 @@
 					<xsl:apply-templates select="/ead/frontmatter/titlepage/subtitle" />	
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:apply-templates select="/ead/eadheader/filedesc/titlestmt/subtitle" />
+					<xsl:apply-templates select="/ead/(eadheader|control)/filedesc/titlestmt/subtitle" />
 				</xsl:otherwise>
 			</xsl:choose>
 		</h3>
@@ -503,12 +503,12 @@
 				<xsl:apply-templates  /> <br/>
 			</xsl:for-each> --> 
 		<div style="text-align:center" >
-			<p><xsl:value-of  select="/ead/eadheader/filedesc/publicationstmt/publisher"/></p>
-			<xsl:for-each select="/ead/eadheader/filedesc/publicationstmt/address/*">
+			<p><xsl:value-of  select="/ead/(eadheader|control)/filedesc/publicationstmt/publisher"/></p>
+			<xsl:for-each select="/ead/(eadheader|control)/filedesc/publicationstmt/address/*">
 				<xsl:apply-templates  /> <br/>
 			</xsl:for-each>
 	<!-- Copyright & Conditions of Use -->
-			<p><xsl:apply-templates select="/ead/eadheader/filedesc/publicationstmt/date" /></p>
+			<p><xsl:apply-templates select="/ead/(eadheader|control)/filedesc/publicationstmt/date" /></p>
 			
 			<!-- Funding:  /  <sponsor>  -->			
 			<p><xsl:choose>
@@ -516,7 +516,7 @@
 					<xsl:apply-templates select="/ead/frontmatter/titlepage/list[@type='deflist']/defitem[contains(label,'Funding:')]" />
 				</xsl:when>
 				<xsl:otherwise>
-						<xsl:apply-templates select="/ead/eadheader/filedesc/titlestmt/sponsor"/>										
+						<xsl:apply-templates select="/ead/(eadheader|control)/filedesc/titlestmt/sponsor"/>										
 				</xsl:otherwise>
 			</xsl:choose></p>
 			
@@ -526,7 +526,7 @@
 					<xsl:apply-templates select="/ead/frontmatter/titlepage/list[@type='deflist']/defitem[contains(label,'Processed by:')]" />
 				</xsl:when>
 				<xsl:otherwise>
-						<xsl:apply-templates select="/ead/eadheader/filedesc/titlestmt/author"/>															
+						<xsl:apply-templates select="/ead/(eadheader|control)/filedesc/titlestmt/author"/>															
 				</xsl:otherwise>
 			</xsl:choose></p>
 			

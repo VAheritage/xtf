@@ -113,9 +113,9 @@
 			<head>
 				<xsl:copy-of select="$brand.links" />
 				<title>
-					<xsl:value-of select="eadheader/filedesc/titlestmt/titleproper"/>
+					<xsl:value-of select="(eadheader|control)/filedesc/titlestmt/titleproper"/>
 					<xsl:text>  </xsl:text>
-					<xsl:value-of select="eadheader/filedesc/titlestmt/subtitle"/>
+					<xsl:value-of select="(eadheader|control)/filedesc/titlestmt/subtitle"/>
 				</title>
 			</head>
 
