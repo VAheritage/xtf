@@ -158,8 +158,7 @@
 
 		<xsl:if test="dao">
 			<div class="ldd" name="{name()}">
-				<b>Images: </b>
-				<xsl:apply-templates select="descendant::dao"/>
+				<br/><b><xsl:apply-templates select="descendant::dao"/></b>
 			</div>
 		</xsl:if>
 	</xsl:template>
@@ -406,16 +405,14 @@
 
 	<xsl:template match="daoset" mode="did_level">
 		<div class="ldd" name="{name()}">
-			<b>Images: </b>
-			<xsl:apply-templates select="dao" />
+			<br/><b><xsl:apply-templates select="dao" /></b>
 		</div>
 	</xsl:template>
 	
 	<xsl:template match="daogrp" mode="did_level">
 		<div class="ldd" name="{name()}">
 			<xsl:apply-templates select="daodesc"/>
-			<b>Images: </b>
-			<xsl:apply-templates select="daoloc"/>
+			<br/><b><xsl:apply-templates select="daoloc"/></b>
 		</div>
 	</xsl:template>
 </xsl:stylesheet>

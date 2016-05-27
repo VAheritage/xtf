@@ -1100,7 +1100,7 @@
 				</xsl:if>
 				<xsl:value-of select="$title"/>
 			</a>
-			<xsl:text> </xsl:text>
+			<xsl:text>&#160;&#160;&#160;</xsl:text>
 		</xsl:if>
 	</xsl:template>
 
