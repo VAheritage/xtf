@@ -82,7 +82,7 @@
 			</head>
 			<body>
 
-				<xsl:apply-templates select="eadheader"/>
+				<xsl:apply-templates select="eadheader|control"/>
 
 				<!--To change the order of display, adjust the sequence of
                the following apply-template statements which invoke the various
@@ -434,7 +434,7 @@
 	</xsl:template>
 
 	<!--Suppreses all other elements of eadheader.-->
-	<xsl:template match="eadheader" >
+	<xsl:template match="eadheader|control" >
 		<!--<xsl:apply-templates  select="/ead/frontmatter/titlepage"/>-->
 		<xsl:call-template name="titlepage" />
 	</xsl:template>
@@ -470,7 +470,7 @@
 		<br/></div>
 		<!-- insert the logo -->
 		<div style="text-align:center">
-			<xsl:variable name="logo" select="//p[@id='logostmt']/node()[local-name()='extptr' or local-name()='extref']" />
+			<xsl:variable name="logo" select="//p[@id='logostmt']/node()[local-name()='extptr' or local-name()='extref' or local-name()='ref']" />
 
 			<xsl:variable name="logoref" >
 				<xsl:choose>
