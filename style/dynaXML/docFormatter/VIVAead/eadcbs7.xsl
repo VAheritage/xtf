@@ -4,7 +4,7 @@
    to work with EAD 2002.-->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xtf="http://cdlib.org/xtf"
-	xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+	xmlns="http://www.w3.org/1999/xhtml" version="1.0">
 
 	<!-- Creates a variable equal to the value of the number in eadid which serves as the base
       for file names for the various components of the frameset.-->
