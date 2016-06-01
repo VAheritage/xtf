@@ -231,7 +231,7 @@ td.tei_right {
 	font-size: 80%;
 }
 
-.tei_small-caps {
+.tei_small-caps, .tei_smallcaps {
 	font-variant: small-caps;
 }
 
