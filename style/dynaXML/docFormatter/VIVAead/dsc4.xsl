@@ -141,7 +141,7 @@
 			</xsl:for-each>
 		</xsl:if>
 		<xsl:apply-templates select="repository"/>
-		<xsl:apply-templates select="unitid"/>
+		<xsl:apply-templates select="unitid[not(@audience='internal')]"/>
 		<xsl:apply-templates select="head" mode="content"/>
 		<xsl:apply-templates select="unittitle" mode="content"/>
 		<xsl:if test="parent::node()/@level='series'">

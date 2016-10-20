@@ -175,6 +175,7 @@
          <xsl:apply-templates select="langmaterial"/>
          <xsl:apply-templates select="materialspec"/>
          <xsl:apply-templates select="note"/>
+         <xsl:apply-templates select="dao|daogrp|daoset" />
       </xsl:copy>
    </xsl:template>
    

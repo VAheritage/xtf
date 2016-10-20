@@ -546,7 +546,7 @@
 		<!--One can change the order of appearance for the children of did
 		by changing the order of the following statements.-->
 		<xsl:apply-templates select="repository"/>
-		<xsl:apply-templates select="unitid"/>
+		<xsl:apply-templates select="unitid[not(@audience='internal')]"/>
 		<xsl:apply-templates select="unittitle"/>
 		<xsl:apply-templates select="physdesc"/>
 		<xsl:apply-templates select="origination"/>
