@@ -10,6 +10,7 @@
 	</links>
 
 	<dynaxml.links>
+        <meta name="referrer" content="origin" />
 		<link rel="stylesheet" href="css/viva/content.css" type="text/css"/>
 		<link rel="stylesheet" href="css/viva/ead.css" type="text/css"/>
 		<link rel="stylesheet" href="css/viva/toc.css" type="text/css"/>		
