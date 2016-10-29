@@ -1005,7 +1005,7 @@
           <xsl:text>/uva-lib-bdef:102/getScreen</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="concat('http://static.lib.virginia.edu', '/legacy/' ,  $pid, '.jpg')"/>
+          <xsl:value-of select="concat('http://static.lib.virginia.edu', '/legacy/',  upper-case(substring($pid,1,1)), '/', $pid, '.jpg')"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
