@@ -13,7 +13,8 @@
         <meta name="referrer" content="origin" />
 		<link rel="stylesheet" href="css/viva/content.css" type="text/css"/>
 		<link rel="stylesheet" href="css/viva/ead.css" type="text/css"/>
-		<link rel="stylesheet" href="css/viva/toc.css" type="text/css"/>		
+		<link rel="stylesheet" href="css/viva/toc.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/viva/bbar.css"/>
 		<script type="text/javascript"  src="script/viva/jquery-1.12.4.min.js" ></script>
 		<script type="text/javascript"  src="script/viva/jquery-migrate-1.3.0.min.js" ></script>
 		<script src="script/viva/jquery.lightbox.min.js" type="text/javascript"/>

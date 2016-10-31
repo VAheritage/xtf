@@ -14,7 +14,6 @@
 	<!-- ====================================================================== -->
 
 	<xsl:template name="bbar">
-		<link rel="stylesheet" type="text/css" href="{$css.path}bbar.css"/>
 		<div class="bbar">
 			<xsl:copy-of select="$brand.header"/>
 			<div class="menu_container">
