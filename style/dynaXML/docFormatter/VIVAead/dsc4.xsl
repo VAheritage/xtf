@@ -395,7 +395,7 @@
 				</xsl:if>
 
 				<div style="float:left;width:100px;{$style}">
-					<xsl:if test="not($debug.labels)"><xsl:value-of select="@label"/></xsl:if><xsl:text> </xsl:text><xsl:value-of select="."/>
+					<xsl:if test="not($debug.labels)"><xsl:value-of select="@label"/></xsl:if><xsl:text> </xsl:text><!--<xsl:value-of select="."/>--><xsl:apply-templates />
 				</div>
 
 			</xsl:otherwise>
