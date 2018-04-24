@@ -148,7 +148,7 @@
       -->
       <style path="{
          if (matches($http.URL, $ercPat)) then 'style/dynaXML/docFormatter/erc/ercDocFormatter.xsl'
-         else if ($fileType = 'ead') then 'style/dynaXML/docFormatter/VIVAead/eadDocFormatter.xsl'
+         else if ($fileType = 'ead') then 'style/dynaXML/docFormatter/ead/eadDocFormatter.xsl'
          else if ($fileType = 'nlm') then 'style/dynaXML/docFormatter/nlm/nlmDocFormatter.xsl'
          else if ($fileType = 'tei') then 'style/dynaXML/docFormatter/tei/teiDocFormatter.xsl'
          else if ($fileType = 'book') then 'style/dynaXML/docFormatter/bookreader/bookDocFormatter.xsl'
@@ -189,7 +189,7 @@
          that weren't built at index time (due to specifying -nobuildlazy).
       -->
       <preFilter path="{
-         if      ($fileType = 'ead') then 'style/textIndexer/ead/VIVAeadPreFilter.xsl'
+         if      ($fileType = 'ead') then 'style/textIndexer/ead/eadPreFilter.xsl'
          else if ($fileType = 'nlm') then 'style/textIndexer/nlm/nlmPreFilter.xsl'
          else if ($fileType = 'tei') then 'style/textIndexer/tei/teiPreFilter.xsl'
          else                             'style/textIndexer/default/defaultPreFilter.xsl'}"/>

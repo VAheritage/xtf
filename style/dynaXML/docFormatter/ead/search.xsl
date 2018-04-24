@@ -1,6 +1,5 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:xtf="http://cdlib.org/xtf" 
-   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:xtf="http://cdlib.org/xtf" exclude-result-prefixes="#all"
    version="2.0">
    
    <!--
@@ -47,12 +46,12 @@
       
       <xsl:choose>
          <xsl:when test="xtf:term">
-            <span class="hitsection">
+            <span class="bg-info">
                <xsl:apply-templates/>
             </span>
          </xsl:when>
          <xsl:otherwise>
-            <span class="hit">
+            <span class="bg-info">
                <xsl:apply-templates/>
             </span>
          </xsl:otherwise>
@@ -66,7 +65,7 @@
    
    <xsl:template match="xtf:more">
       
-      <span class="hitsection">
+      <span class="bg-info">
          <xsl:apply-templates/>
       </span>
       
@@ -77,7 +76,7 @@
    </xsl:template>
    
    <xsl:template match="xtf:term">
-      <span class="subhit">
+      <span class="bg-info">
          <xsl:apply-templates/>
       </span>
    </xsl:template>

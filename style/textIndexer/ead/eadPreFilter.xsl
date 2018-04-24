@@ -130,7 +130,7 @@
 
          <!-- archdesc-admininfo -->
          <xsl:apply-templates mode="addChunkId" select="custodhist"/>
-         <xsl:apply-templates mode="addChunkId" select="altformavailable"/>
+         <xsl:apply-templates mode="addChunkId" select="altformavail"/>
          <xsl:apply-templates mode="addChunkId" select="prefercite"/>
          <xsl:apply-templates mode="addChunkId" select="acqinfo"/>
          <xsl:apply-templates mode="addChunkId" select="processinfo"/>
@@ -280,6 +280,17 @@
                <xsl:call-template name="get-ead-contributor"/>
                <xsl:call-template name="get-ead-date"/>
                <xsl:call-template name="get-ead-type"/>
+               
+               <!-- JB 3/31/2014 add to generate materials facet from genreform -->
+               <xsl:call-template name="get-ead-genreform"/>
+               
+               <!-- HA 3/31/2014 adding additional facets -->
+               <xsl:call-template name="get-ead-persname"/>
+               <xsl:call-template name="get-ead-corpname"/>
+               <xsl:call-template name="get-ead-geogname"/>
+               <xsl:call-template name="get-ead-famname"/>
+               <xsl:call-template name="get-ead-occupation"/>
+
                <xsl:call-template name="get-ead-format"/>
                <xsl:call-template name="get-ead-identifier"/>
                <xsl:call-template name="get-ead-source"/>
@@ -334,16 +345,34 @@
    <!-- creator -->
    <xsl:template name="get-ead-creator">
       <xsl:choose>
+         <!--HA 3/21/2014 adding selection of creator by role attribute -->
          <xsl:when test="($dtdVersion)/ead/archdesc/did/origination[starts-with(@label, 'Creator')]">
             <creator xtf:meta="true">
                <xsl:value-of select="string(($dtdVersion)/ead/archdesc/did/origination[@label, 'Creator'][1])"/>
             </creator>
          </xsl:when>
-         <xsl:when test="($dtdVersion)/ead/eadheader/filedesc/titlestmt/author">
+         <xsl:when test="($dtdVersion)/ead/archdesc/did/origination[starts-with(@role, 'creator')]">
+            <creator xtf:meta="true">
+               <xsl:value-of select="string(($dtdVersion)/ead/archdesc/did/origination[@role, 'creator'][1])"/>
+            </creator>
+         </xsl:when>
+         <!-- HA 3/26/2014 adding selection of collector by role attribute -->
+         <xsl:when test="($dtdVersion)/ead/archdesc/did/origination[starts-with(@label, 'Collector')]">
+            <creator xtf:meta="true">
+               <xsl:value-of select="string(($dtdVersion)/ead/archdesc/did/origination[@label, 'Collector'][1])"/>
+            </creator>
+         </xsl:when>
+         <xsl:when test="($dtdVersion)/ead/archdesc/did/origination[starts-with(@label, 'collector')]">
+            <creator xtf:meta="true">
+               <xsl:value-of select="string(($dtdVersion)/ead/archdesc/did/origination[@label, 'collector'][1])"/>
+            </creator>
+         </xsl:when>
+         <!-- HA 3/21/2014 disabling indexing of author in titlestmt -->
+         <!--<xsl:when test="($dtdVersion)/ead/eadheader/filedesc/titlestmt/author">
             <creator xtf:meta="true">
                <xsl:value-of select="string(($dtdVersion)/ead/eadheader/filedesc/titlestmt/author[1])"/>
             </creator>
-         </xsl:when>
+         </xsl:when>-->
          <xsl:otherwise>
             <creator xtf:meta="true">
                <xsl:value-of select="'unknown'"/>
@@ -359,14 +388,14 @@
          <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/subject">
             <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/subject" group-by="string()">
                <subject xtf:meta="true">
-                  <xsl:value-of select="."/>
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
                </subject>
             </xsl:for-each-group>
          </xsl:when>
          <xsl:when test="($dtdVersion)/ead/eadheader/filedesc/notestmt/subject">
             <xsl:for-each-group select="($dtdVersion)/ead/eadheader/filedesc/notestmt/subject" group-by="string()">
                <subject xtf:meta="true">
-                  <xsl:value-of select="."/>
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
                </subject>
             </xsl:for-each-group>
          </xsl:when>
@@ -392,14 +421,19 @@
    <!-- publisher -->
    <xsl:template name="get-ead-publisher">
       <xsl:choose>
-         <xsl:when test="($dtdVersion)/ead/archdesc/did/repository">
+         <xsl:when test="($dtdVersion)/ead/eadheader/eadid/@mainagencycode">
             <publisher xtf:meta="true">
-               <xsl:value-of select="string(($dtdVersion)/ead/archdesc/did/repository[1])"/>
+               <xsl:call-template name="publisher-list"/>
             </publisher>
          </xsl:when>
          <xsl:when test="($dtdVersion)/ead/eadheader/filedesc/publicationstmt/publisher">
             <publisher xtf:meta="true">
-               <xsl:value-of select="string(($dtdVersion)/ead/eadheader/filedesc/publicationstmt/publisher[1])"/>
+               <xsl:value-of select="normalize-space(($dtdVersion)/ead/eadheader/filedesc/publicationstmt/publisher[1])"/>
+            </publisher>
+         </xsl:when>
+         <xsl:when test="($dtdVersion)/ead/archdesc/did/repository">
+            <publisher xtf:meta="true">
+               <xsl:value-of select="normalize-space(($dtdVersion)/ead/archdesc/did/repository[1])"/>
             </publisher>
          </xsl:when>
          <xsl:otherwise>
@@ -410,6 +444,101 @@
       </xsl:choose>
    </xsl:template>
    
+   <!-- publisher list -->
+   <xsl:template name="publisher-list">
+      <xsl:variable name="agencycode">
+         <!-- Change agencycode to lowercase and strip out all dashes -->
+         <xsl:variable name="lowercase">
+            <xsl:value-of select="replace(lower-case(($dtdVersion)/ead/eadheader/eadid/@mainagencycode), '-', '')"/>
+         </xsl:variable>
+         <xsl:choose>
+            <!-- Remove country code from agencycode if it exists -->
+            <xsl:when test="starts-with($lowercase, 'us')">
+                  <xsl:value-of select="substring-after($lowercase, 'us')"/>
+            </xsl:when>
+            <!-- if there's no country code, then just use the main agency code in lowercase with all dashes removed -->
+            <xsl:otherwise>
+               <xsl:value-of select="$lowercase"/>
+            </xsl:otherwise>
+         </xsl:choose>
+      </xsl:variable>
+      <xsl:choose>
+         <!-- List of agency codes with corresponding text values -->
+         <xsl:when test="$agencycode = 'nalsu'">
+            <xsl:text>University at Albany M. E. Grenander Department of Special Collections and Archives</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nbuuar'">
+               <xsl:text>State University of New York at Buffalo. University Archives</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nbuul'">
+               <xsl:text>State University of New York at Buffalo Charles B. Sears Law Library</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nbuumu'">
+               <xsl:text>State University of New York at Buffalo Music Library</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nbuupo'">
+               <xsl:text>State University of New York at Buffalo Poetry Collection</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'ngca'">
+            <xsl:text>Adelphi University</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nhyf'">
+               <xsl:text>Franklin D. Roosevelt Presidential Library and Museum</xsl:text>            
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nic'">
+               <xsl:text>Cornell University</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nn'">
+               <xsl:text>The New York Public Library</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nnan'">
+            <xsl:text>American Numismatic Society Archives</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nnca'">
+               <xsl:text>Columbia University Avery Architecture and Fine Arts Library</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nncrb'">
+               <xsl:text>Columbia University Rare Book and Manuscript Library</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nncua'">
+            <xsl:text>Columbia University Archives</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nngu'">
+            <xsl:text>Solomon R. Guggenheim Museum Archives</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nnmoma'">
+               <xsl:text>The Museum of Modern Art Archives</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nnns'">
+               <xsl:text>Kellen Design Archives</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nnttr'">
+               <xsl:text>Rockefeller Archive Center</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nsy'">
+               <xsl:text>Onondaga County Public Library</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nsyohi'">
+               <xsl:text>Onondaga Historical Association</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nsyu'">
+               <xsl:text>Syracuse University</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nyblhs'">
+               <xsl:text>Brooklyn Historical Society</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'nynycjh'">
+               <xsl:text>Center for Jewish History</xsl:text>
+         </xsl:when>
+         <xsl:when test="$agencycode = 'vxw'">
+               <xsl:text>Vassar College Archives and Special Collections Library</xsl:text>
+         </xsl:when>
+         <xsl:otherwise>
+            <xsl:value-of select="$agencycode"/>
+         </xsl:otherwise>
+      </xsl:choose>
+   </xsl:template>
+  
    <!-- contributor -->
    <xsl:template name="get-ead-contributor">
       <xsl:choose>
@@ -429,9 +558,14 @@
    <!-- date --> 
    <xsl:template name="get-ead-date">
       <xsl:choose>
-         <xsl:when test="($dtdVersion)/ead/eadheader/filedesc/publicationstmt/date">
+         <xsl:when test="($dtdVersion)/ead/archdesc/did/unitdate">
             <date xtf:meta="true">
-               <xsl:value-of select="string(($dtdVersion)/ead/eadheader/filedesc/publicationstmt/date[1])"/>
+               <xsl:value-of select="($dtdVersion)/ead/archdesc/did/unitdate"/>
+            </date>
+         </xsl:when>
+         <xsl:when test="($dtdVersion)/ead/archdesc/did/unittitle/unitdate">
+            <date xtf:meta="true">
+               <xsl:value-of select="($dtdVersion)/ead/archdesc/did/unittitle/unitdate"/>
             </date>
          </xsl:when>
          <xsl:otherwise>
@@ -445,6 +579,246 @@
    <!-- type -->
    <xsl:template name="get-ead-type">
       <type xtf:meta="true">ead</type>
+   </xsl:template>
+   
+   <!-- JB 3/31/2014 add to generate materials facet from genreform -->
+   <xsl:template name="get-ead-genreform">
+      <xsl:choose>
+         <xsl:when test="($dtdVersion)/ead/archdesc/controlaccess/genreform">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc/controlaccess/genreform"
+               group-by="string()">
+               <genreform xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </genreform>
+            </xsl:for-each-group>
+         </xsl:when>
+         <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/genreform">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/genreform"
+               group-by="string()">
+               <genreform xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </genreform>
+            </xsl:for-each-group>
+         </xsl:when>
+         <!-- add to account for nesting of control access -->
+         <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/*/genreform">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/*/genreform"
+               group-by="string()">
+               <genreform xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </genreform>
+            </xsl:for-each-group>
+         </xsl:when>
+         <!-- will NYEAD use  -->
+         <xsl:when test="($dtdVersion)/ead/eadheader/filedesc/notestmt/genreform">
+            <xsl:for-each-group select="($dtdVersion)/ead/eadheader/filedesc/notestmt/genreform"
+               group-by="string()">
+               <genreform xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </genreform>
+            </xsl:for-each-group>
+         </xsl:when>
+      </xsl:choose>
+   </xsl:template>
+   
+   <!-- persname -->
+   <xsl:template name="get-ead-persname">
+      <xsl:choose>
+         <xsl:when test="($dtdVersion)/ead/archdesc/controlaccess/persname">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc/controlaccess/persname"
+               group-by="string()">
+               <persname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </persname>
+            </xsl:for-each-group>
+         </xsl:when>
+         <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/persname">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/persname"
+               group-by="string()">
+               <persname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </persname>
+            </xsl:for-each-group>
+         </xsl:when>
+         <!-- add to account for nesting of control access -->
+         <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/*/persname">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/*/persname"
+               group-by="string()">
+               <persname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </persname>
+            </xsl:for-each-group>
+         </xsl:when>
+         <!-- will NYEAD use  -->
+         <xsl:when test="($dtdVersion)/ead/eadheader/filedesc/notestmt/persname">
+            <xsl:for-each-group select="($dtdVersion)/ead/eadheader/filedesc/notestmt/persname"
+               group-by="string()">
+               <persname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </persname>
+            </xsl:for-each-group>
+         </xsl:when>
+      </xsl:choose>
+   </xsl:template>     
+         
+   <!-- corpname -->
+   <xsl:template name="get-ead-corpname">
+      <xsl:choose>
+         <xsl:when test="($dtdVersion)/ead/archdesc/controlaccess/corpname">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc/controlaccess/corpname"
+               group-by="string()">
+               <corpname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </corpname>
+            </xsl:for-each-group>
+         </xsl:when>
+         <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/corpname">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/corpname"
+               group-by="string()">
+               <corpname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </corpname>
+            </xsl:for-each-group>
+         </xsl:when>
+         <!-- add to account for nesting of control access -->
+         <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/*/corpname">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/*/corpname"
+               group-by="string()">
+               <corpname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </corpname>
+            </xsl:for-each-group>
+         </xsl:when>
+         <!-- will NYEAD use  -->
+         <xsl:when test="($dtdVersion)/ead/eadheader/filedesc/notestmt/corpname">
+            <xsl:for-each-group select="($dtdVersion)/ead/eadheader/filedesc/notestmt/corpname"
+               group-by="string()">
+               <corpname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </corpname>
+            </xsl:for-each-group>
+         </xsl:when>
+      </xsl:choose>
+   </xsl:template>
+   
+   <!-- famname -->
+   <xsl:template name="get-ead-famname">
+      <xsl:choose>
+         <xsl:when test="($dtdVersion)/ead/archdesc/controlaccess/famname">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc/controlaccess/famname"
+               group-by="string()">
+               <famname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </famname>
+            </xsl:for-each-group>
+         </xsl:when>
+         <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/famname">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/famname"
+               group-by="string()">
+               <famname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </famname>
+            </xsl:for-each-group>
+         </xsl:when>
+         <!-- add to account for nesting of control access -->
+         <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/*/famname">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/*/famname"
+               group-by="string()">
+               <famname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </famname>
+            </xsl:for-each-group>
+         </xsl:when>
+         <!-- will NYEAD use  -->
+         <xsl:when test="($dtdVersion)/ead/eadheader/filedesc/notestmt/famname">
+            <xsl:for-each-group select="($dtdVersion)/ead/eadheader/filedesc/notestmt/famname"
+               group-by="string()">
+               <famname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </famname>
+            </xsl:for-each-group>
+         </xsl:when>
+      </xsl:choose>
+   </xsl:template>
+   
+   <!-- occupation -->
+   <xsl:template name="get-ead-occupation">
+      <xsl:choose>
+         <xsl:when test="($dtdVersion)/ead/archdesc/controlaccess/occupation">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc/controlaccess/occupation"
+               group-by="string()">
+               <occupation xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </occupation>
+            </xsl:for-each-group>
+         </xsl:when>
+         <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/occupation">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/occupation"
+               group-by="string()">
+               <occupation xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </occupation>
+            </xsl:for-each-group>
+         </xsl:when>
+         <!-- add to account for nesting of control access -->
+         <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/*/occupation">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/*/occupation"
+               group-by="string()">
+               <occupation xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </occupation>
+            </xsl:for-each-group>
+         </xsl:when>
+         <!-- will NYEAD use  -->
+         <xsl:when test="($dtdVersion)/ead/eadheader/filedesc/notestmt/occupation">
+            <xsl:for-each-group select="($dtdVersion)/ead/eadheader/filedesc/notestmt/occupation"
+               group-by="string()">
+               <occupation xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </occupation>
+            </xsl:for-each-group>
+         </xsl:when>
+      </xsl:choose>
+   </xsl:template>
+   
+   <!-- geogname -->
+   <xsl:template name="get-ead-geogname">
+      <xsl:choose>
+         <xsl:when test="($dtdVersion)/ead/archdesc/controlaccess/geogname">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc/controlaccess/geogname"
+               group-by="string()">
+               <geogname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </geogname>
+            </xsl:for-each-group>
+         </xsl:when>
+         <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/geogname">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/geogname"
+               group-by="string()">
+               <geogname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </geogname>
+            </xsl:for-each-group>
+         </xsl:when>
+         <!-- add to account for nesting of control access -->
+         <xsl:when test="($dtdVersion)/ead/archdesc//controlaccess/*/geogname">
+            <xsl:for-each-group select="($dtdVersion)/ead/archdesc//controlaccess/*/geogname"
+               group-by="string()">
+               <geogname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </geogname>
+            </xsl:for-each-group>
+         </xsl:when>
+         <!-- will NYEAD use  -->
+         <xsl:when test="($dtdVersion)/ead/eadheader/filedesc/notestmt/geogname">
+            <xsl:for-each-group select="($dtdVersion)/ead/eadheader/filedesc/notestmt/geogname"
+               group-by="string()">
+               <geogname xtf:meta="true">
+                  <xsl:value-of select="replace(normalize-space(.), '^(.*)[.]$', '$1')"/>
+               </geogname>
+            </xsl:for-each-group>
+         </xsl:when>
+      </xsl:choose>
    </xsl:template>
    
    <!-- format -->

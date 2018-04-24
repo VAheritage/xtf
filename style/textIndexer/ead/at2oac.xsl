@@ -101,7 +101,7 @@
 
 <!-- copy overloaded container labels to sibling physdesc -->
 <!-- TODO: specifically target AT @label values? -->
-<!--<xsl:template match="ead:container[@label]" mode="at2oac">
+<xsl:template match="ead:container[@label]" mode="at2oac">
   <xsl:element name="{name()}" namespace="{$namespace}">
     <xsl:apply-templates select="@*[name()!='label'] | node() " mode="at2oac"/>
   </xsl:element>
@@ -110,7 +110,7 @@
       <xsl:value-of select="@label"/>
     </xsl:element>
   </xsl:if>
-</xsl:template>-->
+</xsl:template>
 
 <!-- dao from AT style to MOAC style -->
 
@@ -125,7 +125,7 @@
       | ead:odd | ead:originalsloc | ead:otherfindaid | ead:phystech | ead:prefercite 
       | ead:processinfo | ead:relatedmaterial | ead:scopecontent | ead:separatedmaterial 
       | ead:userestrict | ead:dsc | ead:daogrp | ead:note | ead:thead" mode="at2oac"/>
-    <xsl:apply-templates select="ead:dao"  /> <!-- removed @mode="convert" -->
+    <xsl:apply-templates select="ead:dao" mode="convert" />
     <xsl:apply-templates select="ead:c01|ead:c02|ead:c03|ead:c04|ead:c05|ead:c06|ead:c07|ead:c08|ead:c09|ead:c10|ead:c11|ead:c12" mode="at2oac"/>
 
   </xsl:element>

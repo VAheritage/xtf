@@ -178,15 +178,6 @@
             <xsl:attribute name="slop" select="$prox/@value"/>
          </xsl:if>
          
-
-         <!--  Solution for https://jira.lib.virginia.edu/browse/DCMD-3  -->
-         <!--  https://groups.google.com/forum/#!topic/xtf-devel/SYinnoZkPR0   -->
-         <!-- Do not use proximity for and-queries on full-text -->
-         <xsl:if test="$op='and' and (@name='query' or @name='text')">
-            <xsl:attribute name="useProximity" select="'no'"/>
-         </xsl:if>
-
-
          <!-- Process all the phrases and/or terms -->
          <xsl:apply-templates/>
          
