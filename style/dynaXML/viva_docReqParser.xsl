@@ -44,7 +44,7 @@
    -->
 
    <!-- Templates used for parsing text queries -->
-   <xsl:import href="../crossQuery/queryParser/default/queryParser.xsl"/>
+   <xsl:import href="../crossQuery/queryParser/viva/queryParser.xsl"/>
 
    <xsl:output method="xml"
       indent="yes"
@@ -148,8 +148,7 @@
       -->
       <style path="{
          if (matches($http.URL, $ercPat)) then 'style/dynaXML/docFormatter/erc/ercDocFormatter.xsl'
-         else if (($fileType = 'ead') and ($brand = 'default'))then 'style/dynaXML/docFormatter/ead/eadDocFormatter.xsl'
-         else if (($fileType = 'ead') and ($brand = 'viva'))then 'style/dynaXML/docFormatter/VIVAead/eadDocFormatter.xsl'
+         else if ($fileType = 'ead') then 'style/dynaXML/docFormatter/VIVAead/eadDocFormatter.xsl'
          else if ($fileType = 'nlm') then 'style/dynaXML/docFormatter/nlm/nlmDocFormatter.xsl'
          else if ($fileType = 'tei') then 'style/dynaXML/docFormatter/tei/teiDocFormatter.xsl'
          else if ($fileType = 'book') then 'style/dynaXML/docFormatter/bookreader/bookDocFormatter.xsl'
@@ -181,8 +180,8 @@
          stored in the index. The servlet needs to be able to get back to
          that place to fetch the persistent version.
       -->
-
-      <index configPath="conf/textIndexer.conf" name="{$brand}"/>
+      
+      <index configPath="conf/textIndexer.conf" name="viva"/>
 
       <!-- ==================================================================
          The "prefilter" tag specifies a filesystem path, relative to the servlet
@@ -190,7 +189,7 @@
          that weren't built at index time (due to specifying -nobuildlazy).
       -->
       <preFilter path="{
-         if      ($fileType = 'ead') then 'style/textIndexer/ead/eadPreFilter.xsl'
+         if      ($fileType = 'ead') then 'style/textIndexer/ead/VIVAeadPreFilter.xsl'
          else if ($fileType = 'nlm') then 'style/textIndexer/nlm/nlmPreFilter.xsl'
          else if ($fileType = 'tei') then 'style/textIndexer/tei/teiPreFilter.xsl'
          else                             'style/textIndexer/default/defaultPreFilter.xsl'}"/>
@@ -206,7 +205,7 @@
          <xsl:variable name="query" select="/parameters/param[@name='query']"/>
          <xsl:variable name="sectionType" select="/parameters/param[@name='sectionType']"/>
 
-         <query indexPath="index" termLimit="1000" workLimit="500000">
+         <query indexPath="viva" termLimit="1000" workLimit="500000">
             <xsl:apply-templates select="$query"/>
          </query>
       </xsl:if>
