@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context  override="true" allowLinking="true"></Context>
+<!--  http://stackoverflow.com/questions/315093/configure-symlinks-for-single-directory-in-tomcat 
+ Put this into META-INF/context.xml to allow webapp to follow symlinks outside the app. 
+ Note: This method changes in Tomcat8. Use <Resources allowLinking="true" /> instead -->
