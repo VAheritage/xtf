@@ -156,6 +156,8 @@
                <!-- special values for OAI -->
                <xsl:call-template name="oai-datestamp"/>
                <xsl:call-template name="oai-set"/>
+               <!-- sdm7g -->
+               <xsl:call-template name="filepath-subject" />
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>

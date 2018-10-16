@@ -463,4 +463,19 @@
       </xsl:choose>
       
    </xsl:function>
+
+   <xsl:template name="filepath-subject" >
+      <xsl:choose>
+         <xsl:when test="contains( document-uri(/), 'Chinese' )">
+            <subject xtf:meta="true">Chinese Text Initiative</subject>
+         </xsl:when>
+         <xsl:when test="contains( document-uri(/), 'Japanese' )">
+            <subject xtf:meta="true">Japanese Text Initiative</subject>
+         </xsl:when>
+      </xsl:choose>
+      <subject xtf:meta="true">
+         <xsl:value-of select="replace( substring-after(document-uri(/), 'file:/' ), '/', '::' )"/>
+      </subject>
+   </xsl:template>
+
 </xsl:stylesheet>
