@@ -474,7 +474,16 @@
          </xsl:when>
       </xsl:choose>
       <subject xtf:meta="true">
-         <xsl:value-of select="replace( substring-after(document-uri(/), 'file:/' ), '/', '::' )"/>
+         <xsl:variable name="fullpath" select="replace( substring-after(document-uri(/), 'file:/' ), '/', '::' )"/>
+         <xsl:variable name="path">
+            <xsl:choose>
+               <xsl:when test="contains($fullpath, '::data::')">
+                  <xsl:value-of select="concat( 'Path::', substring-after( $fullpath, '::data::' ))"/>
+               </xsl:when>
+               <xsl:otherwise><xsl:value-of select="$fullpath"/></xsl:otherwise>
+            </xsl:choose>
+         </xsl:variable>
+         <xsl:value-of select="$path"/>
       </subject>
    </xsl:template>
 
