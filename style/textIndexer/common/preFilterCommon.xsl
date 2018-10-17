@@ -58,6 +58,7 @@
          <set xtf:meta="true">
             <xsl:value-of select="'public'"/>
          </set>
+         <xsl:call-template name="filepath-subject" /> <!-- sdm7g -->
       </xsl:if>
    </xsl:template>
    
