@@ -473,7 +473,7 @@
             <subject xtf:meta="true">Japanese Text Initiative</subject>
          </xsl:when>
       </xsl:choose>
-      <subject xtf:meta="true">
+      <facet-subject xtf:meta="true" xtf:facet="yes" >
          <xsl:variable name="fullpath" select="replace( substring-after(document-uri(/), 'file:/' ), '/', '::' )"/>
          <xsl:variable name="path">
             <xsl:choose>
@@ -484,7 +484,7 @@
             </xsl:choose>
          </xsl:variable>
          <xsl:value-of select="$path"/>
-      </subject>
+      </facet-subject>
    </xsl:template>
 
 </xsl:stylesheet>
