@@ -745,7 +745,13 @@ Item number <xsl:value-of select="$num"/>:
                   </td>
                </tr>
             </xsl:if>
-            
+            <xsl:if test='meta/description' >
+               <tr>
+                  <td class="col1"><xsl:text>&#160;</xsl:text></td>
+                  <td class="col2"><b>Description:</b>&#160;</td>
+                  <td class="col3" colspan="2"><xsl:apply-templates select="meta/description"/></td>
+               </tr>
+            </xsl:if>
             <!-- "more like this" -->
             <tr>
                <td class="col1">
