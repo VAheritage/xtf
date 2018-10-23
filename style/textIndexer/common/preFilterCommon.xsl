@@ -473,6 +473,9 @@
          <xsl:when test="contains( document-uri(/), 'Japanese' )">
             <subject xtf:meta="true">Japanese Text Initiative</subject>
          </xsl:when>
+         <xsl:when test="contains( document-uri(/), 'StudiesInBiblio' )">
+            <subject xtf:meta="true">Studies in Bibliography</subject>
+         </xsl:when>
       </xsl:choose>
       <facet-subject xtf:meta="true" xtf:facet="yes" >
          <xsl:variable name="fullpath" select="replace( substring-after(document-uri(/), 'file:/' ), '/', '::' )"/>
