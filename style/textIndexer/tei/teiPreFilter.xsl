@@ -226,6 +226,15 @@
             </xsl:for-each>
          </xsl:when>
       </xsl:choose>
+      <xsl:if test="//*[local-name()='seriesStmt']">
+         <xsl:for-each select="//*[local-name()='seriesStmt']/*" >
+            <xsl:if test="local-name(.)='title' or local-name(.)='idno'" >
+               <subject xtf:meta="true" >
+                  <xsl:value-of select="normalize-space(.)"/>
+               </subject>
+            </xsl:if>
+         </xsl:for-each>
+      </xsl:if>
    </xsl:template>
    
    <!-- description --> 
