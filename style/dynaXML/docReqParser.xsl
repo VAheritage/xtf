@@ -150,6 +150,7 @@
          if (matches($http.URL, $ercPat)) then 'style/dynaXML/docFormatter/erc/ercDocFormatter.xsl'
          else if (($fileType = 'ead') and ($brand = 'default'))then 'style/dynaXML/docFormatter/ead/eadDocFormatter.xsl'
          else if (($fileType = 'ead') and ($brand = 'viva'))then 'style/dynaXML/docFormatter/VIVAead/eadDocFormatter.xsl'
+         else if ($fileType = 'ead') then 'style/dynaXML/docFormatter/VIVAead/eadDocFormatter.xsl' 
          else if ($fileType = 'nlm') then 'style/dynaXML/docFormatter/nlm/nlmDocFormatter.xsl'
          else if ($fileType = 'tei') then 'style/dynaXML/docFormatter/tei/teiDocFormatter.xsl'
          else if ($fileType = 'book') then 'style/dynaXML/docFormatter/bookreader/bookDocFormatter.xsl'
@@ -182,7 +183,7 @@
          that place to fetch the persistent version.
       -->
 
-      <index configPath="conf/textIndexer.conf" name="{$brand}"/>
+      <index configPath="conf/textIndexer.conf" name="default"/>
 
       <!-- ==================================================================
          The "prefilter" tag specifies a filesystem path, relative to the servlet

@@ -54,7 +54,6 @@
 
    <xsl:param name="http.URL"/>
    <xsl:param name="smode"/>
-   <xsl:param name="index" />
 
    <xsl:template match="/">
 
@@ -68,9 +67,6 @@
             <!-- sitemap -->
             <xsl:when test="matches($smode,'siteMap')">
                <queryParser path="style/crossQuery/queryParser/siteMap/queryParser.xsl"/>
-            </xsl:when>
-            <xsl:when test="matches($index, 'viva')">
-              <queryParser path="style/crossQuery/queryParser/viva/queryParser.xsl"/>
             </xsl:when>
             <!-- default -->
             <xsl:otherwise>

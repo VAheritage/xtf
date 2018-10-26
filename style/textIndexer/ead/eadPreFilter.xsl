@@ -164,6 +164,7 @@
          <xsl:apply-templates select="langmaterial"/>
          <xsl:apply-templates select="materialspec"/>
          <xsl:apply-templates select="note"/>
+         <xsl:apply-templates select="dao|daogrp|daoset" />
       </xsl:copy>
    </xsl:template>
    
@@ -533,7 +534,10 @@
          <xsl:when test="$agencycode = 'vxw'">
                <xsl:text>Vassar College Archives and Special Collections Library</xsl:text>
          </xsl:when>
-         <xsl:otherwise>
+         <xsl:when test="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@prefix=$agencycode]">
+            <xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@prefix=$agencycode]" />
+         </xsl:when>
+         <xsl:otherwise>     
             <xsl:value-of select="$agencycode"/>
          </xsl:otherwise>
       </xsl:choose>
@@ -918,5 +922,17 @@
          <xsl:value-of select="'public'"/>
       </set>
    </xsl:template>
+
+
+   <!-- UVA VIVA additions sdm7g -->
+   
+   <!-- collection number -->
+   <xsl:template name="get-ead-collection-number">
+      <collection-number xtf:meta="true" xtf:tokenize="no">
+         <xsl:value-of select="normalize-space((//subtitle/num[@type='collectionnumber'])[1])"/>
+      </collection-number>
+   </xsl:template>
+   
+
 
 </xsl:stylesheet>

@@ -489,8 +489,8 @@
       <directory xtf:meta="true" xtf:tokenize="no" ><xsl:value-of select="$directory" /></directory>
 
       <xsl:variable name="pub-name">
-         <!--<xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@prefix=translate(lower-case($pub-code),'-','')]" />-->
-         <xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@dirname=$directory]" />         
+         <xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@prefix=translate(lower-case($pub-code),'-','')]" />
+         <!-- <xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@dirname=$directory]" /> -->         
       </xsl:variable>
 
       <agencycode xtf:meta="true" xtf:tokenize="no"><xsl:value-of select="$pub-code" /></agencycode>
