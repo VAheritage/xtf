@@ -161,6 +161,9 @@
 				<br/><b><xsl:apply-templates select="descendant::dao"/></b>
 			</div>
 		</xsl:if>
+		<xsl:if test="../dao" >
+			<br/><b><xsl:apply-templates select="../dao" /></b>
+		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match="unittitle" mode="content">
