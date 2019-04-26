@@ -69,11 +69,24 @@ var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 9);
 piwikTracker.trackPageView();
 piwikTracker.enableLinkTracking();
 } catch( err ) {}
+</script><script type="text/javascript">
+var pkBaseURL2 = (("https:" == document.location.protocol) ?
+"https://vah-analytics.lib.virginia.edu" :
+"http://vah-analytics.lib.virginia.edu");
+document.write(unescape("%3Cscript src='" + pkBaseURL2 + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL2 + "piwik.php", 9);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
 </script><noscript><p><img
 src="http://analytics.lib.virginia.edu/piwik.php?idsite=9"
+style="border:0" alt="" /><img
+src="http://vah-analytics.lib.virginia.edu/piwik.php?idsite=9"
 style="border:0" alt="" /></p></noscript>
 <!-- End Piwik Tracking Code -->
 
-	</footer>
+</footer>
 
 </brand>
