@@ -452,12 +452,12 @@
       <xsl:choose>
          <xsl:when test="($dtdVersion)/ead/archdesc/did/repository">
             <publisher xtf:meta="true">
-               <xsl:value-of select="string(($dtdVersion)/ead/archdesc/did/repository[1])"/>
+               <xsl:value-of select="replace(normalize-space(($dtdVersion)/ead/archdesc/did/repository[1]),'\s+',' ')"/>
             </publisher>
          </xsl:when>
          <xsl:when test="($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt/publisher">
             <publisher xtf:meta="true">
-               <xsl:value-of select="string(($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt/publisher[1])"/>
+               <xsl:value-of select="replace(normalize-space(($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt/publisher[1]),'\s+',' ')"/>
             </publisher>
          </xsl:when>
          <xsl:otherwise>
@@ -689,9 +689,26 @@
    
    <!-- collection number -->
    <xsl:template name="get-ead-collection-number">
-      <collection-number xtf:meta="true" xtf:tokenize="no">
-         <xsl:value-of select="normalize-space((//subtitle/num[@type='collectionnumber'])[1])"/>
-      </collection-number>
+      <xsl:for-each select="/ead/(eadheader//titlestmt|frontmatter/titlepage)//num">
+         <collection-number xtf:meta="true" xtf:tokenize="no">
+            <xsl:variable name="numtype">
+            <xsl:if test="./@type">
+               <xsl:value-of select="concat(string(./@type), ':' )"/>
+            </xsl:if>
+            </xsl:variable>
+            <xsl:value-of select="concat( $numtype, normalize-space(.) )"/>
+         </collection-number>
+      </xsl:for-each>
+      <xsl:if  test="/ead/archdesc/did/unitid">
+         <collection-number xtf:meta="true" xtf:tokenize="no">
+            <xsl:value-of select="normalize-space(/ead/archdesc/did/unitid[1])"/>
+         </collection-number>
+      </xsl:if>
+      <xsl:for-each select="/ead/eadheader/eadid/(@identifier|@publicid)">
+         <collection-number xtf:meta="true" xtf:tokenize="no">
+            <xsl:value-of  select="normalize-space(.)" />
+         </collection-number>
+      </xsl:for-each>
    </xsl:template>
    
 
