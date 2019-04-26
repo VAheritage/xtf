@@ -481,12 +481,21 @@
          </xsl:choose>
       </xsl:variable>
 
-      <xsl:variable name="directory" select="tokenize($me,'/')[last()-1]" />
-    
-      <path><xsl:value-of select="$me" /></path>      
-      <document><xsl:value-of select="tokenize($me,'/')[last()]" /></document>
-     
+      <xsl:variable name="directory" >
+         <xsl:choose>
+            <xsl:when test="matches($me,'/oai/[^/]+/repositories/\d+/resources/')">
+               <xsl:value-of select="tokenize($me,'/')[last()-4]"/>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:value-of select="tokenize($me,'/')[last()-1]"/>
+            </xsl:otherwise>
+         </xsl:choose>
+      </xsl:variable>
+
       <directory xtf:meta="true" xtf:tokenize="no" ><xsl:value-of select="$directory" /></directory>
+      <path xtf:meta="true" xtf:tokenize="no" ><xsl:value-of select="$me" /></path>
+      <document xtf:meta="true" xtf:tokenize="no" ><xsl:value-of select="tokenize($me,'/')[last()]" /></document>
+
 
       <xsl:variable name="pub-name">
          <!--<xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@prefix=translate(lower-case($pub-code),'-','')]" />-->
@@ -495,15 +504,15 @@
 
       <agencycode xtf:meta="true" xtf:tokenize="no"><xsl:value-of select="$pub-code" /></agencycode>
 
-      <xsl:variable name="pub"  select="normalize-space(replace(string(/ead/(eadheader|control)/filedesc/publicationstmt/publisher[1]),'\s',' '))" />
-      <xsl:variable name="repo" select="normalize-space(replace(string(/ead/archdesc/did/repository[1]),'\s',' '))" />
+      <xsl:variable name="pub"  select="normalize-space(replace(string(/ead/(eadheader|control)/filedesc/publicationstmt/publisher[1]),'\s+',' '))" />
+      <xsl:variable name="repo" select="normalize-space(replace(string(/ead/archdesc/did/repository[1]),'\s+',' '))" />
 
       <repository xtf:meta="true" xtf:tokenize="no" ><xsl:value-of select="$repo"/></repository>
 
       <institution xtf:meta="true" >
          <xsl:value-of select="$pub-name" />
       </institution>
-      
+
       <facet-institution xtf:meta="true" xtf:tokenize="no">
          <xsl:value-of select="concat($pub-code,':',$pub-name)" />
       </facet-institution>
@@ -511,10 +520,23 @@
       <sort-publisher xtf:meta="true" xtf:tokenize="no">
          <xsl:value-of select="$pub-name" />
       </sort-publisher>
-      
+
       <facet-publisher xtf:meta="true" xtf:tokenize="no">
          <xsl:value-of select="$pub-name" />
       </facet-publisher>
+
+      <facet-publisher xtf:meta="true" xtf:tokenize="no">
+         <xsl:value-of select="normalize-space(/ead/eadheader/filedesc/publicationstmt/publisher)"/>
+      </facet-publisher>
+
+      <facet-publisher xtf:meta="true" xtf:tokenize="no">
+         <xsl:value-of select="/ead/eadheader/eadid/@mainagencycode"/>
+      </facet-publisher>
+
+      <facet-publisher xtf:meta="true" xtf:tokenize="no">
+         <xsl:value-of select="$repo"/>
+      </facet-publisher>
+
 
    </xsl:template>
    

@@ -677,6 +677,7 @@
 								<xsl:apply-templates select="meta/date"/>
 							</xsl:otherwise>
 						</xsl:choose>
+						<xsl:text>&#160;&#160;&#160;&#160;</xsl:text>
 					</dd>
 				</div>
 				<xsl:if test="meta/subject">
