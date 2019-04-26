@@ -77,14 +77,14 @@ var pkBaseURL2 = (("https:" == document.location.protocol) ?
 document.write(unescape("%3Cscript src='" + pkBaseURL2 + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
 </script><script type="text/javascript">
 try {
-var piwikTracker = Piwik.getTracker(pkBaseURL2 + "piwik.php", 9);
-piwikTracker.trackPageView();
-piwikTracker.enableLinkTracking();
+var piwikTracker2 = Piwik.getTracker(pkBaseURL2 + "piwik.php", 1);
+piwikTracker2.trackPageView();
+piwikTracker2.enableLinkTracking();
 } catch( err ) {}
 </script><noscript><p><img
 src="http://analytics.lib.virginia.edu/piwik.php?idsite=9"
 style="border:0" alt="" /><img
-src="http://vah-analytics.lib.virginia.edu/piwik.php?idsite=9"
+src="http://vah-analytics.lib.virginia.edu/piwik.php?idsite=1"
 style="border:0" alt="" /></p></noscript>
 </div>
 <!-- End Piwik Tracking Code -->
