@@ -515,8 +515,7 @@
       <facet-publisher xtf:meta="true" xtf:tokenize="no">
          <xsl:value-of select="$pub-name" />
       </facet-publisher>
- 
- 
+
    </xsl:template>
    
    <!-- contributor -->
@@ -641,7 +640,7 @@
       <xsl:variable name="filePath" select="saxon:system-id()" xmlns:saxon="http://saxon.sf.net/"/>
       <xsl:if test="$filePath">
       <dateStamp xtf:meta="true" xtf:tokenize="no">
-         <xsl:value-of select="FileUtils:lastModified($filePath, 'yyyy-MM-dd')"/>
+         <xsl:value-of use-when="function-available('FileUtils:lastModified')" select="FileUtils:lastModified($filePath, 'yyyy-MM-dd')"/>
       </dateStamp>
       </xsl:if>
    </xsl:template>

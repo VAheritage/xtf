@@ -48,7 +48,7 @@
       <xsl:variable name="docpath" select="saxon:system-id()"/>
       <xsl:variable name="base" select="replace($docpath, '(.*)\.[^\.]+$', '$1')"/>
       <xsl:variable name="dcpath" select="concat($base, '.dc.xml')"/>
-      <xsl:if test="FileUtils:exists($dcpath)">
+      <xsl:if use-when="function-available('FileUtils:exists')" test="FileUtils:exists($dcpath)">
          <xsl:apply-templates select="document($dcpath)" mode="inmeta"/>
          <xsl:if test="not(document($dcpath)//*:identifier)">
             <identifier xtf:meta="true" xtf:tokenize="no">
@@ -253,7 +253,7 @@
       
       <!-- Remove accent marks and other diacritics -->
       <xsl:variable name="no-accents-name">
-         <xsl:value-of select="CharUtils:applyAccentMap('../../../conf/accentFolding/accentMap.txt', $creator)"/>
+         <xsl:value-of use-when="function-available('CharUtils:applyAccentMap')" select="CharUtils:applyAccentMap('../../../conf/accentFolding/accentMap.txt', $creator)"/>
       </xsl:variable>
       
       <!-- Normalize Spaces & Case-->
@@ -461,7 +461,7 @@
       
       <!-- Remove accent marks and other diacritics -->
       <xsl:variable name="no-accents-name">
-         <xsl:value-of select="CharUtils:applyAccentMap('../../../conf/accentFolding/accentMap.txt', $string)"/>
+         <xsl:value-of use-when="function-available('CharUtils:applyAccentMap')" select="CharUtils:applyAccentMap('../../../conf/accentFolding/accentMap.txt', $string)"/>
       </xsl:variable>
       
       <!-- Normalize Spaces & Case-->
