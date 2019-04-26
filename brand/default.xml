@@ -58,6 +58,7 @@
 		<div class="footer">
 		</div>
 		<!-- Piwik -->
+<div class="piwik scripts" >
 <script type="text/javascript">
 var pkBaseURL = (("https:" == document.location.protocol) ?
 "https://analytics.lib.virginia.edu/" :
@@ -85,6 +86,7 @@ src="http://analytics.lib.virginia.edu/piwik.php?idsite=9"
 style="border:0" alt="" /><img
 src="http://vah-analytics.lib.virginia.edu/piwik.php?idsite=9"
 style="border:0" alt="" /></p></noscript>
+</div>
 <!-- End Piwik Tracking Code -->
 
 </footer>
