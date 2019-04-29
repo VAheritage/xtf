@@ -72,8 +72,8 @@ piwikTracker.enableLinkTracking();
 } catch( err ) {}
 </script><script type="text/javascript">
 var pkBaseURL2 = (("https:" == document.location.protocol) ?
-"https://vah-analytics.lib.virginia.edu" :
-"http://vah-analytics.lib.virginia.edu");
+"https://vah-analytics.lib.virginia.edu/" :
+"http://vah-analytics.lib.virginia.edu/");
 document.write(unescape("%3Cscript src='" + pkBaseURL2 + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
 </script><script type="text/javascript">
 try {
