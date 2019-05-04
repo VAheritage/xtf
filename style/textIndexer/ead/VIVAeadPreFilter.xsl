@@ -469,8 +469,21 @@
       
       <agencycode xtf:meta="true" xtf:tokenize="no" ><xsl:value-of select="$agencycode"/></agencycode>
       
-      <xsl:variable name="pub-name" 
-        select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@prefix=$agencycode]" />
+      <xsl:variable name="pub-name" >
+         <xsl:choose>
+            <xsl:when test="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@prefix=$agencycode]">
+               <xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@prefix=$agencycode]"/>
+            </xsl:when>
+            <xsl:when test="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@oclc=upper-case($agencycode)]">
+               <xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@oclc=upper-case($agencycode)]"/>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:value-of select="$directory"/>
+            </xsl:otherwise>
+         </xsl:choose>
+          
+         
+      </xsl:variable>
 
  
       <institution xtf:meta="true" >
