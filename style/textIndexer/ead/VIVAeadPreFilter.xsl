@@ -682,4 +682,13 @@
       <xsl:value-of select="normalize-space(replace(string($instring),'\s+', ' ' ))"/>
    </xsl:function>
 
+   <xsl:function name="xtf:isil" as="xs:string">
+      <xsl:param name="agency" />
+      <xsl:param name="country" />
+      <xsl:variable name="cpat"
+         select="concat( '^(', string-join(($country, 'us', 'oclc' ),'|' ) ,')-((' ,
+                  string-join(($country, 'us', 'oclc' ),'|' ), ')-)?'  )" />
+      <xsl:value-of select="lower-case(replace(string($agency),$cpat,'', 'i'))"/>
+   </xsl:function>
+
 </xsl:stylesheet>
