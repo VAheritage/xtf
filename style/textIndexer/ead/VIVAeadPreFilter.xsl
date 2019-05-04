@@ -525,18 +525,6 @@
          <xsl:value-of select="$pub-name" />
       </facet-publisher>
 
-      <facet-publisher xtf:meta="true" xtf:tokenize="no">
-         <xsl:value-of select="normalize-space(/ead/eadheader/filedesc/publicationstmt/publisher)"/>
-      </facet-publisher>
-
-      <facet-publisher xtf:meta="true" xtf:tokenize="no">
-         <xsl:value-of select="/ead/eadheader/eadid/@mainagencycode"/>
-      </facet-publisher>
-
-      <facet-publisher xtf:meta="true" xtf:tokenize="no">
-         <xsl:value-of select="$repo"/>
-      </facet-publisher>
-
 
    </xsl:template>
    
@@ -581,34 +569,8 @@
    <xsl:template name="get-ead-format">
       <format xtf:meta="true">xml</format>
    </xsl:template>
-   
-   <!-- identifier --> 
-   <!--<xsl:template name="get-ead-identifier">
-      <xsl:choose>
-         <xsl:when test="($dtdVersion)/ead/archdesc/did/unitid">
-            <identifier xtf:meta="true" xtf:tokenize="no">
-               <xsl:value-of select="string(/ead/archdesc/did/unitid[1])"/>
-            </identifier>
-         </xsl:when>
-         <xsl:when test="($dtdVersion)/ead/(eadheader|control)/eadid" xtf:tokenize="no">
-            <identifier xtf:meta="true" xtf:tokenize="no">
-               <xsl:value-of select="string(($dtdVersion)/ead/(eadheader|control)/eadid[1])"/>
-            </identifier>
-         </xsl:when>
-         <xsl:otherwise>
-            <identifier xtf:meta="true" xtf:tokenize="no">
-               <xsl:value-of select="'unknown'"/>
-            </identifier>
-         </xsl:otherwise>
-      </xsl:choose>
-   </xsl:template>-->
- 
-   <!-- identifier VIVA mod sdm7g -->
-   <xsl:template name="get-ead-identifier">
-      <identifier xtf:meta="true" xtf:tokenize="no">
-         <xsl:value-of select="normalize-space(/ead/@id)"/>
-      </identifier>
-   </xsl:template>
+    
+  
  
    <!-- source -->
    <xsl:template name="get-ead-source">
@@ -639,9 +601,9 @@
    <!-- coverage -->
    <xsl:template name="get-ead-coverage">
       <xsl:choose>
-         <xsl:when test="($dtdVersion)/ead/archdesc/did/unittitle/unitdate">
+         <xsl:when test="($dtdVersion)/ead/archdesc/did//unitdate">
             <coverage xtf:meta="true">
-               <xsl:value-of select="string(($dtdVersion)/ead/archdesc/did/unittitle/unitdate[1])"/>
+               <xsl:value-of select="string(($dtdVersion)/ead/archdesc/did//unitdate[1])"/>
             </coverage>
          </xsl:when>
          <xsl:otherwise>
@@ -689,28 +651,31 @@
    
    <!-- collection number -->
    <xsl:template name="get-ead-collection-number">
-      <xsl:for-each select="/ead/(eadheader//titlestmt|frontmatter/titlepage)//num">
-         <collection-number xtf:meta="true" xtf:tokenize="no">
-            <xsl:variable name="numtype">
-            <xsl:if test="./@type">
-               <xsl:value-of select="concat(string(./@type), ':' )"/>
-            </xsl:if>
-            </xsl:variable>
-            <xsl:value-of select="concat( $numtype, normalize-space(.) )"/>
+      <xsl:for-each select="$dtdVersion/ead/(eadheader//titlestmt|frontmatter/titlepage)//num">
+         <collection-number xtf:meta="true" xtf:tokenize="yes">
+             <xsl:value-of select="normalize-space(.)"/>
          </collection-number>
       </xsl:for-each>
-      <xsl:if  test="/ead/archdesc/did/unitid">
-         <collection-number xtf:meta="true" xtf:tokenize="no">
-            <xsl:value-of select="normalize-space(/ead/archdesc/did/unitid[1])"/>
+      <xsl:if  test="$dtdVersion/ead/archdesc/did/unitid">
+         <collection-number xtf:meta="true" xtf:tokenize="yes">
+            <xsl:value-of select="normalize-space($dtdVersion/ead/archdesc/did/unitid[1])"/>
          </collection-number>
       </xsl:if>
-      <xsl:for-each select="/ead/eadheader/eadid/(@identifier|@publicid)">
-         <collection-number xtf:meta="true" xtf:tokenize="no">
+   </xsl:template>
+   
+   <!-- identifier VIVA mod sdm7g -->
+   <xsl:template name="get-ead-identifier">
+      <xsl:if test="$dtdVersion/ead/@id">
+         <identifier xtf:meta="true" xtf:tokenize="yes">
+            <xsl:value-of select="normalize-space(($dtdVersion)/ead/@id)"/>
+         </identifier>
+      </xsl:if>
+      <xsl:for-each select="$dtdVersion/ead/eadheader/eadid/(@identifier|@publicid)">
+         <identifier xtf:meta="true" xtf:tokenize="yes">
             <xsl:value-of  select="normalize-space(.)" />
-         </collection-number>
+         </identifier>
       </xsl:for-each>
    </xsl:template>
    
-
 
 </xsl:stylesheet>
