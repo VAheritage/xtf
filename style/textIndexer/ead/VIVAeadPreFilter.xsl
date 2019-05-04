@@ -350,11 +350,11 @@
       <xsl:choose>         
          <xsl:when test="/ead/(eadheader|control)/filedesc/titlestmt/titleproper">
             <xsl:variable name="titleproper"
-               select="string(($dtdVersion)/ead/(eadheader|control)/filedesc/titlestmt/titleproper[1])"/>
+               select="xtf:normalize(($dtdVersion)/ead/(eadheader|control)/filedesc/titlestmt/titleproper[1])"/>
             <xsl:variable name="subtitle"
-               select="string(/ead/(eadheader|control)/filedesc/titlestmt/subtitle)"/>
+               select="xtf:normalize($dtdVersion/ead/(eadheader|control)/filedesc/titlestmt/subtitle)"/>
             <xsl:variable name="num" 
-               select="string(/ead/(eadheader|control)/filedesc/titlestmt/subtitle/num[@type='collectionnumber'])"/>
+               select="string(($dtdVersion/ead/(eadheader|control)/filedesc/titlestmt//num)[1])"/>
             <title xtf:meta="true">
                <xsl:value-of select="$titleproper"/>
                <xsl:if test="$num">
@@ -371,7 +371,7 @@
             <xsl:choose>
                <xsl:when test="/ead/archdesc/did/unittitle">
                   <title xtf:meta="true">
-                     <xsl:value-of select="/ead/archdesc/did/unittitle"/>
+                     <xsl:value-of select="xtf:normalize(/ead/archdesc/did/unittitle[1])"/>
                   </title>
                </xsl:when>
                <xsl:otherwise>
@@ -452,12 +452,12 @@
       <xsl:choose>
          <xsl:when test="($dtdVersion)/ead/archdesc/did/repository">
             <publisher xtf:meta="true">
-               <xsl:value-of select="replace(normalize-space(($dtdVersion)/ead/archdesc/did/repository[1]),'\s+',' ')"/>
+               <xsl:value-of select="xtf:normalize(($dtdVersion)/ead/archdesc/did/repository[1])"/>
             </publisher>
          </xsl:when>
          <xsl:when test="($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt/publisher">
             <publisher xtf:meta="true">
-               <xsl:value-of select="replace(normalize-space(($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt/publisher[1]),'\s+',' ')"/>
+               <xsl:value-of select="xtf:normalize(($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt/publisher[1])"/>
             </publisher>
          </xsl:when>
          <xsl:otherwise>
@@ -504,8 +504,8 @@
 
       <agencycode xtf:meta="true" xtf:tokenize="no"><xsl:value-of select="$pub-code" /></agencycode>
 
-      <xsl:variable name="pub"  select="normalize-space(replace(string(/ead/(eadheader|control)/filedesc/publicationstmt/publisher[1]),'\s+',' '))" />
-      <xsl:variable name="repo" select="normalize-space(replace(string(/ead/archdesc/did/repository[1]),'\s+',' '))" />
+      <xsl:variable name="pub"  select="xtf:normalize( $dtdVersion/ead/(eadheader|control)/filedesc/publicationstmt/publisher[1])" />
+      <xsl:variable name="repo" select="xtf:normalize( $dtdVersion/ead/archdesc/did/repository[1])" />
 
       <repository xtf:meta="true" xtf:tokenize="no" ><xsl:value-of select="$repo"/></repository>
 
@@ -677,5 +677,9 @@
       </xsl:for-each>
    </xsl:template>
    
+   <xsl:function name="xtf:normalize" as="xs:string" >
+      <xsl:param name="instring" />
+      <xsl:value-of select="normalize-space(replace(string($instring),'\s+', ' ' ))"/>
+   </xsl:function>
 
 </xsl:stylesheet>
