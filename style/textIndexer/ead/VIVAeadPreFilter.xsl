@@ -314,36 +314,7 @@
          <xsl:with-param name="meta" select="$meta"/>
       </xsl:call-template>    
    </xsl:template>
-   
-   <!-- title --> 
-   <!--<xsl:template name="get-ead-title">
-      <xsl:choose>
-         <xsl:when test="($dtdVersion)/ead/archdesc/did/unittitle">
-            <title xtf:meta="true">
-               <xsl:value-of select="($dtdVersion)/ead/archdesc/did/unittitle"/>
-            </title>
-         </xsl:when>
-         <xsl:when test="($dtdVersion)/ead/(eadheader|control)/filedesc/titlestmt/titleproper">
-            <xsl:variable name="titleproper" select="string(($dtdVersion)/ead/(eadheader|control)/filedesc/titlestmt/titleproper)"/>
-            <xsl:variable name="subtitle" select="string(($dtdVersion)/ead/(eadheader|control)/filedesc/titlestmt/subtitle)"/>
-            <title xtf:meta="true">
-               <xsl:value-of select="$titleproper"/>
-               <xsl:if test="$subtitle">
-                  <!-\- Put a colon between main and subtitle, if none present already -\->
-                  <xsl:if test="not(matches($titleproper, ':\s*$') or matches($subtitle, '^\s*:'))">
-                     <xsl:text>: </xsl:text>
-                  </xsl:if>  
-                  <xsl:value-of select="$subtitle"/>
-               </xsl:if>
-            </title>
-         </xsl:when>
-         <xsl:otherwise>
-            <title xtf:meta="true">
-               <xsl:value-of select="'unknown'"/>
-            </title>
-         </xsl:otherwise>
-      </xsl:choose>
-   </xsl:template>-->
+
 
    <!-- VIVA version of title: trying to copy original app behavior here sdm7g -->
    <xsl:template name="get-ead-title">
@@ -447,40 +418,23 @@
         want to keep it near the template in which it's used for now, to localize
         the source diffs.  (sdm7g) -->
    <xsl:param name="me"  select="document-uri(/)"/>
+
    <!-- publisher -->
    <xsl:template name="get-ead-publisher">            
-      <xsl:choose>
-         <xsl:when test="($dtdVersion)/ead/archdesc/did/repository">
+         <xsl:if test="($dtdVersion)/ead/archdesc/did/repository">
             <publisher xtf:meta="true">
                <xsl:value-of select="xtf:normalize(($dtdVersion)/ead/archdesc/did/repository[1])"/>
             </publisher>
-         </xsl:when>
-         <xsl:when test="($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt/publisher">
+         </xsl:if>
+         <xsl:if test="($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt/publisher">
             <publisher xtf:meta="true">
                <xsl:value-of select="xtf:normalize(($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt/publisher[1])"/>
             </publisher>
-         </xsl:when>
-         <xsl:otherwise>
-            <publisher xtf:meta="true">
-               <xsl:value-of select="'unknown'"/>
-            </publisher>
-         </xsl:otherwise>
-      </xsl:choose>
-      
+         </xsl:if>      
+
       <!-- publisher - VIVA additions: add sort-publisher and facet-publisher; 
         use VHP/VIVA institution from agency code to normalize -->
-      
-      <xsl:variable name="pub-code">
-         <xsl:choose>
-            <xsl:when test=" starts-with(/ead/(eadheader|control)/eadid/@mainagencycode,/ead/(eadheader|control)/eadid/@countrycode)">
-               <xsl:value-of select=" normalize-space(substring-after(/ead/(eadheader|control)/eadid/@mainagencycode, concat(/ead/(eadheader|control)/eadid/@countrycode, '-')))" /> 
-            </xsl:when>
-            <xsl:otherwise>
-               <xsl:value-of select="normalize-space(/ead/(eadheader|control)/eadid/@mainagencycode)"/>
-            </xsl:otherwise>
-         </xsl:choose>
-      </xsl:variable>
-
+ 
       <xsl:variable name="directory" >
          <xsl:choose>
             <xsl:when test="matches($me,'/oai/[^/]+/repositories/\d+/resources/')">
@@ -491,31 +445,37 @@
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>
-
+      
       <directory xtf:meta="true" xtf:tokenize="no" ><xsl:value-of select="$directory" /></directory>
       <path xtf:meta="true" xtf:tokenize="no" ><xsl:value-of select="$me" /></path>
       <document xtf:meta="true" xtf:tokenize="no" ><xsl:value-of select="tokenize($me,'/')[last()]" /></document>
 
 
-      <xsl:variable name="pub-name">
-         <!--<xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@prefix=translate(lower-case($pub-code),'-','')]" />-->
-         <xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@dirname=$directory]" />         
+      <xsl:variable name="agencycode" select="$dtdVersion/ead/(eadheader|control)/eadid/@mainagencycode"/>
+      <xsl:variable name="countrycode" select="$dtdVersion/ead/(eadheader|control)/eadid/@countrycode"/>
+            
+      <xsl:variable name="isilcode" select="xtf:isil($agencycode,$countrycode)"/>
+
+      <xsl:variable name="agencycode">
+         <xsl:choose>
+            <xsl:when test="$isilcode">
+               <xsl:value-of select="$isilcode"/>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:value-of select="string(document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@dirname=$directory]/@prefix)"/>
+            </xsl:otherwise>
+         </xsl:choose>
       </xsl:variable>
+      
+      <agencycode xtf:meta="true" xtf:tokenize="no" ><xsl:value-of select="$agencycode"/></agencycode>
+      
+      <xsl:variable name="pub-name" 
+        select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@prefix=$agencycode]" />
 
-      <agencycode xtf:meta="true" xtf:tokenize="no"><xsl:value-of select="$pub-code" /></agencycode>
-
-      <xsl:variable name="pub"  select="xtf:normalize( $dtdVersion/ead/(eadheader|control)/filedesc/publicationstmt/publisher[1])" />
-      <xsl:variable name="repo" select="xtf:normalize( $dtdVersion/ead/archdesc/did/repository[1])" />
-
-      <repository xtf:meta="true" xtf:tokenize="no" ><xsl:value-of select="$repo"/></repository>
-
+ 
       <institution xtf:meta="true" >
          <xsl:value-of select="$pub-name" />
       </institution>
-
-      <facet-institution xtf:meta="true" xtf:tokenize="no">
-         <xsl:value-of select="concat($pub-code,':',$pub-name)" />
-      </facet-institution>
 
       <sort-publisher xtf:meta="true" xtf:tokenize="no">
          <xsl:value-of select="$pub-name" />
@@ -688,7 +648,7 @@
       <xsl:variable name="cpat"
          select="concat( '^(', string-join(($country, 'us', 'oclc' ),'|' ) ,')-((' ,
                   string-join(($country, 'us', 'oclc' ),'|' ), ')-)?'  )" />
-      <xsl:value-of select="lower-case(replace(string($agency),$cpat,'', 'i'))"/>
+      <xsl:value-of select="lower-case(replace(replace(string($agency),$cpat,'', 'i'),'-',''))"/>
    </xsl:function>
 
 </xsl:stylesheet>
