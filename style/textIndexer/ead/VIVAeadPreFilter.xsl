@@ -318,41 +318,28 @@
 
    <!-- VIVA version of title: trying to copy original app behavior here sdm7g -->
    <xsl:template name="get-ead-title">
-      <xsl:choose>         
-         <xsl:when test="/ead/(eadheader|control)/filedesc/titlestmt/titleproper">
-            <xsl:variable name="titleproper"
-               select="xtf:normalize(($dtdVersion)/ead/(eadheader|control)/filedesc/titlestmt/titleproper[1])"/>
-            <xsl:variable name="subtitle"
-               select="xtf:normalize($dtdVersion/ead/(eadheader|control)/filedesc/titlestmt/subtitle)"/>
-            <xsl:variable name="num" 
-               select="string(($dtdVersion/ead/(eadheader|control)/filedesc/titlestmt//num)[1])"/>
-            <title xtf:meta="true">
-               <xsl:value-of select="$titleproper"/>
-               <xsl:if test="$num">
-                  <!-- Put a colon between main and subtitle, if none present already -->
-                  <xsl:if
-                     test="not(matches($titleproper, ':\s*$') or matches($subtitle, '^\s*:'))">
-                     <xsl:text>: </xsl:text>
-                  </xsl:if>
-                  <xsl:value-of select="concat( '#', $num) "/>
-               </xsl:if>
-            </title>
-         </xsl:when>
-         <xsl:otherwise>
-            <xsl:choose>
-               <xsl:when test="/ead/archdesc/did/unittitle">
-                  <title xtf:meta="true">
-                     <xsl:value-of select="xtf:normalize(/ead/archdesc/did/unittitle[1])"/>
-                  </title>
-               </xsl:when>
-               <xsl:otherwise>
-                  <title xtf:meta="true">
-                     <xsl:value-of select="'unknown'"/>
-                  </title>
-               </xsl:otherwise>
-            </xsl:choose>
-         </xsl:otherwise>
-      </xsl:choose>
+      <xsl:variable name="titlestmt"
+         select="$dtdVersion/ead/eadheader/filedesc/titlestmt" />
+      <xsl:variable name="title" 
+         select="replace(string-join($titlestmt/titleproper[not(@type='filing')]//text(), ', '), ',\s*,', ','  )" />
+      <xsl:variable name="subtitle" 
+         select="$titlestmt/subtitle" />
+      <xsl:variable name="stype">
+         <xsl:if test="$subtitle/@id" ><xsl:value-of select="concat(' [',$subtitle/@id, ']')"/></xsl:if>
+      </xsl:variable>
+      <xsl:variable name="num" select="normalize-space(($titlestmt//num)[1])"/>
+      <xsl:variable name="unitid" select="normalize-space($dtdVersion/archdesc/did/unitid[1])"/>
+      <xsl:if test="$num"><num xtf:meta="true"><xsl:value-of select="$num"/></num></xsl:if>
+      <xsl:if test="$unitid"><unitid xtf:meta="true"><xsl:value-of select="$unitid"/></unitid></xsl:if>
+      <title xtf:meta="true" >
+         <xsl:value-of select="xtf:normalize($title)"/>
+         <xsl:choose>
+            <xsl:when test="$num and not(contains($title,$num))"><xsl:value-of select="concat(' #',$num)"/></xsl:when>
+            <xsl:when test="$unitid and not(contains($title,$unitid))"><xsl:value-of select="concat(' #',$unitid)"/></xsl:when>
+            <xsl:otherwise></xsl:otherwise>
+         </xsl:choose>
+      </title>
+      <subtitle xtf:meta="true" ><xsl:value-of select="concat(xtf:normalize( string-join( $subtitle//text(), ', ')),$stype)"/></subtitle>
    </xsl:template>
 
    <!-- creator -->
@@ -624,7 +611,7 @@
    
    <!-- collection number -->
    <xsl:template name="get-ead-collection-number">
-      <xsl:for-each select="$dtdVersion/ead/(eadheader//titlestmt|frontmatter/titlepage)//num">
+      <xsl:for-each select="distinct-values($dtdVersion/ead/(eadheader//titlestmt|frontmatter/titlepage)//num)">
          <collection-number xtf:meta="true" xtf:tokenize="yes">
              <xsl:value-of select="normalize-space(.)"/>
          </collection-number>
