@@ -302,8 +302,8 @@
                <!-- special values for OAI -->
                <xsl:call-template name="oai-datestamp"/>
                <xsl:call-template name="oai-set"/>
-               <!-- UVA / VIVA additions sdm7g -->
-               <xsl:call-template name="get-ead-collection-number"/>				
+               <!-- UVA / VIVA additions sdm7g 
+               <xsl:call-template name="get-ead-collection-number"/>		-->		
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>
@@ -315,6 +315,11 @@
       </xsl:call-template>    
    </xsl:template>
 
+   <!-- collection number -->
+   <xsl:template name="get-ead-collection-number">
+ 
+
+   </xsl:template>
 
    <!-- VIVA version of title: trying to copy original app behavior here sdm7g -->
    <xsl:template name="get-ead-title">
@@ -327,6 +332,9 @@
       <xsl:variable name="stype">
          <xsl:if test="$subtitle/@id" ><xsl:value-of select="concat(' [',$subtitle/@id, ']')"/></xsl:if>
       </xsl:variable>
+      <xsl:variable name="numbers" 
+         select="for $x in ($dtdVersion/ead/(eadheader//titlestmt|frontmatter/titlepage)//num, 
+         $dtdVersion/ead/archdesc/did/unitid[1]) return xtf:normalize($x)" />
       <xsl:variable name="num" select="normalize-space(($titlestmt//num)[1])"/>
       <xsl:variable name="unitid" select="normalize-space($dtdVersion/archdesc/did/unitid[1])"/>
       <xsl:if test="$num"><num xtf:meta="true"><xsl:value-of select="$num"/></num></xsl:if>
@@ -340,6 +348,13 @@
          </xsl:choose>
       </title>
       <subtitle xtf:meta="true" ><xsl:value-of select="concat(xtf:normalize( string-join( $subtitle//text(), ', ')),$stype)"/></subtitle>
+
+      <sort-number xtf:meta="true" xtf:tokenize="no" >
+         <xsl:value-of select="distinct-values($numbers)"/>
+      </sort-number>
+      <collection-number xtf:meta="true" xtf:tokenize="yes" >
+         <xsl:value-of select="distinct-values($numbers)"/>
+      </collection-number>
    </xsl:template>
 
    <!-- creator -->
@@ -609,31 +624,35 @@
 
    <!-- UVA VIVA additions sdm7g -->
    
-   <!-- collection number -->
-   <xsl:template name="get-ead-collection-number">
-      <xsl:variable name="numbers" 
-         select="for $x in ($dtdVersion/ead/(eadheader//titlestmt|frontmatter/titlepage)//num, 
-            $dtdVersion/ead/archdesc/did/unitid[1]) return xtf:normalize($x)" />
-      <sort-number xtf:meta="true" xtf:tokenize="no" >
-         <xsl:value-of select="distinct-values($numbers)"/>
-      </sort-number>
-      <collection-number xtf:meta="true" xtf:tokenize="yes" >
-         <xsl:value-of select="distinct-values($numbers)"/>
-      </collection-number>
-   </xsl:template>
+
    
    <!-- identifier VIVA mod sdm7g -->
    <xsl:template name="get-ead-identifier">
-      <xsl:if test="$dtdVersion/ead/@id">
-         <identifier xtf:meta="true" xtf:tokenize="yes">
-            <xsl:value-of select="normalize-space(($dtdVersion)/ead/@id)"/>
-         </identifier>
-      </xsl:if>
-      <xsl:for-each select="$dtdVersion/ead/eadheader/eadid/(@identifier|@publicid)">
-         <identifier xtf:meta="true" xtf:tokenize="yes">
-            <xsl:value-of  select="normalize-space(.)" />
-         </identifier>
-      </xsl:for-each>
+      <xsl:variable name="eadid">
+         <xsl:choose>
+            <xsl:when test="$dtdVersion/ead/@id">
+               <xsl:value-of select="normalize-space(($dtdVersion)/ead/@id)"/>
+            </xsl:when>
+            <xsl:when test="$dtdVersion/ead/eadheader/eadid/@identifier">
+               <xsl:value-of select="$dtdVersion/ead/eadheader/eadid/@identifier"/>
+            </xsl:when>
+            <xsl:when test="$dtdVersion/ead/eadheader/eadid/@publicid">
+               <xsl:value-of select="$dtdVersion/ead/eadheader/eadid/@publicid"/>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:value-of select="tokenize( normalize-space($dtdVersion/ead/eadheader/eadid), '\W+')[last()]"/>
+            </xsl:otherwise>
+         </xsl:choose>
+      </xsl:variable>
+  
+      <identifier xtf:meta="true" xtf:tokenize="yes">
+         <xsl:value-of select="normalize-space($eadid)"/>
+      </identifier>
+      
+      <sort-identifier xtf:meta="true" xtf:tokenize="no">
+         <xsl:value-of select="normalize-space($eadid)"/>
+      </sort-identifier>
+      
    </xsl:template>
    
    <xsl:function name="xtf:normalize" as="xs:string" >

@@ -102,8 +102,8 @@
                      <xsl:value-of select="'-sort-date,sort-title'"/>
                   </xsl:when>
                   <!-- VIVA additions -->
-                  <xsl:when test="$sort='identifier'">
-                     <xsl:value-of select="'sort-publisher,identifier'"/>
+                  <xsl:when test="$sort='sort-identifier'">
+                     <xsl:value-of select="'sort-publisher,sort-identifier'"/>
                   </xsl:when>              
                   <xsl:when test="$sort='sort-number'">
                      <xsl:value-of select="'sort-publisher,sort-number'"/>
