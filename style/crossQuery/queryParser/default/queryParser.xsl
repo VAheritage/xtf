@@ -105,8 +105,8 @@
                   <xsl:when test="$sort='identifier'">
                      <xsl:value-of select="'sort-publisher,identifier'"/>
                   </xsl:when>              
-                  <xsl:when test="$sort='collection-number'">
-                     <xsl:value-of select="'sort-publisher,collection-number'"/>
+                  <xsl:when test="$sort='sort-number'">
+                     <xsl:value-of select="'sort-publisher,sort-number'"/>
                   </xsl:when>              
                   <xsl:when test="$sort='totalHits'">
                      <xsl:value-of select="'-totalHits'"/>

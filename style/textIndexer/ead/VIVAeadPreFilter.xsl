@@ -611,16 +611,15 @@
    
    <!-- collection number -->
    <xsl:template name="get-ead-collection-number">
-      <xsl:for-each select="distinct-values($dtdVersion/ead/(eadheader//titlestmt|frontmatter/titlepage)//num)">
-         <collection-number xtf:meta="true" xtf:tokenize="yes">
-             <xsl:value-of select="normalize-space(.)"/>
-         </collection-number>
-      </xsl:for-each>
-      <xsl:if  test="$dtdVersion/ead/archdesc/did/unitid">
-         <collection-number xtf:meta="true" xtf:tokenize="yes">
-            <xsl:value-of select="normalize-space($dtdVersion/ead/archdesc/did/unitid[1])"/>
-         </collection-number>
-      </xsl:if>
+      <xsl:variable name="numbers" 
+         select="for $x in ($dtdVersion/ead/(eadheader//titlestmt|frontmatter/titlepage)//num, 
+            $dtdVersion/ead/archdesc/did/unitid[1]) return xtf:normalize($x)" />
+      <sort-number xtf:meta="true" xtf:tokenize="no" >
+         <xsl:value-of select="distinct-values($numbers)"/>
+      </sort-number>
+      <collection-number xtf:meta="true" xtf:tokenize="yes" >
+         <xsl:value-of select="distinct-values($numbers)"/>
+      </collection-number>
    </xsl:template>
    
    <!-- identifier VIVA mod sdm7g -->
