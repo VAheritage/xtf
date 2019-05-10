@@ -188,9 +188,10 @@
                            <td class="left">
                               <a href="{$xtfURL}search" target="_top">Home</a><xsl:text> | </xsl:text>
                               <xsl:choose>
-                                 <xsl:when test="session:getData('queryURL')">
+                                 <xsl:when use-when="function-available('session:getData')" test="session:getData('queryURL')">
                                     <a href="{session:getData('queryURL')}" target="_top">Return to Search Results</a>
                                  </xsl:when>
+                                 <xsl:when test="false()"></xsl:when>
                                  <xsl:otherwise>
                                     <span class="notActive">Return to Search Results</span>
                                  </xsl:otherwise>

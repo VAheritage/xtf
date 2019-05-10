@@ -8,7 +8,11 @@
     exclude-result-prefixes="#all"
     version="2.0">
     
-    <xsl:param name="lang" select="if (normalize-space(session:getData('lang')) != '') then session:getData('lang') else 'en'"/>
+    <xsl:param name="lang" >
+        <xsl:value-of use-when="function-available( 'session:getData' )" 
+            select="if (normalize-space(session:getData('lang')) != '') then session:getData('lang') else 'en'" />
+        <xsl:value-of use-when="not(function-available('session:getData'))" select="en"/>
+    </xsl:param>
     <xsl:param name="transTable" select="document(concat('g10n/translation_', $lang, '.xml'))"/>
     
     <!-- ====================================================================== -->
@@ -247,7 +251,7 @@
     </xsl:template>
     
     <xsl:template name="setLang">
-        <xsl:value-of select="session:setData('lang', $lang)"/>
+        <xsl:value-of use-when="function-available('session:setData')" select="session:setData('lang', $lang)"/>
         <html xml:lang="en" lang="en">
             <head>
                 <title>XTF: Success</title>
