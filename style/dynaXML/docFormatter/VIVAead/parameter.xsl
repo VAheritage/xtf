@@ -38,7 +38,5 @@
    <xsl:param name="css.path" select="concat($xtfURL, 'css/viva/')"/>
    
    <xsl:variable name="doc.title" select="string(/ead/xtf:meta/title)"/>
-   
-   <xsl:param name="debug.labels" ></xsl:param>
-   
+
 </xsl:stylesheet>
