@@ -436,10 +436,13 @@
 
       <!-- publisher - VIVA additions: add sort-publisher and facet-publisher; 
         use VHP/VIVA institution from agency code to normalize -->
- 
-      <xsl:variable name="directory" >
+
+      <xsl:variable name="fromoai" select="matches($me,'/oai/[^/]+/repositories/\d+/resources/')"/>
+   
+   
+      <xsl:variable name="directory"  >
          <xsl:choose>
-            <xsl:when test="matches($me,'/oai/[^/]+/repositories/\d+/resources/')">
+            <xsl:when test="$fromoai">
                <xsl:value-of select="tokenize($me,'/')[last()-4]"/>
             </xsl:when>
             <xsl:otherwise>
@@ -500,6 +503,13 @@
          <xsl:value-of select="$pub-name" />
       </facet-publisher>
 
+      <facet-publisher xtf:meta="true" xtf:tokenize="no">
+         <!--  temporary, for debugging merge of VH, ASpace OAI resources -->
+         <xsl:choose>
+            <xsl:when test="$fromoai">ArchivesSpace</xsl:when>
+            <xsl:otherwise>Virginia Heritage</xsl:otherwise>
+         </xsl:choose>
+      </facet-publisher>
 
    </xsl:template>
    
