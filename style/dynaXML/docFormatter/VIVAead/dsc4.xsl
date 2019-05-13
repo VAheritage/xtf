@@ -218,7 +218,7 @@
 		</div>
 	</xsl:template>
 
-	<xsl:template name="container_labels">
+	<!--<xsl:template name="container_labels">
 		<xsl:variable name="current1">
 			<xsl:if
 				test="string(normalize-space(parent::node()/parent::node()/did/container[1]/@label))">
@@ -295,9 +295,9 @@
 				</div>
 			</xsl:when>
 		</xsl:choose>
-	</xsl:template>
+	</xsl:template>-->
 
-	<xsl:template match="container">
+	<!--<xsl:template match="container">
 		<xsl:param name="position"/>
 		<xsl:choose>
 			<xsl:when test="parent::node()/parent::node()[@level='series']">
@@ -312,7 +312,7 @@
 				</div>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:variable name="style">
+				<!-\-<xsl:variable name="style">
 					<xsl:choose>
 						<xsl:when test="$position = '1'">
 							<xsl:choose>
@@ -365,11 +365,11 @@
 							</xsl:choose>
 						</xsl:when>
 					</xsl:choose>
-				</xsl:variable>
+				</xsl:variable>-\->
 
 
 				<div style="">
-					<!--  <div style="float:left;width:100px;{$style}">  -->
+					<!-\-  <div style="float:left;width:100px;{$style}">  -\->
 					<xsl:value-of select="@label"/>
 					<xsl:text> </xsl:text>
 					<xsl:apply-templates />
@@ -377,8 +377,16 @@
 
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:template>
+	</xsl:template>-->
 
+	<xsl:template match="container">
+		<xsl:value-of select="@label"/>
+		<xsl:text> </xsl:text>
+		<xsl:if test="lower-case(@label) != lower-case(@type)" >
+			<xsl:value-of select="concat(@type, ': ')" />
+		</xsl:if>
+		<xsl:apply-templates />
+	</xsl:template>
 
 	<xsl:template match="daoset" mode="did_level">
 		<div class="ldd" name="{name()}">
