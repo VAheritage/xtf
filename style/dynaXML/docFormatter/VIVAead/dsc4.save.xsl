@@ -218,7 +218,7 @@
 		</div>
 	</xsl:template>
 
-	<!--<xsl:template name="container_labels">
+	<xsl:template name="container_labels">
 		<xsl:variable name="current1">
 			<xsl:if
 				test="string(normalize-space(parent::node()/parent::node()/did/container[1]/@label))">
@@ -295,9 +295,9 @@
 				</div>
 			</xsl:when>
 		</xsl:choose>
-	</xsl:template>-->
+	</xsl:template>
 
-	<!--<xsl:template match="container">
+	<xsl:template match="container">
 		<xsl:param name="position"/>
 		<xsl:choose>
 			<xsl:when test="parent::node()/parent::node()[@level='series']">
@@ -312,7 +312,7 @@
 				</div>
 			</xsl:when>
 			<xsl:otherwise>
-				<!-\-<xsl:variable name="style">
+				<xsl:variable name="style">
 					<xsl:choose>
 						<xsl:when test="$position = '1'">
 							<xsl:choose>
@@ -365,28 +365,46 @@
 							</xsl:choose>
 						</xsl:when>
 					</xsl:choose>
-				</xsl:variable>-\->
+				</xsl:variable>
 
+				<xsl:if test="$debug.labels">
+					<xsl:if test="$position = '1'">
+					<xsl:choose>
+						<xsl:when test="not(ancestor::c01//container[2])">
+							<xsl:variable name="current">
+								<xsl:if
+									test="string(normalize-space(parent::node()/parent::node()/did/container/@label))">
+									<xsl:value-of select="@label"/>
+								</xsl:if>
+							</xsl:variable>
+							<xsl:variable name="prev">
+								<xsl:value-of
+									select="parent::node()/parent::node()/preceding-sibling::*/did/container/@label"
+								/>
+							</xsl:variable>
 
-				<div style="">
-					<!-\-  <div style="float:left;width:100px;{$style}">  -\->
-					<xsl:value-of select="@label"/>
-					<xsl:text> </xsl:text>
-					<xsl:apply-templates />
+							<xsl:if test="not($current = $prev)">
+								<div style="display:table;color:#324395;{$style}">
+									<xsl:value-of select="$current"/>
+								</div>
+							</xsl:if>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:call-template name="container_labels"/>
+						</xsl:otherwise>
+					</xsl:choose>
+
+				</xsl:if>
+				</xsl:if>
+
+				<div style="float:left;width:100px;{$style}">
+					<xsl:if test="not($debug.labels)"><xsl:value-of select="@label"/></xsl:if><xsl:text> </xsl:text><!--<xsl:value-of select="."/>--><xsl:apply-templates />
 				</div>
 
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:template>-->
-
-	<xsl:template match="container">
-		<xsl:value-of select="@label"/>
-		<xsl:text> </xsl:text>
-		<xsl:if test="lower-case(@label) != lower-case(@type)" >
-			<xsl:value-of select="concat(@type, ': ')" />
-		</xsl:if>
-		<xsl:apply-templates />
 	</xsl:template>
+
 
 	<xsl:template match="daoset" mode="did_level">
 		<div class="ldd" name="{name()}">

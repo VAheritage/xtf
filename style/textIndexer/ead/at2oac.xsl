@@ -101,7 +101,7 @@
 
 <!-- copy overloaded container labels to sibling physdesc -->
 <!-- TODO: specifically target AT @label values? -->
-<xsl:template match="ead:container[@label]" mode="at2oac">
+<!--<xsl:template match="ead:container[@label]" mode="at2oac">
   <xsl:element name="{name()}" namespace="{$namespace}">
     <xsl:apply-templates select="@*[name()!='label'] | node() " mode="at2oac"/>
   </xsl:element>
@@ -110,7 +110,7 @@
       <xsl:value-of select="@label"/>
     </xsl:element>
   </xsl:if>
-</xsl:template>
+</xsl:template>-->
 
 <!-- dao from AT style to MOAC style -->
 
@@ -125,13 +125,13 @@
       | ead:odd | ead:originalsloc | ead:otherfindaid | ead:phystech | ead:prefercite 
       | ead:processinfo | ead:relatedmaterial | ead:scopecontent | ead:separatedmaterial 
       | ead:userestrict | ead:dsc | ead:daogrp | ead:note | ead:thead" mode="at2oac"/>
-    <xsl:apply-templates select="ead:dao" mode="convert" />
+    <xsl:apply-templates select="ead:dao" mode="at2oac" /> <!-- removed @mode="convert" -->
     <xsl:apply-templates select="ead:c01|ead:c02|ead:c03|ead:c04|ead:c05|ead:c06|ead:c07|ead:c08|ead:c09|ead:c10|ead:c11|ead:c12" mode="at2oac"/>
 
   </xsl:element>
 </xsl:template>
 
-<xsl:template match="ead:dao" mode="convert"><xsl:text>
+<!--<xsl:template match="ead:dao" mode="convert"><xsl:text>
 </xsl:text>
   <xsl:variable name="plusone">
     <xsl:value-of select="number(substring(name(..),2,2))+1"/>
@@ -146,15 +146,15 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <!-- c0x -->
+  <!-\- c0x -\->
   <xsl:element name="{$cD}{number($plusone) mod 10}" namespace="{$namespace}">
-    <!-- did -->
+    <!-\- did -\->
     <xsl:element name="did" namespace="{$namespace}">
-      <!-- unititle -->
+      <!-\- unititle -\->
       <xsl:element namespace="{$namespace}" name="unittitle">
         <xsl:value-of select="ead:daodesc/ead:p"/>
       </xsl:element>
-      <!-- dao -->
+      <!-\- dao -\->
       <xsl:element namespace="{$namespace}" name="dao">
         <xsl:attribute name="href" namespace="{$xlink-namespace}">
           <xsl:value-of select="@xlink:href"/>
@@ -162,7 +162,7 @@
       </xsl:element>
     </xsl:element>
   </xsl:element>
-</xsl:template>
+</xsl:template>-->
 
 <!-- modified identity templates -->
 

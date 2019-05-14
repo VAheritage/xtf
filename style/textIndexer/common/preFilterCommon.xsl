@@ -48,7 +48,7 @@
       <xsl:variable name="docpath" select="saxon:system-id()"/>
       <xsl:variable name="base" select="replace($docpath, '(.*)\.[^\.]+$', '$1')"/>
       <xsl:variable name="dcpath" select="concat($base, '.dc.xml')"/>
-      <xsl:if test="FileUtils:exists($dcpath)">
+      <xsl:if use-when="function-available('FileUtils:exists')" test="FileUtils:exists($dcpath)">
          <xsl:apply-templates select="document($dcpath)" mode="inmeta"/>
          <xsl:if test="not(document($dcpath)//*:identifier)">
             <identifier xtf:meta="true" xtf:tokenize="no">
@@ -122,22 +122,12 @@
          <xsl:apply-templates select="$meta/*:date[1]" mode="sort"/>
          
          <!-- Create facets -->
-         <!-- HA 3/23/2014 Removing date facet for now -->
-         <!--<xsl:apply-templates select="$meta/*:date" mode="facet"/>-->
+         <xsl:apply-templates select="$meta/*:date" mode="facet"/>
          <xsl:apply-templates select="$meta/*:subject" mode="facet"/>
-         <xsl:apply-templates select="$meta/*:publisher" mode="facet"/>  <!--senylrc added this-->
-        
-         <!-- JB 3/31/2014 add to generate materials facet from genreform -->         
-           <xsl:apply-templates select="$meta/*:genreform" mode="facet"/>
-         <!-- HA 3/31/2014 adding additional facets -->
-         <xsl:apply-templates select="$meta/*:corpname" mode="facet"/>
-         <xsl:apply-templates select="$meta/*:famname" mode="facet"/>
-         <xsl:apply-templates select="$meta/*:geogname" mode="facet"/>
-         <xsl:apply-templates select="$meta/*:occupation" mode="facet"/>
-         <xsl:apply-templates select="$meta/*:persname" mode="facet"/>
-           
+         
          <xsl:apply-templates select="$meta/*:title[1]" mode="browse"/>    
          <xsl:apply-templates select="$meta/*:creator[1]" mode="browse"/>
+         
       </xtf:meta>
    </xsl:template>
    
@@ -154,7 +144,7 @@
          <xsl:value-of select="parse:title(string(.))"/>
       </sort-title>
    </xsl:template>
- 
+   
    <!-- Generate sort-creator -->
    <xsl:template match="*:creator" mode="sort">
       <sort-creator xtf:meta="yes" xtf:tokenize="no">
@@ -200,80 +190,7 @@
          <xsl:value-of select="normalize-unicode(string(.))"/>
       </facet-subject>
    </xsl:template>
-    <!-- Generate facet-publisher SENYLRC -->
-   <xsl:template match="*:publisher" mode="facet">
-      <facet-publisher>
-         <xsl:attribute name="xtf:meta" select="'true'"/>
-         <xsl:attribute name="xtf:facet" select="'yes'"/>
-         <xsl:value-of select="normalize-unicode(string(.))"/>
-      </facet-publisher>
-   </xsl:template>
    
-   <!-- JB 3/31/2014 add to generate materials facet from genreform -->
-   <!-- Generate facet-genreform -->
-   <xsl:template match="*:genreform" mode="facet">
-      <facet-genreform>
-         <xsl:attribute name="xtf:meta" select="'true'"/>
-         <xsl:attribute name="xtf:facet" select="'yes'"/>
-         <xsl:value-of select="normalize-unicode(string(.))"/>
-      </facet-genreform>
-   </xsl:template>
-   
-   <!-- HA 3/31/2014 adding additional facets -->
-   <!-- Generate facet-corpname -->
-   <xsl:template match="*:corpname" mode="facet">
-      <facet-corpname>
-         <xsl:attribute name="xtf:meta" select="'true'"/>
-         <xsl:attribute name="xtf:facet" select="'yes'"/>
-         <xsl:value-of select="normalize-unicode(string(.))"/>
-      </facet-corpname>
-   </xsl:template>
-   
-   <!-- Generate facet-persname -->
-   <xsl:template match="*:persname" mode="facet">
-      <facet-persname>
-         <xsl:attribute name="xtf:meta" select="'true'"/>
-         <xsl:attribute name="xtf:facet" select="'yes'"/>
-         <xsl:value-of select="normalize-unicode(string(.))"/>
-      </facet-persname>
-   </xsl:template>
-   
-   <!-- Generate facet-famname -->
-   <xsl:template match="*:famname" mode="facet">
-      <facet-famname>
-         <xsl:attribute name="xtf:meta" select="'true'"/>
-         <xsl:attribute name="xtf:facet" select="'yes'"/>
-         <xsl:value-of select="normalize-unicode(string(.))"/>
-      </facet-famname>
-   </xsl:template>
-   
-   <!-- Generate facet-title -->
-   <xsl:template match="*:title" mode="facet">
-      <facet-title>
-         <xsl:attribute name="xtf:meta" select="'true'"/>
-         <xsl:attribute name="xtf:facet" select="'yes'"/>
-         <xsl:value-of select="normalize-unicode(string(.))"/>
-      </facet-title>
-   </xsl:template>
-   
-   <!-- Generate facet-geogname -->
-   <xsl:template match="*:geogname" mode="facet">
-      <facet-geogname>
-         <xsl:attribute name="xtf:meta" select="'true'"/>
-         <xsl:attribute name="xtf:facet" select="'yes'"/>
-         <xsl:value-of select="normalize-unicode(string(.))"/>
-      </facet-geogname>
-   </xsl:template>
-   
-   <!-- Generate facet-occupation -->
-   <xsl:template match="*:occupation" mode="facet">
-      <facet-occupation>
-         <xsl:attribute name="xtf:meta" select="'true'"/>
-         <xsl:attribute name="xtf:facet" select="'yes'"/>
-         <xsl:value-of select="normalize-unicode(string(.))"/>
-      </facet-occupation>
-   </xsl:template>
-
    <!-- Generate browse-title -->
    <xsl:template match="*:title" mode="browse">
       <browse-title>
@@ -336,7 +253,7 @@
       
       <!-- Remove accent marks and other diacritics -->
       <xsl:variable name="no-accents-name">
-         <xsl:value-of select="CharUtils:applyAccentMap('../../../conf/accentFolding/accentMap.txt', $creator)"/>
+         <xsl:value-of use-when="function-available('CharUtils:applyAccentMap')" select="CharUtils:applyAccentMap('../../../conf/accentFolding/accentMap.txt', $creator)"/>
       </xsl:variable>
       
       <!-- Normalize Spaces & Case-->
@@ -367,11 +284,10 @@
          <xsl:when test="matches($first-creator, ', ')">
             <xsl:value-of select="replace($first-creator, '(.+?), .+', '$1')"/>
          </xsl:when>
-         <!-- JB 4/1/2014 This pattern commented out to resolve issue of corporate headings in author sorts -->
-         <!-- Pattern:  'X. NAME' or ' NAME' 
+         <!-- Pattern:  'X. NAME' or ' NAME' -->
          <xsl:when test="matches($first-creator, '^.+\.? (\w{2,100})')">
             <xsl:value-of select="replace($first-creator, '^.+\.? (\w{2,100})', '$1')"/>
-         </xsl:when> -->
+         </xsl:when>
          <!-- Pattern:  Everything else -->
          <xsl:otherwise>
             <xsl:value-of select="$first-creator"/>
@@ -545,7 +461,7 @@
       
       <!-- Remove accent marks and other diacritics -->
       <xsl:variable name="no-accents-name">
-         <xsl:value-of select="CharUtils:applyAccentMap('../../../conf/accentFolding/accentMap.txt', $string)"/>
+         <xsl:value-of use-when="function-available('CharUtils:applyAccentMap')" select="CharUtils:applyAccentMap('../../../conf/accentFolding/accentMap.txt', $string)"/>
       </xsl:variable>
       
       <!-- Normalize Spaces & Case-->
