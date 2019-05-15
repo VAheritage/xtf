@@ -20,7 +20,7 @@
    <xsl:template match="/">
       <xsl:variable name="stylesheet" select="'style/crossQuery/resultFormatter/siteMap/resultFormatter.xsl'"/>
       <query indexPath="index" style="{$stylesheet}" termLimit="-1" maxDocs="1000000" 
-             returnMetaFields="identifier, dateStamp" sortMetaFields="identifier">
+             returnMetaFields="path, dateStamp" sortMetaFields="path">
          <allDocs/>
       </query>
    </xsl:template>
