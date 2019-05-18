@@ -69,12 +69,15 @@
             <xsl:when test="matches($smode,'siteMap')">
                <queryParser path="style/crossQuery/queryParser/siteMap/queryParser.xsl"/>
             </xsl:when>
-			<xsl:when test="matches($smode,'viva') or matches($brand,'viva')" >
-				<queryParser path="style/crossQuery/queryParser/viva/queryParser.xsl" />
-			</xsl:when>
+			      <xsl:when test="matches($smode,'viva') or matches($brand,'viva')" >
+				        <queryParser path="style/crossQuery/queryParser/viva/queryParser.xsl" />
+			      </xsl:when>
+            <xsl:when test="matches($smode,'alt') or matches($brand,'alt')" >
+              <queryParser path="style/crossQuery/queryParser/default/queryParser.xsl"/>
+            </xsl:when>
             <!-- default -->
             <xsl:otherwise>
-               <queryParser path="style/crossQuery/queryParser/default/queryParser.xsl"/>
+               <queryParser path="style/crossQuery/queryParser/viva/queryParser.xsl"/>
             </xsl:otherwise>
          </xsl:choose>
       </route>
