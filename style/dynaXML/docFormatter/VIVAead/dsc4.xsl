@@ -45,7 +45,7 @@
       c01 by calling a named template specific to that component level.
       The named templates are in section 4.-->
 
-	<xsl:template match="c01">
+	<xsl:template match="c01|c">
 		<xsl:choose>
 			<xsl:when test="@level='item' or @level='file'">
 				<div class="c01_item">

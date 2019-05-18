@@ -113,6 +113,24 @@
 </xsl:template>-->
 
 <!-- dao from AT style to MOAC style -->
+  
+<xsl:template match="ead:c" mode="at2oac" >
+  <xsl:variable name="cn" select="count(./ancestor-or-self::c)" />
+  <xsl:variable name="cname" select="concat('c0',$cn)" />
+  <xsl:element name="{$cname}" namespace="{$namespace}" >
+    <xsl:apply-templates select="@*" mode="at2oac"/>
+    <xsl:apply-templates select="ead:head | ead:did | ead:accessrestrict | ead:accruals
+      | ead:acqinfo | ead:altformavail | ead:appraisal | ead:arrangement | ead:bibliography 
+      | ead:bioghist | ead:controlaccess | ead:custodhist | ead:descgrp | ead:fileplan | ead:index
+      | ead:odd | ead:originalsloc | ead:otherfindaid | ead:phystech | ead:prefercite 
+      | ead:processinfo | ead:relatedmaterial | ead:scopecontent | ead:separatedmaterial 
+      | ead:userestrict | ead:dsc | ead:daogrp | ead:note | ead:thead" mode="at2oac"/>
+    <xsl:apply-templates select="ead:dao" mode="at2oac" /> <!-- removed @mode="convert" -->
+    <xsl:apply-templates select="ead:c" mode="at2oac"/>
+    
+  </xsl:element>
+  
+</xsl:template>
 
 <xsl:template match="ead:c01|ead:c02|ead:c03|ead:c04|ead:c05|ead:c06|ead:c07|ead:c08|ead:c09|ead:c10|ead:c11|ead:c12" mode="at2oac">
 <!-- head? , did , (accessrestrict | accruals | acqinfo | altformavail | appraisal | arrangement | bibliography | bioghist | controlaccess | custodhist | descgrp | fileplan | index | odd | originalsloc | otherfindaid | phystech | prefercite | processinfo | relatedmaterial | scopecontent | separatedmaterial | userestrict | dsc | dao | daogrp | note)* , (thead? , c04+) 
