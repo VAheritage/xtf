@@ -44,7 +44,7 @@
    -->
 
    <!-- Templates used for parsing text queries -->
-   <xsl:import href="../crossQuery/queryParser/default/queryParser.xsl"/>
+   <xsl:import href="../crossQuery/queryParser/viva/queryParser.xsl"/>
 
    <xsl:output method="xml"
       indent="yes"
@@ -192,7 +192,7 @@
          that weren't built at index time (due to specifying -nobuildlazy).
       -->
       <preFilter path="{
-         if      ($fileType = 'ead') then 'style/textIndexer/ead/eadPreFilter.xsl'
+         if      ($fileType = 'ead') then 'style/textIndexer/ead/VIVAeadPreFilter.xsl'
          else if ($fileType = 'nlm') then 'style/textIndexer/nlm/nlmPreFilter.xsl'
          else if ($fileType = 'tei') then 'style/textIndexer/tei/teiPreFilter.xsl'
          else                             'style/textIndexer/default/defaultPreFilter.xsl'}"/>

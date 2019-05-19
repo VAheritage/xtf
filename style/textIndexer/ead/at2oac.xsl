@@ -115,7 +115,7 @@
 <!-- dao from AT style to MOAC style -->
   
 <xsl:template match="ead:c" mode="at2oac" >
-  <xsl:variable name="cn" select="count(./ancestor-or-self::c)" />
+  <xsl:variable name="cn" select="count(./ancestor-or-self::ead:c)" />
   <xsl:variable name="cname" select="concat('c0',$cn)" />
   <xsl:element name="{$cname}" namespace="{$namespace}" >
     <xsl:apply-templates select="@*" mode="at2oac"/>
