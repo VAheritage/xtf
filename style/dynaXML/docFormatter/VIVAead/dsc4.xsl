@@ -380,10 +380,10 @@
 	</xsl:template>-->
 
 	<xsl:template match="container">
-		<xsl:value-of select="@label"/>
-		<xsl:text> </xsl:text>
-		<xsl:if test="not(matches(@label,@type,'i' )) and not(matches(string(.),@type,'i')) and not(matches(string(.),@label,'i'))" >
-			<xsl:value-of select="concat(@type, ': ')" />
+		<xsl:param name="position" /><!-- not used! -->	
+		<xsl:value-of select="@label"/><xsl:text> </xsl:text>
+		<xsl:if test="not(matches(@label,@type,'i' )) and not(matches(string(.),@type,'i'))">
+			<xsl:value-of select="@type"/><xsl:text>: </xsl:text>
 		</xsl:if>
 		<xsl:apply-templates />
 	</xsl:template>
