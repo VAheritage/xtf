@@ -382,7 +382,7 @@
 	<xsl:template match="container">
 		<xsl:value-of select="@label"/>
 		<xsl:text> </xsl:text>
-		<xsl:if test="lower-case(@label) != lower-case(@type)" >
+		<xsl:if test="not(matches(@label,@type,'i' )) and not(matches(string(.),@type,'i')) and not(matches(string(.),@label,'i'))" >
 			<xsl:value-of select="concat(@type, ': ')" />
 		</xsl:if>
 		<xsl:apply-templates />
