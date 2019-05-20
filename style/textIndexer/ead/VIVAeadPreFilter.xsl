@@ -646,12 +646,11 @@
             <xsl:when test="$dtdVersion/ead/eadheader/eadid/@identifier">
                <xsl:value-of select="$dtdVersion/ead/eadheader/eadid/@identifier"/>
             </xsl:when>
-            <xsl:when test="string-length($dtdVersion/ead/eadheader/eadid/@publicid) &lt; 16">
-               <xsl:value-of select="$dtdVersion/ead/eadheader/eadid/@publicid"/>
-            </xsl:when>
+<!--            <xsl:when test="string-length($dtdVersion/ead/eadheader/eadid/@publicid) &lt; 16 ">
+               <xsl:value-of select="normalize-space($dtdVersion/ead/eadheader/eadid/@publicid)"/>
+            </xsl:when>  -->
             <xsl:otherwise>
                <xsl:value-of select="tokenize($me,'/')[last()]" />
-<!--        <xsl:value-of select="tokenize( normalize-space($dtdVersion/ead/eadheader/eadid), '\W+')[last()]"/> -->            
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>

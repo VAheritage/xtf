@@ -150,7 +150,7 @@
          if (matches($http.URL, $ercPat)) then 'style/dynaXML/docFormatter/erc/ercDocFormatter.xsl'
          else if (($fileType = 'ead') and ($brand = 'default'))then 'style/dynaXML/docFormatter/VIVAead/eadDocFormatter.xsl'
          else if (($fileType = 'ead') and ($brand = 'viva'))then 'style/dynaXML/docFormatter/VIVAead/eadDocFormatter.xsl'
-         else if (($fileType = 'ead') and ($brand = 'alt'))then 'style/dynaXML/docFormatter/VIVAead/eadDocFormatter.xsl'
+         else if (($fileType = 'ead') and ($brand = 'alt'))then 'style/dynaXML/docFormatter/ead/eadDocFormatter.xsl'
          else if ($fileType = 'ead') then 'style/dynaXML/docFormatter/VIVAead/eadDocFormatter.xsl'
          else if ($fileType = 'nlm') then 'style/dynaXML/docFormatter/nlm/nlmDocFormatter.xsl'
          else if ($fileType = 'tei') then 'style/dynaXML/docFormatter/tei/teiDocFormatter.xsl'
