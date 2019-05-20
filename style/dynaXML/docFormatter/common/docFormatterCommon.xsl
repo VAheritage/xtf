@@ -173,14 +173,15 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li>
-							<xsl:if test="not(session:getData('queryURL'))">
+							<xsl:if use-when="function-available('session:getData')" test="not(session:getData('queryURL'))">
 								<xsl:attribute name="class">disabled</xsl:attribute>
 							</xsl:if>							
 							<a>	
 								<xsl:choose>
-									<xsl:when test="session:getData('queryURL')">
+									<xsl:when use-when="function-available('session:getData')" test="session:getData('queryURL')">
 										<xsl:attribute name="href" select="session:getData('queryURL')"/>
 									</xsl:when>
+									<xsl:when test="false()"><!-- if the above when is excluded there needs to be at least one when clause --></xsl:when>
 									<xsl:otherwise>
 										<xsl:attribute name="class">disabled</xsl:attribute>
 										<xsl:attribute name="href">#</xsl:attribute>
