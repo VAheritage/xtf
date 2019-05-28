@@ -769,9 +769,7 @@
 
 		<xsl:if
 			test="string(archdesc/relatedmaterial) or
-         string(archdesc/*/relatedmaterial) or
-         string(archdesc/separatedmaterial) or
-         string(archdesc/*/separatedmaterial)">
+         string(archdesc/*/relatedmaterial)">
 			<div class="dd">
 				<h3 style="margin-left:-25px;">
 					<a name="relatedmatlink">
@@ -785,8 +783,12 @@
             | archdesc/*/relatedmaterial/p
             | archdesc/relatedmaterial/note/p
             | archdesc/*/relatedmaterial/note/p"/>
+			</div></xsl:if>
 
-					<h3 style="margin-left:-25px;">
+		<xsl:if test="string(archdesc/separatedmaterial) or
+			string(archdesc/*/separatedmaterial)" >
+			<div class="dd">
+				<h3 style="margin-left:-25px;">
 						<a name="separatedmatlink">
 							<b>
 								<xsl:text>Separated Material</xsl:text>
@@ -799,9 +801,8 @@
             | archdesc/separatedmaterial/note/p
             | archdesc/*/separatedmaterial/note/p"/>
 
-			</div>
+		</div></xsl:if>
 			<hr/>
-		</xsl:if>
 
 	</xsl:template>
 
