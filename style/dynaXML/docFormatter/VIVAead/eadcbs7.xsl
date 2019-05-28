@@ -728,7 +728,7 @@
 		archdesc/phystech/head |
 		archdesc/descgrp/head |
 		archdesc/controlaccess/head |
-		archdesc/odd/head |
+		archdesc/odd/head | archdesc/add/head | 
 		archdesc/arrangement/head">
 		<h3 style="margin-left:-25px;">
 			<a name="{xtf:make-id(.)}">
@@ -928,7 +928,7 @@
 	</xsl:template>
 
 	<xsl:template
-		match="accessrestrict | userestrict | prefercite | altformavail | accruals | acqinfo | appraisal | custodhist | processinfo">
+		match="accessrestrict | userestrict | prefercite | altformavail | accruals | acqinfo | appraisal | custodhist | processinfo | phystech">
 		<xsl:apply-templates select="head | p" mode="admininfo"/>
 	</xsl:template>
 
