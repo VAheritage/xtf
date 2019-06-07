@@ -482,6 +482,9 @@
             <xsl:when test="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@oclc=upper-case($agencycode)]">
                <xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@oclc=upper-case($agencycode)]"/>
             </xsl:when>
+            <xsl:when test="normalize-space($agencycode) != '' ">
+               <xsl:value-of select="string($agencycode)"/>
+            </xsl:when>
             <xsl:otherwise>
                <xsl:value-of select="$directory"/>
             </xsl:otherwise>
@@ -588,7 +591,7 @@
       <xsl:choose>
          <xsl:when test="($dtdVersion)/ead/archdesc/did//unitdate">
             <coverage xtf:meta="true">
-               <xsl:value-of select="string(($dtdVersion)/ead/archdesc/did//unitdate[1])"/>
+               <xsl:value-of select="string((($dtdVersion)/ead/archdesc/did//unitdate)[1])"/>
             </coverage>
          </xsl:when>
          <xsl:otherwise>
