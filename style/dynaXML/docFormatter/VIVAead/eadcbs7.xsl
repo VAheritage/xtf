@@ -801,8 +801,7 @@
             | archdesc/separatedmaterial/note/p
             | archdesc/*/separatedmaterial/note/p"/>
 
-		</div></xsl:if>
-			<hr/>
+			</div><hr/></xsl:if>
 
 	</xsl:template>
 
@@ -904,9 +903,8 @@
 				<xsl:apply-templates
 					select="archdesc/accessrestrict | archdesc/userestrict | archdesc/prefercite | archdesc/altformavail | archdesc/accruals | archdesc/acqinfo | archdesc/appraisal | archdesc/custodhist | archdesc/processinfo"
 				/>
-			</div>
+			</div><hr/>
 		</xsl:if>
-		<hr/>
 	</xsl:template>
 
 	<xsl:template match="descgrp[@type='admininfo']">
