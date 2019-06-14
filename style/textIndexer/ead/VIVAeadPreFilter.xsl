@@ -197,7 +197,7 @@
                <xsl:if test="not(@id)">
                   <xsl:attribute name="id" select="concat(local-name(), '_', $chunk.id)"/>
                </xsl:if>
-               <xsl:if test="not($node/head)">
+               <xsl:if test="not($node/head) and $node/node()">
                   <xsl:variable name="heading" select="oac:supply-heading($node)" xmlns:oac="http://oac.cdlib.org"/>
                   <xsl:if test="$heading!=''">
                      <head><xsl:value-of select="$heading"/></head>
