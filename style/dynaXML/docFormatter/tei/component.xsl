@@ -907,7 +907,10 @@
 			<!--
 			<xsl:otherwise>
 			-->
-				<a class="tei_ref">
+				<xsl:element name="a">
+					<xsl:if test="not(@rend) or @rend != 'normal'" >
+						<xsl:attribute name="class">tei_ref</xsl:attribute>
+					</xsl:if>
 					<!--
 					<xsl:attribute name="href"><xsl:value-of select="$doc.path"
 							/>&#038;chunk.id=<xsl:value-of select="$chunk"
@@ -928,7 +931,7 @@
 							<xsl:apply-templates/>
 						</xsl:otherwise>
 					</xsl:choose>
-				</a>
+				</xsl:element>
 			<!--
 			</xsl:otherwise>
 		</xsl:choose>
