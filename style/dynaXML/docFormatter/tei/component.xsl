@@ -1031,7 +1031,11 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    
+
+	<xsl:element name="a">
+  	<xsl:if test="@id">
+  		<xsl:attribute name="name" select="@id" />  		
+  	</xsl:if>
     <xsl:choose>
       <xsl:when test="@rend='none'"/>
       <xsl:when test="@rend='inline'">
@@ -1045,6 +1049,7 @@
         </div>
       </xsl:otherwise>
     </xsl:choose>
+	</xsl:element>
   </xsl:template>
 
 <!--
