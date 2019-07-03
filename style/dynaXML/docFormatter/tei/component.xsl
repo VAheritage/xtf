@@ -1008,7 +1008,7 @@
           <xsl:text>/uva-lib-bdef:102/getScreen</xsl:text>
         </xsl:when>
       	<xsl:when test="graphic/@url">
-      		<xsl:value-of select="concat('http://static.lib.virginia.edu/legacy/', string(graphic/@url))"/>
+      		<!--<xsl:value-of select="concat('http://static.lib.virginia.edu/legacy/', string(graphic/@url))"/>-->
       	</xsl:when>
         <xsl:otherwise>
           <xsl:value-of select="concat('http://static.lib.virginia.edu', '/legacy/',  upper-case(substring($pid,1,1)), '/', $pid, '.jpg')"/>
@@ -1017,6 +1017,7 @@
     </xsl:variable>
     
     <xsl:variable name="image_or_placeholder">
+    	<xsl:if test="not(graphic/@url)">
       <xsl:choose>
         <xsl:when test="not($img_src) or $pid = preceding::pb[1]/@pid">
           <!-- no image associated with this <figure>, or <figure> just points to page image -->
@@ -1033,6 +1034,7 @@
           </xsl:element>
         </xsl:otherwise>
       </xsl:choose>
+    	</xsl:if>
     </xsl:variable>
 
 	<xsl:element name="a">
@@ -1230,6 +1232,15 @@
 		</xsl:choose>
 	</xsl:template>
 -->
+
+  <xsl:template match="graphic[@url]">
+  	<div class="tei_figure">
+  	<xsl:element name="img">
+  		<xsl:attribute name="src" select="concat('http://static.lib.virginia.edu/legacy/',@url)" />
+  		<xsl:attribute name="class">illustration</xsl:attribute>
+  	</xsl:element>
+  	</div>
+  </xsl:template>
 
   <xsl:template match="*[local-name()='figDesc']">
     <span class="tei_figDesc">
