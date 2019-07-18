@@ -5,7 +5,7 @@ $(function () {
 			var alt = $(this) .attr('alt');
             var repo = $('#' + pid + '_container').attr('class').split(" ")[1];
             if (repo != undefined ) {
-							image_url = "https://iiif.lib.virginia.edu/iiif/uva-lib:" + pid + "/full/1600,1600/0/default.jpg";
+							image_url = "https://iiif.lib.virginia.edu/iiif/uva-lib:" + pid + "/full/,1600/0/default.jpg";
               // image_url = "http://" + repo + ".lib.virginia.edu:8080/fedora/objects/uva-lib:" + pid + "/methods/djatoka%3AStaticSDef/getScaled?maxWidth=1600&maxHeight=1600";
             } else {
               image_url = "http://" + "fedora-prod01" + ".lib.virginia.edu:8080/fedora/get/uva-lib:" + pid + "/uva-lib-bdef:102/getScreen";
