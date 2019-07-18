@@ -1271,15 +1271,30 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
+		<xsl:variable name="fedoraurl">http://fedora-prod02.lib.virginia.edu:8080/fedora/objects/</xsl:variable>
+		<xsl:variable name="fedorathumb">/methods/djatoka%3AStaticSDef/getThumbnail?</xsl:variable>
+		<xsl:variable name="iiifurl">https://iiif.lib.virginia.edu/iiif/</xsl:variable>
+		<xsl:variable name="iiifthumb">/full/256,/0/default.jpg</xsl:variable>
 		<!-- whitespace matters in this variable (below), do not break lines -->
 		<xsl:variable name="repo-location">
+			<xsl:if test="false()" >
           <xsl:choose>
-            <xsl:when test="$pid and contains(upper-case($doc.title), 'STUDIES IN BIBLIOGRAPHY')">http://fedora-prod02.lib.virginia.edu:8080/fedora/objects/<xsl:value-of select="$pid"/>/methods/djatoka%3AStaticSDef/getThumbnail?</xsl:when>
-            <xsl:when test="$pid and contains(upper-case($doc.title), 'BIBLIOGRAPHICAL SOCIETY')">http://fedora-prod02.lib.virginia.edu:8080/fedora/objects/<xsl:value-of select="$pid"/>/methods/djatoka%3AStaticSDef/getThumbnail?</xsl:when>
-            <xsl:when test="$pid and contains(upper-case($doc.title), 'SOUTHERN COLLECTING')">http://fedora-prod02.lib.virginia.edu:8080/fedora/objects/<xsl:value-of select="$pid"/>/methods/djatoka%3AStaticSDef/getThumbnail?</xsl:when>
+            <xsl:when test="$pid and contains(upper-case($doc.title), 'STUDIES IN BIBLIOGRAPHY')"><xsl:value-of select="$fedoraurl"/><xsl:value-of select="$pid"/><xsl:value-of select="$fedorathumb"/></xsl:when>
+          	<xsl:when test="$pid and contains(upper-case($doc.title), 'BIBLIOGRAPHICAL SOCIETY')"><xsl:value-of select="$fedoraurl"/><xsl:value-of select="$pid"/><xsl:value-of select="$fedorathumb"/></xsl:when>
+          	<xsl:when test="$pid and contains(upper-case($doc.title), 'SOUTHERN COLLECTING')"><xsl:value-of select="$fedoraurl"/><xsl:value-of select="$pid"/><xsl:value-of select="$fedorathumb"/></xsl:when>
             <xsl:when test="$pid">http://fedora-prod01.lib.virginia.edu:8080/fedora/get/<xsl:value-of select="$pid"/>/uva-lib-bdef:102/getPreview</xsl:when>
             <xsl:otherwise><xsl:value-of select="false()"/></xsl:otherwise>
           </xsl:choose>
+			</xsl:if>
+			<xsl:if test="true()">
+				<xsl:choose>
+					<xsl:when test="$pid and contains(upper-case($doc.title), 'STUDIES IN BIBLIOGRAPHY')"><xsl:value-of select="$iiifurl"/><xsl:value-of select="$pid"/><xsl:value-of select="$iiifthumb"/></xsl:when>
+					<xsl:when test="$pid and contains(upper-case($doc.title), 'BIBLIOGRAPHICAL SOCIETY')"><xsl:value-of select="$iiifurl"/><xsl:value-of select="$pid"/><xsl:value-of select="$iiifthumb"/></xsl:when>
+					<xsl:when test="$pid and contains(upper-case($doc.title), 'SOUTHERN COLLECTING')"><xsl:value-of select="$iiifurl"/><xsl:value-of select="$pid"/><xsl:value-of select="$iiifthumb"/></xsl:when>
+					<xsl:when test="$pid">http://fedora-prod01.lib.virginia.edu:8080/fedora/get/<xsl:value-of select="$pid"/>/uva-lib-bdef:102/getPreview</xsl:when>
+					<xsl:otherwise><xsl:value-of select="false()"/></xsl:otherwise>
+				</xsl:choose>				
+			</xsl:if>
 		</xsl:variable>
 
 
