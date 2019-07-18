@@ -1008,7 +1008,7 @@
           <xsl:text>/uva-lib-bdef:102/getScreen</xsl:text>
         </xsl:when>
       	<xsl:when test="graphic/@url">
-      		<!--<xsl:value-of select="concat('http://static.lib.virginia.edu/legacy/', string(graphic/@url))"/>-->
+      		<xsl:value-of select="concat('http://static.lib.virginia.edu/legacy/', string(graphic/@url))"/>
       	</xsl:when>
         <xsl:otherwise>
           <xsl:value-of select="concat('http://static.lib.virginia.edu', '/legacy/',  upper-case(substring($pid,1,1)), '/', $pid, '.jpg')"/>
