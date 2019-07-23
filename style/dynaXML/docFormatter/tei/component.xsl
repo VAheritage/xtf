@@ -1347,25 +1347,13 @@
           	contains(upper-case($doc.title), 'STUDIES IN BIBLIOGRAPHY') or 
           	contains(upper-case($doc.title), 'BIBLIOGRAPHICAL SOCIETY') or 
           	contains(upper-case($doc.title), 'SOUTHERN COLLECTING')   )" >
-			<div class="screen-image fedora-prod02" style="display:none;" id="{substring-after($pid, ':')}_container">
+			<div class="screen-image fedora-prod02" style="display:none;" id="{$pid}_container">
 				<img class="page_screen" title="Click to Shrink"/>
 			</div>
 			<br/>
-          </xsl:when>
- <!--         <xsl:when test="$pid and contains(upper-case($doc.title), 'BIBLIOGRAPHICAL SOCIETY')">
-			<div class="screen-image fedora-prod02" style="display:none;" id="{substring-after($pid, ':')}_container">
-				<img class="page_screen" title="Click to Shrink"/>
-			</div>
-			<br/>
-          </xsl:when>
-          <xsl:when test="$pid and contains(upper-case($doc.title), 'SOUTHERN COLLECTING')">
-			<div class="screen-image fedora-prod02" style="display:none;" id="{substring-after($pid, ':')}_container">
-				<img class="page_screen" title="Click to Shrink"/>
-			</div>
-			<br/>
-          </xsl:when>-->
+          </xsl:when> 
           <xsl:otherwise>
-			<div class="screen-image" style="display:none;" id="{substring-after($pid, ':')}_container">
+			<div class="screen-image" style="display:none;" id="{$pid}_container">
 				<img class="page_screen" title="Click to Shrink"/>
 			</div>
 			<br/>
@@ -1378,7 +1366,7 @@
       <xsl:choose>
         <xsl:when test="$pid">
   	      <div class="page-image">
-  	        <img title="Click to Enlarge" class="page_thumbnail"  id="{substring-after($pid, ':')}_link" alt="{if (string(@n)) then concat('Page ', @n) else 'No Page Number'}"
+  	        <img title="Click to Enlarge" class="page_thumbnail"  id="{$pid}_link" alt="{if (string(@n)) then concat('Page ', @n) else 'No Page Number'}"
   	             src="{$repo-location}"/>
   	      </div>
         </xsl:when>
