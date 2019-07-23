@@ -1343,13 +1343,16 @@
 			</div>-->
         <!-- add a class value specifying a repo for 'showpage.js' to build proper URLs in Ajax -->
         <xsl:choose>
-          <xsl:when test="$pid and contains(upper-case($doc.title), 'STUDIES IN BIBLIOGRAPHY')">
+          <xsl:when test="$pid and (
+          	contains(upper-case($doc.title), 'STUDIES IN BIBLIOGRAPHY') or 
+          	contains(upper-case($doc.title), 'BIBLIOGRAPHICAL SOCIETY') or 
+          	contains(upper-case($doc.title), 'SOUTHERN COLLECTING')   )" >
 			<div class="screen-image fedora-prod02" style="display:none;" id="{substring-after($pid, ':')}_container">
 				<img class="page_screen" title="Click to Shrink"/>
 			</div>
 			<br/>
           </xsl:when>
-          <xsl:when test="$pid and contains(upper-case($doc.title), 'BIBLIOGRAPHICAL SOCIETY')">
+ <!--         <xsl:when test="$pid and contains(upper-case($doc.title), 'BIBLIOGRAPHICAL SOCIETY')">
 			<div class="screen-image fedora-prod02" style="display:none;" id="{substring-after($pid, ':')}_container">
 				<img class="page_screen" title="Click to Shrink"/>
 			</div>
@@ -1360,7 +1363,7 @@
 				<img class="page_screen" title="Click to Shrink"/>
 			</div>
 			<br/>
-          </xsl:when>
+          </xsl:when>-->
           <xsl:otherwise>
 			<div class="screen-image" style="display:none;" id="{substring-after($pid, ':')}_container">
 				<img class="page_screen" title="Click to Shrink"/>
