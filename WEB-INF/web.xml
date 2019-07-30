@@ -110,6 +110,7 @@
         <servlet-mapping>
             <servlet-name>mydefault</servlet-name>
             <url-pattern>/data/*</url-pattern>
+			<url-pattern>/style/*</url-pattern>
         </servlet-mapping>
 
     </web-app>
