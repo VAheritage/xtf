@@ -400,11 +400,17 @@
         </a>
       </xsl:if>
       <!-- output note-reference number -->
-      <xsl:if test="@n and not(@anchored='no')">
+      <xsl:if test="not(@anchored='no')">
         <div class="tei_note_number">
           <xsl:text>[</xsl:text>
-          <xsl:value-of select="@n"/>
-          <xsl:text>]</xsl:text>
+        	<xsl:choose>
+        		<xsl:when test="@n"><xsl:value-of select="@n"/></xsl:when>
+        		<xsl:when test="./seg[@type='note-symbol']">
+        			<xsl:value-of select="string(./seg[@type='note-symbol'])"/>
+        		</xsl:when>
+        		<xsl:otherwise>_</xsl:otherwise>
+        	</xsl:choose>
+        	<xsl:text>]</xsl:text>
         </div>
       </xsl:if>
       <!-- process <note> content -->
