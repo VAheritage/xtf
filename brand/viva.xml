@@ -18,6 +18,7 @@
 	</links>
 
 	<dynaxml.links>
+		<!-- <base href="/vivaxtf/"/>  for testing outside of XTF, i.e. BaseX -->
         <meta name="referrer" content="origin" />
 		<link rel="stylesheet" href="css/viva/content.css" type="text/css"/>
 		<link rel="stylesheet" href="css/viva/ead.css" type="text/css"/>
@@ -48,8 +49,9 @@
 
 	<dynaxml.header>
 		<div class="header">
+			<a href="http://vaheritage.org/">
 			<img src="http://ead.lib.virginia.edu/vivaead/logos/vhpban.jpg" alt="VIVA EAD Logo"
-				class="logo"/>
+				class="logo"/></a>
 			<br class="clear"/>
 		</div>
 	</dynaxml.header>
