@@ -16,7 +16,7 @@ $(function () {
 			
 			for (var i = 0; i < qString.length; i++){
 			//below is a list of parameters to omit when doing the "search within" the current results
-				if (qString[i].indexOf('browse-all') < 0 && qString[i].indexOf('expand') < 0 && qString[i].indexOf('startDoc' && qString[i].indexOf('sort') < 0){
+			    if (qString[i].indexOf('browse-all') < 0 && qString[i].indexOf('expand') < 0 && qString[i].indexOf('startDoc') && qString[i].indexOf('sort') < 0){
 					$('#form') .append('<input type="hidden" name="' + qString[i].split('=')[0] + '" value="'+ qString[i].split('=')[1] + '"/>');
 				}
 			}
