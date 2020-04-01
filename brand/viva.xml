@@ -85,8 +85,11 @@ document.write(unescape("%3Cscript src='" + pkBaseURL2 + "piwik.js' type='text/j
 </script><script type="text/javascript">
 try {
 var piwikTracker2 = Piwik.getTracker(pkBaseURL2 + "piwik.php", 1);
-piwikTracker2.trackPageView();
 piwikTracker2.setCustomVariable( 1, 'agencycode', $( 'meta[name="agencycode"]' ).attr( 'content' ) , 'page' );
+piwikTracker2.setCustomVariable( 2, 'publisher', $( 'meta[name="facet-publisher"]' ).attr( 'content' ) , 'page' );
+piwikTracker2.setCustomVariable( 3, 'document', $( 'meta[name="document"]' ).attr( 'content' ) , 'page' );
+piwikTracker2.setCustomVariable( 4, 'collection-number', $( 'meta[name="collection-number"]' ).attr( 'content' ) , 'page' );
+piwikTracker2.trackPageView();
 piwikTracker2.enableLinkTracking();
 } catch( err ) {}
 </script><noscript><p><img
