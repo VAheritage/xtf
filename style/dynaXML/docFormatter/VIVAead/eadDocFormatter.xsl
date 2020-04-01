@@ -117,6 +117,13 @@
 					<xsl:text>  </xsl:text>
 					<xsl:value-of select="(eadheader|control)/filedesc/titlestmt/subtitle"/>
 				</title>
+				<xsl:for-each select="/*/xtf:meta/*">
+					<!-- copy meta elements to html meta attributes -->
+					<xsl:element name="meta">
+						<xsl:attribute name="name" select="name(.)"  />
+						<xsl:attribute name="content" select="string(.)" />
+					</xsl:element>
+				</xsl:for-each>
 			</head>
 
 			<body>

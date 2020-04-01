@@ -86,6 +86,7 @@ document.write(unescape("%3Cscript src='" + pkBaseURL2 + "piwik.js' type='text/j
 try {
 var piwikTracker2 = Piwik.getTracker(pkBaseURL2 + "piwik.php", 1);
 piwikTracker2.trackPageView();
+piwikTracker2.setCustomVariable( 1, 'agencycode', $( 'meta[name="agencycode"]' ).attr( 'content' ) , 'page' );
 piwikTracker2.enableLinkTracking();
 } catch( err ) {}
 </script><noscript><p><img
