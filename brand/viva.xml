@@ -43,11 +43,7 @@
 			<a href="http://vaheritage.org/">
 				<img src="http://ead.lib.virginia.edu/vivaead/logos/vhpban.jpg" alt="VIVA EAD Logo"
 				class="logo"/></a>
-				<div align="right" ><!-- SURVEY FORM -->
-				<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdaW1e32py21uwNzr77qkR7ppxnbaZZxL2rXweQhAjoK1f_pg/viewform?embedded=true"
-					width="640" height="230" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-					<h3><a href="https://forms.gle/a8WA7R6bxXnjHF256" target="_blank" >Go to Survey...</a></h3>
-				</div>
+				
 			<br class="clear"/>
 		</div>
 	</header>
