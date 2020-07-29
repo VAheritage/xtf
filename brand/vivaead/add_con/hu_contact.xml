@@ -1,0 +1,13 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>Special Collections</item>
+   <item>Wyndham Robertson Library</item>
+   <item>P. O. Box 9000</item>
+   <item>7950 E. Campus Drive</item>
+   <item>Hollins University</item>
+   <item>Roanoke, Virginia 24020</item>
+   <item>(540) 362-6237</item>
+   <item>Fax: (540) 362-6756</item>
+   <item id="email">Email: <extref href="mailto:bharris@hollins.edu">bharris@hollins.edu</extref></item>
+   <item>URL: <extref href="http://www.hollins.edu/academics/library/services/spe_col.htm">http://www.hollins.edu/academics/library/services/spe_col.htm</extref></item>
+</list>

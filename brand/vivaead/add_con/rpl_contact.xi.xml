@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="urn:isbn:1-931666-22-9" type="simple">
+  <head>Contact Information:</head>
+  <item>Roanoke Public Libraries</item>
+  <item>706 South Jefferson Street</item>
+  <item>Roanoke, Virginia 24016 USA</item>
+  <item>Phone: (540) 853-2073</item>
+  <item>
+Email:
+<extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:virginiaroom@gmail.com">virginiaroom@gmail.com</extref></item>
+  <item>
+URL:
+<extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.roanokeva.gov/library">http://www.roanokeva.gov/library</extref></item>
+</list>

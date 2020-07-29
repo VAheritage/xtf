@@ -1,0 +1,10 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>University Archives</addressline>
+  <addressline>McConnell Library</addressline>
+  <addressline>PO Box 6881</addressline>
+  <addressline>801 East Main Street</addressline>
+  <addressline>Radford, VA 24142-6881. USA</addressline>
+  <addressline>Phone: 540-831-5701</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:aspelbrin@radford.edu" xlink:title="aspelbrin@radford.edu"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://lib.radford.edu/Archives/" xlink:title="http://lib.radford.edu/Archives/"/></addressline>
+</address>

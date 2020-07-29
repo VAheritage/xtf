@@ -1,0 +1,11 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Special Collections</addressline>
+  <addressline>Kegley Library</addressline>
+  <addressline>Wytheville Community College</addressline>
+  <addressline>Wytheville, Virginia 24382-3308</addressline>
+  <addressline>USA</addressline>
+  <addressline>Phone: (276) 223-4744</addressline>
+  <addressline>Fax: (276) 223-4745</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:gmattis@wcc.vccs.edu" xlink:title="gmattis@wcc.vccs.edu"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://kegleylibrary.wcc.vccs.edu/" xlink:title="http://kegleylibrary.wcc.vccs.edu/"/></addressline>
+</address>

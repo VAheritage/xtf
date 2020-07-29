@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="urn:isbn:1-931666-22-9" type="simple">
+  <head>Contact Information:</head>
+  <item>Albert and Shirley Small Special Collections Library</item>
+  <item>P.O. Box 400110</item>
+  <item>University of Virginia</item>
+  <item>Charlottesville, Virginia 22904-4110</item>
+  <item>USA</item>
+  <item>Phone: (434) 243-1776</item>
+  <item>Fax: (434) 924-4968</item>
+  <item id="contact"><extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://small.lib.virginia.edu/reference-request/">Contact information</extref>Reference Request Form</item>
+  <item>URL: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://small.library.virginia.edu/">http://small.library.virginia.edu/</extref></item>
+</list>

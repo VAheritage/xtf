@@ -1,0 +1,17 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink">
+<addressline>Fairfax County Public Library</addressline>
+<addressline>City of Fairfax Regional Library</addressline>
+<addressline>Virginia Room</addressline>
+<addressline>10360 North Street</addressline>
+<addressline>Fairfax, VA 22030-2514 USA</addressline>
+<addressline>Virginia Room: 703-293-6227 x6</addressline>
+<addressline>Fax: 703-293-2155</addressline>
+<addressline>
+Email:
+<extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:va_room@fairfaxcounty.gov" xlink:title="va_room@fairfaxcounty.gov"/>
+</addressline>
+<addressline>
+URL:
+<extptr xlink:type="simple" xlink:show="new" xlink:href="https://www.fairfaxcounty.gov/library/branches/virginia-room" xlink:title="https://www.fairfaxcounty.gov/library/branches/virginia-room"/>
+</addressline>
+</address>

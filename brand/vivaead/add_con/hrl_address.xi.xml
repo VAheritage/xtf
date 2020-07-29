@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <addressline>Stewart Bell Jr. Archives Room</addressline>
+  <addressline>The Handley Regional Library</addressline>
+  <addressline>Winchester-Frederick County Historical Society</addressline>
+  <addressline>P.O. Box 58</addressline>
+  <addressline>Winchester, VA 22604</addressline>
+  <addressline>Phone: (540) 662-9041, ext.17</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:archives@handleyregional.org" xlink:title="archives@handleyregional.org"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://www.handleyregional.org" xlink:title="http://www.handleyregional.org"/></addressline>
+</address>

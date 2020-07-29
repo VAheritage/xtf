@@ -1,0 +1,11 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>Perry Library</item>
+   <item>Old Dominion University</item>
+   <item>Norfolk, Virginia 23529-0256</item>
+   <item>USA</item>
+   <item>Phone: (757) 683-4483</item>
+   <item>Fax: (757) 683-5954</item>
+   <item id="email">Email: <extref href="mailto:libspecialcollections@odu.edu">libspecialcollections@odu.edu</extref></item>
+   <item>URL: <extref href="http://www.lib.odu.edu/special/">http://www.lib.odu.edu/special/</extref></item>
+</list>

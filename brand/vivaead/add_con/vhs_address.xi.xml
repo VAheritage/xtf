@@ -1,0 +1,10 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Virginia Historical Society</addressline>
+  <addressline>P.O. Box 7311</addressline>
+  <addressline>Richmond, Virginia 23221-0311</addressline>
+  <addressline>USA</addressline>
+  <addressline>Phone: (804) 342-9677</addressline>
+  <addressline>Fax: (804) 355-2399</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:reference@vahistorical.org" xlink:title="reference@vahistorical.org"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://www.vahistorical.org" xlink:title="http://www.vahistorical.org"/></addressline>
+</address>

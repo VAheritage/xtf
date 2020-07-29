@@ -1,0 +1,15 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Special Collections &amp; Archives</addressline>
+  <addressline>Fenwick Library (2FL)</addressline>
+  <addressline>George Mason University</addressline>
+  <addressline>Fairfax, Virginia 22030-4444</addressline>
+  <addressline>USA</addressline>
+  <addressline>Phone: (703) 993-2220</addressline>
+  <addressline>Fax: (703) 993-2669</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:speccoll@gmu.edu" xlink:title="speccoll@gmu.edu"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://www.gmu.edu/library/specialcollections" xlink:title="http://www.gmu.edu/library/specialcollections"/></addressline>
+
+<p id="logostmt" >
+<extptr xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed" xlink:href="http://ead.lib.virginia.edu/vivaead/logos/gmu.jpg" />
+</p>
+</address>

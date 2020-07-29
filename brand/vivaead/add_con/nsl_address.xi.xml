@@ -1,0 +1,11 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>National Sporting Library</addressline>
+  <addressline>102 The Plains Road</addressline>
+  <addressline>P.O. Box 1335</addressline>
+  <addressline>Middleburg, Virginia 20118</addressline>
+  <addressline>USA</addressline>
+  <addressline>Phone: (540) 687-6542</addressline>
+  <addressline>Fax: (540) 687-8540</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:nsl@nsl.org" xlink:title="nsl@nsl.org"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://www.nsl.org" xlink:title="http://www.nsl.org"/></addressline>
+</address>

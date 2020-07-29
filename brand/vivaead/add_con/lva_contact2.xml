@@ -1,0 +1,11 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>The Library of Virginia</item>
+   <item>800 East Broad Street</item>
+   <item>Richmond, Virginia 23219-8000</item>
+   <item>USA</item>
+   <item>Phone: (804) 692-3703 (Special Collections)</item>
+   <item>Fax: (804) 692-3709 (Special Collections)</item>
+   <item id="email">Email: <extref href="mailto:Picture@lva.virginia.gov">Picture@lva.virginia.gov (Special Collections)</extref></item>
+   <item>URL: <extref href="http://www.lva.virginia.gov/">http://www.lva.virginia.gov/</extref></item>
+</list>

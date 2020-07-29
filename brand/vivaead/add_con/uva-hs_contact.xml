@@ -1,0 +1,14 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>Claude Moore Health Sciences Library</item>
+   <item>1350 Jefferson Park Avenue</item>
+   <item>P.O. Box 800722</item>
+   <item>University of Virginia Health System</item>
+   <item>Charlottesville, Virginia 22908-0722</item>
+   <item>USA</item>
+   <item>Phone: (434) 924-0052</item>
+   <item>Phone: (434) 982-0576</item>
+   <item>Phone: (434) 924-5444</item>
+   <item id="email">Email: <extref href="mailto:jre@virginia.edu">jre@virginia.edu</extref></item>
+   <item>URL: <extref href="http://www.med.virginia.edu/hs-library/historical/">http://www.hsl.virginia.edu/historical/</extref></item>
+</list>

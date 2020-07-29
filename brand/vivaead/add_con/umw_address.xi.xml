@@ -1,0 +1,12 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Special Collections</addressline>
+  <addressline>Simpson Library</addressline>
+  <addressline>1801 College Avenue</addressline>
+  <addressline>University of Mary Washington</addressline>
+  <addressline>Fredericksburg, Virginia 22401-4665</addressline>
+  <addressline>USA</addressline>
+  <addressline>Phone: 540-654-1752</addressline>
+  <addressline>Fax: 540-654-1067</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:refdesk@umw.edu" xlink:title="refdesk@umw.edu"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://www.umw.edu/library/research/special_collections_archiv/" xlink:title="http://www.umw.edu/library/research/special_collections_archiv/"/></addressline>
+</address>

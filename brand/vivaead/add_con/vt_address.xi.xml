@@ -1,0 +1,11 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <addressline>Special Collections, University Libraries (0434)</addressline>
+    <addressline>560 Drillfield Drive</addressline>
+    <addressline>Newman Library, Virginia Tech</addressline>
+    <addressline>Blacksburg, Virginia 24061</addressline>
+    <addressline>USA</addressline>
+    <addressline>Phone: (540) 231-6308</addressline>
+    <addressline>Fax: (540) 231-3694</addressline>
+    <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:specref@vt.edu" xlink:title="specref@vt.edu"/></addressline>
+    <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://spec.lib.vt.edu/" xlink:title="http://spec.lib.vt.edu/"/></addressline>
+</address>

@@ -1,0 +1,12 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>Johnston Memorial Library</item>
+	<item>P.O. Box 9406</item>
+   <item>Virginia State University</item>
+   <item>Petersburg, Virginia 23806</item>
+   <item>USA</item>
+   <item>Phone: (804) 524-5749</item>
+   <item>Fax: (804) 524-6959</item>
+   <item id="email">Email: <extref href="mailto:ledwards@vsu.edu">ledwards@vsu.edu</extref></item>
+   <item>URL: <extref href="http://www.vsu.edu/library/index.htm">http://www.vsu.edu/library/index.htm</extref></item>
+</list>

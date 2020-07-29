@@ -1,0 +1,12 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>Albert and Shirley Small Special Collections Library</item>
+	<item>P.O. Box 400110</item>
+   <item>University of Virginia</item>
+   <item>Charlottesville, Virginia 22904-4110</item>
+   <item>USA</item>
+   <item>Phone: (434) 243-1776</item>
+   <item>Fax: (434) 924-4968</item>
+   <item id="contact" ><extref href="https://www2.lib.virginia.edu/small/referencerequest/">Contact information</extref>Reference Request Form</item>
+   <item>URL: <extref href="http://www.lib.virginia.edu/small">http://www.lib.virginia.edu/small</extref></item>
+</list>

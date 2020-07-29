@@ -467,7 +467,7 @@
                <xsl:value-of select="$isilcode"/>
             </xsl:when>
             <xsl:otherwise>
-               <xsl:value-of select="string(document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@dirname=$directory]/@prefix)"/>
+               <xsl:value-of select="string(document('../../../brand/vivaead/add_con/ead-inst.xml')/list/inst[@dirname=$directory]/@prefix)"/>
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>
@@ -476,11 +476,11 @@
       
       <xsl:variable name="pub-name" >
          <xsl:choose>
-            <xsl:when test="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@prefix=$agencycode]">
-               <xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@prefix=$agencycode]"/>
+            <xsl:when test="document('../../../brand/vivaead/add_con/ead-inst.xml')/list/inst[@prefix=$agencycode]">
+               <xsl:value-of select="document('../../../brand/vivaead/add_con/ead-inst.xml')/list/inst[@prefix=$agencycode]"/>
             </xsl:when>
-            <xsl:when test="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@oclc=upper-case($agencycode)]">
-               <xsl:value-of select="document('../../../brand/viva/add_con/ead-inst.xml')/list/inst[@oclc=upper-case($agencycode)]"/>
+            <xsl:when test="document('../../../brand/vivaead/add_con/ead-inst.xml')/list/inst[@oclc=upper-case($agencycode)]">
+               <xsl:value-of select="document('../../../brand/vivaead/add_con/ead-inst.xml')/list/inst[@oclc=upper-case($agencycode)]"/>
             </xsl:when>
             <xsl:when test="normalize-space($agencycode) != '' ">
                <xsl:value-of select="string($agencycode)"/>

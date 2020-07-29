@@ -1,0 +1,11 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Special Collections</addressline>
+  <addressline>Perry Library</addressline>
+  <addressline>Old Dominion University</addressline>
+  <addressline>Norfolk, Virginia 23529-0256</addressline>
+  <addressline>USA</addressline>
+  <addressline>Phone: (757) 683-4483</addressline>
+  <addressline>Fax: (757) 683-5954</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:libspecialcollections@odu.edu" xlink:title="libspecialcollections@odu.edu"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://www.lib.odu.edu/special/" xlink:title="http://www.lib.odu.edu/special/"/></addressline>
+</address>

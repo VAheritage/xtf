@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<list xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" type="simple">
+  <head>Contact Information:</head>
+  <item>VMFA Archives</item>
+  <item>Virginia Museum of Fine Arts</item>
+  <item>Margaret R. and Robert M. Freeman Library</item>
+  <item>200 N. Boulevard</item>
+  <item>Richmond, VA 23220-4007</item>
+  <item>Phone: 804-340-1495</item>
+  <item id="email">Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:library@vmfa.museum" xlink:title="library@vmfa.museum"/></item>
+  <item>URL: <extptr xlink:title="http://vmfa.museum" xlink:type="simple" xlink:href="http://vmfa.museum" xlink:show="new"/></item>
+</list>

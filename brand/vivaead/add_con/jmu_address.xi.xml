@@ -1,0 +1,11 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Special Collections</addressline>
+  <addressline>Carrier Library</addressline>
+  <addressline>James Madison University</addressline>
+  <addressline>Harrisonburg, Virginia 22807</addressline>
+  <addressline>USA</addressline>
+  <addressline>Phone: (540) 568-3612</addressline>
+  <addressline>Fax: (540) 568-3405</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:library-special@jmu.edu" xlink:title="library-special@jmu.edu"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://www.lib.jmu.edu/special" xlink:title="http://www.lib.jmu.edu/special"/></addressline>
+</address>

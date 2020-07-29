@@ -1,0 +1,11 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>Thomas Balch Library</item>
+   <item>208 West Market Street</item>
+   <item>Leesburg, Virginia  20176</item>
+   <item>USA</item>
+   <item>Phone: (703) 737-7195</item>
+   <item>Fax: (703) 737-7195</item>
+   <item id="email">Email: <extref href="mailto:balchlib@leesburgva.gov">balchlib@leesburgva.gov</extref></item>
+   <item>URL: <extref href="http://www.leesburgva.gov/services/library/">http://www.leesburgva.gov/services/library/</extref></item>
+</list>

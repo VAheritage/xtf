@@ -1,0 +1,11 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Special Collections</addressline>
+  <addressline>Earl Gregg Swem Library</addressline>
+  <addressline>College of William and Mary</addressline>
+  <addressline>Williamsburg, Virginia 23187-8794</addressline>
+  <addressline>USA</addressline>
+  <addressline>Phone: (757) 221-3090</addressline>
+  <addressline>Fax: (757) 221-5440</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:spcoll@wm.edu" xlink:title="spcoll@wm.edu"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://swem.wm.edu/scrc/" xlink:title="http://swem.wm.edu/scrc/"/></addressline>
+</address>

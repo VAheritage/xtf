@@ -1,0 +1,13 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>Special Collections</item>
+   <item>University Libraries</item>
+	<item>P.O. Box 90001</item>
+   <item>Virginia Tech</item>
+   <item>Blacksburg, Virginia 24062-9001</item>
+   <item>USA</item>
+   <item>Phone: (540) 231-6308</item>
+   <item>Fax: (540) 231-3694</item>
+   <item id="email">Email: <extref href="mailto:specref@vt.edu">specref@vt.edu</extref></item>
+   <item>URL: <extref href="http://spec.lib.vt.edu/">http://spec.lib.vt.edu/</extref></item>
+</list>

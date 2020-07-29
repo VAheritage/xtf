@@ -1,0 +1,10 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Mary B. Blount Library</addressline>
+  <addressline>Averett University</addressline>
+  <addressline>344 West Main St.</addressline>
+  <addressline>Danville, VA 24541</addressline>
+  <addressline>434-791-5695</addressline>
+  <addressline>434-791-5637 (fax)</addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://www.averett.edu/library/special_collections.html" xlink:title="http://www.averett.edu/library/special_collections.html"/></addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:aclib@averett.edu" xlink:title="aclib@averett.edu"/></addressline>
+</address>

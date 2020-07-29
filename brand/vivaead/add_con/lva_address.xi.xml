@@ -1,0 +1,10 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>The Library of Virginia</addressline>
+  <addressline>800 East Broad Street</addressline>
+  <addressline>Richmond, Virginia 23219-8000</addressline>
+  <addressline>USA</addressline>
+  <addressline>Phone: (804) 692-3888 (Archives Reference)</addressline>
+  <addressline>Fax: (804) 692-3556 (Archives Reference)</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:archdesk@lva.virginia.gov (Archives)" xlink:title="archdesk@lva.virginia.gov" />(Archives)</addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://www.lva.virginia.gov/" xlink:title="http://www.lva.virginia.gov/"/></addressline>
+</address>

@@ -1,0 +1,11 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>Virginia Historical Society</item>
+   <item>P.O. Box 7311</item>
+   <item>Richmond, Virginia 23221-0311</item>
+   <item>USA</item>
+	<item>Phone: (804) 342-9677</item>
+   <item>Fax: (804) 355-2399</item>
+	<item id="email">Email: <extref href="mailto:reference@vahistorical.org">reference@vahistorical.org</extref></item>
+   <item>URL: <extref href="http://www.vahistorical.org">http://www.vahistorical.org</extref></item>
+</list>

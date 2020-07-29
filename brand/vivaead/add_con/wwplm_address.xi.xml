@@ -1,0 +1,8 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Woodrow Wilson Presidential Library &amp; Museum</addressline>
+  <addressline>20 North Coalter Street,</addressline>
+  <addressline>Staunton, Virginia  24401</addressline>
+  <addressline>Phone: 540-885-0897</addressline>
+  <addressline id="email">Email: <extptr xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:mpeterson@woodrowwilson.org" /></addressline>
+  <addressline>URL: <extptr xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://woodrowwilson.org"/></addressline>
+</address>

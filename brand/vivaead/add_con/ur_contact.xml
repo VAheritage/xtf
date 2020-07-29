@@ -1,0 +1,13 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>Rare Books and Special Collections</item>
+   <item>Boatwright Library</item>
+   <item>University of Richmond</item>
+   <item>28 Westhampton Way</item>
+   <item>Richmond, Virginia  23173</item>
+   <item>USA</item>
+   <item>Phone: (804) 289-8458</item>
+   <item>Fax: (804) 287-1840</item>
+   <item id="email">Email: <extref href="mailto:jgwin@richmond.edu">jgwin@richmond.edu</extref></item>
+   <item>URL: <extref href="http://oncampus.richmond.edu/is/library/">http://oncampus.richmond.edu/is/library/</extref></item>
+</list>

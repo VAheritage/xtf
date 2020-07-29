@@ -1,0 +1,15 @@
+<list type="simple">
+   <head>Contact information:</head>
+   <item>Archives and Special Collections</item>
+   <item>Greenwood Library</item>
+   <item>Longwood University</item>
+   <item>Redford and Race Streets</item>
+   <item>Farmville, Virginia 23909-1897</item>
+   <item>USA</item>
+   <item>Phone: (434)395-2432</item>
+   <item>Fax: (434)395-2453</item>
+   <item id="email">Email: <extref href="specialcollections@longwood.edu">specialcollections@longwood.edu</extref>
+   </item>
+   <item>URL: <extref href="http://www.longwood.edu/library/about/policy/specialarchive.htm">http://www.longwood.edu/library/about/policy/specialarchive.htm</extref>
+   </item>
+</list>

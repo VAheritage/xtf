@@ -612,7 +612,7 @@
 		</xsl:choose>
 			
 			<option value="">All Repositories</option>
-			<xsl:variable name="instfile" select="concat( $servlet.dir,'/brand/viva/add_con/ead-inst.xml' )"/>
+			<xsl:variable name="instfile" select="concat( $servlet.dir,'/brand/vivaead/add_con/ead-inst.xml' )"/>
 			<xsl:for-each select="document($instfile)//inst[@prefix != 'all']">							
 				<option><xsl:value-of select="./text()" /></option>							
 			</xsl:for-each>						

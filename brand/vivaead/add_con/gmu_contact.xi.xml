@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="urn:isbn:1-931666-22-9" type="simple">
+  <head>Contact Information:</head>
+  <item>Fenwick Library (2FL)</item>
+  <item>George Mason University</item>
+  <item>Fairfax, Virginia 22030-4444</item>
+  <item>USA</item>
+  <item>Phone: (703) 993-2220</item>
+  <item>Fax: (703) 993-2669</item>
+  <item id="email">Email: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:speccoll@gmu.edu">speccoll@gmu.edu</extref></item>
+  <item>URL: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.gmu.edu/library/specialcollections">http://www.gmu.edu/library/specialcollections</extref></item>
+
+<p id="logostmt" >
+<extptr xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed" xlink:href="http://ead.lib.virginia.edu/vivaead/logos/gmu.jpg" />
+</p>
+
+</list>

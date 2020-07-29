@@ -1,0 +1,11 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>Roanoke College Archives</item>
+   <item>220 High St.</item>
+   <item>Salem, VA 24153-3794</item>
+   <item>USA</item>
+   <item>Phone: (540) 375-2490</item>
+   <item>Fax: (540) 375-2342</item>
+   <item id="email">Email: <extref href="mailto:lmiller@roanoke.edu">lmiller@roanoke.edu</extref></item>
+   <item>URL: <extref href="http://web.roanoke.edu/x3327.xml">http://web.roanoke.edu/x3327.xml</extref></item>
+</list>

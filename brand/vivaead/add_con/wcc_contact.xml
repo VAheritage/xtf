@@ -1,0 +1,11 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>Kegley Library</item>
+   <item>Wytheville Community College</item>
+   <item>Wytheville, Virginia 24382-3308</item>
+   <item>USA</item>
+   <item>Phone: (276) 223-4876 </item>
+   <item>Fax: (276) 223-4745</item>
+   <item id="email">Email: <extref href="mailto:kegleylibrary@wcc.vccs.edu">kegleylibrary@wcc.vccs.edu</extref></item>
+   <item>URL: <extref href="http://kegleylibrary.wcc.vccs.edu/">http://kegleylibrary.wcc.vccs.edu/</extref></item>
+</list>

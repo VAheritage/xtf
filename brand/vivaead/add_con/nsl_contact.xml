@@ -1,0 +1,12 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>National Sporting Library</item>
+   <item>102 The Plains Road</item>
+   <item>P.O. Box 1335</item>
+   <item>Middleburg, Virginia 20118</item>
+   <item>USA</item>
+   <item>Phone: (540) 687-6542</item>
+   <item>Fax: (540) 687-8540</item>
+   <item id="email">Email: <extref href="mailto:nsl@nsl.org">nsl@nsl.org</extref></item>
+   <item>URL: <extref href="http://www.nsl.org">http://www.nsl.org</extref></item>
+</list>

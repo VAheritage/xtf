@@ -1,0 +1,11 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>McGraw-Page Library</addressline>
+  <addressline>Box 5005</addressline>
+  <addressline>Randolph-Macon College</addressline>
+  <addressline>Ashland, Virginia 23005-5505</addressline>
+  <addressline>USA</addressline>
+  <addressline>Phone: (804) 752-3203</addressline>
+  <addressline>Fax: (804) 752-7345</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:archives@rmc.edu" xlink:title="archives@rmc.edu"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://www.rmc.edu/directory/offices/library/specialcollections/special.asp" xlink:title="http://www.rmc.edu/directory/offices/library/specialcollections/special.asp"/></addressline>
+</address>

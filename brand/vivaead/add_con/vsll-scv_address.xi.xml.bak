@@ -1,0 +1,9 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Virginia State Law Library</addressline>
+  <addressline>Supreme Court of Virginia</addressline>
+  <addressline>100 North Ninth Street</addressline>
+  <addressline>Richmond, Virginia 23219</addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://www.courts.state.va.us/courtadmin/library/home.html" xlink:title="http://www.courts.state.va.us/courtadmin/library/home.html"/></addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:LawLibrary@courts.state.va.us" xlink:title="LawLibrary@courts.state.va.us"/></addressline>
+  <addressline>Phone: (804) 786-2075</addressline>
+</address>

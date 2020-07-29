@@ -1,0 +1,12 @@
+<list type="simple">
+   <head>Contact Information:</head>
+   <item>James Branch Cabell Library</item>
+   <item>Box 842003</item>
+   <item>Virginia Commonwealth University</item>
+   <item>Richmond, Virginia 23284-2003</item>
+   <item>USA</item>
+   <item>Phone: (804) 828-1108</item>
+   <item>Fax: (804) 828-0151</item>
+	<item id="email">Email: <extref href="mailto:libjbcsca@vcu.edu">libjbcsca@vcu.edu</extref></item>
+   <item>URL: <extref href="http://www.library.vcu.edu/about/special-collections/cabell/">http://www.library.vcu.edu/about/special-collections/cabell/</extref></item>
+</list>
