@@ -13,6 +13,9 @@
    <inst orgcode="ViDA" prefix="vida" 
          logo="http://ead.lib.virginia.edu/vivaead/logos/au.jpg"
          dirname="au">Averett University</inst>
+	<inst orgcode="ViAr" prefix="viar"
+		logo="http://ead.lib.virginia.edu/vivaead/logos/APLlogo.jpg"
+		dirname="arlington" >Arlighton Public Library</inst>
    <inst orgcode="ViBrC"
          logo="http://ead.lib.virginia.edu/vivaead/logos/bc.jpg"
          prefix="vibrc"

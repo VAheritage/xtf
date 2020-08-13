@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="urn:isbn:1-931666-22-9" type="simple">
+  <head>Contact Information:</head>
+  <item>Arlington Public Library, Center for Local History</item>
+  <item>1015 N. Quincy Street</item>
+  <item>Arlington, VA  22201</item>
+  <item>(703) 228-5966</item>
+  <item id="email">Email: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:localhistory@arlingtonva.us">localhistory@arlingtonva.us</extref></item>
+  <item>URL: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://library.arlingtonva.us/center-for-local-history/">https://library.arlingtonva.us/center-for-local-history/</extref></item>
+</list>
