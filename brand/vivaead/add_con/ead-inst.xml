@@ -169,6 +169,8 @@
          logo="http://ead.lib.virginia.edu/vivaead/logos/wl.jpg"
          prefix="vilxw"
          dirname="wl-ley">Washington and Lee University, Leyburn Library</inst>
+   <inst orgcode="WvMtURHC" prefix="wvmturhc">
+            WVU West Virginia and Regional History Center</inst> 
    <inst orgcode="VaStWPL"  
          prefix="vastwpl" 
          logo="http://ead.lib.virginia.edu/vivaead/logos/WWPLM.jpg"
