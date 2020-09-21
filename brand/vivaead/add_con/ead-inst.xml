@@ -182,6 +182,7 @@
    <inst orgcode="ViWyHS" prefix="viwyhs"
 	   logo="http://ead.lib.virginia.edu/vivaead/logos/wythechs.png"
 	   dirname="wchs">Wythe County Historical Society</inst>
+   <inst orgcode="ViMtvl" prefix="vimtvl" >Fred W. Smith National Library for the Study of George Washington</inst>
    <inst prefix="test" dirname="test" login="sdm"> test directory </inst>
    <!-- <inst prefix="legacy" dirname="legacy" >legacy conversion test</inst> -->
 </list>
