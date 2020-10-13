@@ -548,6 +548,13 @@
 		<xsl:apply-templates select="repository"/>
 		<xsl:apply-templates select="unitid[not(@audience='internal')]"/>
 		<xsl:apply-templates select="unittitle"/>
+		<!-- insert ark: urls from ASpace -->
+		<xsl:if test="/ead/eadheader/eadid/@url" >
+			<dt><b>URL: </b></dt>
+			<dd>
+			<a href="{/ead/eadheader/eadid/@url}" >
+			<xsl:value-of select="/ead/eadheader/eadid/@url"/></a></dd>
+		</xsl:if>
 		<xsl:apply-templates select="physdesc"/>
 		<xsl:apply-templates select="origination"/>
 		<xsl:apply-templates select="physloc"/>
@@ -1109,12 +1116,14 @@
 
 
 	<xsl:template match="extref[@href]" >
+		<xsl:text> </xsl:text>
 		<xsl:element name="a" >
 			<xsl:attribute name="href" >
 				<xsl:value-of select="@href"/>
 			</xsl:attribute>
 			<xsl:apply-templates />
 		</xsl:element>
+		<xsl:text> </xsl:text>
 	</xsl:template>
 
 
