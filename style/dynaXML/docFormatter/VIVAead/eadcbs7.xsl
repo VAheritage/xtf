@@ -1185,6 +1185,15 @@
 		</xsl:element>
 	</xsl:template>
 
+	<xsl:template match="a"> <!--  pass thru HTML tags: 
+		identity template didn't work here, I think due to namespace -->
+		<xsl:element name="a">
+			<xsl:attribute name="href" ><xsl:value-of select="@href"/></xsl:attribute>
+			<xsl:attribute name="target">_blank</xsl:attribute>
+			<xsl:apply-templates  />
+		</xsl:element>
+	</xsl:template>
+
 	<!--Insert the address for the dsc stylesheet of your choice here.-->
 	<xsl:include href="dsc4.xsl"/>
 </xsl:stylesheet>
