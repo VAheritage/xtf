@@ -3,6 +3,6 @@
   <addressline>514 Stoney Creek Blvd.</addressline>
   <addressline>Edinburg VA, 22824</addressline>
   <addressline>Phone: (540)984-8200</addressline>
-  <addressline id="email">Email: <extptr xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:zhottel@countylib.org" xlink:title="zhottel@countylib.org" /></addressline>
+  <addressline>Email: <extptr xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:zhottel@countylib.org" xlink:title="zhottel@countylib.org" /></addressline>
   <addressline>URL: <extptr xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://countylib.org" xlink:title="http://countylib.org"/></addressline>
 </address>
