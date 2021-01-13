@@ -41,7 +41,7 @@
 	<header>
 		<div class="header">
 			<a href="https://vaheritage.org/">
-				<img src="https://ead.lib.virginia.edu/vivaead/logos/vhpban.jpg" alt="VIVA EAD Logo"
+				<img src="https://ead.lib.virginia.edu/vivaxtf/vivaead/brand/logos/vhpban.jpg" alt="VIVA EAD Logo"
 				class="logo"/></a>
 				
 			<br class="clear"/>
@@ -51,7 +51,7 @@
 	<dynaxml.header>
 		<div class="header">
 			<a href="https://vaheritage.org/">
-			<img src="https://ead.lib.virginia.edu/vivaead/logos/vhpban.jpg" alt="VIVA EAD Logo"
+			<img src="https://ead.lib.virginia.edu/vivaxtf/brand/vivaead/logos/vhpban.jpg" alt="VIVA EAD Logo"
 				class="logo"/></a>
 			<br class="clear"/>
 		</div>
