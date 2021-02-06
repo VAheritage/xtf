@@ -34,9 +34,17 @@
     
 
 
-    <xsl:template match="xi:include|include" mode="#all" priority="20000" >
-        <xsl:apply-templates select="document(@href)"  mode="#current" />    
-    </xsl:template>
+ <!--   <xsl:template match="xi:include|include" mode="#all" priority="20000" >
+        <xsl:variable name="href" select="replace(@href, 'http:', 'https:' )"/>
+        <xsl:apply-templates select="document($href)"  mode="#current" />
+        <xsl:comment>xi:include</xsl:comment>
+    </xsl:template>-->
     
+    <xsl:template match="*:html">
+        <p><xsl:value-of select="@*:base"/></p>
+        <xsl:variable name="href" select="replace(@*:base,'http:','https:')"/> 
+        <p><xsl:value-of select="$href"/></p>
+        <xsl:copy-of copy-namespaces="no" select="document($href)"   />
+    </xsl:template>
 
 </xsl:stylesheet>
