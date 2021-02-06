@@ -11,7 +11,7 @@
   <item>URL: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.gmu.edu/library/specialcollections">http://www.gmu.edu/library/specialcollections</extref></item>
 
 <p id="logostmt" >
-<extptr xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed" xlink:href="http://ead.lib.virginia.edu/vivaead/logos/gmu.jpg" />
+<extptr xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed" xlink:href="https://ead.lib.virginia.edu/vivaead/logos/gmu.jpg" />
 </p>
 
 </list>
