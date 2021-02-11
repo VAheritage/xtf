@@ -305,8 +305,8 @@
 						</xsl:when>
 						<xsl:otherwise>
 							<div class="searchPage">
-								<xsl:choose>
-									<xsl:when test="$smode = 'showBag'">
+								<xsl:choose use-when="function-available('session:getData')">
+									<xsl:when test="$smode = 'showBag'"  >
 										<p>Your Bookbag is empty.</p>
 										<p>Click on the 'Add' link next to one or more items in your
 												<a href="{session:getData('queryURL')}">Search
@@ -381,7 +381,7 @@
 
 	<xsl:template match="crossQueryResult" mode="emailFolder" exclude-result-prefixes="#all">
 
-		<xsl:variable name="bookbagContents" select="session:getData('bag')/bag"/>
+		<xsl:variable name="bookbagContents" select="session:getData('bag')/bag" use-when="function-available('session:getData')" />
 
 		<!-- Change the values for @smtpHost and @from to those valid for your domain 
 		<mail:send xmlns:mail="java:/org.cdlib.xtf.saxonExt.Mail"
@@ -456,11 +456,12 @@
 					<table>
 						<tr>
 							<td colspan="2" class="right">
+								<xsl:if test="true()" use-when="function-available('session:getData')"  >
 								<xsl:variable name="bag" select="session:getData('bag')"/>
 								<a href="{$xtfURL}{$crossqueryPath}?smode=showBag">Bookbag</a>
 									(<span id="bagCount">
 									<xsl:value-of select="count($bag/bag/savedDoc)"/>
-								</span>) </td>
+								</span>) </xsl:if> </td>
 						</tr>
 						<tr>
 							<td>
@@ -475,7 +476,7 @@
 								<a href="{$xtfURL}{$crossqueryPath}">
 									<xsl:text>New Search</xsl:text>
 								</a>
-								<xsl:if test="$smode = 'showBag'">
+								<xsl:if test="$smode = 'showBag'" use-when="function-available('session:getData')" >
 									<xsl:text>&#160;|&#160;</xsl:text>
 									<a href="{session:getData('queryURL')}">
 										<xsl:text>Return to Search Results</xsl:text>
@@ -643,7 +644,7 @@
 					<dd>
 						<xsl:choose>
 							<xsl:when test="meta/publisher">
-								<xsl:apply-templates select="meta/publisher"/>
+								<xsl:apply-templates select="meta/publisher[1]"/>
 							</xsl:when>
 							<xsl:otherwise>none</xsl:otherwise>
 						</xsl:choose>
