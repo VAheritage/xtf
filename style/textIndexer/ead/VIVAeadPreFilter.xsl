@@ -535,9 +535,9 @@
    <!-- date --> 
    <xsl:template name="get-ead-date">
       <xsl:choose>
-         <xsl:when test="($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt/date">
+         <xsl:when test="($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt//date">
             <date xtf:meta="true">
-               <xsl:value-of select="string(($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt/date[1])"/>
+               <xsl:value-of select="string(($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt//date[1])"/>
             </date>
          </xsl:when>
          <xsl:otherwise>
