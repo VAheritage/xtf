@@ -671,7 +671,7 @@
 					</dt>
 					<dd>
 						<xsl:choose>
-							<xsl:when test="meta/year">
+							<xsl:when test="meta/year and normalize-space(meta/year) != ''">
 								<xsl:value-of select="replace(meta/year,'^.+ ','')"/>
 							</xsl:when>
 							<xsl:otherwise>
