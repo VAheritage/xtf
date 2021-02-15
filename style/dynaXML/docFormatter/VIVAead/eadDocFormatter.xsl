@@ -188,7 +188,7 @@
 			<div class="search_div">
 				<div style="font-weight:bold;text-transform:uppercase;letter-spacing:3px;">Search
 					Finding Aid</div>
-				<form action="{$xtfURL}{$dynaxmlPath}" method="get">
+				<form action="{$dynaxmlPath}" method="get">
 					<input name="query" type="text" size="15" class="search_form"/>
 					<input type="hidden" name="docId" value="{$docId}"/>
 					<input type="hidden" name="chunk.id" value="{$chunk.id}"/>
