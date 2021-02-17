@@ -448,8 +448,11 @@
 				     but this matches requested output format.  sdm7g -->
 				
 				<xsl:choose>
+					<xsl:when test="/ead/(eadheader|control)/filedesc/titlestmt/titleproper[not(@type)]">
+						<xsl:value-of select="/ead/(eadheader|control)/filedesc/titlestmt/titleproper[not(@type)]"/>
+					</xsl:when>
 					<xsl:when test="/ead/(eadheader|control)/filedesc/titlestmt/titleproper">
-						<xsl:value-of select="/ead/(eadheader|control)/filedesc/titlestmt/titleproper"/>
+						<xsl:value-of select="/ead/(eadheader|control)/filedesc/titlestmt/titleproper[1]"/>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:value-of select="/ead/frontmatter/titlepage/titleproper" />
