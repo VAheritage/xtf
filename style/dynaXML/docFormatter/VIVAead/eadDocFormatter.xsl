@@ -322,6 +322,21 @@
 						mode="tocLink"/>
 				</xsl:if>
 				<!--End of the table of contents. -->
+				
+				<xsl:if test="//persname" >
+					<xsl:call-template name="make-toc-link">
+						<xsl:with-param name="id">people</xsl:with-param>
+						<xsl:with-param name="name">people</xsl:with-param>
+					</xsl:call-template>	
+				</xsl:if>
+				
+				<xsl:if test="//geogname" >
+					<xsl:call-template name="make-toc-link">
+						<xsl:with-param name="id">places</xsl:with-param>
+						<xsl:with-param name="name">places</xsl:with-param>
+					</xsl:call-template>				
+				</xsl:if>
+				
 				<xsl:if test="archdesc/dsc/head">
 					<li>
 						<div class="toc_link">
@@ -370,20 +385,7 @@
 					</li>
 				</xsl:if>
 				
-				<xsl:if test="//persname" >
-					<xsl:call-template name="make-toc-link">
-						<xsl:with-param name="id">people</xsl:with-param>
-						<xsl:with-param name="name">people</xsl:with-param>
-					</xsl:call-template>	
-				</xsl:if>
 
-				<xsl:if test="//geogname" >
-					<xsl:call-template name="make-toc-link">
-						<xsl:with-param name="id">places</xsl:with-param>
-						<xsl:with-param name="name">places</xsl:with-param>
-					</xsl:call-template>
-					
-				</xsl:if>
 
 			</ul>
 		</div>

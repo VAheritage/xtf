@@ -108,13 +108,16 @@
 				<xsl:apply-templates select="archdesc/fileplan | archdesc/*/fileplan"/>
 				<xsl:apply-templates select="archdesc/bibliography | archdesc/*/bibliography"/>
 				<xsl:apply-templates select="archdesc/index | archdesc/*/index"/>
-				<xsl:apply-templates select="archdesc/dsc"/>
+				
 				<xsl:if test="//persname">
 					<xsl:call-template name="persons" />
 				</xsl:if>
 				<xsl:if test="//geogname">
 					<xsl:call-template name="places" />
 				</xsl:if>
+				
+				<xsl:apply-templates select="archdesc/dsc"/>
+
 			</body>
 		</html>
 	</xsl:template>
