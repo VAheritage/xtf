@@ -756,7 +756,7 @@
 		</p>
 	</xsl:template>
 
-	<xsl:template match="bibref">
+	<xsl:template match="bibliography/bibref">
 			<xsl:apply-templates/>
 		<br/>
 	</xsl:template>
