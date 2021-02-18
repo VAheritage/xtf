@@ -34,6 +34,7 @@
    <inst orgcode="ViF" prefix="vif" 
          logo="https://ead.lib.virginia.edu/vivaead/logos/FairfaxCoPL.tif"
          dirname="fcpl">Fairfax County Public Library</inst>
+   <inst orgcode="ViMtvl" prefix="vimtvl" >Fred W. Smith National Library for the Study of George Washington</inst> 
    <inst orgcode="ViFGM"
          logo="https://ead.lib.virginia.edu/vivaead/logos/gmu.jpg"
          prefix="vifgm"  oclc="VGM"
@@ -107,9 +108,9 @@
          logo="https://ead.lib.virginia.edu/vivaead/logos/ur.jpg"
          prefix="viur"
          dirname="ur">University of Richmond</inst>
-   <inst orgcode="VaCvUCN" prefix="vacvucn" 
+<!--   <inst orgcode="VaCvUCN" prefix="vacvucn" 
          logo="https://ead.lib.virginia.edu/vivaead/logos/ECBCNHI.jpg"
-         dirname="uva-cnhi">University of Virginia, The Center for Nursing Historical Inquiry</inst>
+         dirname="uva-cnhi">University of Virginia, The Center for Nursing Historical Inquiry</inst>-->
    <inst orgcode="ViU-H"
          logo="https://ead.lib.virginia.edu/vivaead/logos/uva-sc.jpg"
          prefix="viuh" oclc="VAM"
@@ -169,7 +170,7 @@
          logo="https://ead.lib.virginia.edu/vivaead/logos/wl.jpg"
          prefix="vilxw"
          dirname="wl-ley">Washington and Lee University, Leyburn Library</inst>
-   <inst orgcode="WvMtURHC" prefix="wvmturhc">
+      <inst orgcode="WvMtURHC" prefix="wvmturhc">
             WVU West Virginia and Regional History Center</inst> 
    <inst orgcode="VaStWPL"  
          prefix="vastwpl" 
@@ -182,7 +183,6 @@
    <inst orgcode="ViWyHS" prefix="viwyhs"
 	   logo="https://ead.lib.virginia.edu/vivaead/logos/wythechs.png"
 	   dirname="wchs">Wythe County Historical Society</inst>
-   <inst orgcode="ViMtvl" prefix="vimtvl" >Fred W. Smith National Library for the Study of George Washington</inst>
-   <inst prefix="test" dirname="test" login="sdm"> test directory </inst>
-   <!-- <inst prefix="legacy" dirname="legacy" >legacy conversion test</inst> -->
+   <!-- inst prefix="test" dirname="test" login="sdm"> test directory </inst -->
+   <!-- inst prefix="legacy" dirname="legacy" >legacy conversion test</inst -->
 </list>
