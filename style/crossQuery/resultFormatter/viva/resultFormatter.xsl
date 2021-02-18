@@ -221,7 +221,7 @@
 												</xsl:otherwise>
 												</xsl:choose>
 											</span>
-											<form method="get" action="{$xtfURL}{$crossqueryPath}"
+											<form method="get" action="{$crossqueryPath}"
 												class="sort">
 												<b>Sort by: </b>
 												<xsl:call-template name="hidden.query">
@@ -268,7 +268,7 @@
 											<div
 												style="font-weight:bold;text-transform:uppercase;letter-spacing:3px;"
 												>Search</div>
-											<form action="{$http.URL}" method="get"
+											<form action="{substring-after($http.URL,':')}" method="get"
 												id="form">
 												<input type="text" size="8" class="search_form"
 												name="text"/>
