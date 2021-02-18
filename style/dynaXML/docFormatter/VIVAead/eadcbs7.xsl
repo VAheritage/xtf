@@ -756,6 +756,11 @@
 		</p>
 	</xsl:template>
 
+	<xsl:template match="bibref">
+			<xsl:apply-templates/>
+		<br/>
+	</xsl:template>
+
 	<xsl:template
 		match="archdesc/bioghist/bioghist/head |
       archdesc/scopecontent/scopecontent/head">
