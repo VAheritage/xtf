@@ -687,7 +687,7 @@
 							<b>Subjects:</b>
 						</dt>
 						<dd>
-							<xsl:apply-templates select="meta/subject"/>
+							<xsl:apply-templates select="meta/subject[position() &lt; 36]"/>
 						</dd>
 					</div>
 				</xsl:if>
