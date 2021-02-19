@@ -1097,9 +1097,13 @@
 					<xsl:when test="string(normalize-space(@linktitle))">
 						<xsl:value-of select="@linktitle"/>
 					</xsl:when>
+					<xsl:when test="tokenize(@href, '/')[last()] != ''">
+						<xsl:value-of
+							select="tokenize(@href, '/')[last()]"/>
+					</xsl:when>
 					<xsl:otherwise>
 						<xsl:value-of
-							select="substring-after(substring-before(@href, '.'), '//')"/>
+							select="@href"/>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:variable>
