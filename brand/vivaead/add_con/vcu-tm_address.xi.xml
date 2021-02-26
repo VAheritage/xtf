@@ -1,12 +1,12 @@
 <address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
   <addressline>Special Collections and Archives</addressline>
-  <addressline>Tompkins-McCaw Library</addressline>
+  <addressline>Health Sciences Library</addressline>
   <addressline>Box 980582</addressline>
   <addressline>Virginia Commonwealth University</addressline>
   <addressline>Richmond, Virginia 23298-0582</addressline>
   <addressline>USA</addressline>
   <addressline>Phone: (804) 828-9898</addressline>
   <addressline>Fax: (804) 828-6089</addressline>
-  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:libtmlsca@vcu.edu" xlink:title="libtmlsca@vcu.edu"/></addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:libhssca@vcu.edu" xlink:title="libhssca@vcu.edu"/></addressline>
   <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="https://www.library.vcu.edu/research-teaching/special-collections-and-archives/" xlink:title="https://www.library.vcu.edu/research-teaching/special-collections-and-archives/"/></addressline>
 </address>
