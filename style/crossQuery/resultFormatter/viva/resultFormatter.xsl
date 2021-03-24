@@ -268,10 +268,11 @@
 											<div
 												style="font-weight:bold;text-transform:uppercase;letter-spacing:3px;"
 												>Search</div>
-											<form action="{substring-after($http.URL,':')}" method="get"
+											<form action="{$crossqueryPath}" method="get"
 												id="form">
 												<input type="text" size="8" class="search_form"
 												name="text"/>
+												<xsl:message select="$queryString"/>
 												<xsl:call-template name="hidden.query" >
 													<xsl:with-param name="queryString" select="$queryString" />
 												</xsl:call-template>

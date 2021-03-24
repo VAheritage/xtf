@@ -43,6 +43,8 @@
          logo="https://ead.lib.virginia.edu/vivaead/logos/gunstonhall_logo.jpg"
          prefix="vilogh"
          dirname="gh">Gunston Hall</inst>
+	<inst orgcode="ViHdsC"  prefix="vihdsc" >
+		Hampden-Sydney College</inst>
     <inst orgcode="ViWn"
          logo="https://ead.lib.virginia.edu/vivaead/logos/handley.jpg"
          prefix="viwn"
