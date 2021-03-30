@@ -15,6 +15,7 @@
                 d.src=c.base_url+"access.js?o="+c.instance_id+"&amp;v=2";
                 a.parentNode.insertBefore(d,a)})(document,"script",access_analytics);
         </script>
+		<!-- NAFAN survey -->
 		<script>(function(t,e,s,o){var n,a,c;t.SMCX=t.SMCX||[],e.getElementById(o)||(n=e.getElementsByTagName(s),a=n[n.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=o,c.src="https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgdwrHNJd5WrMK_2FzHAx4JH8MZALj18npOi6whZ5K9o4uw9.js",a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script>
 	</links>
 
@@ -37,6 +38,8 @@
                 d.src=c.base_url+"access.js?o="+c.instance_id+"&amp;v=2";
                 a.parentNode.insertBefore(d,a)})(document,"script",access_analytics);
         </script>
+		<!-- NAFAN survey -->
+		<script>(function(t,e,s,o){var n,a,c;t.SMCX=t.SMCX||[],e.getElementById(o)||(n=e.getElementsByTagName(s),a=n[n.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=o,c.src="https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgdwrHNJd5WrMK_2FzHAx4JH8MZALj18npOi6whZ5K9o4uw9.js",a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script>
 	</dynaxml.links>
 
 	<header>
