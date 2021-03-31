@@ -98,7 +98,7 @@
    <!-- simple form -->
    <xsl:template name="simpleForm" exclude-result-prefixes="#all">
       <div class="row">&#160;</div>
-      <form class="form text-center" method="get" action="{$xtfURL}{$crossqueryPath}">
+      <form class="form text-center" method="get" action="{$crossqueryPath}">
          <div class="form-group form-inline">
             <input class="form-control" type="text" name="keyword" size="60" value="{$keyword}"/>
             <xsl:text>&#160;</xsl:text>
@@ -132,7 +132,7 @@
    
    <!-- advanced form -->
    <xsl:template name="advancedForm" exclude-result-prefixes="#all">
-      <form method="get" action="{$xtfURL}{$crossqueryPath}">
+      <form method="get" action="{$crossqueryPath}">
          <div class="col-md-6 pull-left">
             <h4>Entire Text</h4>
             <input class="form-control" type="text" name="text" size="30" value="{$text}"/>
@@ -352,13 +352,13 @@
    
    <!-- free-form form -->
    <xsl:template name="freeformForm" exclude-result-prefixes="#all">
-      <form method="get" action="{$xtfURL}{$crossqueryPath}">
+      <form method="get" action="{$crossqueryPath}">
          <div class="form-group form-inline">
             <p class="help-block"><i>Experimental feature:</i> "Freeform" complex query supporting -/NOT, |/OR, &amp;/AND, field names, and parentheses.</p>
             <input class="form-control" type="text" name="freeformQuery" size="40" value="{$freeformQuery}"/>
             <xsl:text>&#160;</xsl:text>
             <input class="btn btn-primary" type="submit" value="Search"/>
-            <input class="btn btn-default" type="reset" onclick="location.href='{$xtfURL}{$crossqueryPath}'" value="Clear"/>
+            <input class="btn btn-default" type="reset" onclick="location.href='{$crossqueryPath}'" value="Clear"/>
          </div>
          <h3>Examples:</h3>
                   <table class="table table-striped sampleTable">

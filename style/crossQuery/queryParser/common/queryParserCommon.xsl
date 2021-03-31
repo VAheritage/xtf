@@ -320,7 +320,7 @@
    <!--                                                                        -->
    <!-- Adds the document identifier specified in the URL to the bag in the    -->
    <!-- current session.                                                       -->
-   <!-- ====================================================================== -->
+   <!-- ====================================================================== 
    
    <xsl:template name="addToBag">
       <xsl:variable name="identifier" select="string(//param[@name='identifier']/@value)"/>
@@ -331,14 +331,14 @@
          </bag>
       </xsl:variable>
       <xsl:value-of select="session:setData('bag', $newBag)"/>
-   </xsl:template>
+   </xsl:template>-->
    
    <!-- ====================================================================== -->
    <!-- "Remove From Bag" template                                             -->
    <!--                                                                        -->
    <!-- Removes the document identifier specified in the URL from the bag in   -->
    <!-- the current session.                                                   -->
-   <!-- ====================================================================== -->
+   <!-- ====================================================================== 
    
    <xsl:template name="removeFromBag">
       <xsl:variable name="identifier" select="string(//param[@name='identifier']/@value)"/>
@@ -348,13 +348,13 @@
          </bag>
       </xsl:variable>
       <xsl:value-of select="session:setData('bag', $newBag)"/>
-   </xsl:template>
+   </xsl:template>-->
    
    <!-- ====================================================================== -->
    <!-- "Show Bag" template                                                    -->
    <!--                                                                        -->
    <!-- Forms a query of all the documents currently in the bag.               -->
-   <!-- ====================================================================== -->
+   <!-- ====================================================================== 
    
    <xsl:template name="showBag">
       <xsl:variable name="bag" select="session:getData('bag')"/>
@@ -365,7 +365,7 @@
             </xsl:for-each>
          </or>
       </xsl:if>
-   </xsl:template>
+   </xsl:template>-->
    
    <!-- ====================================================================== -->
    <!-- "More Like This" template                                              -->

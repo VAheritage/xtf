@@ -1,2 +1,14 @@
 data
 index
+WEB-INF/classes/
+WEB-INF/contrib/
+WEB-INF/dist/
+WEB-INF/javadoc/
+WEB-INF/lib/junit.jar
+WEB-INF/lib/lucene-core-2.1.0.jar
+WEB-INF/lib/saxonb-8.9.jar
+WEB-INF/lib/servlet.jar
+WEB-INF/src/
+.classpath
+.settings/
+

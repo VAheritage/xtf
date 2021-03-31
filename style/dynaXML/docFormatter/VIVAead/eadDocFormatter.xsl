@@ -188,7 +188,7 @@
 			<div class="search_div">
 				<div style="font-weight:bold;text-transform:uppercase;letter-spacing:3px;">Search
 					Finding Aid</div>
-				<form action="{$dynaxmlPath}" method="get">
+				<form action="{$xtfURL}{$dynaxmlPath}" method="get">
 					<input name="query" type="text" size="15" class="search_form"/>
 					<input type="hidden" name="docId" value="{$docId}"/>
 					<input type="hidden" name="chunk.id" value="{$chunk.id}"/>
@@ -322,21 +322,6 @@
 						mode="tocLink"/>
 				</xsl:if>
 				<!--End of the table of contents. -->
-				
-				<xsl:if test="//persname" >
-					<xsl:call-template name="make-toc-link">
-						<xsl:with-param name="id">people</xsl:with-param>
-						<xsl:with-param name="name">people</xsl:with-param>
-					</xsl:call-template>	
-				</xsl:if>
-				
-				<xsl:if test="//geogname" >
-					<xsl:call-template name="make-toc-link">
-						<xsl:with-param name="id">places</xsl:with-param>
-						<xsl:with-param name="name">places</xsl:with-param>
-					</xsl:call-template>				
-				</xsl:if>
-				
 				<xsl:if test="archdesc/dsc/head">
 					<li>
 						<div class="toc_link">
@@ -385,7 +370,20 @@
 					</li>
 				</xsl:if>
 				
+				<xsl:if test="//persname" >
+					<xsl:call-template name="make-toc-link">
+						<xsl:with-param name="id">people</xsl:with-param>
+						<xsl:with-param name="name">people</xsl:with-param>
+					</xsl:call-template>	
+				</xsl:if>
 
+				<xsl:if test="//geogname" >
+					<xsl:call-template name="make-toc-link">
+						<xsl:with-param name="id">places</xsl:with-param>
+						<xsl:with-param name="name">places</xsl:with-param>
+					</xsl:call-template>
+					
+				</xsl:if>
 
 			</ul>
 		</div>

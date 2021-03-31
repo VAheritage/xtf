@@ -1,7 +1,6 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:session="java:org.cdlib.xtf.xslt.Session"
    xmlns:freeformQuery="java:org.cdlib.xtf.xslt.FreeformQuery"
-   extension-element-prefixes="session freeformQuery"
+   extension-element-prefixes="freeformQuery"
    exclude-result-prefixes="#all" 
    version="2.0">
    
@@ -213,12 +212,12 @@
             </and>
          </xsl:if>
          
-         <!-- Freeform query language -->
+         <!-- Freeform query language 
          <xsl:if test="//param[matches(@name, '^freeformQuery$')]">
             <xsl:variable name="strQuery" select="//param[matches(@name, '^freeformQuery$')]/@value"/>
             <xsl:variable name="parsed" select="freeformQuery:parse($strQuery)"/>
             <xsl:apply-templates select="$parsed/query/*" mode="freeform"/>
-         </xsl:if>
+         </xsl:if>-->
         
          <!-- Unary Not -->
          <xsl:for-each select="param[contains(@name, '-exclude')]">
