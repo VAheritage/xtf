@@ -108,13 +108,16 @@
 				<xsl:apply-templates select="archdesc/fileplan | archdesc/*/fileplan"/>
 				<xsl:apply-templates select="archdesc/bibliography | archdesc/*/bibliography"/>
 				<xsl:apply-templates select="archdesc/index | archdesc/*/index"/>
-				<xsl:apply-templates select="archdesc/dsc"/>
+				
 				<xsl:if test="//persname">
 					<xsl:call-template name="persons" />
 				</xsl:if>
 				<xsl:if test="//geogname">
 					<xsl:call-template name="places" />
 				</xsl:if>
+				
+				<xsl:apply-templates select="archdesc/dsc"/>
+
 			</body>
 		</html>
 	</xsl:template>
@@ -448,8 +451,11 @@
 				     but this matches requested output format.  sdm7g -->
 				
 				<xsl:choose>
+					<xsl:when test="/ead/(eadheader|control)/filedesc/titlestmt/titleproper[not(@type)]">
+						<xsl:value-of select="/ead/(eadheader|control)/filedesc/titlestmt/titleproper[not(@type)]"/>
+					</xsl:when>
 					<xsl:when test="/ead/(eadheader|control)/filedesc/titlestmt/titleproper">
-						<xsl:value-of select="/ead/(eadheader|control)/filedesc/titlestmt/titleproper"/>
+						<xsl:value-of select="/ead/(eadheader|control)/filedesc/titlestmt/titleproper[1]"/>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:value-of select="/ead/frontmatter/titlepage/titleproper" />
@@ -748,6 +754,11 @@
 		<p>
 			<xsl:apply-templates/>
 		</p>
+	</xsl:template>
+
+	<xsl:template match="bibliography/bibref">
+			<xsl:apply-templates/>
+		<br/>
 	</xsl:template>
 
 	<xsl:template
@@ -1086,9 +1097,13 @@
 					<xsl:when test="string(normalize-space(@linktitle))">
 						<xsl:value-of select="@linktitle"/>
 					</xsl:when>
+					<xsl:when test="tokenize(@href, '/')[last()] != ''">
+						<xsl:value-of
+							select="tokenize(@href, '/')[last()]"/>
+					</xsl:when>
 					<xsl:otherwise>
 						<xsl:value-of
-							select="substring-after(substring-before(@href, '.'), '//')"/>
+							select="@href"/>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:variable>
