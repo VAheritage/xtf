@@ -257,7 +257,6 @@
 						<xsl:when test="docHit">
 							<div class="results">
 								<xsl:if test="not($smode='showBag')">
-									<xsl:variable name="formaction" select="substring-before(substring-after($http.URL,$xtfURL), '?')"/>
 									<div class="facet_column">
 										<div class="term_div">
 											<div
@@ -269,7 +268,7 @@
 											<div
 												style="font-weight:bold;text-transform:uppercase;letter-spacing:3px;"
 												>Search</div>
-											<form action="{$formaction}" method="get"
+											<form action="search" method="get"
 												id="form">
 												<input type="text" size="8" class="search_form"
 												id="search_within_text"/>
