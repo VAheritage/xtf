@@ -92,7 +92,7 @@
 		<!--<script src="script/viva/basicSubmit.js" type="text/javascript"/>-->
 		
 		<h2>Basic Search</h2>
-		<form method="get" action="{$xtfURL}{$crossqueryPath}">
+		<form method="get" action="{$crossqueryPath}">
 			<input type="text" name="text" size="40" value="{$text}"/>
 			<div style="margin-top:10px;margin-bottom:10px;">
 				<dt class="t">Repository</dt>
@@ -106,13 +106,13 @@
 			<input type="hidden" id="search_text"/>
 			<input type="hidden" id="f1-publisher"/>			
 			<input type="submit" value="Search" id="basicSubmit"/>
-			<input type="reset" onclick="location.href='{$xtfURL}{$crossqueryPath}'" value="Clear"/>
+			<input type="reset" onclick="location.href='{$crossqueryPath}'" value="Clear"/>
 		</form>
 	</xsl:template>
 
 	<!-- advanced form -->
 	<xsl:template name="advancedForm" exclude-result-prefixes="#all">
-		<form method="get" action="{$xtfURL}{$crossqueryPath}">
+		<form method="get" action="{$crossqueryPath}">
 			<div style="display:table;width:100%">
 				<h2>Advanced Search</h2>
 				<div class="left_table">
@@ -271,7 +271,7 @@
 				<input type="hidden" name="smode" value="advanced"/>
 				<input type="submit" value="Search" class="button" id="submit"/>
 				<input type="reset" class="button"
-					onclick="location.href='{$xtfURL}{$crossqueryPath}?smode=advanced'"
+					onclick="location.href='{$crossqueryPath}?smode=advanced'"
 					value="Clear"/>
 			</div>
 		</form>
@@ -280,7 +280,7 @@
 
 	<!-- free-form form -->
 	<xsl:template name="freeformForm" exclude-result-prefixes="#all">
-		<form method="get" action="{$xtfURL}{$crossqueryPath}">
+		<form method="get" action="{$crossqueryPath}">
 			<table>
 				<tr>
 					<td>
@@ -289,7 +289,7 @@
 						<input type="text" name="freeformQuery" size="40" value="{$freeformQuery}"/>
 						<xsl:text>&#160;</xsl:text>
 						<input type="submit" value="Search"/>
-						<input type="reset" onclick="location.href='{$xtfURL}{$crossqueryPath}'"
+						<input type="reset" onclick="location.href='{$crossqueryPath}'"
 							value="Clear"/>
 					</td>
 				</tr>
@@ -299,7 +299,7 @@
 
 	<!-- alternate form ( original advanced form ) -->
 	<xsl:template name="alternateForm" exclude-result-prefixes="#all">
-		<form method="get" action="{$xtfURL}{$crossqueryPath}">
+		<form method="get" action="{$crossqueryPath}">
 			<table class="top_table">
 				<tr>
 					<td>
@@ -519,7 +519,7 @@
 								<td>
 									<input type="hidden" name="smode" value="advanced"/>
 									<input type="submit" value="Search"/>
-									<input type="reset" onclick="location.href='{$xtfURL}{$crossqueryPath}?smode=advanced'" value="Clear"/>
+									<input type="reset" onclick="location.href='{$crossqueryPath}?smode=advanced'" value="Clear"/>
 								</td>
 							</tr>
 						</table>
