@@ -28,6 +28,9 @@
          logo="https://ead.lib.virginia.edu/vivaead/logos/cw.jpg"
          prefix="viwc"
          dirname="cw">Colonial Williamsburg</inst>
+   <inst orgcode="VaVbECF" prefix="vavbecf"
+            logo="https://ead.lib.virginia.edu/vivaead/logos/ECF-logo.jpg"
+            dirname="ecf" >Edgar Cayce Foundation</inst>
    <inst orgcode="VaFfCR" prefix="vaffcr"
 		 logo="https://ead.lib.virginia.edu/vivaead/logos/FairfaxCircuitCourt.jpg"
 		 dirname="fcc" >Fairfax Circuit Court Historic Records Center</inst>
@@ -43,7 +46,8 @@
          logo="https://ead.lib.virginia.edu/vivaead/logos/gunstonhall_logo.jpg"
          prefix="vilogh"
          dirname="gh">Gunston Hall</inst>
-	<inst orgcode="ViHdsC"  prefix="vihdsc" >
+	<inst orgcode="ViHdsC"  prefix="vihdsc" 
+	      logo="https://ead.lib.virginia.edu/vivaead/logos/HSC-logo.png">
 		Hampden-Sydney College</inst>
     <inst orgcode="ViWn"
          logo="https://ead.lib.virginia.edu/vivaead/logos/handley.jpg"
