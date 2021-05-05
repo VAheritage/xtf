@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="urn:isbn:1-931666-22-9"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      type="simple">
+   <head>Contact Information</head>
+   <item> </item>
+   <item> </item>
+   <item> </item>
+   <item id="email">EMail: <extref xlink:type="simple"
+              xlink:show="new"
+              xlink:href="mailto:"></extref>
+   </item>
+   <item>URL: <extref xlink:type="simple"
+              xlink:show="new"
+              xlink:href=""></extref>
+   </item>
+</list>

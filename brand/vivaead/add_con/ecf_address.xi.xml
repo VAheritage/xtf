@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <addressline>Edgar Cayce Foundation</addressline>
+   <addressline>215 S. 67th Street, Virginia Beach, VA 23451</addressline>
+   <addressline>Phone: (757) 457-7204</addressline>
+   <addressline>EMail: <extptr xlink:type="simple"
+              xlink:show="new"
+              xlink:href="mailto:jessica.newell@edgarcayce.org"
+              xlink:title="jessica.newell@edgarcayce.org"/>
+   </addressline>
+   <addressline>URL: <extptr xlink:type="simple"
+              xlink:show="new"
+              xlink:href="http://edgarcaycefoundation.org"
+              xlink:title="http://edgarcaycefoundation.org"/>
+   </addressline>
+</address>

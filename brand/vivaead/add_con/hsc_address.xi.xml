@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <addressline>Hampden-Sydney College Archives & Special Collections</addressline>
+   <addressline>Walter M. Bortz III Library, P.O. Box 7, Hampden-Sydney VA 23943</addressline>
+   <addressline>Phone: (434) 223-7225</addressline>
+   <!-- <addressline>EMail: <extptr xlink:type="simple"
+              xlink:show="new"
+              xlink:href="mailto:"
+              xlink:title=""/>
+   </addressline> -->
+   <addressline>URL: <extptr xlink:type="simple"
+              xlink:show="new"
+              xlink:href="https://libguides.hsc.edu/archives"
+              xlink:title="https://libguides.hsc.edu/archives"/>
+   </addressline>
+</address>
