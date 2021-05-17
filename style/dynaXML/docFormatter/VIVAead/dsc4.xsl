@@ -123,6 +123,7 @@
 			<xsl:apply-templates
 				select="head|bioghist|scopecontent|arrangement|accessrestrict|userestrict|prefercite|acqinfo|altformavail|accruals|appraisal|custodhist|processinfo|originalsloc|phystech|odd|note|physdesc"
 				mode="did_level"/>
+			<xsl:apply-templates select="bibliography" />
 			<xsl:if test="c03 | c04 | c05 | c06 | c07 | c08">
 				<ul>
 					<xsl:apply-templates select="c03 | c04 | c05 | c06 | c07 | c08"/>

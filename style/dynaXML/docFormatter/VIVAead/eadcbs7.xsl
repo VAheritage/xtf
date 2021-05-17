@@ -756,6 +756,17 @@
 		</p>
 	</xsl:template>
 
+	<xsl:template match="bibliography">
+		<xsl:apply-templates  select="head" />
+		<xsl:if test="bibref" >
+			<ul>
+			<xsl:for-each select="bibref">
+				<li><xsl:value-of select="string(.)"/></li>
+			</xsl:for-each>	
+			</ul>
+		</xsl:if>
+	</xsl:template>
+
 	<xsl:template match="bibliography/bibref">
 			<xsl:apply-templates/>
 		<br/>
