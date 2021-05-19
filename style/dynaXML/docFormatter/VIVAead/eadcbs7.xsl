@@ -1220,6 +1220,15 @@
 		</xsl:element>
 	</xsl:template>
 
+	<xsl:template match="list[@type='deflist']" >
+		<dl>
+		<xsl:for-each select="defitem">
+			<dt><xsl:value-of select="label"/></dt>
+			<dd><xsl:value-of select="item"/></dd>
+		</xsl:for-each>
+		</dl>
+	</xsl:template>
+
 	<!--Insert the address for the dsc stylesheet of your choice here.-->
 	<xsl:include href="dsc4.xsl"/>
 </xsl:stylesheet>
