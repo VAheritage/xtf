@@ -616,6 +616,12 @@
       <dateStamp xtf:meta="true" xtf:tokenize="no">
          <xsl:value-of use-when="function-available('FileUtils:lastModified')" select="FileUtils:lastModified($filePath, 'yyyy-MM-dd')"/>
       </dateStamp>
+         <sort-date xtf:meta="true" xtf:tokenize="no" >
+            <xsl:value-of use-when="function-available('FileUtils:lastModified')" select="FileUtils:lastModified($filePath, 'yyyy-MM-dd')"/>
+         </sort-date>
+         <dateMod xtf:meta="true" xtf:tokenize="yes" >
+            <xsl:value-of use-when="function-available('FileUtils:lastModified')" select="FileUtils:lastModified($filePath, 'yyyy-MM-dd')"/>
+         </dateMod>
       </xsl:if>
    </xsl:template>
    
