@@ -300,7 +300,7 @@
 
 	<!--This template rule formats a list element anywhere
       except in arrangement.-->
-	<xsl:template match="list[parent::*[not(self::arrangement)]]/head">
+	<xsl:template match="list[@type != 'deflist'][parent::*[not(self::arrangement)]]/head">
 		<div style="margin-left: 25pt">
 			<b>
 				<xsl:apply-templates/>
@@ -308,7 +308,7 @@
 		</div>
 	</xsl:template>
 
-	<xsl:template match="list[parent::*[not(self::arrangement)]]/item">
+	<xsl:template match="list[@type != 'deflist'][parent::*[not(self::arrangement)]]/item">
 		<div style="margin-left: 40pt">
 			<xsl:apply-templates/>
 		</div>
@@ -635,7 +635,14 @@
 						</b>
 					</dt>
 					<dd>
-						<xsl:apply-templates/>
+						<xsl:choose>
+							<xsl:when test="name(.) = 'physdesc'">
+								<xsl:value-of select="string-join( */text(), ', ' )"/> 
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:apply-templates />
+							</xsl:otherwise>
+						</xsl:choose>
 					</dd>
 
 				</xsl:otherwise>
