@@ -898,6 +898,7 @@
 							<option value="sort-number">Repository, collection-number</option>
 							<option value="year">Date, Ascending</option>
 							<option value="reverse-year">Date, Descending</option>
+							<option value="rss" >RSS</option>
 						</xsl:when>
 						
 						<xsl:when test="$sort = 'totalHits'">
@@ -908,6 +909,7 @@
 							<option value="sort-number">Repository, collection-number</option>
 							<option value="year">Date, Ascending</option>
 							<option value="reverse-year">Date, Descending</option>
+							<option value="rss" >RSS</option>
 						</xsl:when>
 						
 						<xsl:when test="$sort = 'title'">
@@ -918,6 +920,7 @@
 							<option value="sort-identifier">Repository, id-number</option>
 							<option value="year">Date, Ascending</option>
 							<option value="reverse-year">Date, Descending</option>
+							<option value="rss" >RSS</option>
 						</xsl:when>
 						<xsl:when test="$sort = 'sort-identifier'">
 							<option value="">Relevance</option>
@@ -927,6 +930,7 @@
 							<option value="sort-number">Repository, collection-number</option>
 							<option value="year">Date, Ascending</option>
 							<option value="reverse-year">Date, Descending</option>
+							<option value="rss" >RSS</option>
 						</xsl:when>
 						<xsl:when test="$sort = 'sort-number'">
 							<option value="">Relevance</option>
@@ -936,6 +940,7 @@
 							<option value="sort-number" selected="selected">Repository, collection-number</option>
 							<option value="year">Date, Ascending</option>
 							<option value="reverse-year">Date, Descending</option>
+							<option value="rss" >RSS</option>
 						</xsl:when>
 						<xsl:when test="$sort = 'year'">
 							<option value="">Relevance</option>
@@ -945,6 +950,7 @@
 							<option value="sort-number">Repository, collection-number</option>
 							<option value="year" selected="selected">Date, Ascending</option>
 							<option value="reverse-year">Date, Descending</option>
+							<option value="rss" >RSS</option>
 						</xsl:when>
 						<xsl:when test="$sort = 'reverse-year'">
 							<option value="">Relevance</option>
@@ -954,7 +960,20 @@
 							<option value="sort-number">Repository, collection-number</option>
 							<option value="year">Date, Ascending</option>
 							<option value="reverse-year" selected="selected">Date, Descending</option>
+							<option value="rss" >RSS</option>
 						</xsl:when>
+						
+						<xsl:when test="$sort = 'rss'">
+							<option value="">Relevance</option>
+							<option value="totalHits">raw hit counts</option>
+							<option value="title">Title</option>
+							<option value="sort-identifier">Repository, id-number</option>
+							<option value="sort-number">Repository, collection-number</option>
+							<option value="year">Date, Ascending</option>
+							<option value="reverse-year">Date, Descending</option>
+							<option value="rss" selected="selected" >RSS</option>
+						</xsl:when>
+						
 						<!-- 
 						<xsl:when test="$sort = ''">
 							<option value="" selected="selected">relevance</option>
