@@ -611,17 +611,15 @@
    
    <!-- OAI dateStamp -->
    <xsl:template name="oai-datestamp" xmlns:FileUtils="java:org.cdlib.xtf.xslt.FileUtils">
-      <xsl:variable name="filePath" select="$my_uri" xmlns:saxon="http://saxon.sf.net/"/>
-      <xsl:if test="$filePath">
+      <xsl:variable name="filePath" select="$my_uri" />
+      <xsl:if test="$filePath" use-when="function-available('FileUtils:lastModified')" >
+         <xsl:variable name="timestamp" select="FileUtils:lastModified($filePath, 'yyyy-MM-dd HH:mm')" />
       <dateStamp xtf:meta="true" xtf:tokenize="no">
-         <xsl:value-of use-when="function-available('FileUtils:lastModified')" select="FileUtils:lastModified($filePath, 'yyyy-MM-dd')"/>
+         <xsl:value-of  select="$timestamp"/>
       </dateStamp>
-         <sort-date xtf:meta="true" xtf:tokenize="no" >
-            <xsl:value-of use-when="function-available('FileUtils:lastModified')" select="FileUtils:lastModified($filePath, 'yyyy-MM-dd')"/>
-         </sort-date>
-         <dateMod xtf:meta="true" xtf:tokenize="yes" >
-            <xsl:value-of use-when="function-available('FileUtils:lastModified')" select="FileUtils:lastModified($filePath, 'yyyy-MM-dd')"/>
-         </dateMod>
+      <sort-date xtf:meta="true" xtf:tokenize="no" >
+         <xsl:value-of  select="$timestamp"/>
+      </sort-date>
       </xsl:if>
    </xsl:template>
    
