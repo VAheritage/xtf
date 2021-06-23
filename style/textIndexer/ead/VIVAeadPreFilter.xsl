@@ -234,7 +234,7 @@
    <!-- ====================================================================== -->
    
    <!-- Ignored Elements -->
-   <xsl:template match="eadheader" mode="addChunkId">
+   <xsl:template match="eadheader|control" mode="addChunkId">
       <xsl:copy>
          <xsl:copy-of select="@*"/>
          <xsl:attribute name="xtf:index" select="'no'"/>
@@ -326,7 +326,7 @@
    <!-- VIVA version of title: trying to copy original app behavior here sdm7g -->
    <xsl:template name="get-ead-title">
       <xsl:variable name="titlestmt"
-         select="$dtdVersion/ead/eadheader/filedesc/titlestmt" />
+         select="$dtdVersion/ead/(eadheader|control)/filedesc/titlestmt" />
       <xsl:variable name="title" 
          select="replace(string-join($titlestmt/titleproper[not(@type='filing')]//text(), ', '), ',\s*,', ','  )" />
       <xsl:variable name="subtitle" 
@@ -335,7 +335,7 @@
          <xsl:if test="$subtitle/@id" ><xsl:value-of select="concat(' [',$subtitle/@id, ']')"/></xsl:if>
       </xsl:variable>
       <xsl:variable name="numbers" 
-         select="for $x in ($dtdVersion/ead/(eadheader//titlestmt|frontmatter/titlepage)//num, 
+         select="for $x in ($dtdVersion/ead/((eadheader|control)//titlestmt|frontmatter/titlepage)//num, 
          $dtdVersion/ead/archdesc/did/unitid[1]) return xtf:normalize($x)" />
       <xsl:variable name="num" select="normalize-space(($titlestmt//num)[1])"/>
       <xsl:variable name="unitid" select="normalize-space($dtdVersion/archdesc/did/unitid[1])"/>
