@@ -481,8 +481,8 @@
 			<xsl:variable name="logoref" >
 				<xsl:choose>
 					<xsl:when test="$logo/@href"><xsl:value-of select="$logo/@href"/></xsl:when>
-					<xsl:when test="$logo and $logo/@entityref and unparsed-entity-uri($logo/@entityref)">
-						<xsl:value-of select="unparsed-entity-uri($logo/@entityref)"/>
+					<xsl:when test="$logo and $logo/@entityref and string($logo/@entityref)">
+						<xsl:value-of select="unparsed-entity-uri(string($logo/@entityref))"/>
 					</xsl:when>
 				</xsl:choose>
 			</xsl:variable>
@@ -670,7 +670,7 @@
 						<xsl:if test="child::unitdate">
 							<xsl:apply-templates select="unitdate"/>
 						</xsl:if>
-						<xsl:if test="string(parent::node()/unitdate)">
+						<xsl:if test="string(parent::node()/unitdate[1])">
 							<xsl:apply-templates select="parent::node()/unitdate"/>
 						</xsl:if>
 					</dd>
@@ -686,7 +686,7 @@
 						<xsl:if test="child::unitdate">
 							<xsl:apply-templates select="unitdate"/>
 						</xsl:if>
-						<xsl:if test="string(parent::node()/unitdate)">
+						<xsl:if test="string(parent::node()/unitdate[1])">
 							<xsl:apply-templates select="parent::node()/unitdate"/>
 						</xsl:if>
 					</dd>
@@ -861,7 +861,7 @@
       for the children of controlaccess.  -->
 	<xsl:template match="archdesc/controlaccess">
 		<div class="dd">
-			<xsl:if test="string(child::*)">
+			<xsl:if test="string(child::*[1])">
 				<a name="{xtf:make-id(head)}">
 					<xsl:apply-templates select="head"/>
 				</a>
