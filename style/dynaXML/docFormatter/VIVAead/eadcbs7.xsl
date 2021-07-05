@@ -475,8 +475,8 @@
 		</h3>
 		<br/></div>
 		<!-- insert the logo -->
-		<div style="text-align:center">
-			<xsl:variable name="logo" select="//p[@id='logostmt']/node()[local-name()='extptr' or local-name()='extref' or local-name()='ref']" />
+		<div style="text-align:center;">
+			<xsl:variable name="logo" select="(/ead/(frontmatter|eadheader)//p[@id='logostmt']/node()[local-name()='extptr' or local-name()='extref' or local-name()='ref'])|(/ead/control//publicationstmt/p/(ptr|ref)[@href])" />
 
 			<xsl:variable name="logoref" >
 				<xsl:choose>
@@ -495,6 +495,7 @@
 						<xsl:attribute name="alt">[logo]</xsl:attribute>
 						<xsl:attribute name="align">center</xsl:attribute>
 						<xsl:attribute name="name">logo</xsl:attribute>
+						<xsl:attribute name="style" >max-width: 600px;</xsl:attribute>
 					</xsl:element>
 				</xsl:when>
 				<!--  otherwise just for tesing  -->
