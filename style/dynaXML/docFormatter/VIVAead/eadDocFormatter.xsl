@@ -323,7 +323,7 @@
 				</xsl:if>
 				<!--End of the table of contents. -->
 				
-				<xsl:if test="//persname" >
+				<xsl:if test="//persname[local-name(..)!='controlaccess']" >
 					<xsl:call-template name="make-toc-link">
 						<xsl:with-param name="id">people</xsl:with-param>
 						<xsl:with-param name="name">people</xsl:with-param>

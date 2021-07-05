@@ -109,7 +109,7 @@
 				<xsl:apply-templates select="archdesc/bibliography | archdesc/*/bibliography"/>
 				<xsl:apply-templates select="archdesc/index | archdesc/*/index"/>
 				
-				<xsl:if test="//persname">
+				<xsl:if test="//persname[local-name(..)!='controlaccess']">
 					<xsl:call-template name="persons" />
 				</xsl:if>
 				<xsl:if test="//geogname">
