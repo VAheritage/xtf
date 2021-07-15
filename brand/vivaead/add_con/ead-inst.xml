@@ -16,6 +16,9 @@
 	<inst orgcode="ViAr" prefix="viar"
 		logo="https://ead.lib.virginia.edu/vivaead/logos/APLlogo.jpg"
 		dirname="arlington" >Arlington Public Library</inst>
+   <inst orgcode="VaStACHS" prefix="vastachs" 
+            logo="https://ead.lib.virginia.edu/vivaead/logos/AugustaCoHS.jpg"
+            dirname="achs" >Augusta County Historical Society</inst>
    <inst orgcode="ViBrC"
          logo="https://ead.lib.virginia.edu/vivaead/logos/bc.jpg"
          prefix="vibrc"
