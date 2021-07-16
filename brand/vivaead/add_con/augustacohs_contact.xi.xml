@@ -6,5 +6,5 @@
   <item>Staunton, VA 24401</item>
   <item>Phone: (540) 248-4151</item>
   <item>URL: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://augustacountyhs.org">http://augustacountyhs.org</extref></item>
-  <item id="email">Email: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="historian@augustacountyhs.org">historian@augustacountyhs.org</extref></item>
+  <item id="email">Email: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:historian@augustacountyhs.org">historian@augustacountyhs.org</extref></item>
 </list>

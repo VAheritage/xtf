@@ -6,6 +6,9 @@
 -->
 <list>
    <inst prefix="all" dirname="">All participating institutions</inst>
+   <inst orgcode="ViCAHi"  prefix="vicahi" 
+      logo="https://ead.lib.virginia.edu/vivaead/logos/ACHS_logo.jpg"
+      dirname=" ">Albemarle Charlottesville Historical Society</inst>
    <inst orgcode="VaAlLHS"
          logo="https://ead.lib.virginia.edu/vivaead/logos/apl.jpg"
          prefix="vaallhs"
