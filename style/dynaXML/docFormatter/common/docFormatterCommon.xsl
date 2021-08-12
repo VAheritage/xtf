@@ -66,8 +66,11 @@
    seems to work. Alternatively
       select="'/xtf/'"
    also works.
+
    -->
-   <xsl:param name="xtfURL" select="$root.path"/>
+   
+   <!-- Placed here by Tim S on 1/25/20. Setting to hardcoded value of https and xtf.internal.lib.virginia.edu" -->
+   <xsl:param name="xtfURL"  select="replace($root.path, 'http', 'https')"/>
    <xsl:param name="dynaxmlPath" select="if (matches($servlet.path, 'org.cdlib.xtf.crossQuery.CrossQuery')) then 'org.cdlib.xtf.dynaXML.DynaXML' else 'view'"/>
    
    <xsl:param name="docId"/>

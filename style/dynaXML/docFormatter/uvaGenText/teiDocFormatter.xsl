@@ -121,7 +121,7 @@
         <title>University of Virginia Library</title>
         
         <link href="http://www.lib.virginia.edu/scripts/yui-2.2.0a/build/grids/grids.css" rel="stylesheet" type="text/css" />
-        <link href="http://www2.lib.virginia.edu/styles/main.css" rel="stylesheet" type="text/css" />
+        <link href="https://www2.lib.virginia.edu/styles/main.css" rel="stylesheet" type="text/css" />
         <link href="http://www.lib.virginia.edu/scripts/yahoo/2.3.0/build/button/assets/skins/sam/button.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="http://www.lib.virginia.edu/scripts/yahoo/2.3.0/build/yahoo-dom-event/yahoo-dom-event.js"></script>
         <script type="text/javascript" src="http://www.lib.virginia.edu/scripts/yui-2.2.0a/build/element/element-beta-min.js"></script>
@@ -129,11 +129,11 @@
         <script type="text/javascript" src="http://www.lib.virginia.edu/scripts/yui-2.2.0a/build/animation/animation-min.js"></script>
         <script type="text/javascript" src="http://www.lib.virginia.edu/scripts/yui-2.2.0a/build/tabview/tabview-min.js"></script>
         <script type="text/javascript" src="http://www.lib.virginia.edu/scripts/yahoo/2.3.0/build/button/button-beta-min.js"></script>
-        <script type="text/javascript" src="http://www2.lib.virginia.edu/scripts/main.js"></script>
+        <script type="text/javascript" src="https://www2.lib.virginia.edu/scripts/main.js"></script>
         
         <!-- InstanceBeginEditable name="head" -->
-        <link href="http://www2.lib.virginia.edu/styles/components/news.css" rel="stylesheet" type="text/css"/>
-        <link href="http://www2.lib.virginia.edu/styles/home.css" rel="stylesheet" type="text/css"/>
+        <link href="https://www2.lib.virginia.edu/styles/components/news.css" rel="stylesheet" type="text/css"/>
+        <link href="https://www2.lib.virginia.edu/styles/home.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" type="text/css" href="{$css.path}dl.css"/>
         <!-- InstanceEndEditable -->
       
