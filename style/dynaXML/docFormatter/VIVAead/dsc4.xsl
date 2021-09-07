@@ -136,10 +136,10 @@
 
 	<xsl:template match="did">
 		<xsl:apply-templates select="head" mode="content" />
-	<!--	<xsl:apply-templates select="unitid[not(@audience='internal')]"/>
-		<xsl:apply-templates select="unittitle" mode="content"/>-->
+		<xsl:apply-templates select="unitid[not(@audience='internal')]"/>
+		<xsl:apply-templates select="unittitle" mode="content"/><!--
 		<xsl:variable name="title" select="concat(string-join((unittitle,unitdate), ', ' ), '.' )" />
-		<xsl:value-of select="string-join( (unitid[not(@audience='internal')][1], $title ), ': ')"/>
+		<xsl:value-of select="string-join( (unitid[not(@audience='internal')][1], $title ), ': ')"/>-->
 		<xsl:for-each select="container">
 			<xsl:text> </xsl:text><xsl:apply-templates select="."   />
 		</xsl:for-each>
@@ -398,9 +398,14 @@
 		<xsl:if test="not(matches(@label,@type,'i' )) and not(matches(string(.),@type,'i'))">
 			<xsl:value-of select="@type"/><xsl:text>: </xsl:text>
 		</xsl:if>
-		<xsl:value-of select="normalize-space(.)"/>
-		<xsl:text>, </xsl:text><xsl:value-of select="@label"/>
-		<xsl:apply-templates  select="*" />
+		<xsl:if test="@label[.!='']">
+					
+			<xsl:value-of select="@label"/>
+			<xsl:text>: </xsl:text>
+					
+		</xsl:if>
+		<xsl:apply-templates/>
+			
 		<xsl:text> </xsl:text>
 	</xsl:template>
 
