@@ -300,7 +300,7 @@
 
 	<!--This template rule formats a list element anywhere
       except in arrangement.-->
-	<xsl:template match="list[@type != 'deflist'][parent::*[not(self::arrangement)]]/head">
+	<xsl:template match="list[@type != 'deflist' or not(@type)][parent::*[not(self::arrangement)]]/head">
 		<div style="margin-left: 25pt">
 			<b>
 				<xsl:apply-templates/>
@@ -308,7 +308,7 @@
 		</div>
 	</xsl:template>
 
-	<xsl:template match="list[@type != 'deflist'][parent::*[not(self::arrangement)]]/item">
+	<xsl:template match="list[@type != 'deflist' or not(@type)][parent::*[not(self::arrangement)]]/item">
 		<div style="margin-left: 40pt">
 			<xsl:apply-templates/>
 		</div>
