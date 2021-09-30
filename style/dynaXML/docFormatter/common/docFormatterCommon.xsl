@@ -74,8 +74,9 @@
 
 	<xsl:param name="doc.path"><xsl:value-of select="$xtfURL"/><xsl:value-of select="$dynaxmlPath"/>?<xsl:value-of select="$query.string"/></xsl:param>
 
-	<xsl:variable name="systemId" select="saxon:systemId()" xmlns:saxon="http://saxon.sf.net/"/>
-
+	<!--<xsl:variable name="systemId" select="saxon:systemId()" xmlns:saxon="http://saxon.sf.net/"/>-->
+	<xsl:variable name="systemId" select="base-uri(.)"/>
+	
 	<xsl:param name="doc.dir">
 		<xsl:choose>
 			<xsl:when test="starts-with($systemId, 'http://')">
