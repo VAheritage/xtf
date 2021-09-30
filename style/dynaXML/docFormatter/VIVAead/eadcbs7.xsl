@@ -805,8 +805,8 @@
 	<xsl:template name="archdesc-relatedmaterial">
 
 		<xsl:if
-			test="string(archdesc/relatedmaterial) or
-         string(archdesc/*/relatedmaterial)">
+			test="(archdesc/relatedmaterial) or
+         (archdesc/*/relatedmaterial)">
 			<div class="dd">
 				<h3 style="margin-left:-25px;">
 					<a name="relatedmatlink">
