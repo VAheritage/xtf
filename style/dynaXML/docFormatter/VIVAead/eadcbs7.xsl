@@ -822,8 +822,8 @@
             | archdesc/*/relatedmaterial/note/p"/>
 			</div></xsl:if>
 
-		<xsl:if test="string(archdesc/separatedmaterial) or
-			string(archdesc/*/separatedmaterial)" >
+		<xsl:if test="(archdesc/separatedmaterial) or
+			(archdesc/*/separatedmaterial)" >
 			<div class="dd">
 				<h3 style="margin-left:-25px;">
 						<a name="separatedmatlink">
