@@ -75,6 +75,10 @@
          logo="https://ead.lib.virginia.edu/vivaead/logos/LongwoodLogo-320wide.gif"
          prefix="vifarl"  oclc="VLC"
          dirname="lu">Longwood University</inst>
+   <inst orgcode="VaFcSPL" 
+         prefix="vafcspl" 
+         logo="https://ead.lib.virginia.edu/vivaead/logos/MRSPL_logo.png"
+         dirname="mrspl" >Mary Riley Styles Public Library</inst>
    <inst orgcode="VaChMCC"
    		 prefix="vachmcc" 
    		 logo="https://ead.lib.virginia.edu/vivaead/logos/MontgomeryCountySeal.jpg" 
