@@ -1,0 +1,8 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Mary Riley Styles Public Library</addressline>
+  <addressline>120 North Virginia Avenue</addressline>
+  <addressline>Falls Church, VA 22046</addressline>
+  <addressline>Phone: (703)-248-5030</addressline>
+  <addressline>Email: <extptr xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:" xlink:title="" /></addressline>
+  <addressline>URL: <extptr xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.fallschurchva.gov/424/Library" xlink:title="http://www.fallschurchva.gov/424/Library"/></addressline>
+</address>
