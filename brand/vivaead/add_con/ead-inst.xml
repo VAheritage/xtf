@@ -187,8 +187,11 @@
          prefix="vilxw"
          dirname="wl-ley">Washington and Lee University, Leyburn Library</inst>
       <inst orgcode="WvMtURHC" prefix="wvmturhc">
-            WVU West Virginia and Regional History Center</inst> 
-   <inst orgcode="VaStWPL"  
+            WVU West Virginia and Regional History Center</inst>
+      <inst orgcode="Wv-Ar" prefix="wvar" dirname="wvar" 
+            logo="https://ead.lib.virginia.edu/vivaead/logos/WVDACH.jpg">
+            West Virginia Archives and History</inst> 
+   <inst orgcode="VaStWPL"
          prefix="vastwpl" 
          logo="https://ead.lib.virginia.edu/vivaead/logos/WWPLM.jpg"
          dirname="wwplm">Woodrow Wilson Presidential Library &amp; Museum</inst>
