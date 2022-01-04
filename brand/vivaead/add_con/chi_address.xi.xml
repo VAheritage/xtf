@@ -1,0 +1,12 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+   <addressline>Christiansburg Institute Museum and Archives</addressline>
+   <addressline>125 Arrowhead Trail, Suite F</addressline>
+   <addressline>Christiansburg, VA 24073</addressline>
+   <addressline>Phone: (540) 808-5398</addressline>
+   <addressline>Email: <extptr xlink:href="mailto:CIMA@christiansburginstitute.com"
+              xlink:title="CIMA@christiansburginstitute.com"/>
+   </addressline>
+   <addressline>URL: <extptr xlink:href="https://www.christiansburginstitute.com"
+              xlink:title="https://www.christiansburginstitute.com"/>
+   </addressline>
+</address>
