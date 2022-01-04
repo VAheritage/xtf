@@ -26,6 +26,10 @@
          logo="https://ead.lib.virginia.edu/vivaead/logos/bc.jpg"
          prefix="vibrc"
          dirname="bc">Bridgewater College</inst>
+   <inst orgcode="VaChI" 
+         logo="https://ead.lib.virginia.edu/vivaead/logos/CII_logo.jpg"
+         prefix="vachi"
+         dirname="chi">Christiansburg Institute Museum and Archives</inst>
    <inst orgcode="ViW"
          logo="https://ead.lib.virginia.edu/vivaead/logos/wm.jpg"
          prefix="viw" oclc="VWM"
