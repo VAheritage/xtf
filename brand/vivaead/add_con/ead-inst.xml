@@ -92,7 +92,7 @@
    		 dirname="npl" >Norfolk Public Library</inst>
    <inst orgcode="ViNO"
          logo="https://ead.lib.virginia.edu/vivaead/logos/odu.jpg"
-         prefix="vino"
+         prefix="vino" oclc="VOD"
          dirname="odu">Old Dominion University</inst>
    <inst orgcode="ViSaRC" prefix="visarc" 
          logo="https://ead.lib.virginia.edu/vivaead/logos/roanokecollege.gif"
