@@ -424,7 +424,10 @@
    <xsl:param name="me"  select="document-uri(/)"/>
 
    <!-- publisher -->
-   <xsl:template name="get-ead-publisher">            
+   <xsl:template name="get-ead-publisher">
+         <xsl:variable name="publisher">
+            <xsl:value-of select="xtf:normalize(($dtdVersion)/ead/(eadheader|control)/filedesc/publicationstmt/publisher[1])"/>
+         </xsl:variable>
          <xsl:if test="($dtdVersion)/ead/archdesc/did/repository">
             <publisher xtf:meta="true">
                <xsl:value-of select="xtf:normalize(($dtdVersion)/ead/archdesc/did/repository[1])"/>
@@ -486,6 +489,16 @@
             </xsl:when>
             <xsl:when test="normalize-space($agencycode) != '' ">
                <xsl:value-of select="string($agencycode)"/>
+            </xsl:when>
+            <xsl:when test="$publisher" >
+               <xsl:choose>
+                  <xsl:when test="contains($publisher, ';' )">
+                     <xsl:value-of select="substring-before($publisher, ';' )"/>
+                  </xsl:when>
+                  <xsl:otherwise>
+                     <xsl:value-of select="$publisher"/>
+                  </xsl:otherwise>
+               </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
                <xsl:value-of select="$directory"/>
