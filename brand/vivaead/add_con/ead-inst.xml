@@ -162,7 +162,7 @@
          dirname="uva-music">University of Virginia, Music Library</inst>
    <inst orgcode="ViU" prefix="viu" oclc="VA@"
          logo="https://ead.lib.virginia.edu/vivaead/logos/uva-sc.jpg"
-         aspace="https://archivesspace.lib.virginia.edu"
+         aspace="https://archives.lib.virginia.edu"
          oaifeed="https://archives-oai.lib.virginia.edu"
          dirname="uva-sc" login="speccol">University of Virginia, Special Collections Dept.</inst>
    <inst orgcode="ViRCU"
