@@ -49,7 +49,10 @@
    <inst orgcode="ViF" prefix="vif" 
          logo="https://ead.lib.virginia.edu/vivaead/logos/FairfaxCoPL.tif"
          dirname="fcpl">Fairfax County Public Library</inst>
-   <inst orgcode="ViMtvl" prefix="vimtvl" >Fred W. Smith National Library for the Study of George Washington</inst> 
+   <inst orgcode="ViMtvl" prefix="vimtvl"
+         aspace="https://archives.mountvernon.org"
+         oaifeed="https://archives.mountvernon.org/oai"
+         >Fred W. Smith National Library for the Study of George Washington</inst>
    <inst orgcode="ViFGM"
          logo="https://ead.lib.virginia.edu/vivaead/logos/gmu.jpg"
          prefix="vifgm"  oclc="VGM"
