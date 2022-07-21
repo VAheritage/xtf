@@ -147,9 +147,11 @@
          dirname="ur">University of Richmond</inst>
    <inst orgcode="VaCvUCN" prefix="vacvucn" 
          logo="https://ead.lib.virginia.edu/vivaead/logos/ECBCNHI.jpg"
+         aspace="https://archives.lib.virginia.edu/repositories/8/resources"
          dirname="uva-cnhi">University of Virginia, The Center for Nursing Historical Inquiry</inst> 
    <inst orgcode="ViU-H"
          logo="https://ead.lib.virginia.edu/vivaead/logos/uva-sc.jpg"
+         aspace="https://archives.lib.virginia.edu/repositories/7/resources"
          prefix="viuh" oclc="VAM"
          dirname="uva-hs">University of Virginia, Health Sciences Library</inst>
    <inst orgcode="ViU-L"
@@ -158,22 +160,23 @@
          dirname="uva-law">University of Virginia, Law Library</inst>
    <inst orgcode="ViU-Mu"
          logo="https://ead.lib.virginia.edu/vivaead/logos/uva-sc.jpg"
+         aspace="https://archives.lib.virginia.edu/repositories/4/resources"
          prefix="viumu"
          dirname="uva-music">University of Virginia, Music Library</inst>
    <inst orgcode="ViU" prefix="viu" oclc="VA@"
          logo="https://ead.lib.virginia.edu/vivaead/logos/uva-sc.jpg"
-         aspace="https://archives.lib.virginia.edu"
+         aspace="https://archives.lib.virginia.edu/repositories/3/resources"
          oaifeed="https://archives-oai.lib.virginia.edu"
          dirname="uva-sc" login="speccol">University of Virginia, Special Collections Dept.</inst>
    <inst orgcode="ViRCU"
          logo="https://ead.lib.virginia.edu/vivaead/logos/vcu.jpg"
-         aspace="https://archives.library.vcu.edu"
+         aspace="https://archives.library.vcu.edu/repositories/5/resources"
          oaifeed="https://archives.library.vcu.edu/oai"
          prefix="vircu"
          dirname="vcu-cab">Virginia Commonwealth University, Cabell Library</inst>
    <inst orgcode="ViRCU-H"
          logo="https://ead.lib.virginia.edu/vivaead/logos/vcu.jpg"
-         aspace="https://archives.library.vcu.edu"
+         aspace="https://archives.library.vcu.edu/repositories/3/resources"
          oaifeed="https://archives.library.vcu.edu/oai"
          prefix="vircuh"
          dirname="vcu-tm">Virginia Commonwealth University, Health Sciences Library</inst>
