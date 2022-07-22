@@ -11,7 +11,7 @@
       dirname="albemarle" >Albemarle Charlottesville Historical Society</inst>
    <inst orgcode="VaAlLHS"
          logo="https://ead.lib.virginia.edu/vivaead/logos/apl.jpg"
-         aspace="https://alexlibraryva.libraryhost.com"
+         aspace="https://alexlibraryva.libraryhost.com/repositories/resources"
          oaifeed="http://alexlibraryva.libraryhost.com:8082/oai"
          prefix="vaallhs"
          dirname="apl">Alexandria Library</inst>
@@ -50,13 +50,13 @@
          logo="https://ead.lib.virginia.edu/vivaead/logos/FairfaxCoPL.tif"
          dirname="fcpl">Fairfax County Public Library</inst>
    <inst orgcode="ViMtvl" prefix="vimtvl"
-         aspace="https://archives.mountvernon.org"
+         aspace="https://archives.mountvernon.org/repositories/resources"
          oaifeed="https://archives.mountvernon.org/oai"
          >Fred W. Smith National Library for the Study of George Washington</inst>
    <inst orgcode="ViFGM"
          logo="https://ead.lib.virginia.edu/vivaead/logos/gmu.jpg"
          prefix="vifgm"  oclc="VGM"
-         aspace="https://aspace.gmu.edu"
+         aspace="https://aspace.gmu.edu/repositories/resources"
          oaifeed="https://aspace.gmu.edu/oai"
          dirname="gmu">George Mason University</inst>
    <inst orgcode="ViLoGH"
@@ -65,7 +65,7 @@
          dirname="gh">Gunston Hall</inst>
 	<inst orgcode="ViHdsC"  prefix="vihdsc" 
 	      logo="https://ead.lib.virginia.edu/vivaead/logos/HSC-logo.png"
-	      aspace="https://archivesspace.hsc.edu"
+	      aspace="https://archivesspace.hsc.edu/repositories/resources"
 	      oaifeed="http://archivesspace.hsc.edu:8082/oai">
 		Hampden-Sydney College</inst>
     <inst orgcode="ViWn"
@@ -78,7 +78,7 @@
          dirname="hu">Hollins University</inst>
    <inst orgcode="ViHarT"
          logo="https://ead.lib.virginia.edu/vivaead/logos/jmu.jpg"
-         aspace="https://aspace.lib.jmu.edu"
+         aspace="https://aspace.lib.jmu.edu/repositories/resources"
          oaifeed="https://aspace.lib.jmu.edu/oai"
          prefix="vihart"
          dirname="jmu">James Madison University</inst>
@@ -103,7 +103,7 @@
    		 dirname="npl" >Norfolk Public Library</inst>
    <inst orgcode="ViNO"
          logo="https://ead.lib.virginia.edu/vivaead/logos/odu.jpg"
-         aspace="https://archivesguides.lib.odu.edu"
+         aspace="https://archivesguides.lib.odu.edu/repositories/resources"
          oaifeed="https://as-oai.lib.odu.edu"
          prefix="vino" oclc="VOD"
          dirname="odu">Old Dominion University</inst>
@@ -135,13 +135,13 @@
          dirname="usca4" >United States Court of Appeals (4th Circuit), Library</inst>
    <inst orgcode="ViFreM"
          logo="https://ead.lib.virginia.edu/vivaead/logos/umw.jpg"
-         aspace="https://aspace.umw.edu"
+         aspace="https://aspace.umw.edu/repositories/resources"
          oaifeed="https://aspace.umw.edu/oai"
          prefix="vifrem" oclc="TBW"
          dirname="umw">University of Mary Washington</inst>
    <inst orgcode="ViRU"
          logo="https://ead.lib.virginia.edu/vivaead/logos/ur.jpg"
-         aspace="https://archives.richmond.edu"
+         aspace="https://archives.richmond.edu/repositories/resources"
          oaifeed="http://aspace.richmond.edu:8082"
          prefix="viur"
          dirname="ur">University of Richmond</inst>
@@ -190,13 +190,13 @@
          dirname="vmi">Virginia Military Institute</inst>
    <inst orgcode="ViRMu"
             logo="https://ead.lib.virginia.edu/vivaead/logos/VMFA.jpg"
-            aspace="https://archives.vmfa.museum"
+            aspace="https://archives.vmfa.museum/repositories/resources"
             oaifeed="https://archives.vmfa.museum/oai"
             prefix="virmu"
             dirname="vmfa" >Virginia Museum of Fine Arts</inst>
    <inst orgcode="ViBlbV"
          logo="https://ead.lib.virginia.edu/vivaead/logos/vt.jpg"
-         aspace="https://aspace.lib.vt.edu"
+         aspace="https://aspace.lib.vt.edu/repositories/resources"
          oaifeed="https://aspace.lib.vt.edu:8082"
          prefix="viblbv"
          dirname="vt">Virginia Polytechnic Institute and State University</inst>
@@ -218,12 +218,12 @@
          dirname="wl-law">Washington and Lee University, Law School</inst>
    <inst orgcode="ViLxW"
          logo="https://ead.lib.virginia.edu/vivaead/logos/wl.jpg"
-         aspace="https://www.archivesspace.wlu.edu"
+         aspace="https://www.archivesspace.wlu.edu/repositories/resources"
          oaifeed="http://archivesspace.wlu.edu:8082/oai"
          prefix="vilxw"
          dirname="wl-ley">Washington and Lee University, Leyburn Library</inst>
       <inst orgcode="WvMtURHC" prefix="wvmturhc"
-            aspace="https://archives.lib.wvu.edu/"
+            aspace="https://archives.lib.wvu.edu/repositories/resources"
             oaifeed="https://archives.lib.wvu.edu/oai" >
             WVU West Virginia and Regional History Center</inst>
       <inst orgcode="Wv-Ar" prefix="wvar" dirname="wvar" 
