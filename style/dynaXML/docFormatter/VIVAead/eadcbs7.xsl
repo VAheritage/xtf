@@ -1148,6 +1148,10 @@
 		<br/>
 	</xsl:template>
 
+    <!-- hide these pesky archival links -->
+    <xsl:template match="unitid[@type='ark']" />
+    <!-- hide these pesky archival links -->
+    <xsl:template match="unitid[@type='ark-superseded']" />
 
 	<xsl:template match="extref[@href]" >
 		<xsl:text> </xsl:text>
