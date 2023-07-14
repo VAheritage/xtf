@@ -1159,6 +1159,8 @@
     <xsl:template match="unitid[@type='ark']" />
     <!-- hide these pesky archival links -->
     <xsl:template match="unitid[@type='ark-superseded']" />
+    <!-- hide another aspace URI -->
+    <xsl:template match="unitid[@type='aspace_uri']" />
 
 	<xsl:template match="extref[@href]" >
 		<xsl:text> </xsl:text>
