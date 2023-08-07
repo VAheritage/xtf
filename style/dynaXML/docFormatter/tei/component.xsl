@@ -1263,7 +1263,7 @@
 		<xsl:variable name="iiifurl">https://iiif.lib.virginia.edu/iiif/</xsl:variable>
 		<xsl:variable name="iiifthumb">/full/256,/0/default.jpg</xsl:variable>
 		<!-- whitespace matters in this variable (below), do not break lines -->
-		<xsl:variable name="repo-location">https://iiif.lib.virginia.edu/iiif/<xsl:value=of select="$pid"/>/full/!200,200/0/default.jpg</xsl:variable>
+		<xsl:variable name="repo-location">https://iiif.lib.virginia.edu/iiif/<xsl:value-of select="$pid"/>/full/!200,200/0/default.jpg</xsl:variable>
 
 
 		<xsl:variable name="odd">
