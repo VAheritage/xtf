@@ -1222,8 +1222,8 @@
     
     <xsl:if test="$pageNum=$position">
     
-    <a href="http://fedora-prod01.lib.virginia.edu:8080/fedora/get/{$pid}/uva-lib-bdef:102/getScreen/">
-    <img src="http://fedora-prod01.lib.virginia.edu:8080/fedora/get/{$pid}/uva-lib-bdef:102/getScreen/" style="max-width: 600px; margin: 20px 50px;"/>
+    <a href="https://iiif.lib.virginia.edu/iiif/{$pid}/full/!1200,1200/0/default.jpg">
+    <img src="https://iiif.lib.virginia.edu/iiif/{$pid}/full/!600,600/0/default.jpg" style="max-width: 600px; margin: 20px 50px;"/>
     </a>
 
 

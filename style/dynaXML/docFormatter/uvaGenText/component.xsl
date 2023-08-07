@@ -918,7 +918,7 @@
       <a name="X"></a>
       <hr class="run-head"/>
       <div class="run-head">-- <xsl:value-of select="@n"/> --</div>
-      <img src="concat('http://fedora-prod01.lib.virginia.edu:8080/fedora/get/',$pid,'/uva-lib-bdef:102/getPreview')"/>
+      <img src="concat('https://iiif.lib.virginia.edu/iiif/',$pid,'/full/!200,200/0/default.jpg')"/>
     </xsl:when>
     <xsl:otherwise>
       <hr class="run-head"/>
@@ -930,7 +930,7 @@
       </div></div>
       <xsl:if test="count($pid)&gt;0">
       <div class="page-image">
-      <img class="page_thumbnail" id="{$pid}" src="http://fedora-prod01.lib.virginia.edu:8080/fedora/get/{$pid}/uva-lib-bdef:102/getPreview"/>
+      <img class="page_thumbnail" id="{$pid}" src="https://iiif.lib.virginia.edu/iiif/{$pid}/full/!200,200/0/default.jpg"/>
       </div>
       </xsl:if>
     </xsl:otherwise>
