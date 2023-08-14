@@ -1134,7 +1134,14 @@
 				</xsl:choose>
 			</xsl:variable>
 
-			<a href="{@href}" title="{$title}" class="{$class}" target="_blank" >
+                        <xsl:variable name="href">
+                          <xsl:choose>
+                            <xsl:when test="starts-with(@href,'https://iiifman.lib.virginia.edu/pid/')"><xsl:value-of select="concat('https://curio.lib.virginia.edu/view/', substring-after(@href, 'https://iiifman.lib.virginia.edu/pid/'))" /></xsl:when>
+                            <xsl:otherwise><xsl:value-of select="@href" /></xsl:otherwise>
+                          </xsl:choose>
+                        </xsl:variable>
+
+			<a href="{$href}" title="{$title}" class="{$class}" target="_blank" >
 				<xsl:if test="local-name(..) = 'daogrp' or local-name(..) = 'daoset'" >
 				<xsl:attribute name="rel"   >lightbox[<xsl:value-of select="../@id"/>]</xsl:attribute>
 				</xsl:if>
@@ -1148,6 +1155,12 @@
 		<br/>
 	</xsl:template>
 
+        <!-- hide these pesky archival links -->
+        <xsl:template match="unitid[@type='ark']" />
+        <!-- hide these pesky archival links -->
+        <xsl:template match="unitid[@type='ark-superseded']" />
+        <!-- hide another aspace URI -->
+        <xsl:template match="unitid[@type='aspace_uri']" />
 
 	<xsl:template match="extref[@href]" >
 		<xsl:text> </xsl:text>

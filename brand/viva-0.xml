@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<brand xmlns="http://www.w3.org/1999/xhtml">
+
+	<links>
+		<link rel="stylesheet" href="css/viva/results.css" type="text/css"/>
+		<script type="text/javascript"  src="script/viva/jquery-1.12.4.min.js" ></script>
+		<script type="text/javascript"  src="script/viva/jquery-migrate-1.3.0.min.js" ></script>
+		<script src="script/viva/advanced_search.js" type="text/javascript"/>
+        <script type="text/javascript">
+            var access_analytics={base_url:"https://analytics.ssbbartgroup.com/api/", instance_id:"AA-58bdcc11cee35"};
+            (function(a,b,c){
+                var d=a.createElement(b);
+                a=a.getElementsByTagName(b)[0];
+                d.src=c.base_url+"access.js?o="+c.instance_id+"&amp;v=2";
+                a.parentNode.insertBefore(d,a)})(document,"script",access_analytics);
+        </script>
+	</links>
+
+	<dynaxml.links>
+		<!-- <base href="/vivaxtf/"/>  for testing outside of XTF, i.e. BaseX -->
+        <meta name="referrer" content="origin" />
+		<link rel="stylesheet" href="css/viva/content.css" type="text/css"/>
+		<link rel="stylesheet" href="css/viva/ead.css" type="text/css"/>
+		<link rel="stylesheet" href="css/viva/toc.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/viva/bbar.css"/>
+		<script type="text/javascript"  src="script/viva/jquery-1.12.4.min.js" ></script>
+		<script type="text/javascript"  src="script/viva/jquery-migrate-1.3.0.min.js" ></script>
+		<script src="script/viva/jquery.lightbox.min.js" type="text/javascript"/>
+		<script type="text/javascript"  src="script/viva/ead_lightbox.js" ></script>
+        <script type="text/javascript">
+            var access_analytics={base_url:"https://analytics.ssbbartgroup.com/api/", instance_id:"AA-58bdcc11cee35"};
+            (function(a,b,c){
+                var d=a.createElement(b);
+                a=a.getElementsByTagName(b)[0];
+                d.src=c.base_url+"access.js?o="+c.instance_id+"&amp;v=2";
+                a.parentNode.insertBefore(d,a)})(document,"script",access_analytics);
+        </script>
+	</dynaxml.links>
+
+	<header>
+		<div class="header">
+			<a href="https://vaheritage.org/">
+				<img src="https://ead.lib.virginia.edu/vivaead/logos/vhpban.jpg" alt="VIVA EAD Logo"
+				class="logo"/></a>
+				
+			<br class="clear"/>
+		</div>
+	</header>
+
+	<dynaxml.header>
+		<div class="header">
+			<a href="https://vaheritage.org/">
+			<img src="https://ead.lib.virginia.edu/vivaead/logos/vhpban.jpg" alt="VIVA EAD Logo"
+				class="logo"/></a>
+			<br class="clear"/>
+		</div>
+	</dynaxml.header>
+
+	<footer>
+		<div class="footer">
+		</div>
+<!-- Piwik -->
+<div class="piwik scripts" >
+<!-- #1 analytics.lib --> 
+<script type="text/javascript">
+var pkBaseURL1 = (("https:" == document.location.protocol) ?
+"https://analytics.lib.virginia.edu/" :
+"http://analytics.lib.virginia.edu/");
+document.write(unescape("%3Cscript src='" + pkBaseURL1 + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var piwikTracker1 = Piwik.getTracker(pkBaseURL + "piwik.php", 9);
+piwikTracker1.setCustomVariable( 1, 'agencycode', $( 'meta[name="agencycode"]' ).attr( 'content' ) , 'page' );
+piwikTracker1.setCustomVariable( 2, 'publisher', $( 'meta[name="facet-publisher"]' ).attr( 'content' ) , 'page' );
+piwikTracker1.setCustomVariable( 3, 'document', $( 'meta[name="document"]' ).attr( 'content' ) , 'page' );
+piwikTracker1.setCustomVariable( 4, 'collection-number', $( 'meta[name="collection-number"]' ).attr( 'content' ) , 'page' );
+piwikTracker1.trackPageView();
+piwikTracker1.enableLinkTracking();
+} catch( err ) {}
+</script>
+<!-- #2 vah-analytics.lib --> 
+<script type="text/javascript">
+var pkBaseURL2 = (("https:" == document.location.protocol) ?
+"https://vah-analytics.lib.virginia.edu/" :
+"http://vah-analytics.lib.virginia.edu/");
+document.write(unescape("%3Cscript src='" + pkBaseURL2 + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var piwikTracker2 = Piwik.getTracker(pkBaseURL2 + "piwik.php", 1);
+piwikTracker2.setCustomVariable( 1, 'agencycode', $( 'meta[name="agencycode"]' ).attr( 'content' ) , 'page' );
+piwikTracker2.setCustomVariable( 2, 'publisher', $( 'meta[name="facet-publisher"]' ).attr( 'content' ) , 'page' );
+piwikTracker2.setCustomVariable( 3, 'document', $( 'meta[name="document"]' ).attr( 'content' ) , 'page' );
+piwikTracker2.setCustomVariable( 4, 'collection-number', $( 'meta[name="collection-number"]' ).attr( 'content' ) , 'page' );
+piwikTracker2.trackPageView();
+piwikTracker2.enableLinkTracking();
+} catch( err ) {}
+</script>
+<!-- noscript -->
+<noscript><p><img
+src="https://analytics.lib.virginia.edu/piwik.php?idsite=9"
+style="border:0" alt="" /><img
+src="https://vah-analytics.lib.virginia.edu/piwik.php?idsite=1"
+style="border:0" alt="" /></p></noscript>
+</div>
+<!-- End Piwik Tracking Code -->
+
+</footer>
+
+</brand>

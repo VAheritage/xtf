@@ -1,0 +1,10 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Christopher Newport University</addressline>
+  <addressline>Trible Library</addressline>
+  <addressline>1 Avenue of the Arts</addressline>
+  <addressline>Newport News, Va. 23606</addressline>
+  <addressline>USA</addressline>
+  <addressline>Phone: (757) 594-7133</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:matt.shelley@cnu.edu" xlink:title="matt.shelley@cnu.edu"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="https://cnu.libguides.com/archives" xlink:title="https://cnu.libguides.com/archives"/></addressline>
+</address>

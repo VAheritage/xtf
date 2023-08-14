@@ -1,0 +1,9 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Jones Memorial Library</addressline>
+  <addressline>2311 Memorial Drive</addressline>
+  <addressline>Lynchburg, VA 24501</addressline>
+  <addressline>USA</addressline>
+  <addressline>Phone: (434) 846-0501</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:director@jmlibrary.org" xlink:title="director@jmlibrary.org"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="http://www.jmlibrary.org" xlink:title="http://www.jmlibrary.org"/></addressline>
+</address>

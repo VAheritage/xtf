@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="urn:isbn:1-931666-22-9" type="simple">
+  <head>Contact Information:</head>
+  <item>Jones Memorial Library</item>
+  <item>2311 Memorial Drive</item>
+  <item>Lynchburg, VA 24501</item>
+  <item>USA</item>
+  <item>Point of Contact: Deborah Smith</item>
+  <item>Phone: (434) 846-0501</item>
+  <item>Email: director@jmlibrary.org</item>
+  <item>URL: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jmlibrary.org">http://www.jmlibrary.org</extref></item>
+</list>
