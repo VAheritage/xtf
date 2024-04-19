@@ -192,7 +192,12 @@
                            <indexFile fileName="{$fileName}" 
                               type="XML"
                               preFilter="style/textIndexer/default/defaultPreFilter.xsl"/>
-                           <xsl:message select="'Unrecognized XML structure. Indexing using the default preFilter.'"/>
+                           <xsl:message >
+                               <xsl:value-of select="'\nUnrecognized XML in '"/>
+                               <xsl:value-of select="$dirPath" />
+                               <xsl:value-of select="$fileName" />
+                               <xsl:value-of select="'. Indexing using the default preFilter.\n'"/>
+                           </xsl:message>
                         </xsl:otherwise>
                      </xsl:choose>
                   </xsl:for-each>

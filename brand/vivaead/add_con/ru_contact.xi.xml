@@ -7,6 +7,6 @@
   <item>801 East Main Street</item>
   <item>Radford, VA 24142-6881. USA</item>
   <item>Phone: 540-831-5701</item>
-  <item id="email">Email: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:aspelbrin@radford.edu">aspelbrin@radford.edu</extref></item>
-  <item>URL: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://lib.radford.edu/Archives">http://lib.radford.edu/Archives</extref>/</item>
+  <item id="email">Email: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:archives@radford.edu">archives@radford.edu</extref></item>
+  <item>URL: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.radford.edu/content/library/archives/finding-aids.html">https://www.radford.edu/content/library/archives/finding-aids.html</extref>/</item>
 </list>
