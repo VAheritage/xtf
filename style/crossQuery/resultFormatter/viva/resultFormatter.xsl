@@ -294,6 +294,10 @@
 									</div>
 								</xsl:if>
 								<div class="docHit_column">
+                                                                  <div class="notice">
+                                                                    <b>Content Warning</b>
+                                                                    <p>ARVAS is an aggregator of archival resources. ARVAS does not have control of the descriptive language used in our members’ finding aids. Finding aids may contain historical terms and phrases, reflecting the shared attitudes and values of the community from which they were collected, but are offensive to modern readers. These include demeaning and dehumanizing references to race, ethnicity, and nationality; enslaved or free status; physical or mental ability; religion; sex; and sexual orientation and gender identity. Many institutions and organizations are in the process of reviewing and revising their descriptive language, with the intent to describe materials in more humanizing, inclusive, and harm-reductive ways. As members revise their descriptive language, their changes will eventually be reflected in their ARVAS finding aids</p>
+                                                                  </div>
 									<xsl:apply-templates select="docHit"/>
 								</div>
 								<div class="bottom_paging">
