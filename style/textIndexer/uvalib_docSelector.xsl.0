@@ -110,9 +110,8 @@
     			<xsl:message>skipping dir node <xsl:value-of select="$dirPath"/></xsl:message>
     			<indexFiles/>
     		</xsl:when>
-    		<!--<xsl:when test="contains($dirPath, 'uvaPageBook') or contains($dirPath, 'junk_xml')">-->
-    	    <xsl:when test="contains($dirPath, 'junk_xml')">	
-    	    <!-- skip this dir -->
+    		<xsl:when test="contains($dirPath, 'uvaPageBook') or contains($dirPath, 'junk_xml')">
+    			<!-- skip this dir -->
     			<xsl:message>skipping dir node <xsl:value-of select="$dirPath"/></xsl:message>
     			<indexFiles/>
     		</xsl:when>
