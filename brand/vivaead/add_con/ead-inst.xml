@@ -125,6 +125,7 @@
        logo="https://ead.lib.virginia.edu/vivaead/logos/truban_archives.jpg"
        prefix="vaedscl"
        dirname="scl">Shenandoah County Library</inst>
+   <!-- Special Collections Research Center -->
    <inst orgcode="ViLeTBL"
          logo="https://ead.lib.virginia.edu/vivaead/logos/tbl.jpg"
          prefix="viletbl" oclc="TBW"
@@ -139,12 +140,14 @@
          oaifeed="https://aspace.umw.edu/oai"
          prefix="vifrem" oclc="TBW"
          dirname="umw">University of Mary Washington</inst>
+   <!-- University of Mary Washington Special Collections and University Archives -->
    <inst orgcode="ViRU"
          logo="https://ead.lib.virginia.edu/vivaead/logos/ur.jpg"
          aspace="https://archives.richmond.edu/repositories/resources"
          oaifeed="http://aspace.richmond.edu:8082"
          prefix="viur"
          dirname="ur">University of Richmond</inst>
+   <!-- University of Richmond Book Arts Studio -->
    <inst orgcode="VaCvUCN" prefix="vacvucn" 
          logo="https://ead.lib.virginia.edu/vivaead/logos/ECBCNHI.jpg"
          aspace="https://archives.lib.virginia.edu/repositories/8/resources"
@@ -168,6 +171,10 @@
          aspace="https://archives.lib.virginia.edu/repositories/3/resources"
          oaifeed="https://archives-oai.lib.virginia.edu"
          dirname="uva-sc" login="speccol">University of Virginia, Special Collections Dept.</inst>
+   <inst orgcode="viljml"
+         logo="https://ead.lib.virginia.edu/vivaead/logos/viljml_logo.jpg"
+         prefix="viljml"
+         dirname="viljml">Jones Memorial Library</inst>
    <inst orgcode="ViRCU"
          logo="https://ead.lib.virginia.edu/vivaead/logos/vcu.jpg"
          aspace="https://archives.library.vcu.edu/repositories/5/resources"
@@ -180,6 +187,7 @@
          oaifeed="https://archives.library.vcu.edu/oai"
          prefix="vircuh"
          dirname="vcu-tm">Virginia Commonwealth University, Health Sciences Library</inst>
+   <!-- Virginia Heritage -->
    <inst orgcode="ViHi"
          logo="https://ead.lib.virginia.edu/vivaead/logos/vhs.jpg"
          prefix="vihi"
@@ -212,6 +220,8 @@
          logo="https://ead.lib.virginia.edu/vivaead/logos/vuu.jpg"
          prefix="virvu"
          dirname="vuu">Virginia Union University</inst>
+   <!-- washington and lee university -->
+   <!-- washington and lee university school of law -->
    <inst orgcode="ViLxW-L"
          logo="https://ead.lib.virginia.edu/vivaead/logos/wl-law.jpg"
          prefix="vilxwl"
@@ -229,6 +239,7 @@
       <inst orgcode="Wv-Ar" prefix="wvar" dirname="wvar" 
             logo="https://ead.lib.virginia.edu/vivaead/logos/WVDACH.jpg">
             West Virginia Archives and History</inst> 
+   <!-- WVU West Virginia and Regional History Center -->
    <inst orgcode="VaStWPL"
          prefix="vastwpl" 
          logo="https://ead.lib.virginia.edu/vivaead/logos/WWPLM.jpg"
