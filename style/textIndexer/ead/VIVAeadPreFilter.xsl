@@ -521,14 +521,6 @@
          <xsl:value-of select="$pub-name" />
       </facet-publisher>
 
-      <facet-publisher xtf:meta="true" xtf:tokenize="no">
-         <!--  temporary, for debugging merge of VH, ASpace OAI resources -->
-         <xsl:choose>
-            <xsl:when test="$fromoai">ArchivesSpace</xsl:when>
-            <xsl:otherwise>Virginia Heritage</xsl:otherwise>
-         </xsl:choose>
-      </facet-publisher>
-
    </xsl:template>
    
    <!-- contributor -->
