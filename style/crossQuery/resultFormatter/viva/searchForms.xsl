@@ -587,8 +587,8 @@
 				<li class="{if(matches($smode,'browse')) then 'tab-select' else 'tab'}">
 					<a href="search?smode=browse&amp;browse-all=yes">Browse</a>
 				</li>
-				<li class="alt-tab"><a href="http://www.vivalib.org/">about VIVA</a></li>
-				<li class="alt-tab"><a href="https://arvasarchive.org/" >ARVAS</a></li>
+				<li class="alt-tab"><a href="http://www.vivalib.org/">About VIVA</a></li>
+				<li class="alt-tab"><a href="https://arvasarchive.org/" >About ARVAS</a></li>
 				<li class="alt-tab"><a href="/viva-upload/upload.jsp">admin upload</a></li>
 				
 			</ul>
