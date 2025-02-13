@@ -39,7 +39,7 @@ public class InvalidDocumentException extends DynaXMLException
   /** Default constructor */
   public InvalidDocumentException() {
     super("Invalid document path output from docReqParser stylesheet");
-  }
+  } 
   
   public InvalidDocumentException(String filepath) {
     super("Invalid document path, " + filepath + ", output from docReqParser stylesheet"); 
