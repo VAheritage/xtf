@@ -77,6 +77,7 @@ import net.sf.saxon.value.StringValue;
 import org.apache.lucene.analysis.Token;
 import org.apache.lucene.limit.ExcessiveWorkException;
 import org.apache.lucene.limit.TermLimitException;
+import org.cdlib.xtf.dynaXML.InvalidDocumentException;
 import org.cdlib.xtf.saxonExt.sql.SQLConnect;
 import org.cdlib.xtf.textEngine.DefaultQueryProcessor;
 import org.cdlib.xtf.textEngine.IndexUtil;
@@ -1551,6 +1552,7 @@ public abstract class TextServlet extends HttpServlet
       // thus don't need stack traces for debugging.)
       //
       boolean isNormalException = isSocketExc ||
+          exc instanceof InvalidDocumentException ||
           exc instanceof ExcessiveWorkException ||
           exc instanceof TermLimitException ||
           exc instanceof SocketException ||
