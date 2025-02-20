@@ -241,9 +241,10 @@ public class DynaXML extends TextServlet
       else {
         // Check that the document actually exists.
         File docFile = new File(docReq.source);
-        if (!docFile.canRead())
+        if (!docFile.canRead()) {
           res.setStatus(404);
           throw new InvalidDocumentException(docFile.getAbsolutePath());
+	    } 
       }
 
       // Authenticate (if necessary)
@@ -254,6 +255,7 @@ public class DynaXML extends TextServlet
       apply(docReq, req, res);
     }
     catch (Exception e) {
+		e.printStackTrace();
       if (!(e instanceof RedirectException) && !(e instanceof SocketException)) 
       {
         try {
