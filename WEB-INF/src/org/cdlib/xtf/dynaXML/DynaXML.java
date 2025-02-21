@@ -255,7 +255,6 @@ public class DynaXML extends TextServlet
       apply(docReq, req, res);
     }
     catch (Exception e) {
-		e.printStackTrace();
       if (!(e instanceof RedirectException) && !(e instanceof SocketException)) 
       {
         try {
