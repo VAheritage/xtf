@@ -338,7 +338,17 @@
 
 				<!-- footer -->
 				<xsl:copy-of select="$brand.footer"/>
-
+                            <script type="text/javascript">
+                              <xsl:text>
+                                //<![CDATA[
+                                window.addEventListener("DOMContentLoaded", function() {
+                                  const currentUrl = encodeURIComponent(window.location.href);
+                                  const link = document.getElementById("feedback");
+                                  if (link) link.href = link.href.replace("#", currentUrl);
+                                });
+                                //]]>
+                              </xsl:text>
+                            </script>
 			</body>
 		</html>
 	</xsl:template>
@@ -541,6 +551,18 @@
 
 				<!-- footer -->
 				<xsl:copy-of select="$brand.footer"/>
+
+                            <script type="text/javascript">
+                              <xsl:text>
+                                //<![CDATA[
+                                window.addEventListener("DOMContentLoaded", function() {
+                                  const currentUrl = encodeURIComponent(window.location.href);
+                                  const link = document.getElementById("feedback");
+                                  if (link) link.href = link.href.replace("#", currentUrl);
+                                });
+                                //]]>
+                              </xsl:text>
+                            </script>
 
 			</body>
 		</html>

@@ -83,6 +83,17 @@
 				</div>
 				<xsl:copy-of select="$brand.footer"/>
 
+                            <script type="text/javascript">
+                              <xsl:text>
+                                //<![CDATA[
+                                window.addEventListener("DOMContentLoaded", function() {
+                                  const currentUrl = encodeURIComponent(window.location.href);
+                                  const link = document.getElementById("feedback");
+                                  if (link) link.href = link.href.replace("#", currentUrl);
+                                });
+                                //]]>
+                              </xsl:text>
+                            </script>
 			</body>
 		</html>
 	</xsl:template>
@@ -589,6 +600,7 @@
 				</li>
 				<li class="alt-tab"><a href="http://www.vivalib.org/">About VIVA</a></li>
 				<li class="alt-tab"><a href="https://arvasarchive.org/" >About ARVAS</a></li>
+				<li class="alt-tab"><a id="feedback" href="https://search.lib.virginia.edu/feedback?url=#">Report Problem</a></li>
 				<li class="alt-tab"><a href="/viva-upload/upload.jsp">admin upload</a></li>
 				
 			</ul>

@@ -43,11 +43,23 @@
 						<xsl:text>Citation</xsl:text>
 					</a>
 					<xsl:text> | </xsl:text>
-					<a href="{$doc.path}&#038;doc.view=print;chunk.id={$chunk.id}" target="_top"
-						>Print View</a>
+					<a href="{$doc.path}&#038;doc.view=print;chunk.id={$chunk.id}" target="_top" >Print View</a>
+					<xsl:text> | </xsl:text>
+                                        <a id="feedback" href="https://search.lib.virginia.edu/feedback?url=#">Report Problem</a>
 				</div>
 			</div>
 		</div>
+                <script type="text/javascript">
+                    <xsl:text>
+                      //<![CDATA[
+                      window.addEventListener("DOMContentLoaded", function() {
+                        const currentUrl = encodeURIComponent(window.location.href);
+                        const link = document.getElementById("feedback");
+                        if (link) link.href = link.href.replace("#", currentUrl);
+                      });
+                      //]]>
+                    </xsl:text>
+                </script>
 	</xsl:template>
 
 </xsl:stylesheet>
