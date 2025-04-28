@@ -195,7 +195,8 @@
    <inst orgcode="ViLxV"
          logo="https://ead.lib.virginia.edu/vivaead/logos/vmi.jpg"
          prefix="vilxv"
-         dirname="vmi">Virginia Military Institute</inst>
+         oaifeed="https://archivesspace.vmi.edu/oai"
+         dirname="vmi">Virginia Military Institute Archives</inst>
    <inst orgcode="ViRMu"
             logo="https://ead.lib.virginia.edu/vivaead/logos/VMFA.jpg"
             aspace="https://archives.vmfa.museum/repositories/resources"
