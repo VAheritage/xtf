@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="urn:isbn:1-931666-22-9" type="simple">
+  <head>Contact Information:</head>
+  <item>Museum of Chincoteague Island</item>
+  <item>7125 Maddox Blvd</item>
+  <item>Chincoteague, VA 23336</item>
+  <item>USA</item>
+  <item>Phone: (757) 336-6117</item>
+  <item id="email">Email: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:museumofci@gmail.com">museumofci@gmail.com</extref></item>
+  <item>URL: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://chincoteaguemuseum.com/">https://chincoteaguemuseum.com/</extref></item>
+</list>

@@ -252,6 +252,9 @@
    <inst orgcode="ViWyHS" prefix="viwyhs"
 	   logo="https://ead.lib.virginia.edu/vivaead/logos/wythechs.png"
 	   dirname="wchs">Wythe County Historical Society</inst>
+   <inst orgcode="VaCgMCI" prefix="vacgmci"
+           logo="https://ead.lib.virginia.edu/vivaead/logos/vacgmci_logo.jpg"
+           dirname="vacgmci">Museum of Chincoteague Island</inst>
    <!-- inst prefix="test" dirname="test" login="sdm"> test directory </inst -->
    <!-- inst prefix="legacy" dirname="legacy" >legacy conversion test</inst -->
 </list>
