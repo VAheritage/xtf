@@ -111,7 +111,15 @@
 	<xsl:template name="generate_content">
 		<html xml:lang="en" lang="en">
 			<head>
-				<xsl:copy-of select="$brand.links" />
+  				<xsl:choose>
+    					<xsl:when test="count($brand.links) &gt; 0">
+      						<xsl:copy-of select="$brand.links"/>
+    					</xsl:when>
+    					<xsl:otherwise>
+      						<link rel="icon" href="/favicon.ico?v=2" type="image/x-icon"/>
+      						<link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon"/>
+    					</xsl:otherwise>
+  				</xsl:choose>
 				<title>
 					<xsl:value-of select="(eadheader|control)/filedesc/titlestmt/titleproper"/>
 					<xsl:text>  </xsl:text>
