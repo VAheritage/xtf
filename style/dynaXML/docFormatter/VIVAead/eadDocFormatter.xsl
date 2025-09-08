@@ -116,8 +116,8 @@
       						<xsl:copy-of select="$brand.links"/>
     					</xsl:when>
     					<xsl:otherwise>
-      						<link rel="icon" href="/favicon.ico?v=2" type="image/x-icon"/>
-      						<link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon"/>
+      						<link rel="icon" href="/favicon.ico?v=4" type="image/x-icon"/>
+      						<link rel="shortcut icon" href="/favicon.ico?v=4" type="image/x-icon"/>
     					</xsl:otherwise>
   				</xsl:choose>
 				<title>
