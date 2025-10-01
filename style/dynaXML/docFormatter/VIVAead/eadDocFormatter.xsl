@@ -506,8 +506,15 @@
 					<xsl:value-of select="$doc.title"/>
 				</title>
 				<link rel="stylesheet" type="text/css" href="{$css.path}bbar.css"/>
-				<link rel="shortcut icon" href="icons/default/favicon.ico" />
-				
+                                <xsl:choose>
+                                        <xsl:when test="count($brand.links) &gt; 0">
+                                                <xsl:copy-of select="$brand.links"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                                <link rel="icon" href="/favicon.ico?v=4" type="image/x-icon"/>
+                                                <link rel="shortcut icon" href="/favicon.ico?v=4" type="image/x-icon"/>
+                                        </xsl:otherwise>
+                                </xsl:choose>
 			</head>
 			<body>
 				<xsl:copy-of select="$brand.header"/>

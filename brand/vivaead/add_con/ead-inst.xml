@@ -1,260 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- If not known, get MARC org codes from http://www.loc.gov/marc/organizations/   
-      OCLC codes from: https://www.oclc.org/en/contacts/libraries.html 
+<!-- If not known, get MARC org codes from http://www.loc.gov/marc/organizations/
+     OCLC codes from: https://www.oclc.org/en/contacts/libraries.html
 
-    Thomas Jefferson Foundation: oclc-AXV ( US-ViCMRL ?)
+     Thomas Jefferson Foundation: oclc-AXV ( US-ViCMRL ?)
 -->
 <list>
-   <inst prefix="all" dirname="">All participating institutions</inst>
-   <inst orgcode="ViCAHi"  prefix="vicahi" 
-      logo="https://ead.lib.virginia.edu/vivaead/logos/ACHS_logo.jpg"
-      dirname="albemarle" >Albemarle Charlottesville Historical Society</inst>
-   <inst orgcode="VaAlLHS"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/apl.jpg"
-         aspace="https://alexlibraryva.libraryhost.com/repositories/resources"
-         oaifeed="http://alexlibraryva.libraryhost.com:8082/oai"
-         prefix="vaallhs"
-         dirname="apl">Alexandria Library</inst>
-   <inst orgcode="ViDA" prefix="vida" 
-         logo="https://ead.lib.virginia.edu/vivaead/logos/au.jpg"
-         dirname="au">Averett University</inst>
-	<inst orgcode="ViAr" prefix="viar"
-		logo="https://ead.lib.virginia.edu/vivaead/logos/APLlogo.jpg"
-		dirname="arlington" >Arlington Public Library</inst>
-   <inst orgcode="VaStACHS" prefix="vastachs" 
-            logo="https://ead.lib.virginia.edu/vivaead/logos/AugustaCoHS.jpg"
-            dirname="achs" >Augusta County Historical Society</inst>
-   <inst orgcode="ViBrC"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/bc.jpg"
-         prefix="vibrc"
-         dirname="bc">Bridgewater College</inst>
-   <inst orgcode="VaChI" 
-         logo="https://ead.lib.virginia.edu/vivaead/logos/CII_logo.jpg"
-         prefix="vachi"
-         dirname="chi">Christiansburg Institute Museum and Archives</inst>
-   <inst orgcode="ViW"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/wm.jpg"
-         prefix="viw" oclc="VWM"
-         dirname="wm">College of William and Mary</inst>
-   <inst orgcode="ViWC"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/cw.jpg"
-         prefix="viwc"
-         dirname="cw">Colonial Williamsburg</inst>
-   <inst orgcode="VaVbECF" prefix="vavbecf"
-            logo="https://ead.lib.virginia.edu/vivaead/logos/ECF-logo.jpg"
-            dirname="ecf" >Edgar Cayce Foundation</inst>
-   <inst orgcode="VaFfCR" prefix="vaffcr"
-		 logo="https://ead.lib.virginia.edu/vivaead/logos/FairfaxCircuitCourt.jpg"
-		 dirname="fcc" >Fairfax Circuit Court Historic Records Center</inst>
-   <inst orgcode="ViF" prefix="vif" 
-         logo="https://ead.lib.virginia.edu/vivaead/logos/FairfaxCoPL.tif"
-         dirname="fcpl">Fairfax County Public Library</inst>
-   <inst orgcode="ViMtvl" prefix="vimtvl"
-         aspace="https://archives.mountvernon.org/repositories/resources"
-         oaifeed="https://archives.mountvernon.org/oai"
-         >Fred W. Smith National Library for the Study of George Washington</inst>
-   <inst orgcode="ViFGM"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/gmu.jpg"
-         prefix="vifgm"  oclc="VGM"
-         aspace="https://aspace.gmu.edu/repositories/resources"
-         oaifeed="https://aspace.gmu.edu/oai"
-         dirname="gmu">George Mason University</inst>
-   <inst orgcode="ViLoGH"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/gunstonhall_logo.jpg"
-         prefix="vilogh"
-         dirname="gh">Gunston Hall</inst>
-	<inst orgcode="ViHdsC"  prefix="vihdsc" 
-	      logo="https://ead.lib.virginia.edu/vivaead/logos/HSC-logo.png"
-	      aspace="https://archivesspace.hsc.edu/repositories/resources"
-	      oaifeed="http://archivesspace.hsc.edu:8082/oai">
-		Hampden-Sydney College</inst>
-    <inst orgcode="ViWn"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/handley.jpg"
-         prefix="viwn"
-         dirname="hrl">Handley Regional Library</inst> 
-   <inst orgcode="ViHo"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/Hollins%20Logo.bmp"
-         prefix="viho"
-         dirname="hu">Hollins University</inst>
-   <inst orgcode="ViHarT"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/jmu.jpg"
-         aspace="https://aspace.lib.jmu.edu/repositories/resources"
-         oaifeed="https://aspace.lib.jmu.edu/oai"
-         prefix="vihart"
-         dirname="jmu">James Madison University</inst>
-   <inst orgcode="Vi"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/lva.jpg"
-         prefix="vi"
-         dirname="lva">Library of Virginia</inst>
-   <inst orgcode="ViFarL"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/LongwoodLogo-320wide.gif"
-         prefix="vifarl"  oclc="VLC"
-         dirname="lu">Longwood University</inst>
-   <inst orgcode="VaFcSPL" 
-         prefix="vafcspl" 
-         logo="https://ead.lib.virginia.edu/vivaead/logos/MRSPL_logo.png"
-         dirname="mrspl" >Mary Riley Styles Public Library</inst>
-   <inst orgcode="VaChMCC"
-   		 prefix="vachmcc" 
-   		 logo="https://ead.lib.virginia.edu/vivaead/logos/MontgomeryCountySeal.jpg" 
-   		 dirname="mcc">Montgomery County Circuit Court</inst>
-   <inst orgcode="ViN"  prefix="vin" 
-   		 logo="https://ead.lib.virginia.edu/vivaead/logos/npl-logo.jpg"
-   		 dirname="npl" >Norfolk Public Library</inst>
-   <inst orgcode="ViNO"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/odu.jpg"
-         aspace="https://archivesguides.lib.odu.edu/repositories/resources"
-         oaifeed="https://as-oai.lib.odu.edu"
-         prefix="vino" oclc="VOD"
-         dirname="odu">Old Dominion University</inst>
-   <inst orgcode="ViSaRC" prefix="visarc" 
-         logo="https://ead.lib.virginia.edu/vivaead/logos/roanokecollege.gif"
-         dirname="rc">Roanoke College</inst>
-   <inst orgcode="ViRo"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/RPLlogo.jpg"
-         prefix="viro"
-         dirname="rpl">Roanoke Public Libraries</inst>
-   <inst orgcode="ViRa" prefix="vira"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/ru.jpg"
-         dirname="ru">Radford University</inst>
-   <inst orgcode="ViAsR"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/rmc.jpg"
-         prefix="viasr"
-         dirname="rmc">Randolph-Macon College</inst>
-   <inst orgcode="VaEdSCL" 
-       logo="https://ead.lib.virginia.edu/vivaead/logos/truban_archives.jpg"
-       prefix="vaedscl"
-       dirname="scl">Shenandoah County Library</inst>
-   <!-- Special Collections Research Center -->
-   <inst orgcode="ViLeTBL"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/tbl.jpg"
-         prefix="viletbl" oclc="TBW"
-         dirname="tbl">Thomas Balch Library</inst>
-   <inst orgcode="ViRUCA"
-         prefix="viruca"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/usca.jpg"
-         dirname="usca4" >United States Court of Appeals (4th Circuit), Library</inst>
-   <inst orgcode="ViFreM"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/umw.jpg"
-         aspace="https://aspace.umw.edu/repositories/resources"
-         oaifeed="https://aspace.umw.edu/oai"
-         prefix="vifrem" oclc="TBW"
-         dirname="umw">University of Mary Washington</inst>
-   <!-- University of Mary Washington Special Collections and University Archives -->
-   <inst orgcode="ViRU"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/ur.jpg"
-         aspace="https://archives.richmond.edu/repositories/resources"
-         oaifeed="http://aspace.richmond.edu:8082"
-         prefix="viur"
-         dirname="ur">University of Richmond</inst>
-   <!-- University of Richmond Book Arts Studio -->
-   <inst orgcode="VaCvUCN" prefix="vacvucn" 
-         logo="https://ead.lib.virginia.edu/vivaead/logos/ECBCNHI.jpg"
-         aspace="https://archives.lib.virginia.edu/repositories/8/resources"
-         dirname="uva-cnhi">University of Virginia, The Center for Nursing Historical Inquiry</inst> 
-   <inst orgcode="ViU-H"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/uva-sc.jpg"
-         aspace="https://archives.lib.virginia.edu/repositories/7/resources"
-         prefix="viuh" oclc="VAM"
-         dirname="uva-hs">University of Virginia, Health Sciences Library</inst>
-   <inst orgcode="ViU-L"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/uvalaw.jpg"
-         prefix="viul" oclc="VAL"
-         dirname="uva-law">University of Virginia, Law Library</inst>
-   <inst orgcode="ViU-Mu"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/uva-sc.jpg"
-         aspace="https://archives.lib.virginia.edu/repositories/4/resources"
-         prefix="viumu"
-         dirname="uva-music">University of Virginia, Music Library</inst>
-   <inst orgcode="ViU" prefix="viu" oclc="VA@"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/uva-sc.jpg"
-         aspace="https://archives.lib.virginia.edu/repositories/3/resources"
-         oaifeed="https://archives-oai.lib.virginia.edu"
-         dirname="uva-sc" login="speccol">University of Virginia, Special Collections Dept.</inst>
-   <inst orgcode="viljml"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/viljml_logo.jpg"
-         prefix="viljml"
-         dirname="viljml">Jones Memorial Library</inst>
-   <inst orgcode="ViRCU"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/vcu.jpg"
-         aspace="https://archives.library.vcu.edu/repositories/5/resources"
-         oaifeed="https://archives.library.vcu.edu/oai"
-         prefix="vircu"
-         dirname="vcu-cab">Virginia Commonwealth University, Cabell Library</inst>
-   <inst orgcode="ViRCU-H"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/vcu.jpg"
-         aspace="https://archives.library.vcu.edu/repositories/3/resources"
-         oaifeed="https://archives.library.vcu.edu/oai"
-         prefix="vircuh"
-         dirname="vcu-tm">Virginia Commonwealth University, Health Sciences Library</inst>
-   <!-- Virginia Heritage -->
-   <inst orgcode="ViHi"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/vhs.jpg"
-         prefix="vihi"
-         dirname="vhs">Virginia Historical Society</inst>
-   <inst orgcode="ViLxV"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/vmi.jpg"
-         prefix="vilxv"
-         oaifeed="https://archivesspace.vmi.edu/oai"
-         dirname="vmi">Virginia Military Institute Archives</inst>
-   <inst orgcode="ViRMu"
-            logo="https://ead.lib.virginia.edu/vivaead/logos/VMFA.jpg"
-            aspace="https://archives.vmfa.museum/repositories/resources"
-            oaifeed="https://archives.vmfa.museum/oai"
-            prefix="virmu"
-            dirname="vmfa" >Virginia Museum of Fine Arts</inst>
-   <inst orgcode="ViBlbV"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/vt.jpg"
-         aspace="https://aspace.lib.vt.edu/repositories/resources"
-         oaifeed="https://aspace.lib.vt.edu:8082"
-         prefix="viblbv"
-         dirname="vt">Virginia Polytechnic Institute and State University</inst>
-   <inst orgcode="Vi-L"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/scv.jpg"
-         prefix="vil" oclc="VPI"
-         dirname="vsll-scv">Virginia State Law Library, Supreme Court of Virginia</inst>
-   <inst orgcode="ViPetS"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/vsu.jpg"
-         prefix="vipets"
-         dirname="vsu">Virginia State University</inst>
-   <inst orgcode="ViRVU"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/vuu.jpg"
-         prefix="virvu"
-         dirname="vuu">Virginia Union University</inst>
-   <!-- washington and lee university -->
-   <!-- washington and lee university school of law -->
-   <inst orgcode="ViLxW-L"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/wl-law.jpg"
-         prefix="vilxwl"
-         dirname="wl-law">Washington and Lee University, Law School</inst>
-   <inst orgcode="ViLxW"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/wl.jpg"
-         aspace="https://www.archivesspace.wlu.edu/repositories/resources"
-         oaifeed="http://archivesspace.wlu.edu:8082/oai"
-         prefix="vilxw"
-         dirname="wl-ley">Washington and Lee University, Leyburn Library</inst>
-      <inst orgcode="WvMtURHC" prefix="wvmturhc"
-            aspace="https://archives.lib.wvu.edu/repositories/resources"
-            oaifeed="https://archives.lib.wvu.edu/oai" >
-            WVU West Virginia and Regional History Center</inst>
-      <inst orgcode="Wv-Ar" prefix="wvar" dirname="wvar" 
-            logo="https://ead.lib.virginia.edu/vivaead/logos/WVDACH.jpg">
-            West Virginia Archives and History</inst> 
-   <!-- WVU West Virginia and Regional History Center -->
-   <inst orgcode="VaStWPL"
-         prefix="vastwpl" 
-         logo="https://ead.lib.virginia.edu/vivaead/logos/WWPLM.jpg"
-         dirname="wwplm">Woodrow Wilson Presidential Library &amp; Museum</inst>
-   <inst orgcode="ViWyC"
-         logo="https://ead.lib.virginia.edu/vivaead/logos/wcc.jpg"
-         prefix="viwyc"
-         dirname="wcc">Wytheville Community College</inst>
-   <inst orgcode="ViWyHS" prefix="viwyhs"
-	   logo="https://ead.lib.virginia.edu/vivaead/logos/wythechs.png"
-	   dirname="wchs">Wythe County Historical Society</inst>
-   <inst orgcode="VaCgMCI" prefix="vacgmci"
-           logo="https://ead.lib.virginia.edu/vivaead/logos/vacgmci_logo.jpg"
-           dirname="vacgmci">Museum of Chincoteague Island</inst>
-   <!-- inst prefix="test" dirname="test" login="sdm"> test directory </inst -->
-   <!-- inst prefix="legacy" dirname="legacy" >legacy conversion test</inst -->
+  <inst prefix="all" dirname="">All participating institutions</inst>
+  <inst orgcode="ViCAHi" prefix="vicahi" logo="https://ead.lib.virginia.edu/vivaead/logos/ACHS_logo.jpg" dirname="albemarle">Albemarle Charlottesville Historical Society</inst>
+  <inst orgcode="VaAlLHS" logo="https://ead.lib.virginia.edu/vivaead/logos/apl.jpg" aspace="https://alexlibraryva.libraryhost.com/repositories/resources" oaifeed="http://alexlibraryva.libraryhost.com:8082/oai" prefix="vaallhs" dirname="apl">Alexandria Library</inst>
+  <inst orgcode="ViAr" prefix="viar" logo="https://ead.lib.virginia.edu/vivaead/logos/APLlogo.jpg" dirname="arlington">Arlington Public Library</inst>
+  <inst orgcode="ViDA" prefix="vida" logo="https://ead.lib.virginia.edu/vivaead/logos/au.jpg" dirname="au">Averett University</inst>
+  <inst orgcode="VaStACHS" prefix="vastachs" logo="https://ead.lib.virginia.edu/vivaead/logos/AugustaCoHS.jpg" dirname="achs">Augusta County Historical Society</inst>
+  <inst orgcode="ViBrC" logo="https://ead.lib.virginia.edu/vivaead/logos/bc.jpg" prefix="vibrc" dirname="bc">Bridgewater College</inst>
+  <inst orgcode="VaFreCRH" prefix="vafrecrh" logo="https://ead.lib.virginia.edu/vivaead/logos/vafrecrh_logo.jpg" dirname="vafrecrh">Central Rappahannock Heritage Center</inst>
+  <inst orgcode="VaChI" logo="https://ead.lib.virginia.edu/vivaead/logos/CII_logo.jpg" prefix="vachi" dirname="chi">Christiansburg Institute Museum and Archives</inst>
+  <inst orgcode="ViW" logo="https://ead.lib.virginia.edu/vivaead/logos/wm.jpg" prefix="viw" oclc="VWM" dirname="wm">College of William and Mary</inst>
+  <inst orgcode="ViWC" logo="https://ead.lib.virginia.edu/vivaead/logos/cw.jpg" prefix="viwc" dirname="cw">Colonial Williamsburg</inst>
+  <inst orgcode="VaCgMCI" prefix="vacgmci" logo="https://ead.lib.virginia.edu/vivaead/logos/vacgmci_logo.jpg" dirname="vacgmci">Museum of Chincoteague Island</inst>
+  <inst orgcode="VaVbECF" prefix="vavbecf" logo="https://ead.lib.virginia.edu/vivaead/logos/ECF-logo.jpg" dirname="ecf">Edgar Cayce Foundation</inst>
+  <inst orgcode="VaFfCR" prefix="vaffcr" logo="https://ead.lib.virginia.edu/vivaead/logos/FairfaxCircuitCourt.jpg" dirname="fcc">Fairfax Circuit Court Historic Records Center</inst>
+  <inst orgcode="ViF" prefix="vif" logo="https://ead.lib.virginia.edu/vivaead/logos/FairfaxCoPL.tif" dirname="fcpl">Fairfax County Public Library</inst>
+  <inst orgcode="ViMtvl" prefix="vimtvl" aspace="https://archives.mountvernon.org/repositories/resources" oaifeed="https://archives.mountvernon.org/oai">Fred W. Smith National Library for the Study of George Washington</inst>
+  <inst orgcode="ViFGM" logo="https://ead.lib.virginia.edu/vivaead/logos/gmu.jpg" prefix="vifgm" oclc="VGM" aspace="https://aspace.gmu.edu/repositories/resources" oaifeed="https://aspace.gmu.edu/oai" dirname="gmu">George Mason University</inst>
+  <inst orgcode="ViLoGH" logo="https://ead.lib.virginia.edu/vivaead/logos/gunstonhall_logo.jpg" prefix="vilogh" dirname="gh">Gunston Hall</inst>
+  <inst orgcode="ViHdsC" prefix="vihdsc" logo="https://ead.lib.virginia.edu/vivaead/logos/HSC-logo.png" aspace="https://archivesspace.hsc.edu/repositories/resources" oaifeed="http://archivesspace.hsc.edu:8082/oai">Hampden-Sydney College</inst>
+  <inst orgcode="ViWn" logo="https://ead.lib.virginia.edu/vivaead/logos/handley.jpg" prefix="viwn" dirname="hrl">Handley Regional Library</inst>
+  <inst orgcode="ViHo" logo="https://ead.lib.virginia.edu/vivaead/logos/Hollins%20Logo.bmp" prefix="viho" dirname="hu">Hollins University</inst>
+  <inst orgcode="ViHarT" logo="https://ead.lib.virginia.edu/vivaead/logos/jmu.jpg" aspace="https://aspace.lib.jmu.edu/repositories/resources" oaifeed="https://aspace.lib.jmu.edu/oai" prefix="vihart" dirname="jmu">James Madison University</inst>
+  <inst orgcode="viljml" logo="https://ead.lib.virginia.edu/vivaead/logos/viljml_logo.jpg" prefix="viljml" dirname="viljml">Jones Memorial Library</inst>
+  <inst orgcode="Vi" logo="https://ead.lib.virginia.edu/vivaead/logos/lva.jpg" prefix="vi" dirname="lva">Library of Virginia</inst>
+  <inst orgcode="ViFarL" logo="https://ead.lib.virginia.edu/vivaead/logos/LongwoodLogo-320wide.gif" prefix="vifarl" oclc="VLC" dirname="lu">Longwood University</inst>
+  <inst orgcode="VaFcSPL" prefix="vafcspl" logo="https://ead.lib.virginia.edu/vivaead/logos/MRSPL_logo.png" dirname="mrspl">Mary Riley Styles Public Library</inst>
+  <inst orgcode="VaChMCC" prefix="vachmcc" logo="https://ead.lib.virginia.edu/vivaead/logos/MontgomeryCountySeal.jpg" dirname="mcc">Montgomery County Circuit Court</inst>
+  <inst orgcode="ViN" prefix="vin" logo="https://ead.lib.virginia.edu/vivaead/logos/npl-logo.jpg" dirname="npl">Norfolk Public Library</inst>
+  <inst orgcode="ViNO" logo="https://ead.lib.virginia.edu/vivaead/logos/odu.jpg" aspace="https://archivesguides.lib.odu.edu/repositories/resources" oaifeed="https://as-oai.lib.odu.edu" prefix="vino" oclc="VOD" dirname="odu">Old Dominion University</inst>
+  <inst orgcode="ViRa" prefix="vira" logo="https://ead.lib.virginia.edu/vivaead/logos/ru.jpg" dirname="ru">Radford University</inst>
+  <inst orgcode="ViAsR" logo="https://ead.lib.virginia.edu/vivaead/logos/rmc.jpg" prefix="viasr" dirname="rmc">Randolph-Macon College</inst>
+  <inst orgcode="ViRo" logo="https://ead.lib.virginia.edu/vivaead/logos/RPLlogo.jpg" prefix="viro" dirname="rpl">Roanoke Public Libraries</inst>
+  <inst orgcode="ViSaRC" prefix="visarc" logo="https://ead.lib.virginia.edu/vivaead/logos/roanokecollege.gif" dirname="rc">Roanoke College</inst>
+  <inst orgcode="VaEdSCL" logo="https://ead.lib.virginia.edu/vivaead/logos/truban_archives.jpg" prefix="vaedscl" dirname="scl">Shenandoah County Library</inst>
+  <inst orgcode="ViA1SANA" prefix="via1sana" logo="https://ead.lib.virginia.edu/vivaead/logos/via1sana_logo.png" dirname="via1sana">Salvation Army National Archives</inst>
+  <inst orgcode="ViLeTBL" logo="https://ead.lib.virginia.edu/vivaead/logos/tbl.jpg" prefix="viletbl" oclc="TBW" dirname="tbl">Thomas Balch Library</inst>
+  <inst orgcode="ViFreM" logo="https://ead.lib.virginia.edu/vivaead/logos/umw.jpg" aspace="https://aspace.umw.edu/repositories/resources" oaifeed="https://aspace.umw.edu/oai" prefix="vifrem" oclc="TBW" dirname="umw">University of Mary Washington</inst>
+  <inst orgcode="ViRU" logo="https://ead.lib.virginia.edu/vivaead/logos/ur.jpg" aspace="https://archives.richmond.edu/repositories/resources" oaifeed="http://aspace.richmond.edu:8082" prefix="viur" dirname="ur">University of Richmond</inst>
+  <inst orgcode="VaCvUCN" prefix="vacvucn" logo="https://ead.lib.virginia.edu/vivaead/logos/ECBCNHI.jpg" aspace="https://archives.lib.virginia.edu/repositories/8/resources" dirname="uva-cnhi">University of Virginia, The Center for Nursing Historical Inquiry</inst>
+  <inst orgcode="ViU-H" logo="https://ead.lib.virginia.edu/vivaead/logos/uva-sc.jpg" aspace="https://archives.lib.virginia.edu/repositories/7/resources" prefix="viuh" oclc="VAM" dirname="uva-hs">University of Virginia, Health Sciences Library</inst>
+  <inst orgcode="ViU-L" logo="https://ead.lib.virginia.edu/vivaead/logos/uvalaw.jpg" prefix="viul" oclc="VAL" dirname="uva-law">University of Virginia, Law Library</inst>
+  <inst orgcode="ViU-Mu" logo="https://ead.lib.virginia.edu/vivaead/logos/uva-sc.jpg" aspace="https://archives.lib.virginia.edu/repositories/4/resources" prefix="viumu" dirname="uva-music">University of Virginia, Music Library</inst>
+  <inst orgcode="ViU" prefix="viu" oclc="VA@" logo="https://ead.lib.virginia.edu/vivaead/logos/uva-sc.jpg" aspace="https://archives.lib.virginia.edu/repositories/3/resources" oaifeed="https://archives-oai.lib.virginia.edu" dirname="uva-sc" login="speccol">University of Virginia, Special Collections Dept.</inst>
+  <inst orgcode="ViRCU" logo="https://ead.lib.virginia.edu/vivaead/logos/vcu.jpg" aspace="https://archives.library.vcu.edu/repositories/5/resources" oaifeed="https://archives.library.vcu.edu/oai" prefix="vircu" dirname="vcu-cab">Virginia Commonwealth University, Cabell Library</inst>
+  <inst orgcode="ViRCU-H" logo="https://ead.lib.virginia.edu/vivaead/logos/vcu.jpg" aspace="https://archives.library.vcu.edu/repositories/3/resources" oaifeed="https://archives.library.vcu.edu/oai" prefix="vircuh" dirname="vcu-tm">Virginia Commonwealth University, Health Sciences Library</inst>
+  <inst orgcode="ViHi" logo="https://ead.lib.virginia.edu/vivaead/logos/vhs.jpg" prefix="vihi" dirname="vhs">Virginia Historical Society</inst>
+  <inst orgcode="ViLxV" logo="https://ead.lib.virginia.edu/vivaead/logos/vmi.jpg" prefix="vilxv" oaifeed="https://archivesspace.vmi.edu/oai" dirname="vmi">Virginia Military Institute Archives</inst>
+  <inst orgcode="ViRMu" logo="https://ead.lib.virginia.edu/vivaead/logos/VMFA.jpg" aspace="https://archives.vmfa.museum/repositories/resources" oaifeed="https://archives.vmfa.museum/oai" prefix="virmu" dirname="vmfa">Virginia Museum of Fine Arts</inst>
+  <inst orgcode="ViBlbV" logo="https://ead.lib.virginia.edu/vivaead/logos/vt.jpg" aspace="https://aspace.lib.vt.edu/repositories/resources" oaifeed="https://aspace.lib.vt.edu:8082" prefix="viblbv" dirname="vt">Virginia Polytechnic Institute and State University</inst>
+  <inst orgcode="Vi-L" logo="https://ead.lib.virginia.edu/vivaead/logos/scv.jpg" prefix="vil" oclc="VPI" dirname="vsll-scv">Virginia State Law Library, Supreme Court of Virginia</inst>
+  <inst orgcode="ViPetS" logo="https://ead.lib.virginia.edu/vivaead/logos/vsu.jpg" prefix="vipets" dirname="vsu">Virginia State University</inst>
+  <inst orgcode="ViRVU" logo="https://ead.lib.virginia.edu/vivaead/logos/vuu.jpg" prefix="virvu" dirname="vuu">Virginia Union University</inst>
+  <inst orgcode="ViLxW-L" logo="https://ead.lib.virginia.edu/vivaead/logos/wl-law.jpg" prefix="vilxwl" dirname="wl-law">Washington and Lee University, Law School</inst>
+  <inst orgcode="ViLxW" logo="https://ead.lib.virginia.edu/vivaead/logos/wl.jpg" aspace="https://www.archivesspace.wlu.edu/repositories/resources" oaifeed="http://archivesspace.wlu.edu:8082/oai" prefix="vilxw" dirname="wl-ley">Washington and Lee University, Leyburn Library</inst>
+  <inst orgcode="Wv-Ar" prefix="wvar" dirname="wvar" logo="https://ead.lib.virginia.edu/vivaead/logos/WVDACH.jpg">West Virginia Archives and History</inst>
+  <inst orgcode="WvMtURHC" prefix="wvmturhc" aspace="https://archives.lib.wvu.edu/repositories/resources" oaifeed="https://archives.lib.wvu.edu/oai">WVU West Virginia and Regional History Center</inst>
+  <inst orgcode="VaStWPL" prefix="vastwpl" logo="https://ead.lib.virginia.edu/vivaead/logos/WWPLM.jpg" dirname="wwplm">Woodrow Wilson Presidential Library &amp; Museum</inst>
+  <inst orgcode="ViWyC" logo="https://ead.lib.virginia.edu/vivaead/logos/wcc.jpg" prefix="viwyc" dirname="wcc">Wytheville Community College</inst>
+  <inst orgcode="ViWyHS" prefix="viwyhs" logo="https://ead.lib.virginia.edu/vivaead/logos/wythechs.png" dirname="wchs">Wythe County Historical Society</inst>
 </list>
+

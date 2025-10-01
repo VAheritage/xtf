@@ -1,0 +1,8 @@
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <addressline>Central Rappahannock Heritage Center</addressline>
+  <addressline>900 Barton Street, Suite #111</addressline>
+  <addressline>Fredericksburg, VA 22401</addressline>
+  <addressline>USA</addressline>
+  <addressline>Email: <extptr xlink:type="simple" xlink:show="new" xlink:href="mailto:contact@crhcarchives.org" xlink:title="contact@crhcarchives.org"/></addressline>
+  <addressline>URL: <extptr xlink:type="simple" xlink:show="new" xlink:href="https://www.crhcarchives.org" xlink:title="https://www.crhcarchives.org"/></addressline>
+</address>

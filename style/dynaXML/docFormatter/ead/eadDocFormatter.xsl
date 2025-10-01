@@ -165,7 +165,8 @@
 		<xsl:result-document format="frameset" exclude-result-prefixes="#all">
 			<html xml:lang="en" lang="en">
 				<head>
-					<link rel="shortcut icon" href="icons/default/favicon.ico"/>
+                                        <link rel="icon" href="/favicon.ico?v=4" type="image/x-icon"/>
+                                        <link rel="shortcut icon" href="/favicon.ico?v=4" type="image/x-icon"/>
 					<meta name="viewport" content="width=device-width, initial-scale=1"/>
 					<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"/>
 					<!-- bootstrap -->

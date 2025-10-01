@@ -218,8 +218,8 @@
                      <xsl:value-of select="$doc.title"/>
                   </title>
                   <link rel="stylesheet" type="text/css" href="{$css.path}bbar.css"/>
-                  <link rel="shortcut icon" href="icons/default/favicon.ico" />
-
+                  <link rel="icon" href="/favicon.ico?v=4" type="image/x-icon"/>
+                  <link rel="shortcut icon" href="/favicon.ico?v=4" type="image/x-icon"/>
 
                </head>
                <body>
@@ -285,7 +285,8 @@
 					<xsl:value-of select="$doc.title"/>
 				</title>
 				<link rel="stylesheet" type="text/css" href="{$css.path}bbar.css"/>
-				<link rel="shortcut icon" href="icons/default/favicon.ico"/>
+                                <link rel="icon" href="/favicon.ico?v=4" type="image/x-icon"/>
+                                <link rel="shortcut icon" href="/favicon.ico?v=4" type="image/x-icon"/>
 
 			</head>
 			<body>
