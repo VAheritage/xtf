@@ -35,7 +35,7 @@
   <inst orgcode="ViN" prefix="vin" logo="https://ead.lib.virginia.edu/vivaead/logos/npl-logo.jpg" dirname="npl">Norfolk Public Library</inst>
   <inst orgcode="ViNO" logo="https://ead.lib.virginia.edu/vivaead/logos/odu.jpg" aspace="https://archivesguides.lib.odu.edu/repositories/resources" oaifeed="https://as-oai.lib.odu.edu" prefix="vino" oclc="VOD" dirname="odu">Old Dominion University</inst>
   <inst orgcode="ViRa" prefix="vira" logo="https://ead.lib.virginia.edu/vivaead/logos/ru.jpg" dirname="ru">Radford University</inst>
-  <inst orgcode="ViAsR" logo="https://ead.lib.virginia.edu/vivaead/logos/rmc.jpg" prefix="viasr" dirname="rmc">Randolph-Macon College</inst>
+  <inst orgcode="ViAsR" logo="https://ead.lib.virginia.edu/vivaead/logos/rmc.jpg" prefix="viasr" dirname="rmc" aspace="https://rmc-archives-api.libraryhost.com" oaifeed="https://rmc-archives-oai.libraryhost.com" >Randolph-Macon College</inst>
   <inst orgcode="ViRo" logo="https://ead.lib.virginia.edu/vivaead/logos/RPLlogo.jpg" prefix="viro" dirname="rpl">Roanoke Public Libraries</inst>
   <inst orgcode="ViSaRC" prefix="visarc" logo="https://ead.lib.virginia.edu/vivaead/logos/roanokecollege.gif" dirname="rc">Roanoke College</inst>
   <inst orgcode="VaEdSCL" logo="https://ead.lib.virginia.edu/vivaead/logos/truban_archives.jpg" prefix="vaedscl" dirname="scl">Shenandoah County Library</inst>
