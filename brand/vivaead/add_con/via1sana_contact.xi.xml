@@ -5,6 +5,6 @@
   <item>615 Slaters Lane</item>
   <item>Alexandria, VA 22313</item>
   <item>USA</item>
-  <item id="email">Email: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:archives@usn.salvationarmy.org"archives@usn.salvationarmy.org</extref></item>
+  <item id="email">Email: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="mailto:archives@usn.salvationarmy.org">archives@usn.salvationarmy.org</extref></item>
   <item>URL: <extref xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://archives.salvationarmyusa.org">https://archives.salvationarmyusa.org</extref></item>
 </list>

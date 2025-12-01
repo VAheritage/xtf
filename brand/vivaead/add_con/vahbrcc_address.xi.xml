@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<address xmlns="urn:isbn:1-931666-22-9" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <addressline>Rockingham County Circuit Court and Clerk’s Office</addressline>
+   <addressline>80 Court Square </addressline>
+   <addressline>Harrisonburg, Virginia 22802</addressline>
+   <addressline>EMail: <extptr xlink:type="simple"
+              xlink:show="new"
+              xlink:href="mailto:mpullen@rockinghamcountyva.gov"
+              xlink:title="mpullen@rockinghamcountyva.gov"/>
+   </addressline>
+   <addressline>URL: <extptr xlink:type="simple"
+              xlink:show="new"
+              xlink:href="https://www.rockinghamcountyva.gov/663/Genealogy"
+              xlink:title="https://www.rockinghamcountyva.gov/663/Genealogy"/>
+   </addressline>
+</address>

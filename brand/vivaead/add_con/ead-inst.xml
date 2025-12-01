@@ -38,6 +38,7 @@
   <inst orgcode="ViAsR" logo="https://ead.lib.virginia.edu/vivaead/logos/rmc.jpg" prefix="viasr" dirname="rmc" aspace="https://rmc-archives-api.libraryhost.com" oaifeed="https://rmc-archives-oai.libraryhost.com" >Randolph-Macon College</inst>
   <inst orgcode="ViRo" logo="https://ead.lib.virginia.edu/vivaead/logos/RPLlogo.jpg" prefix="viro" dirname="rpl">Roanoke Public Libraries</inst>
   <inst orgcode="ViSaRC" prefix="visarc" logo="https://ead.lib.virginia.edu/vivaead/logos/roanokecollege.gif" dirname="rc">Roanoke College</inst>
+  <inst orgcode="VaHbRCC" prefix="vahbrcc" logo="https://ead.lib.virginia.edu/vivaead/logos/vahbrcc.png" dirname="vahbrcc">Rockingham County Circuit Court and Clerk’s Office</inst>
   <inst orgcode="VaEdSCL" logo="https://ead.lib.virginia.edu/vivaead/logos/truban_archives.jpg" prefix="vaedscl" dirname="scl">Shenandoah County Library</inst>
   <inst orgcode="ViA1SANA" prefix="via1sana" logo="https://ead.lib.virginia.edu/vivaead/logos/via1sana_logo.png" dirname="via1sana">Salvation Army National Archives</inst>
   <inst orgcode="ViLeTBL" logo="https://ead.lib.virginia.edu/vivaead/logos/tbl.jpg" prefix="viletbl" oclc="TBW" dirname="tbl">Thomas Balch Library</inst>
