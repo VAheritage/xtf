@@ -13,6 +13,7 @@
   <inst orgcode="VaStACHS" prefix="vastachs" logo="https://ead.lib.virginia.edu/vivaead/logos/AugustaCoHS.jpg" dirname="achs">Augusta County Historical Society</inst>
   <inst orgcode="ViBrC" logo="https://ead.lib.virginia.edu/vivaead/logos/bc.jpg" prefix="vibrc" dirname="bc">Bridgewater College</inst>
   <inst orgcode="VaFreCRH" prefix="vafrecrh" logo="https://ead.lib.virginia.edu/vivaead/logos/vafrecrh_logo.jpg" dirname="vafrecrh">Central Rappahannock Heritage Center</inst>
+  <inst orgcode="VaChcBC" logo="https://ead.lib.virginia.edu/vivaead/logos/vachcbc_logo.jpg" prefix="vachbc" dirname="vachbc">Charles City County Richard M. Bowman Center for Local History</inst>
   <inst orgcode="VaChI" logo="https://ead.lib.virginia.edu/vivaead/logos/CII_logo.jpg" prefix="vachi" dirname="chi">Christiansburg Institute Museum and Archives</inst>
   <inst orgcode="ViW" logo="https://ead.lib.virginia.edu/vivaead/logos/wm.jpg" prefix="viw" oclc="VWM" dirname="wm">College of William and Mary</inst>
   <inst orgcode="ViWC" logo="https://ead.lib.virginia.edu/vivaead/logos/cw.jpg" prefix="viwc" dirname="cw">Colonial Williamsburg</inst>
@@ -22,6 +23,7 @@
   <inst orgcode="ViF" prefix="vif" logo="https://ead.lib.virginia.edu/vivaead/logos/FairfaxCoPL.tif" dirname="fcpl">Fairfax County Public Library</inst>
   <inst orgcode="ViMtvl" prefix="vimtvl" aspace="https://archives.mountvernon.org/repositories/resources" oaifeed="https://archives.mountvernon.org/oai">Fred W. Smith National Library for the Study of George Washington</inst>
   <inst orgcode="ViFGM" logo="https://ead.lib.virginia.edu/vivaead/logos/gmu.jpg" prefix="vifgm" oclc="VGM" aspace="https://aspace.gmu.edu/repositories/resources" oaifeed="https://aspace.gmu.edu/oai" dirname="gmu">George Mason University</inst>
+  <inst orgcode="ViLxM" logo="https://ead.lib.virginia.edu/vivaead/logos/GCMFLogo.png" prefix="vilxm" dirname="vilxm">George C. Marshall Foundation</inst>
   <inst orgcode="ViLoGH" logo="https://ead.lib.virginia.edu/vivaead/logos/gunstonhall_logo.jpg" prefix="vilogh" dirname="gh">Gunston Hall</inst>
   <inst orgcode="ViHdsC" prefix="vihdsc" logo="https://ead.lib.virginia.edu/vivaead/logos/HSC-logo.png" aspace="https://archivesspace.hsc.edu/repositories/resources" oaifeed="http://archivesspace.hsc.edu:8082/oai">Hampden-Sydney College</inst>
   <inst orgcode="ViWn" logo="https://ead.lib.virginia.edu/vivaead/logos/handley.jpg" prefix="viwn" dirname="hrl">Handley Regional Library</inst>
@@ -42,6 +44,7 @@
   <inst orgcode="VaEdSCL" logo="https://ead.lib.virginia.edu/vivaead/logos/truban_archives.jpg" prefix="vaedscl" dirname="scl">Shenandoah County Library</inst>
   <inst orgcode="ViA1SANA" prefix="via1sana" logo="https://ead.lib.virginia.edu/vivaead/logos/via1sana_logo.png" dirname="via1sana">Salvation Army National Archives</inst>
   <inst orgcode="ViLeTBL" logo="https://ead.lib.virginia.edu/vivaead/logos/tbl.jpg" prefix="viletbl" oclc="TBW" dirname="tbl">Thomas Balch Library</inst>
+  <inst orgcode="ViNeAJLab" logo="https://ead.lib.virginia.edu/vivaead/logos/JLab.png" prefix="vineajlab" dirname="vinea">Thomas Jefferson National Accelerator Facility</inst>
   <inst orgcode="ViFreM" logo="https://ead.lib.virginia.edu/vivaead/logos/umw.jpg" aspace="https://aspace.umw.edu/repositories/resources" oaifeed="https://aspace.umw.edu/oai" prefix="vifrem" oclc="TBW" dirname="umw">University of Mary Washington</inst>
   <inst orgcode="ViRU" logo="https://ead.lib.virginia.edu/vivaead/logos/ur.jpg" aspace="https://archives.richmond.edu/repositories/resources" oaifeed="http://aspace.richmond.edu:8082" prefix="viur" dirname="ur">University of Richmond</inst>
   <inst orgcode="VaCvUCN" prefix="vacvucn" logo="https://ead.lib.virginia.edu/vivaead/logos/ECBCNHI.jpg" aspace="https://archives.lib.virginia.edu/repositories/8/resources" dirname="uva-cnhi">University of Virginia, The Center for Nursing Historical Inquiry</inst>
