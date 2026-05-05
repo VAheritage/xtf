@@ -32,7 +32,7 @@
 			<a href="https://arvasarchive.org/">
 				<img src="/vivaxtf/brand/vivaead/logos/ARVAS_fullnamelogo.png" alt="VIVA EAD Logo"
 				class="logo"/></a>
-			<div class="notice">Check out our <a href="https://search.arvasarchive.org">new site</a>!</div>
+			<div class="newSite">Preview our <a href="https://search.arvasarchive.org">new site here</a>!</div>
 			<br class="clear"/>
 		</div>
 	</header>
@@ -42,7 +42,7 @@
 			<a href="https://arvasarchive.org/">
 			<img src="/vivaxtf/brand/vivaead/logos/ARVAS_fullnamelogo.png" alt="VIVA EAD Logo"
 				class="logo"/></a>
-			<div class="notice">Check out our <a href="https://search.arvasarchive.org">new site</a>!</div>
+			<div class="newSite">Preview <a href="https://search.arvasarchive.org">new site here</a>!</div>
 			<br class="clear"/>
 		</div>
 	</dynaxml.header>
