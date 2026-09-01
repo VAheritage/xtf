@@ -1224,7 +1224,13 @@
   <xsl:template match="graphic[@url]">
   	<div class="tei_figure">
   	<xsl:element name="img">
-  		<xsl:attribute name="src" select="concat('http://static.lib.virginia.edu/legacy/',@url)" />
+		<xsl:variable name="link_url">
+			<xsl:choose>
+				<xsl:when test="starts-with(@url, '/')"><xsl:value-of select="concat($content.path, @url)" /></xsl:when>
+				<xsl:otherwise><xsl:value-of select="concat('http://static.lib.virginia.edu/legacy/',@url)"/></xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+  		<xsl:attribute name="src" select="$link_url" />
   		<xsl:attribute name="class">illustration</xsl:attribute>
   	</xsl:element>
   	</div>
