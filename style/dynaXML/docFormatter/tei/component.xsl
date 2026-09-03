@@ -1249,7 +1249,7 @@
 	<!-- Milestones                                                             -->
 	<!-- ====================================================================== -->
 
-	<xsl:template match="pb">
+<xsl:template match="pb">
 		<xsl:variable name="pid" select="@pid"/>
 		<xsl:variable name="cleaned-page-number">
 			<xsl:choose>
@@ -1270,12 +1270,35 @@
 		<xsl:variable name="iiifthumb">/full/256,/0/default.jpg</xsl:variable>
 		<!-- whitespace matters in this variable (below), do not break lines -->
 		<xsl:variable name="repo-location">https://iiif.lib.virginia.edu/iiif/<xsl:value-of select="$pid"/>/full/!200,200/0/default.jpg</xsl:variable>
-
-
 		<xsl:variable name="odd">
 			<xsl:value-of select="($cleaned-page-number mod 2)"/>
 		</xsl:variable>
 
+		<!-- Derive the image filename number from the sequential pb @id
+		     (e.g. id="pb-0001" -> "0001"). Falls back to the padded
+		     printed page number if @id doesn't use the pb- prefix. -->
+		<xsl:variable name="prefix">
+			<xsl:choose>
+				<xsl:when test="contains(@id, '-')">
+					<xsl:value-of select="substring-before(@id, '-')"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="@id" />
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:variable name="imgnum">
+			<xsl:choose>
+				<xsl:when test="contains(@id, 'page_')">
+					<xsl:value-of select="substring-after(@id, 'page_')"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="format-number($cleaned-page-number, '0000')"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:variable name="small-src" select="concat($content.path, '/', $prefix, '/small/page_', $imgnum, '.jpg')"/>
+		<xsl:variable name="large-href" select="concat($content.path, '/', $prefix, '/large/page_', $imgnum, '.jpg')"/>
 		<!-- xsl:when test="not(following-sibling::*)"/ -->
 		<!--<xsl:when test="$anchor.id=@id">
 				<a name="X"/>
@@ -1292,7 +1315,7 @@
 				</div>
 				<xsl:if test="$pid">
 					<div class="page-image">
-						<a
+						
 							href="http://fedora-prod01.lib.virginia.edu:8080/fedora/get/{$pid}/uva-lib-bdef:102/getScreen">
 							<img
 								src="http://fedora-prod01.lib.virginia.edu:8080/fedora/get/{$pid}/uva-lib-bdef:102/getPreview"
@@ -1301,7 +1324,6 @@
 					</div>
 				</xsl:if>
 			</xsl:when>-->
-
 		<div class="run-head">
 			<hr class="run-head"/>
 			<xsl:if test="@n">
@@ -1309,7 +1331,6 @@
 					<xsl:value-of select="@n"/>
 				</div>
 			</xsl:if>
-
 			<!--<div class="run-head-title">
 				<xsl:value-of
 					select="/TEI.2/teiHeader/fileDesc/sourceDesc/biblFull/titleStmt/title[@type='main']"
@@ -1334,17 +1355,16 @@
           </xsl:otherwise>
         </xsl:choose>
 		</div>
-      <!-- if $pid, there will be a $repo-location, defaults to 
-           http://fedora-prod01.lib.virginia.edu:8080/fedora/get/{$pid}/uva-lib-bdef:102/getPreview  
-      -->
-      <xsl:choose>
-        <xsl:when test="$pid">
-  	      <div class="page-image">
-  	        <img title="Click to Enlarge" class="page_thumbnail"  id="{$pid}_link" alt="{if (string(@n)) then concat('Page ', @n) else 'No Page Number'}"
-  	             src="{$repo-location}"/>
-  	      </div>
-        </xsl:when>
-	  </xsl:choose>
+      <!-- linked local thumbnail: small/page_NNNN.jpg links to large/page_NNNN.jpg,
+           where NNNN comes from the sequential pb @id assigned by add_pb_ids.py -->
+      <div class="page-image">
+        <a href="{$large-href}" class="page_thumbnail_link">
+          <img title="Click to Enlarge" class="page_thumbnail"
+               id="{if ($pid) then concat($pid, '_link') else concat('pb_', $imgnum, '_link')}"
+               alt="{if (string(@n)) then concat('Page ', @n) else 'No Page Number'}"
+               src="{$small-src}"/>
+        </a>
+      </div>
 	</xsl:template>
 
 	<xsl:template match="milestone">

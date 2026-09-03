@@ -1126,7 +1126,7 @@
   <!-- Milestones                                                             -->
   <!-- ====================================================================== -->
 
-  <xsl:template match="pb">
+<xsl:template match="pb">
     <xsl:variable name="pid" select="@pid"/>
     <xsl:variable name="cleaned-page-number">
       <xsl:choose>
@@ -1142,13 +1142,29 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    
-    
+
     <xsl:variable name="odd">
       <xsl:value-of select="($cleaned-page-number mod 2)"/>
     </xsl:variable>
+
+    <!-- Derive the image filename number from the sequential pb @id
+         (e.g. id="pb-0001" -> "0001"). Falls back to the padded
+         page number if @id doesn't use the pb- prefix. -->
+    <xsl:variable name="imgnum">
+      <xsl:choose>
+        <xsl:when test="contains(@id, 'pb-')">
+          <xsl:value-of select="substring-after(@id, 'pb-')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="format-number($cleaned-page-number, '0000')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="small-src" select="concat('small/page_', $imgnum, '.jpg')"/>
+    <xsl:variable name="large-href" select="concat('large/page_', $imgnum, '.jpg')"/>
+
     <xsl:choose>
-      <!-- xsl:when test="not(following-sibling::*)"/ -->
       <xsl:when test="$anchor.id=@id">
         <a name="X"/>
         <div class="run-head">
@@ -1162,9 +1178,9 @@
           </div>
         </div>
         <div class="page-image">
-          <img
-            src="concat('https://iiif.lib.virginia.edu/iiif/',$pid,'/full/!200,200/0/default.jpg')"
-          />
+          <a href="{$large-href}" class="page_thumbnail_link">
+            <img class="page_thumbnail" id="{$pid}" src="{$small-src}"/>
+          </a>
         </div>
       </xsl:when>
       <xsl:otherwise>
@@ -1179,14 +1195,13 @@
           </div>
         </div>
         <div class="page-image">
-          <img class="page_thumbnail" id="{$pid}"
-            src="https://iiif.lib.virginia.edu/iiif/{$pid}/full/!200,200/0/default.jpg"/>
+          <a href="{$large-href}" class="page_thumbnail_link">
+            <img class="page_thumbnail" id="{$pid}" src="{$small-src}"/>
+          </a>
         </div>
-
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-
   <xsl:template match="milestone">
 
     <xsl:if test="$anchor.id=@id">
