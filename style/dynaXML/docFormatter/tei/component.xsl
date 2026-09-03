@@ -1297,8 +1297,26 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<xsl:variable name="small-src" select="concat($content.path, '/', $prefix, '/small/page_', $imgnum, '.jpg')"/>
-		<xsl:variable name="large-href" select="concat($content.path, '/', $prefix, '/large/page_', $imgnum, '.jpg')"/>
+		<xsl:variable name="small-src">
+			<xsl:choose>
+				<xsl:when test="$pid">
+					<xsl:value-of select="concat('https://iiif.lib.virginia.edu/iiif/', $pid, '/full/!200,200/0/default.jpg')" />
+				</xsl:when>
+				<xsl:when test="@id">
+					 <xsl:value-of select="concat($content.path, '/', $prefix, '/small/page_', $imgnum, '.jpg')"/>
+				</xsl:when>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:variable name="large-href">
+			<xsl:choose>
+				<xsl:when test="$pid">
+					<xsl:value-of select="concat('https://iiif.lib.virginia.edu/iiif/', $pid, '/full/!200,200/0/default.jpg')" />
+				</xsl:when>
+				<xsl:when test="@id">
+					 <xsl:value-of select="concat($content.path, '/', $prefix, '/large/page_', $imgnum, '.jpg')"/>
+				</xsl:when>
+			</xsl:choose>
+		</xsl:variable>
 		<!-- xsl:when test="not(following-sibling::*)"/ -->
 		<!--<xsl:when test="$anchor.id=@id">
 				<a name="X"/>
