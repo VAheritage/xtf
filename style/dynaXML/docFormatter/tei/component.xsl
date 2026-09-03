@@ -1375,14 +1375,16 @@
 		</div>
       <!-- linked local thumbnail: small/page_NNNN.jpg links to large/page_NNNN.jpg,
            where NNNN comes from the sequential pb @id assigned by add_pb_ids.py -->
-      <div class="page-image">
-        <a href="{$large-href}" class="page_thumbnail_link">
-          <img title="Click to Enlarge" class="page_thumbnail"
-               id="{if ($pid) then concat($pid, '_link') else concat('pb_', $imgnum, '_link')}"
-               alt="{if (string(@n)) then concat('Page ', @n) else 'No Page Number'}"
-               src="{$small-src}"/>
-        </a>
-      </div>
+      <xsl:if test="$small-src">
+		  <div class="page-image">
+			<a href="{$large-href}" class="page_thumbnail_link">
+			  <img title="Click to Enlarge" class="page_thumbnail"
+				   id="{if ($pid) then concat($pid, '_link') else concat('pb_', $imgnum, '_link')}"
+				   alt="{if (string(@n)) then concat('Page ', @n) else 'No Page Number'}"
+				   src="{$small-src}"/>
+			</a>
+		  </div>
+      </xsl:if>
 	</xsl:template>
 
 	<xsl:template match="milestone">
